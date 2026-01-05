@@ -1,74 +1,379 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Practice Possessives</title>
+<title>Possessives Practice</title>
 
 <style>
     body {
         font-family: Arial, sans-serif;
-        max-width: 700px;
+        max-width: 800px;
         margin: auto;
         padding: 20px;
     }
+    h2 {
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+    }
     .question {
-        margin-bottom: 15px;
+        margin: 10px 0;
         font-size: 18px;
     }
     input {
-        width: 60px;
-        text-align: center;
+        width: 50px;
         font-size: 16px;
+        text-align: center;
+    }
+    .choices button {
+        margin-left: 5px;
+        font-size: 14px;
+        cursor: pointer;
     }
     .correct { color: green; font-weight: bold; }
     .wrong { color: red; font-weight: bold; }
-    button {
-        font-size: 16px;
-        padding: 10px 20px;
+    button.check {
         margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
     }
 </style>
 </head>
 
 <body>
 
-<h1>✏️ Practice: ’s or ’</h1>
+<h1>Possessives</h1>
+
+<h2>1. Read and choose</h2>
 
 <div class="question">
-1. This is Mark <input id="q1"> bike. <span id="r1"></span>
+1. This is Mark <input id="q1"> bike.
+<div class="choices">
+<button onclick="fill('q1','’s')">’s</button>
+<button onclick="fill('q1','’')">’</button>
+<span id="r1"></span>
+</div>
 </div>
 
 <div class="question">
-2. These are the dogs <input id="q2"> tails. <span id="r2"></span>
+2. These are the dogs <input id="q2"> tails.
+<div class="choices">
+<button onclick="fill('q2','’s')">’s</button>
+<button onclick="fill('q2','’')">’</button>
+<span id="r2"></span>
+</div>
 </div>
 
 <div class="question">
-3. It’s Emma <input id="q3"> house. <span id="r3"></span>
+3. It’s Emma <input id="q3"> house.
+<div class="choices">
+<button onclick="fill('q3','’s')">’s</button>
+<button onclick="fill('q3','’')">’</button>
+<span id="r3"></span>
+</div>
 </div>
 
 <div class="question">
-4. It’s the doctor <input id="q4"> bag. <span id="r4"></span>
+4. Those are the peoples <input id="q4"> cars.
+<div class="choices">
+<button onclick="fill('q4','’s')">’s</button>
+<button onclick="fill('q4','’')">’</button>
+<span id="r4"></span>
+</div>
 </div>
 
-<button onclick="check()">✅ Check Answers</button>
+<h2>2. Write ’s or ’</h2>
+
+<div class="question">
+5. That’s Lisa <input id="q5"> jacket. <span id="r5"></span>
+</div>
+
+<div class="question">
+6. They’re the boys <input id="q6"> books. <span id="r6"></span>
+</div>
+
+<button class="check" onclick="check()">✅ Check Answers</button>
 
 <script>
+function fill(id, value) {
+    document.getElementById(id).value = value;
+}
+
 function check() {
-    const answers = ["’s", "’", "’s", "’s"];
+    const answers = {
+        q1: "’s",
+        q2: "’",
+        q3: "’s",
+        q4: "’",
+        q5: "’s",
+        q6: "’"
+    };
 
-    answers.forEach((a, i) => {
-        const input = document.getElementById("q" + (i+1));
-        const result = document.getElementById("r" + (i+1));
+    for (let q in answers) {
+        let input = document.getElementById(q);
+        let result = document.getElementById("r" + q.substring(1));
 
-        if (input.value.trim() === a) {
-            result.textContent = "✅";
+        if (input.value.trim() === answers[q]) {
+            result.textContent = " ✅";
             result.className = "correct";
         } else {
-            result.textContent = "❌ (" + a + ")";
+            result.textContent = " ❌ (" + answers[q] + ")";
             result.className = "wrong";
         }
-    });
+    }
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Possessives Practice</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+    h2 {
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+    }
+    .question {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+    input {
+        width: 50px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .choices button {
+        margin-left: 5px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+    button.check {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Possessives</h1>
+
+<h2>1. Read and choose</h2>
+
+<div class="question">
+1. This is Mark <input id="q1"> bike.
+<div class="choices">
+<button onclick="fill('q1','’s')">’s</button>
+<button onclick="fill('q1','’')">’</button>
+<span id="r1"></span>
+</div>
+</div>
+
+<div class="question">
+2. These are the dogs <input id="q2"> tails.
+<div class="choices">
+<button onclick="fill('q2','’s')">’s</button>
+<button onclick="fill('q2','’')">’</button>
+<span id="r2"></span>
+</div>
+</div>
+
+<div class="question">
+3. It’s Emma <input id="q3"> house.
+<div class="choices">
+<button onclick="fill('q3','’s')">’s</button>
+<button onclick="fill('q3','’')">’</button>
+<span id="r3"></span>
+</div>
+</div>
+
+<div class="question">
+4. Those are the peoples <input id="q4"> cars.
+<div class="choices">
+<button onclick="fill('q4','’s')">’s</button>
+<button onclick="fill('q4','’')">’</button>
+<span id="r4"></span>
+</div>
+</div>
+
+<h2>2. Write ’s or ’</h2>
+
+<div class="question">
+5. That’s Lisa <input id="q5"> jacket. <span id="r5"></span>
+</div>
+
+<div class="question">
+6. They’re the boys <input id="q6"> books. <span id="r6"></span>
+</div>
+
+<button class="check" onclick="check()">✅ Check Answers</button>
+
+<script>
+function fill(id, value) {
+    document.getElementById(id).value = value;
+}
+
+function check() {
+    const answers = {
+        q1: "’s",
+        q2: "’",
+        q3: "’s",
+        q4: "’",
+        q5: "’s",
+        q6: "’"
+    };
+
+    for (let q in answers) {
+        let input = document.getElementById(q);
+        let result = document.getElementById("r" + q.substring(1));
+
+        if (input.value.trim() === answers[q]) {
+            result.textContent = " ✅";
+            result.className = "correct";
+        } else {
+            result.textContent = " ❌ (" + answers[q] + ")";
+            result.className = "wrong";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Possessives Practice</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+    h2 {
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+    }
+    .question {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+    input {
+        width: 50px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .choices button {
+        margin-left: 5px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+    button.check {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Possessives</h1>
+
+<h2>1. Read and choose</h2>
+
+<div class="question">
+1. This is Mark <input id="q1"> bike.
+<div class="choices">
+<button onclick="fill('q1','’s')">’s</button>
+<button onclick="fill('q1','’')">’</button>
+<span id="r1"></span>
+</div>
+</div>
+
+<div class="question">
+2. These are the dogs <input id="q2"> tails.
+<div class="choices">
+<button onclick="fill('q2','’s')">’s</button>
+<button onclick="fill('q2','’')">’</button>
+<span id="r2"></span>
+</div>
+</div>
+
+<div class="question">
+3. It’s Emma <input id="q3"> house.
+<div class="choices">
+<button onclick="fill('q3','’s')">’s</button>
+<button onclick="fill('q3','’')">’</button>
+<span id="r3"></span>
+</div>
+</div>
+
+<div class="question">
+4. Those are the peoples <input id="q4"> cars.
+<div class="choices">
+<button onclick="fill('q4','’s')">’s</button>
+<button onclick="fill('q4','’')">’</button>
+<span id="r4"></span>
+</div>
+</div>
+
+<h2>2. Write ’s or ’</h2>
+
+<div class="question">
+5. That’s Lisa <input id="q5"> jacket. <span id="r5"></span>
+</div>
+
+<div class="question">
+6. They’re the boys <input id="q6"> books. <span id="r6"></span>
+</div>
+
+<button class="check" onclick="check()">✅ Check Answers</button>
+
+<script>
+function fill(id, value) {
+    document.getElementById(id).value = value;
+}
+
+function check() {
+    const answers = {
+        q1: "’s",
+        q2: "’",
+        q3: "’s",
+        q4: "’",
+        q5: "’s",
+        q6: "’"
+    };
+
+    for (let q in answers) {
+        let input = document.getElementById(q);
+        let result = document.getElementById("r" + q.substring(1));
+
+        if (input.value.trim() === answers[q]) {
+            result.textContent = " ✅";
+            result.className = "correct";
+        } else {
+            result.textContent = " ❌ (" + answers[q] + ")";
+            result.className = "wrong";
+        }
+    }
 }
 </script>
 
