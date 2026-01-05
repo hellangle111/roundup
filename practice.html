@@ -1,1 +1,76 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Practice Possessives</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 700px;
+        margin: auto;
+        padding: 20px;
+    }
+    .question {
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+    input {
+        width: 60px;
+        text-align: center;
+        font-size: 16px;
+    }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>✏️ Practice: ’s or ’</h1>
+
+<div class="question">
+1. This is Mark <input id="q1"> bike. <span id="r1"></span>
+</div>
+
+<div class="question">
+2. These are the dogs <input id="q2"> tails. <span id="r2"></span>
+</div>
+
+<div class="question">
+3. It’s Emma <input id="q3"> house. <span id="r3"></span>
+</div>
+
+<div class="question">
+4. It’s the doctor <input id="q4"> bag. <span id="r4"></span>
+</div>
+
+<button onclick="check()">✅ Check Answers</button>
+
+<script>
+function check() {
+    const answers = ["’s", "’", "’s", "’s"];
+
+    answers.forEach((a, i) => {
+        const input = document.getElementById("q" + (i+1));
+        const result = document.getElementById("r" + (i+1));
+
+        if (input.value.trim() === a) {
+            result.textContent = "✅";
+            result.className = "correct";
+        } else {
+            result.textContent = "❌ (" + a + ")";
+            result.className = "wrong";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
