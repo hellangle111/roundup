@@ -11,7 +11,7 @@
         margin: auto;
         padding: 20px;
     }
-    h1 {
+    h1, h2 {
         text-align: center;
     }
     img {
@@ -25,14 +25,14 @@
         margin: 10px 0;
     }
     input {
-        width: 70px;
+        width: 90px;
         font-size: 16px;
         text-align: center;
     }
-    button.choice {
-        margin-left: 5px;
-        font-size: 14px;
-        cursor: pointer;
+    textarea {
+        width: 100%;
+        height: 80px;
+        font-size: 16px;
     }
     .correct {
         color: green;
@@ -42,9 +42,9 @@
         color: red;
         font-weight: bold;
     }
-    button.check {
+    button {
         margin-top: 20px;
-        padding: 10px 20px;
+        padding: 10px 25px;
         font-size: 18px;
     }
 </style>
@@ -54,73 +54,40 @@
 
 <h1>Have / Have got</h1>
 
-<img src="images/have_have_got.jpg" alt="Worksheet">
+<img src="images/have_have_got.jpg" alt="Worksheet image">
 
+<!-- PART 1 -->
 <h2>1. Read and circle</h2>
 
-<div class="question">
-1. We <input id="q1"> red bikes.
-<button class="choice" onclick="fill('q1','have')">have</button>
-<button class="choice" onclick="fill('q1','has')">has</button>
-<span id="r1"></span>
-</div>
+<div class="question">1. We <input id="q1"> red bikes. <span id="r1"></span></div>
+<div class="question">2. She <input id="q2"> long hair. <span id="r2"></span></div>
+<div class="question">3. I <input id="q3"> got a radio. <span id="r3"></span></div>
+<div class="question">4. He <input id="q4"> got two balloons. <span id="r4"></span></div>
+<div class="question">5. It <input id="q5"> got long ears. <span id="r5"></span></div>
+<div class="question">6. You <input id="q6"> got a horse. <span id="r6"></span></div>
+<div class="question">7. They <input id="q7"> apples. <span id="r7"></span></div>
+<div class="question">8. We <input id="q8"> got a computer. <span id="r8"></span></div>
 
-<div class="question">
-2. She <input id="q2"> long hair.
-<button class="choice" onclick="fill('q2','has')">has</button>
-<button class="choice" onclick="fill('q2','have')">have</button>
-<span id="r2"></span>
-</div>
+<!-- PART 2 -->
+<h2>2. Write has or have</h2>
 
-<div class="question">
-3. I <input id="q3"> got a radio.
-<button class="choice" onclick="fill('q3','have')">have</button>
-<button class="choice" onclick="fill('q3','has')">has</button>
-<span id="r3"></span>
-</div>
+<div class="question">1. She <input id="q9"> a watch. <span id="r9"></span></div>
+<div class="question">2. We <input id="q10"> got blue jackets. <span id="r10"></span></div>
+<div class="question">3. It <input id="q11"> a long tail. <span id="r11"></span></div>
+<div class="question">4. He <input id="q12"> a red hat. <span id="r12"></span></div>
+<div class="question">5. They <input id="q13"> new bags. <span id="r13"></span></div>
+<div class="question">6. You <input id="q14"> got a pen. <span id="r14"></span></div>
+<div class="question">7. I <input id="q15"> two oranges. <span id="r15"></span></div>
+<div class="question">8. She <input id="q16"> got pencils. <span id="r16"></span></div>
 
-<div class="question">
-4. He <input id="q4"> got two balloons.
-<button class="choice" onclick="fill('q4','has')">has</button>
-<button class="choice" onclick="fill('q4','have')">have</button>
-<span id="r4"></span>
-</div>
+<button onclick="check()">✅ Check Answers</button>
 
-<div class="question">
-5. It <input id="q5"> got long ears.
-<button class="choice" onclick="fill('q5','has')">has</button>
-<button class="choice" onclick="fill('q5','have')">have</button>
-<span id="r5"></span>
-</div>
+<!-- PART 3 -->
+<h2>3. Write four things you have got</h2>
 
-<div class="question">
-6. You <input id="q6"> got a horse.
-<button class="choice" onclick="fill('q6','have')">have</button>
-<button class="choice" onclick="fill('q6','has')">has</button>
-<span id="r6"></span>
-</div>
-
-<div class="question">
-7. They <input id="q7"> apples.
-<button class="choice" onclick="fill('q7','have')">have</button>
-<button class="choice" onclick="fill('q7','has')">has</button>
-<span id="r7"></span>
-</div>
-
-<div class="question">
-8. We <input id="q8"> got a computer.
-<button class="choice" onclick="fill('q8','have')">have</button>
-<button class="choice" onclick="fill('q8','has')">has</button>
-<span id="r8"></span>
-</div>
-
-<button class="check" onclick="check()">✅ Check Answers</button>
+<textarea placeholder="Example: I have got a bike. I have got a bag..."></textarea>
 
 <script>
-function fill(id, value) {
-    document.getElementById(id).value = value;
-}
-
 function check() {
     const answers = {
         q1: "have",
@@ -130,14 +97,23 @@ function check() {
         q5: "has",
         q6: "have",
         q7: "have",
-        q8: "have"
+        q8: "have",
+        q9: "has",
+        q10: "have",
+        q11: "has",
+        q12: "has",
+        q13: "have",
+        q14: "have",
+        q15: "have",
+        q16: "has"
     };
 
     for (let q in answers) {
         const input = document.getElementById(q);
         const result = document.getElementById("r" + q.substring(1));
+        const user = input.value.trim().toLowerCase();
 
-        if (input.value.trim().toLowerCase() === answers[q]) {
+        if (user === answers[q]) {
             result.textContent = " ✅";
             result.className = "correct";
         } else {
