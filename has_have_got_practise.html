@@ -111,6 +111,7 @@ I have got a bike."></textarea>
 </div>
 
 <button id="checkBtn" disabled onclick="check()">✅ Check Answers</button>
+<button id="nextBtn" onclick="goNext()">➡ Next Page</button>
 
 <script>
 const inputs = document.querySelectorAll("select, input");
@@ -144,6 +145,9 @@ function check() {
             r.className = "wrong";
         }
     });
+}
+    function goNext() {
+    window.location.href = "has_have_got_practise1.html";
 }
 </script>
 
