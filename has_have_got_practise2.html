@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Have / Have got - Practice</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  padding: 20px;
+}
+h1, h2 {
+  color: #2c3e50;
+}
+.exercise {
+  background: #ffffff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  font-size: 16px;
+}
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  background: #2980b9;
+}
+.result {
+  margin-top: 6px;
+  font-weight: bold;
+}
+.correct { color: green; }
+.wrong { color: red; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+th {
+  background: #eaf2f8;
+}
+.note {
+  font-size: 14px;
+  color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Have / Have got – Practice</h1>
+
+<!-- PART 1 -->
+<h2>Part 1: Write the sentences in the negative</h2>
+
+<div class="exercise">1. They have got umbrellas.
+<input id="q1"><div id="r1" class="result"></div></div>
+
+<div class="exercise">2. We have got a TV.
+<input id="q2"><div id="r2" class="result"></div></div>
+
+<div class="exercise">3. She has got a cat.
+<input id="q3"><div id="r3" class="result"></div></div>
+
+<div class="exercise">4. You have got a parrot.
+<input id="q4"><div id="r4" class="result"></div></div>
+
+<div class="exercise">5. He has got a car.
+<input id="q5"><div id="r5" class="result"></div></div>
+
+<div class="exercise">6. We have got bikes.
+<input id="q6"><div id="r6" class="result"></div></div>
+
+<!-- PART 2 -->
+<h2>Part 2: Write four things you haven’t got</h2>
+<p class="note">Example: I haven’t got a bike.</p>
+
+<div class="exercise"><input id="q7"></div>
+<div class="exercise"><input id="q8"></div>
+<div class="exercise"><input id="q9"></div>
+<div class="exercise"><input id="q10"></div>
+
+<!-- PART 3 -->
+<h2>Part 3: Write the sentences</h2>
+
+<p class="note">
+Example:<br>
+<b>Tony has a TV, a computer and a camera. He doesn’t have a mobile phone.</b>
+</p>
+
+<table>
+<tr>
+  <th></th>
+  <th>TV</th>
+  <th>Computer</th>
+  <th>Camera</th>
+  <th>Mobile phone</th>
+</tr>
+<tr>
+  <td>Tony</td>
+  <td>✓</td>
+  <td>✓</td>
+  <td>✓</td>
+  <td></td>
+</tr>
+<tr>
+  <td>Emma and Ben</td>
+  <td></td>
+  <td>✓</td>
+  <td>✓</td>
+  <td>✓</td>
+</tr>
+<tr>
+  <td>Clare</td>
+  <td>✓</td>
+  <td></td>
+  <td>✓</td>
+  <td></td>
+</tr>
+<tr>
+  <td>Ann and Bill</td>
+  <td>✓</td>
+  <td>✓</td>
+  <td></td>
+  <td>✓</td>
+</tr>
+</table>
+
+<div class="exercise">
+1. Tony
+<input id="q11"><div id="r11" class="result"></div>
+</div>
+
+<div class="exercise">
+2. Emma and Ben
+<input id="q12"><div id="r12" class="result"></div>
+</div>
+
+<div class="exercise">
+3. Clare
+<input id="q13"><div id="r13" class="result"></div>
+</div>
+
+<div class="exercise">
+4. Ann and Bill
+<input id="q14"><div id="r14" class="result"></div>
+</div>
+
+<button onclick="checkAnswers()">Check answers</button>
+
+<script>
+const answers = {
+  q1: "they haven't got umbrellas",
+  q2: "we haven't got a tv",
+  q3: "she hasn't got a cat",
+  q4: "you haven't got a parrot",
+  q5: "he hasn't got a car",
+  q6: "we haven't got bikes",
+
+  q11: "tony has a tv a computer and a camera he doesn't have a mobile phone",
+  q12: "emma and ben have a computer a camera and a mobile phone they don't have a tv",
+  q13: "clare has a tv and a camera she doesn't have a computer",
+  q14: "ann and bill have a tv a computer and a mobile phone they don't have a camera"
+};
+
+function normalize(text) {
+  return text.toLowerCase()
+    .replace(/[.,']/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function checkAnswers() {
+  for (let q in answers) {
+    const input = document.getElementById(q);
+    if (!input) continue;
+
+    const user = normalize(input.value);
+    const correct = normalize(answers[q]);
+    const result = document.getElementById("r" + q.substring(1));
+
+    if (user === correct) {
+      result.textContent = "✔ Correct";
+      result.className = "result correct";
+    } else {
+      result.textContent = "✘ Wrong";
+      result.className = "result wrong";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
