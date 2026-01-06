@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Have / Have got – Page 2</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.question {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+input {
+    font-size: 16px;
+    padding: 4px 6px;
+    width: 160px;
+}
+
+button {
+    display: block;
+    margin: 30px auto;
+    padding: 14px 30px;
+    font-size: 18px;
+}
+
+.correct { color: green; font-weight: bold; }
+.wrong { color: red; font-weight: bold; }
+
+.lock {
+    color: red;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Have / Have got</h1>
+
+<div id="lock" class="lock" style="display:none;">
+❌ Please finish Page 1 first
+</div>
+
+<div id="content">
+
+<!-- PART 4 -->
+<div class="section">
+<h2>4. Fill in the gaps as in the examples</h2>
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top">
+<b>Long Form</b><br><br>
+
+<div class="question">1. I <input id="q1"> got a pencil. <span id="r1"></span></div>
+<div class="question">2. He <input id="q2"> a balloon. <span id="r2"></span></div>
+<div class="question">3. We <input id="q3"> a bicycle. <span id="r3"></span></div>
+<div class="question">4. You <input id="q4"> friends. <span id="r4"></span></div>
+<div class="question">5. Mary <input id="q5"> an umbrella. <span id="r5"></span></div>
+<div class="question">6. I <input id="q6"> got a ball. <span id="r6"></span></div>
+<div class="question">7. She <input id="q7"> a radio. <span id="r7"></span></div>
+<div class="question">8. We <input id="q8"> a helicopter. <span id="r8"></span></div>
+<div class="question">9. They <input id="q9"> a sister. <span id="r9"></span></div>
+<div class="question">10. Lydia and Mark <input id="q10"> a computer. <span id="r10"></span></div>
+
+</td>
+
+<td width="50%" valign="top">
+<b>Short Form</b><br><br>
+
+<div class="question">1. I've <input id="q11"> a pencil. <span id="r11"></span></div>
+<div class="question">2. He <input id="q12"> a balloon. <span id="r12"></span></div>
+<div class="question">3. We <input id="q13"> a bicycle. <span id="r13"></span></div>
+<div class="question">4. You <input id="q14"> friends. <span id="r14"></span></div>
+<div class="question">5. Mary <input id="q15"> an umbrella. <span id="r15"></span></div>
+<div class="question">6. I <input id="q16"> got a ball. <span id="r16"></span></div>
+<div class="question">7. She <input id="q17"> a radio. <span id="r17"></span></div>
+<div class="question">8. We <input id="q18"> a helicopter. <span id="r18"></span></div>
+<div class="question">9. They <input id="q19"> a sister. <span id="r19"></span></div>
+<div class="question">10. Lydia and Mark <input id="q20"> a computer. <span id="r20"></span></div>
+
+</td>
+</tr>
+</table>
+</div>
+
+<!-- PART 5 -->
+<div class="section">
+<h2>5. Write the sentences</h2>
+
+<div class="question">1. she / doll<br>
+<input id="q21" style="width:90%"> <span id="r21"></span></div>
+
+<div class="question">2. they / books<br>
+<input id="q22" style="width:90%"> <span id="r22"></span></div>
+
+<div class="question">3. he / car<br>
+<input id="q23" style="width:90%"> <span id="r23"></span></div>
+
+<div class="question">4. it / a long tail<br>
+<input id="q24" style="width:90%"> <span id="r24"></span></div>
+
+<div class="question">5. we / kites<br>
+<input id="q25" style="width:90%"> <span id="r25"></span></div>
+
+<div class="question">6. you / black hair<br>
+<input id="q26" style="width:90%"> <span id="r26"></span></div>
+</div>
+
+<button onclick="check()">✅ Check Answers</button>
+
+</div>
+
+<script>
+// 🔒 Lock page if page 1 not finished
+if (localStorage.getItem("page1Done") !== "yes") {
+    document.getElementById("lock").style.display = "block";
+    document.getElementById("content").style.display = "none";
+}
+
+const answers = {
+    q1:"have", q2:"has", q3:"have", q4:"have", q5:"has",
+    q6:"haven't", q7:"has", q8:"have", q9:"have", q10:"have",
+    q11:"got", q12:"has got", q13:"have got", q14:"have got", q15:"has got",
+    q16:"haven't", q17:"has got", q18:"have got", q19:"have got", q20:"have got",
+
+    q21:"she has got a doll",
+    q22:"they haven't got books",
+    q23:"he has got a car",
+    q24:"it has got a long tail",
+    q25:"we have got kites",
+    q26:"you have got black hair"
+};
+
+function normalize(text) {
+    return text.toLowerCase().replace(/\s+/g," ").trim();
+}
+
+function check() {
+    for (let id in answers) {
+        const user = normalize(document.getElementById(id).value);
+        const correct = normalize(answers[id]);
+        const r = document.getElementById("r" + id.substring(1));
+
+        if (user === correct) {
+            r.textContent = " ✓";
+            r.className = "correct";
+        } else {
+            r.textContent = " ✗";
+            r.className = "wrong";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
