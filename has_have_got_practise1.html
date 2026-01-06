@@ -2,54 +2,72 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Have / Have got – Page 2</title>
+<title>Have / Have got</title>
 
 <style>
 body {
     font-family: Arial, sans-serif;
+    padding: 20px;
     max-width: 900px;
     margin: auto;
-    padding: 20px;
-    background: #f5f5f5;
 }
 
-h1, h2 {
+h1 {
     text-align: center;
+    color: #2c6e49;
+}
+
+h2 {
+    margin-top: 30px;
 }
 
 .section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 8px;
+    border: 2px solid #a3c4a8;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.columns {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1;
+    min-width: 300px;
 }
 
 .question {
-    font-size: 18px;
     margin: 8px 0;
 }
 
 input {
-    font-size: 16px;
-    padding: 4px 6px;
-    width: 160px;
+    width: 180px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.result {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.row img {
+    width: 80px;
 }
 
 button {
-    display: block;
-    margin: 30px auto;
-    padding: 14px 30px;
-    font-size: 18px;
-}
-
-.correct { color: green; font-weight: bold; }
-.wrong { color: red; font-weight: bold; }
-
-.lock {
-    color: red;
-    text-align: center;
-    font-size: 20px;
-    margin-top: 50px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
 }
 </style>
 </head>
@@ -58,150 +76,148 @@ button {
 
 <h1>Have / Have got</h1>
 
-<div id="content">
+<!-- ===================== PART 4 ===================== -->
+<h2>4. Fill in the gaps as in the examples:</h2>
 
-<!-- PART 4 -->
+<div class="section columns">
+
+<!-- Long Form -->
+<div class="column">
+<h3>Long Form</h3>
+
+<div class="question">1. <i>I have got</i> a pencil. (example)</div>
+<div class="question">2. He <input id="l2"> a balloon. <span class="result" id="rl2"></span></div>
+<div class="question">3. We <input id="l3"> a bicycle. <span class="result" id="rl3"></span></div>
+<div class="question">4. You <input id="l4"> friends. <span class="result" id="rl4"></span></div>
+<div class="question">5. Mary <input id="l5"> an umbrella. <span class="result" id="rl5"></span></div>
+<div class="question">6. <i>I have not got</i> a ball. (example)</div>
+<div class="question">7. She <input id="l7"> a radio. <span class="result" id="rl7"></span></div>
+<div class="question">8. We <input id="l8"> a helicopter. <span class="result" id="rl8"></span></div>
+<div class="question">9. They <input id="l9"> a sister. <span class="result" id="rl9"></span></div>
+<div class="question">10. Lydia and Mark <input id="l10"> a computer. <span class="result" id="rl10"></span></div>
+</div>
+
+<!-- Short Form -->
+<div class="column">
+<h3>Short Form</h3>
+
+<div class="question">1. <i>I’ve got</i> a pencil. (example)</div>
+<div class="question">2. He <input id="s2"> a balloon. <span class="result" id="rs2"></span></div>
+<div class="question">3. We <input id="s3"> a bicycle. <span class="result" id="rs3"></span></div>
+<div class="question">4. You <input id="s4"> friends. <span class="result" id="rs4"></span></div>
+<div class="question">5. Mary <input id="s5"> an umbrella. <span class="result" id="rs5"></span></div>
+<div class="question">6. <i>I haven’t got</i> a ball. (example)</div>
+<div class="question">7. She <input id="s7"> a radio. <span class="result" id="rs7"></span></div>
+<div class="question">8. We <input id="s8"> a helicopter. <span class="result" id="rs8"></span></div>
+<div class="question">9. They <input id="s9"> a sister. <span class="result" id="rs9"></span></div>
+<div class="question">10. Lydia and Mark <input id="s10"> a computer. <span class="result" id="rs10"></span></div>
+</div>
+
+</div>
+
+<!-- ===================== PART 5 ===================== -->
+<h2>5. Write the sentences.<br>
+Use <i>has got</i>, <i>have got</i>, <i>hasn’t got</i> or <i>haven’t got</i>.
+</h2>
+
 <div class="section">
-<h2>4. Fill in the gaps as in the examples</h2>
 
-<table width="100%">
-<tr>
-<td width="50%" valign="top">
-<b>Long Form</b><br><br>
-
-<div class="question"><b>Example:</b> I <u>have got</u> a pencil.</div>
-
-<div class="question">2. He <input id="q2"> a balloon. <span id="r2"></span></div>
-<div class="question">3. We <input id="q3"> a bicycle. <span id="r3"></span></div>
-<div class="question">4. You <input id="q4"> friends. <span id="r4"></span></div>
-<div class="question">5. Mary <input id="q5"> an umbrella. <span id="r5"></span></div>
-<div class="question">6. I <input id="q6"> got a ball. <span id="r6"></span></div>
-<div class="question">7. She <input id="q7"> a radio. <span id="r7"></span></div>
-<div class="question">8. We <input id="q8"> a helicopter. <span id="r8"></span></div>
-<div class="question">9. They <input id="q9"> a sister. <span id="r9"></span></div>
-<div class="question">10. Lydia and Mark <input id="q10"> a computer. <span id="r10"></span></div>
-
-</td>
-
-<td width="50%" valign="top">
-<b>Short Form</b><br><br>
-
-<div class="question"><b>Example:</b> I've <u>got</u> a pencil.</div>
-
-<div class="question">2. He <input id="q12"> a balloon. <span id="r12"></span></div>
-<div class="question">3. We <input id="q13"> a bicycle. <span id="r13"></span></div>
-<div class="question">4. You <input id="q14"> friends. <span id="r14"></span></div>
-<div class="question">5. Mary <input id="q15"> an umbrella. <span id="r15"></span></div>
-<div class="question">6. I <input id="q16"> got a ball. <span id="r16"></span></div>
-<div class="question">7. She <input id="q17"> a radio. <span id="r17"></span></div>
-<div class="question">8. We <input id="q18"> a helicopter. <span id="r18"></span></div>
-<div class="question">9. They <input id="q19"> a sister. <span id="r19"></span></div>
-<div class="question">10. Lydia and Mark <input id="q20"> a computer. <span id="r20"></span></div>
-
-</td>
-</tr>
-</table>
+<div class="row">
+<img src="images/doll.png">
+<div>
+<i>Positive</i><br>
+she / doll<br>
+<input id="w1"> <span class="result" id="rw1"></span>
+</div>
 </div>
 
-<!-- PART 5 --><div class="section">
-<h2>5. Write the sentences</h2>
-
-<div class="question-row">
-  <img src="images/doll.png" alt="doll">
-  <div>
-    <i>She has a doll.</i><br>
-    1. she / doll<br>
-    <input id="q21" style="width:90%">
-    <span id="r21"></span>
-  </div>
+<div class="row">
+<img src="images/book.png">
+<div>
+<i>Negative</i><br>
+they / books<br>
+<input id="w2"> <span class="result" id="rw2"></span>
+</div>
 </div>
 
-<div class="question-row">
-  <img src="images/book.png" alt="books">
-  <div>
-    2. they / books<br>
-    <input id="q22" style="width:90%">
-    <span id="r22"></span>
-  </div>
+<div class="row">
+<img src="images/car.png">
+<div>
+<i>Positive</i><br>
+he / car<br>
+<input id="w3"> <span class="result" id="rw3"></span>
+</div>
 </div>
 
-<div class="question-row">
-  <img src="images/car.png" alt="car">
-  <div>
-    3. he / car<br>
-    <input id="q23" style="width:90%">
-    <span id="r23"></span>
-  </div>
+<div class="row">
+<img src="images/tail.png">
+<div>
+<i>Negative</i><br>
+it / a long tail<br>
+<input id="w4"> <span class="result" id="rw4"></span>
+</div>
 </div>
 
-<div class="question-row">
-  <img src="images/tail.png" alt="tail">
-  <div>
-    4. it / a long tail<br>
-    <input id="q24" style="width:90%">
-    <span id="r24"></span>
-  </div>
+<div class="row">
+<img src="images/kite.png">
+<div>
+<i>Positive</i><br>
+we / kites<br>
+<input id="w5"> <span class="result" id="rw5"></span>
+</div>
 </div>
 
-<div class="question-row">
-  <img src="images/kite.png" alt="kites">
-  <div>
-    5. we / kites<br>
-    <input id="q25" style="width:90%">
-    <span id="r25"></span>
-  </div>
+<div class="row">
+<img src="images/hair.png">
+<div>
+<i>You choose</i><br>
+you / black hair<br>
+<input id="w6"> <span class="result" id="rw6"></span>
 </div>
-
-<div class="question-row">
-  <img src="images/hair.png" alt="hair">
-  <div>
-    6. you / black hair<br>
-    <input id="q26" style="width:90%">
-    <span id="r26"></span>
-  </div>
 </div>
 
 </div>
 
-
-<button onclick="check()">✅ Check Answers</button>
-
-</div>
+<button onclick="checkAnswers()">Check answers</button>
 
 <script>
-
-const answers = {
-    q2:"has", q3:"have", q4:"have", q5:"has",
-    q6:"haven't", q7:"has", q8:"have", q9:"have", q10:"have",
-    q12:"has got", q13:"have got", q14:"have got", q15:"has got",
-    q16:"haven't", q17:"has got", q18:"have got", q19:"have got", q20:"have got",
-
-    q21:"she has got a doll",
-    q22:"they haven't got books",
-    q23:"he has got a car",
-    q24:"it has got a long tail",
-    q25:"we have got kites",
-    q26:"you have got black hair"
-};
-
-function normalize(text) {
-    return text.toLowerCase().replace(/\s+/g," ").trim();
+function norm(v) {
+    return v.toLowerCase().replace(/\s+/g,' ').trim();
 }
 
-function check() {
-    for (let id in answers) {
-        const user = normalize(document.getElementById(id).value);
-        const correct = normalize(answers[id]);
-        const r = document.getElementById("r" + id.substring(1));
+function check(id, answers) {
+    const v = norm(document.getElementById(id).value);
+    document.getElementById("r"+id).textContent =
+        answers.includes(v) ? "✅" : "❌";
+}
 
-        if (user === correct) {
-            r.textContent = " ✓";
-            r.className = "correct";
-        } else {
-            r.textContent = " ✗";
-            r.className = "wrong";
-        }
-    }
+function checkAnswers() {
+    // Part 4 Long
+    check("l2", ["has got"]);
+    check("l3", ["have got"]);
+    check("l4", ["have got"]);
+    check("l5", ["has got"]);
+    check("l7", ["has got"]);
+    check("l8", ["have got"]);
+    check("l9", ["have got"]);
+    check("l10", ["have got"]);
+
+    // Part 4 Short
+    check("s2", ["'s got"]);
+    check("s3", ["'ve got"]);
+    check("s4", ["'ve got"]);
+    check("s5", ["'s got"]);
+    check("s7", ["'s got"]);
+    check("s8", ["'ve got"]);
+    check("s9", ["'ve got"]);
+    check("s10", ["'ve got"]);
+
+    // Part 5
+    check("w1", ["she has got a doll"]);
+    check("w2", ["they haven't got books"]);
+    check("w3", ["he has got a car"]);
+    check("w4", ["it hasn't got a long tail"]);
+    check("w5", ["we have got kites"]);
 }
 </script>
 
