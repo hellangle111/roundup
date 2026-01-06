@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Have / Have got – Word Order</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+.exercise {
+  background: #ffffff;
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+}
+
+.words {
+  font-style: italic;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+.result {
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+.correct { color: green; }
+.wrong { color: red; }
+
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2980b9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Have / Have got</h1>
+<h2>Put the words in the correct order</h2>
+
+<!-- 1 -->
+<div class="exercise">
+1. <span class="words">got / Nikos / feet / big / has</span>
+<input id="q1" placeholder="Nikos has got big feet.">
+<div id="r1" class="result"></div>
+</div>
+
+<!-- 2 -->
+<div class="exercise">
+2. <span class="words">hair / Ann and Kim / long / got / have ?</span>
+<input id="q2">
+<div id="r2" class="result"></div>
+</div>
+
+<!-- 3 -->
+<div class="exercise">
+3. <span class="words">I / got / dog / not / a / have</span>
+<input id="q3">
+<div id="r3" class="result"></div>
+</div>
+
+<!-- 4 -->
+<div class="exercise">
+4. <span class="words">a / he / has / computer / got ?</span>
+<input id="q4">
+<div id="r4" class="result"></div>
+</div>
+
+<!-- 5 -->
+<div class="exercise">
+5. <span class="words">have / long / got / tails / cows ?</span>
+<input id="q5">
+<div id="r5" class="result"></div>
+</div>
+
+<button onclick="checkAnswers()">Check answers</button>
+
+<script>
+const answers = {
+  q1: "nikos has got big feet",
+  q2: "have ann and kim got long hair",
+  q3: "i have not got a dog",
+  q4: "has he got a computer",
+  q5: "have cows got long tails"
+};
+
+function normalize(text) {
+  return text.toLowerCase()
+    .replace(/[?.']/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function checkAnswers() {
+  for (let q in answers) {
+    const user = normalize(document.getElementById(q).value);
+    const correct = answers[q];
+    const r = document.getElementById("r" + q.substring(1));
+
+    if (user === correct) {
+      r.textContent = "✔ Correct";
+      r.className = "result correct";
+    } else {
+      r.textContent = "✘ Wrong";
+      r.className = "result wrong";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
