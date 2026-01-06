@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Have / Have got</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+    }
+    img {
+        width: 100%;
+        max-width: 800px;
+        display: block;
+        margin: 20px auto;
+    }
+    .question {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+    input {
+        width: 70px;
+        font-size: 16px;
+        text-align: center;
+    }
+    button.choice {
+        margin-left: 5px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .correct {
+        color: green;
+        font-weight: bold;
+    }
+    .wrong {
+        color: red;
+        font-weight: bold;
+    }
+    button.check {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Have / Have got</h1>
+
+<img src="images/have_have_got.jpg" alt="Worksheet">
+
+<h2>1. Read and circle</h2>
+
+<div class="question">
+1. We <input id="q1"> red bikes.
+<button class="choice" onclick="fill('q1','have')">have</button>
+<button class="choice" onclick="fill('q1','has')">has</button>
+<span id="r1"></span>
+</div>
+
+<div class="question">
+2. She <input id="q2"> long hair.
+<button class="choice" onclick="fill('q2','has')">has</button>
+<button class="choice" onclick="fill('q2','have')">have</button>
+<span id="r2"></span>
+</div>
+
+<div class="question">
+3. I <input id="q3"> got a radio.
+<button class="choice" onclick="fill('q3','have')">have</button>
+<button class="choice" onclick="fill('q3','has')">has</button>
+<span id="r3"></span>
+</div>
+
+<div class="question">
+4. He <input id="q4"> got two balloons.
+<button class="choice" onclick="fill('q4','has')">has</button>
+<button class="choice" onclick="fill('q4','have')">have</button>
+<span id="r4"></span>
+</div>
+
+<div class="question">
+5. It <input id="q5"> got long ears.
+<button class="choice" onclick="fill('q5','has')">has</button>
+<button class="choice" onclick="fill('q5','have')">have</button>
+<span id="r5"></span>
+</div>
+
+<div class="question">
+6. You <input id="q6"> got a horse.
+<button class="choice" onclick="fill('q6','have')">have</button>
+<button class="choice" onclick="fill('q6','has')">has</button>
+<span id="r6"></span>
+</div>
+
+<div class="question">
+7. They <input id="q7"> apples.
+<button class="choice" onclick="fill('q7','have')">have</button>
+<button class="choice" onclick="fill('q7','has')">has</button>
+<span id="r7"></span>
+</div>
+
+<div class="question">
+8. We <input id="q8"> got a computer.
+<button class="choice" onclick="fill('q8','have')">have</button>
+<button class="choice" onclick="fill('q8','has')">has</button>
+<span id="r8"></span>
+</div>
+
+<button class="check" onclick="check()">✅ Check Answers</button>
+
+<script>
+function fill(id, value) {
+    document.getElementById(id).value = value;
+}
+
+function check() {
+    const answers = {
+        q1: "have",
+        q2: "has",
+        q3: "have",
+        q4: "has",
+        q5: "has",
+        q6: "have",
+        q7: "have",
+        q8: "have"
+    };
+
+    for (let q in answers) {
+        const input = document.getElementById(q);
+        const result = document.getElementById("r" + q.substring(1));
+
+        if (input.value.trim().toLowerCase() === answers[q]) {
+            result.textContent = " ✅";
+            result.className = "correct";
+        } else {
+            result.textContent = " ❌ (" + answers[q] + ")";
+            result.className = "wrong";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
