@@ -58,9 +58,6 @@ button {
 
 <h1>Have / Have got</h1>
 
-<div id="lock" class="lock" style="display:none;">
-❌ Please finish Page 1 first
-</div>
 
 <div id="content">
 
@@ -133,11 +130,7 @@ button {
 </div>
 
 <script>
-// 🔒 Lock page if page 1 not finished
-if (localStorage.getItem("page1Done") !== "yes") {
-    document.getElementById("lock").style.display = "block";
-    document.getElementById("content").style.display = "none";
-}
+
 
 const answers = {
     q1:"have", q2:"has", q3:"have", q4:"have", q5:"has",
