@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Have / Have got – Questions</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+.note {
+  background: #fff3cd;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.exercise {
+  background: #ffffff;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pic img {
+  width: 70px;
+  height: auto;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.result {
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.correct { color: green; }
+.wrong { color: red; }
+
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2980b9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Have / Have got</h1>
+
+<div class="note">
+<b>Short answers</b><br>
+Have you got a book? → <b>Yes, I have.</b> / <b>No, I haven’t.</b><br>
+Has he / she / it got big ears? → <b>Yes, he has.</b> / <b>No, he hasn’t.</b>
+</div>
+
+<h2>Write the questions and answers</h2>
+
+<div class="note">
+<b>Example:</b><br>
+Has Ann got a pencil?<br>
+Yes, she has.
+</div>
+
+<!-- 1 -->
+<div class="exercise">
+<div class="row">
+  <div class="pic"><img src="images2/pencil.png" alt="pencil"></div>
+  <div>1. Ann / a pencil?</div>
+</div>
+<input id="q1">
+<div id="r1" class="result"></div>
+</div>
+
+<!-- 2 -->
+<div class="exercise">
+<div class="row">
+  <div class="pic"><img src="images2/cat.png" alt="cat"></div>
+  <div>2. the boys / a cat?</div>
+</div>
+<input id="q2">
+<div id="r2" class="result"></div>
+</div>
+
+<!-- 3 -->
+<div class="exercise">
+<div class="row">
+  <div class="pic"><img src="images2/flowers.png" alt="flowers"></div>
+  <div>3. you / flowers?</div>
+</div>
+<input id="q3">
+<div id="r3" class="result"></div>
+</div>
+
+<!-- 4 -->
+<div class="exercise">
+<div class="row">
+  <div class="pic"><img src="images2/bike.png" alt="bike"></div>
+  <div>4. she / a car?</div>
+</div>
+<input id="q4">
+<div id="r4" class="result"></div>
+</div>
+
+<!-- 5 -->
+<div class="exercise">
+<div class="row">
+  <div class="pic"><img src="images2/guitar.png" alt="guitar"></div>
+  <div>5. Tom / a guitar?</div>
+</div>
+<input id="q5">
+<div id="r5" class="result"></div>
+</div>
+
+<!-- 6 -->
+<div class="exercise">
+<div class="row">
+  <div class="pic"><img src="images2/kite.png" alt="kite"></div>
+  <div>6. you / a kite?</div>
+</div>
+<input id="q6">
+<div id="r6" class="result"></div>
+</div>
+
+<!-- 7 -->
+<div class="exercise">
+<div class="row">
+  <div class="pic"><img src="images2/ball.png" alt="ball"></div>
+  <div>7. he / a ball?</div>
+</div>
+<input id="q7">
+<div id="r7" class="result"></div>
+</div>
+
+<!-- 8 -->
+<div class="exercise">
+<div class="row">
+  <div class="pic"><img src="images2/hats.png" alt="hats"></div>
+  <div>8. they / hats?</div>
+</div>
+<input id="q8">
+<div id="r8" class="result"></div>
+</div>
+
+<!-- 9 -->
+<div class="exercise">
+<div class="row">
+  <div class="pic"><img src="images2/camera.png" alt="camera"></div>
+  <div>9. the girl / a camera?</div>
+</div>
+<input id="q9">
+<div id="r9" class="result"></div>
+</div>
+
+<!-- 10 -->
+<div class="exercise">
+<div class="row">
+  <div class="pic"><img src="images2/bananas.png" alt="bananas"></div>
+  <div>10. the clown / bananas?</div>
+</div>
+<input id="q10">
+<div id="r10" class="result"></div>
+</div>
+
+<button onclick="checkAnswers()">Check answers</button>
+
+<script>
+const answers = {
+q1: "has ann got a pencil yes she has",
+q2: "have the boys got a cat no they havent",
+q3: "have you got flowers yes i have",
+q4: "has she got a car no she hasnt",
+q5: "has tom got a guitar yes he has",
+q6: "have you got a kite no i havent",
+q7: "has he got a ball yes he has",
+q8: "have they got hats yes they have",
+q9: "has the girl got a camera yes she has",
+q10: "has the clown got bananas yes he has"
+};
+
+function normalize(text) {
+  return text.toLowerCase()
+    .replace(/[?.',]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function checkAnswers() {
+  for (let q in answers) {
+    const user = normalize(document.getElementById(q).value);
+    const correct = normalize(answers[q]);
+    const r = document.getElementById("r" + q.substring(1));
+
+    if (user === correct) {
+      r.textContent = "✔ Correct";
+      r.className = "result correct";
+    } else {
+      r.textContent = "✘ Wrong";
+      r.className = "result wrong";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
