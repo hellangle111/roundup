@@ -2,252 +2,155 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Simple Present Practice</title>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f8f9fa;
-        margin: 0;
-        padding: 20px;
-    }
-    h1, h2 {
-        text-align: center;
-        color: #333;
-    }
-    .container {
-        max-width: 800px;
-        margin: auto;
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,.1);
-        margin-bottom: 30px;
-    }
-    .item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin: 8px 0;
-    }
-    .item span {
-        flex: 0 0 200px;
-    }
-    input {
-        flex: 1;
-        padding: 6px;
-        font-size: 16px;
-    }
-    button {
-        width: 100%;
-        margin-top: 15px;
-        padding: 10px;
-        font-size: 18px;
-        cursor: pointer;
-    }
-    .result {
-        margin-top: 20px;
-        font-size: 20px;
-        text-align: center;
-        font-weight: bold;
-    }
-    .correct {
-        color: green;
-        font-weight: bold;
-        margin-left: 10px;
-    }
-    .wrong {
-        color: red;
-        font-weight: bold;
-        margin-left: 10px;
-    }
+  body {
+    font-family: Comic Sans MS, Arial, sans-serif;
+    background: #fdf6e4;
+    padding: 30px;
+  }
+  h1 {
+    text-align: center;
+    color: #ff6b00;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px #fff;
+  }
+  h2 {
+    color: #0077cc;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 3px solid #ffe28a;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .item {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  input {
+    padding: 5px 8px;
+    font-size: 16px;
+    border: 2px solid #94a3b8;
+    border-radius: 6px;
+    width: 120px;
+  }
+  .small-input {
+    width: 85px;
+  }
+  .correct {
+    border-color: #22c55e !important;
+    background: #d1fae5;
+  }
+  .wrong {
+    border-color: #ef4444 !important;
+    background: #fee2e2;
+  }
+  button {
+    margin-top: 15px;
+    background: #ffca3a;
+    border: none;
+    padding: 10px 18px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #ffb703;
+  }
 </style>
 </head>
 <body>
 
-<h1>Simple Present Practice</h1>
+<h1>Simple Present Worksheet</h1>
 
-<!-- SECTION 1 -->
-<div class="container">
-    <h2>1. Fill in the correct form of the verbs (He ___)</h2>
-    <div id="exercise1"></div>
-    <button onclick="checkSection1()">Check Section 1</button>
-    <div id="result1" class="result"></div>
+<!-- PART 1 -->
+<div class="section">
+  <h2>1. Fill in the correct form of the verbs.</h2>
+  <div class="grid-2" id="part1">
+    <div class="item">1 I live – he <input data-answer="lives"></div>
+    <div class="item">2 I play – he <input data-answer="plays"></div>
+    <div class="item">3 I watch – he <input data-answer="watches"></div>
+    <div class="item">4 I do – he <input data-answer="does"></div>
+    <div class="item">5 I read – he <input data-answer="reads"></div>
+    <div class="item">6 I write – he <input data-answer="writes"></div>
+    <div class="item">7 I fly – he <input data-answer="flies"></div>
+    <div class="item">8 I work – he <input data-answer="works"></div>
+    <div class="item">9 I wash – he <input data-answer="washes"></div>
+    <div class="item">10 I miss – he <input data-answer="misses"></div>
+    <div class="item">11 I give – he <input data-answer="gives"></div>
+    <div class="item">12 I brush – he <input data-answer="brushes"></div>
+    <div class="item">13 I buy – he <input data-answer="buys"></div>
+    <div class="item">14 I teach – he <input data-answer="teaches"></div>
+    <div class="item">15 I cry – he <input data-answer="cries"></div>
+    <div class="item">16 I go – he <input data-answer="goes"></div>
+    <div class="item">17 I sit – he <input data-answer="sits"></div>
+    <div class="item">18 I tidy – he <input data-answer="tidies"></div>
+  </div>
 </div>
 
-<!-- SECTION 2 -->
-<div class="container">
-    <h2>2. Do / Does + Short Answers</h2>
-    <div id="exercise2"></div>
-    <button onclick="checkSection2()">Check Section 2</button>
-    <div id="result2" class="result"></div>
+<!-- PART 2 -->
+<div class="section">
+  <h2>2. Write do, does and short answers.</h2>
+
+  <div class="item">1 <input class="small-input" data-answer="Does"> Youssef watch TV in the evenings?<br>
+  Yes, <input class="small-input" data-answer="he does">.
+  </div><br>
+
+  <div class="item">2 <input class="small-input" data-answer="Do"> Ann and Jo go to school every day?<br>
+  Yes, <input class="small-input" data-answer="they do">.
+  </div><br>
+
+  <div class="item">3 <input class="small-input" data-answer="Does"> Jamie like eggs?<br>
+  No, <input class="small-input" data-answer="he doesn't">.
+  </div><br>
+
+  <div class="item">4 <input class="small-input" data-answer="Do"> they live in London?<br>
+  No, <input class="small-input" data-answer="they don't">.
+  </div><br>
+
+  <div class="item">5 <input class="small-input" data-answer="Does"> the cat eat fish?<br>
+  Yes, <input class="small-input" data-answer="it does">.
+  </div>
 </div>
 
-<!-- SECTION 3 -->
-<div class="container">
-    <h2>3. Fill in the simple present (He ___)</h2>
-    <div id="exercise3"></div>
-    <button onclick="checkSection3()">Check Section 3</button>
-    <div id="result3" class="result"></div>
+<!-- PART 3 -->
+<div class="section">
+  <h2>3. Fill in the correct verb (simple present).</h2>
+
+  <div class="item">1 Simon <input data-answer="lives"> (live) in London.</div>
+  <div class="item">2 He <input data-answer="works"> (work) in a school.</div>
+  <div class="item">3 He <input data-answer="starts"> (start) work at 9 o’clock.</div>
+  <div class="item">4 He <input data-answer="has"> (have) lunch at 12 o’clock.</div>
+  <div class="item">5 He <input data-answer="finishes"> (finish) work at 3 o’clock.</div>
+  <div class="item">6 He <input data-answer="reads"> (read) books in the evenings.</div>
+  <div class="item">7 He <input data-answer="goes"> (go) to bed at 10 o’clock in the evening.</div>
 </div>
+
+<button onclick="checkAnswers()">Check Answers</button>
 
 <script>
-/* ------------------ SECTION 1 DATA ------------------ */
-const verbs = [
-    { base: "live", answer: "lives" },
-    { base: "play", answer: "plays" },
-    { base: "watch", answer: "watches" },
-    { base: "do", answer: "does" },
-    { base: "read", answer: "reads" },
-    { base: "write", answer: "writes" },
-    { base: "fly", answer: "flies" },
-    { base: "work", answer: "works" },
-    { base: "wash", answer: "washes" },
-    { base: "miss", answer: "misses" },
-    { base: "give", answer: "gives" },
-    { base: "brush", answer: "brushes" },
-    { base: "buy", answer: "buys" },
-    { base: "teach", answer: "teaches" },
-    { base: "cry", answer: "cries" },
-    { base: "go", answer: "goes" },
-    { base: "sit", answer: "sits" },
-    { base: "tidy", answer: "tidies" },
-];
-
-/* Build SECTION 1 UI */
-const sec1 = document.getElementById("exercise1");
-verbs.forEach((v, i) => {
-    sec1.innerHTML += `
-      <div class="item">
-        <span>I ${v.base} → He</span>
-        <input id="sec1-${i}">
-        <span id="sec1-status-${i}"></span>
-      </div>`;
-});
-
-/* Check SECTION 1 */
-function checkSection1() {
-    let score = 0;
-    verbs.forEach((v, i) => {
-        const val = document.getElementById(`sec1-${i}`).value.trim().toLowerCase();
-        const status = document.getElementById(`sec1-status-${i}`);
-        if (val === v.answer) {
-            status.textContent = "✓";
-            status.className = "correct";
-            score++;
-        } else {
-            status.textContent = `✗ (${v.answer})`;
-            status.className = "wrong";
-        }
-    });
-    document.getElementById("result1").textContent = `Score: ${score}/${verbs.length}`;
-}
-
-
-/* ------------------ SECTION 2 DATA ------------------ */
-const sentences = [
-    {
-        question: "Youssef watch TV in the evenings?",
-        qAnswer: "Does",
-        short: "Yes, he does"
-    },
-    {
-        question: "Ann and Jo go to school every day?",
-        qAnswer: "Do",
-        short: "Yes, they do"
-    },
-    {
-        question: "Jamie like eggs?",
-        qAnswer: "Does",
-        short: "No, he doesn't"
-    },
-    {
-        question: "they live in London?",
-        qAnswer: "Do",
-        short: "No, they don't"
-    },
-    {
-        question: "the cat eat fish?",
-        qAnswer: "Does",
-        short: "Yes, it does"
+function checkAnswers() {
+  document.querySelectorAll('input').forEach(input => {
+    const correct = input.dataset.answer.toLowerCase().trim();
+    const user = input.value.toLowerCase().trim();
+    input.classList.remove("correct", "wrong");
+    if (user === correct) {
+      input.classList.add("correct");
+    } else {
+      input.classList.add("wrong");
     }
-];
-
-/* Build SECTION 2 UI */
-const sec2 = document.getElementById("exercise2");
-sentences.forEach((s, i) => {
-    sec2.innerHTML += `
-      <div class="item">
-        <span>${i+1}. </span>
-        <input placeholder="Do/Does" style="flex:0 0 90px" id="q-${i}">
-        <span>${s.question}</span>
-      </div>
-      <div class="item" style="padding-left:25px;">
-        <span>Answer:</span>
-        <input placeholder="Yes/No + pronoun + do/does" id="a-${i}">
-        <span id="sec2-status-${i}"></span>
-      </div>`;
-});
-
-/* Check SECTION 2 */
-function checkSection2() {
-    let score = 0;
-    sentences.forEach((s, i) => {
-        const qVal = document.getElementById(`q-${i}`).value.trim();
-        const aVal = document.getElementById(`a-${i}`).value.trim();
-        const status = document.getElementById(`sec2-status-${i}`);
-
-        if (qVal === s.qAnswer && aVal.toLowerCase() === s.short.toLowerCase()) {
-            status.textContent = "✓";
-            status.className = "correct";
-            score++;
-        } else {
-            status.textContent = `✗ (${s.qAnswer} / ${s.short})`;
-            status.className = "wrong";
-        }
-    });
-    document.getElementById("result2").textContent = `Score: ${score}/${sentences.length}`;
-}
-
-
-/* ------------------ SECTION 3 DATA ------------------ */
-const section3 = [
-    { sentence: "Simon ______ (live) in London.", answer: "lives" },
-    { sentence: "He ______ (work) in a school.", answer: "works" },
-    { sentence: "He ______ (start) work at 9 o'clock.", answer: "starts" },
-    { sentence: "He ______ (have) lunch at 12 o'clock.", answer: "has" },
-    { sentence: "He ______ (finish) work at 3 o'clock.", answer: "finishes" },
-    { sentence: "He ______ (read) books in the evenings.", answer: "reads" },
-    { sentence: "He ______ (go) to bed at 10 o'clock in the evening.", answer: "goes" },
-];
-
-/* Build SECTION 3 UI */
-const sec3 = document.getElementById("exercise3");
-section3.forEach((s, i) => {
-    sec3.innerHTML += `
-      <div class="item">
-        <span>${i+1}. ${s.sentence.replace("______", "")}</span>
-        <input id="sec3-${i}" style="flex:0 0 120px">
-        <span id="sec3-status-${i}"></span>
-      </div>`;
-});
-
-/* Check SECTION 3 */
-function checkSection3() {
-    let score = 0;
-    section3.forEach((s, i) => {
-        const val = document.getElementById(`sec3-${i}`).value.trim().toLowerCase();
-        const status = document.getElementById(`sec3-status-${i}`);
-        
-        if (val === s.answer) {
-            status.textContent = "✓";
-            status.className = "correct";
-            score++;
-        } else {
-            status.textContent = `✗ (${s.answer})`;
-            status.className = "wrong";
-        }
-    });
-    document.getElementById("result3").textContent = `Score: ${score}/${section3.length}`;
+  });
 }
 </script>
 
