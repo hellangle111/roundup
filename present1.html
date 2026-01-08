@@ -1,136 +1,44 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>English Worksheet - Page 3</title>
-  <style>
+<meta charset="UTF-8">
+<title>Learn</title>
+
+<style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f9fafb;
-      margin: 0;
-      padding: 40px;
-      color: #222;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    iframe {
+        max-width: 100%;
+        height: 315px;
     }
-    h2 {
-      color: #1e3a8a;
-      font-size: 26px;
-      margin-top: 30px;
-      margin-bottom: 15px;
+    button {
+        font-size: 18px;
+        padding: 12px 25px;
+        margin-top: 20px;
+        cursor: pointer;
     }
-    .instructions {
-      font-size: 16px;
-      margin-bottom: 18px;
-      padding: 10px;
-      background: #e0f2fe;
-      border-left: 5px solid #0284c7;
-      border-radius: 5px;
-    }
-    .sentence, .table-row {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-    input {
-      padding: 6px 8px;
-      font-size: 17px;
-      border-radius: 5px;
-      border: 1px solid #cbd5e1;
-      margin-left: 6px;
-      min-width: 150px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 5px;
-      margin-bottom: 15px;
-    }
-    table, td, th {
-      border: 1px solid #cbd5e1;
-    }
-    td, th {
-      padding: 10px;
-      font-size: 17px;
-      text-align: left;
-    }
-    textarea {
-      width: 100%;
-      height: 140px;
-      font-size: 16px;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #cbd5e1;
-      resize: none;
-      margin-top: 10px;
-    }
-  </style>
+</style>
 </head>
+
 <body>
 
-<div class="container">
+<h1>🎥 Watch the Video</h1>
 
-  <!-- PART 1 -->
-  <h2>Part 1: Simple Present</h2>
-  <div class="instructions">
-    Fill in the blanks with the correct <b>simple present</b> form of each verb.
-  </div>
+<iframe width="560" height="560" src="https://www.youtube.com/embed/nvVdIJ0las0?si=vCEUb2r9TXLjgqai" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-  <div class="sentence">1. Simon <input type="text"> (live) in London.</div>
-  <div class="sentence">2. He <input type="text"> (work) in a school.</div>
-  <div class="sentence">3. He <input type="text"> (start) work at 9 o’clock.</div>
-  <div class="sentence">4. He <input type="text"> (have) lunch at 12 o’clock.</div>
-  <div class="sentence">5. He <input type="text"> (finish) work at 3 o’clock.</div>
-  <div class="sentence">6. He <input type="text"> (read) books in the evenings.</div>
-  <div class="sentence">7. He <input type="text"> (go) to bed at 10 o’clock in the evening.</div>
+<br>
 
+<button onclick="goNext()">➡️ Next: Practice</button>
 
-  <!-- PART 2 -->
-  <h2>Part 2: Affirmative – Negative – Questions</h2>
-  <div class="instructions">
-    Complete the table using the verbs in brackets.
-  </div>
-
-  <table>
-    <tr>
-      <th>Affirmative</th>
-      <th>Negative</th>
-      <th>Question</th>
-    </tr>
-    <tr>
-      <td>He plays football.</td>
-      <td>He <input type="text"> play football.</td>
-      <td><input type="text"> he play football?</td>
-    </tr>
-    <tr>
-      <td>She likes music.</td>
-      <td>She <input type="text"> like music.</td>
-      <td><input type="text"> she like music?</td>
-    </tr>
-    <tr>
-      <td>They watch TV.</td>
-      <td>They <input type="text"> watch TV.</td>
-      <td><input type="text"> they watch TV?</td>
-    </tr>
-  </table>
-
-
-  <!-- PART 3 -->
-  <h2>Part 3: Writing Task</h2>
-  <div class="instructions">
-    Write about your daily routine (6–8 sentences).
-  </div>
-
-  <textarea placeholder="Example: I wake up at 7 o’clock. Then I..."></textarea>
-
-</div>
+<script>
+function goNext() {
+    window.location.href = "present2.html";
+}
+</script>
 
 </body>
 </html>
