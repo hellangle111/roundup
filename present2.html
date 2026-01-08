@@ -138,28 +138,37 @@
 </div>
 
 <button onclick="checkAnswers()">Check Answers</button>
-
-<script>function checkAnswers() {
+<script>
+function checkAnswers() {
   document.querySelectorAll('input').forEach(input => {
-    const correct = (input.dataset && input.dataset.answer)
-      ? input.dataset.answer.toLowerCase().trim()
-      : "";   // default fallback
+    const expected = input.dataset && input.dataset.answer 
+      ? input.dataset.answer.toLowerCase().trim() 
+      : null;
 
-    const user = input.value
-      ? input.value.toLowerCase().trim()
-      : "";   // default fallback
+    // Skip disabled or example inputs
+    if (input.disabled || input.hasAttribute("disabled") || expected === null) {
+      input.classList.remove("correct", "wrong");
+      return;
+    }
 
+    const user = input.value ? input.value.toLowerCase().trim() : "";
+
+    // Remove previous states
     input.classList.remove("correct", "wrong");
 
-    if (user === correct && user !== "") {
+    // Skip empty inputs (don't mark wrong)
+    if (user === "") return;
+
+    // Compare
+    if (user === expected) {
       input.classList.add("correct");
     } else {
       input.classList.add("wrong");
     }
   });
 }
-
 </script>
+
 
 </body>
 </html>
