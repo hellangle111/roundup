@@ -143,7 +143,7 @@
 function checkAnswers() {
   document.querySelectorAll('input').forEach(input => {
     const correct = input.dataset.answer.toLowerCase().trim();
-    const user = input.value.toLowerCase().trim();
+    const user = input.value ? input.value.toLowerCase().trim(): "";
     input.classList.remove("correct", "wrong");
     if (user === correct) {
       input.classList.add("correct");
