@@ -139,19 +139,26 @@
 
 <button onclick="checkAnswers()">Check Answers</button>
 
-<script>
-function checkAnswers() {
+<script>function checkAnswers() {
   document.querySelectorAll('input').forEach(input => {
-    const correct = input.dataset.answer.toLowerCase().trim();
-    const user = input.value ? input.value.toLowerCase().trim(): "";
+    const correct = (input.dataset && input.dataset.answer)
+      ? input.dataset.answer.toLowerCase().trim()
+      : "";   // default fallback
+
+    const user = input.value
+      ? input.value.toLowerCase().trim()
+      : "";   // default fallback
+
     input.classList.remove("correct", "wrong");
-    if (user === correct) {
+
+    if (user === correct && user !== "") {
       input.classList.add("correct");
     } else {
       input.classList.add("wrong");
     }
   });
 }
+
 </script>
 
 </body>
