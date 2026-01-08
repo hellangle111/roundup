@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lucy’s Daily Routine</title>
+
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #e8f0ff, #fefefe);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.section {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* IMAGE */
+.big-image {
+  text-align: center;
+}
+
+.big-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  border: 3px solid #d6e4ff;
+}
+
+/* EXAMPLE */
+.example {
+  background: #eaf7ff;
+  border-left: 6px solid #3498db;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* QUESTIONS */
+.question {
+  margin-bottom: 15px;
+}
+
+.question label {
+  font-weight: bold;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.result {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.correct { color: green; }
+.wrong { color: red; }
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  background: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3b5bdb;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>What does Lucy do every day?</h1>
+
+  <!-- PART 1: IMAGE -->
+  <div class="section big-image">
+    <img src="images2/lucy-daily.png" alt="Lucy daily routine">
+  </div>
+
+  <!-- PART 2: QUESTIONS -->
+  <div class="section">
+    <h2>Answer the questions</h2>
+
+    <div class="example">
+      <b>Example:</b><br>
+      What does Lucy do at 8 o’clock in the morning?<br>
+      ✅ <i>Lucy walks to school at 8 o’clock in the morning.</i>
+    </div>
+
+    <div class="question">
+      <label>1. What does Lucy do at 8 o’clock in the morning?</label>
+      <input id="q1">
+      <div id="r1" class="result"></div>
+    </div>
+
+    <div class="question">
+      <label>2. What does she do at 12 noon?</label>
+      <input id="q2">
+      <div id="r2" class="result"></div>
+    </div>
+
+    <div class="question">
+      <label>3. What does she do at 4 o’clock in the afternoon?</label>
+      <input id="q3">
+      <div id="r3" class="result"></div>
+    </div>
+
+    <div class="question">
+      <label>4. What does she do at 7 o’clock in the evening?</label>
+      <input id="q4">
+      <div id="r4" class="result"></div>
+    </div>
+
+    <button onclick="checkAnswers()">Check answers</button>
+  </div>
+</div>
+
+<script>
+const answers = {
+  q1: "lucy walks to school at 8 oclock in the morning",
+  q2: "she has lunch at 12 noon",
+  q3: "she does homework at 4 oclock in the afternoon",
+  q4: "she watches tv at 7 oclock in the evening"
+};
+
+function normalize(text) {
+  return text.toLowerCase()
+    .replace(/[.,?']/g, "")
+    .trim();
+}
+
+function checkAnswers() {
+  for (let q in answers) {
+    let user = normalize(document.getElementById(q).value);
+    let result = document.getElementById("r" + q.slice(1));
+
+    if (user === answers[q]) {
+      result.textContent = "✓ Correct";
+      result.className = "result correct";
+    } else {
+      result.textContent = "✗ Try again";
+      result.className = "result wrong";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
