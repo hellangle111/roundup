@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +8,18 @@
 <style>
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #e8f0ff, #fefefe);
+  background: #eef2f5;
   margin: 0;
   padding: 0;
 }
 
 .container {
   max-width: 900px;
-  margin: auto;
-  padding: 20px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 h1 {
@@ -23,75 +27,70 @@ h1 {
   color: #2c3e50;
 }
 
-.section {
-  background: white;
-  border-radius: 14px;
-  padding: 20px;
-  margin-bottom: 25px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-/* IMAGE */
-.big-image {
+.image-box {
   text-align: center;
+  margin: 20px 0;
 }
 
-.big-image img {
+.image-box img {
   max-width: 100%;
-  border-radius: 12px;
-  border: 3px solid #d6e4ff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
 }
 
-/* EXAMPLE */
 .example {
-  background: #eaf7ff;
+  background: #e8f4ff;
+  padding: 12px;
   border-left: 6px solid #3498db;
-  padding: 15px;
-  border-radius: 8px;
   margin-bottom: 20px;
+  font-style: italic;
 }
 
-/* QUESTIONS */
 .question {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
-.question label {
-  font-weight: bold;
+label {
+  font-weight: 600;
   display: block;
+  margin-bottom: 6px;
 }
 
 input {
   width: 100%;
   padding: 10px;
-  margin-top: 6px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
   font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 .result {
-  margin-top: 5px;
+  margin-top: 6px;
   font-weight: bold;
 }
 
-.correct { color: green; }
-.wrong { color: red; }
+.correct {
+  color: green;
+}
 
-/* BUTTON */
+.wrong {
+  color: red;
+}
+
 button {
-  width: 100%;
-  padding: 14px;
-  font-size: 18px;
-  background: #4a6cf7;
+  display: block;
+  margin: 25px auto 0;
+  padding: 12px 26px;
+  font-size: 16px;
+  background: #3498db;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
 button:hover {
-  background: #3b5bdb;
+  background: #2980b9;
 }
 </style>
 </head>
@@ -99,75 +98,85 @@ button:hover {
 <body>
 
 <div class="container">
-  <h1>What does Lucy do every day?</h1>
+  <h1>Lucy’s Daily Routine</h1>
 
-  <!-- PART 1: IMAGE -->
-  <div class="section big-image">
-    <img src="images2/lucy-daily.jpg" alt="Lucy daily routine">
+  <!-- IMAGE -->
+  <div class="image-box">
+    <img src="images2/lucy-routine.jpg" alt="Lucy daily routine">
   </div>
 
-  <!-- PART 2: QUESTIONS -->
-  <div class="section">
-    <h2>Answer the questions</h2>
-
-    <div class="example">
-      <b>Example:</b><br>
-      What does Lucy do at 8 o’clock in the morning?<br>
-      ✅ <i>Lucy walks to school at 8 o’clock in the morning.</i>
-    </div>
-
-    <div class="question">
-      <label>1. What does Lucy do at 8 o’clock in the morning?</label>
-      <input value="Lucy walks to school at 8 o’clock in the morning." id="q1">
-      <div id="r1" class="result"></div>
-    </div>
-
-    <div class="question">
-      <label>2. What does she do at 12 noon?</label>
-      <input id="q2">
-      <div id="r2" class="result"></div>
-    </div>
-
-    <div class="question">
-      <label>3. What does she do at 4 o’clock in the afternoon?</label>
-      <input id="q3">
-      <div id="r3" class="result"></div>
-    </div>
-
-    <div class="question">
-      <label>4. What does she do at 7 o’clock in the evening?</label>
-      <input id="q4">
-      <div id="r4" class="result"></div>
-    </div>
-
-    <button onclick="checkAnswers()">Check answers</button>
+  <!-- EXAMPLE -->
+  <div class="example">
+    <strong>Example:</strong><br>
+    What does Lucy do at 8 o’clock in the morning?<br>
+    → <strong>Lucy walks to school at 8 o’clock in the morning.</strong>
   </div>
+
+  <!-- QUESTIONS -->
+  <div class="question">
+    <label>1. What does Lucy do at 8 o’clock in the morning?</label>
+    <input id="q1">
+    <div id="r1" class="result"></div>
+  </div>
+
+  <div class="question">
+    <label>2. What does she do at 12 noon?</label>
+    <input id="q2">
+    <div id="r2" class="result"></div>
+  </div>
+
+  <div class="question">
+    <label>3. What does she do at 4 o’clock in the afternoon?</label>
+    <input id="q3">
+    <div id="r3" class="result"></div>
+  </div>
+
+  <div class="question">
+    <label>4. What does she do at 7 o’clock in the evening?</label>
+    <input id="q4">
+    <div id="r4" class="result"></div>
+  </div>
+
+  <button onclick="checkAnswers()">Check answers</button>
 </div>
 
 <script>
 const answers = {
-  q1: "lucy walks to school at 8 oclock in the morning",
-  q2: "she has lunch at 12 noon",
-  q3: "she does homework at 4 oclock in the afternoon",
-  q4: "she watches tv at 7 oclock in the evening"
+  q1: {
+    answer: "lucy walks to school at 8 oclock in the morning",
+    hint: "Use: walk to school + 8 o’clock in the morning"
+  },
+  q2: {
+    answer: "she has lunch at 12 noon",
+    hint: "Use: have lunch + 12 noon"
+  },
+  q3: {
+    answer: "she does homework at 4 oclock in the afternoon",
+    hint: "Use: do homework + 4 o’clock in the afternoon"
+  },
+  q4: {
+    answer: "she watches tv at 7 oclock in the evening",
+    hint: "Use: watch TV + 7 o’clock in the evening"
+  }
 };
 
 function normalize(text) {
   return text.toLowerCase()
     .replace(/[.,?']/g, "")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
 function checkAnswers() {
   for (let q in answers) {
-    let user = normalize(document.getElementById(q).value);
-    let result = document.getElementById("r" + q.slice(1));
+    const user = normalize(document.getElementById(q).value);
+    const result = document.getElementById("r" + q.slice(1));
 
-    if (user === answers[q]) {
-      result.textContent = "✓ Correct";
+    if (user === answers[q].answer) {
+      result.innerHTML = "✓ Correct";
       result.className = "result correct";
     } else {
-      result.textContent = "✗ Try again";
+      result.innerHTML = "✗ Try again<br><small>💡 Hint: " + answers[q].hint + "</small>";
       result.className = "result wrong";
     }
   }
