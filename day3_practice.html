@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Likes and Dislikes – Validation</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.question {
+    margin-bottom: 35px;
+}
+
+.line {
+    margin-bottom: 10px;
+}
+
+input {
+    width: 95%;
+    font-size: 16px;
+    padding: 6px;
+    border: none;
+    border-bottom: 2px dotted #333;
+    outline: none;
+}
+
+input:disabled {
+    color: #555;
+    font-weight: bold;
+}
+
+.result {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.correct { color: green; }
+.wrong { color: red; }
+
+.hint {
+    font-size: 14px;
+    color: #d32f2f;
+    display: none;
+    margin-left: 5px;
+}
+
+button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 18px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+    .clock-image {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<h2>Look at the picture and write sentences.</h2>
+
+
+<div class="clock-image">
+    <img src="images/day3.PNG" alt="clock faces">
+</div>
+
+<!-- ================= EXAMPLE ================= -->
+<div class="question">
+<h3>1. Example</h3>
+
+<div class="line">
+<input value="Caroline likes chicken, fish and pizza." disabled>
+</div>
+
+<div class="line">
+<input value="She does not like burgers or eggs." disabled>
+</div>
+</div>
+
+<!-- ================= QUESTION 2 ================= -->
+<div class="question">
+<h3>2. Tom and Jack</h3>
+
+<div class="line">
+<input id="t1" placeholder="Tom and Jack like ...">
+<span id="rt1" class="result"></span>
+<div id="ht1" class="hint">Hint: Check the food they like.</div>
+</div>
+
+<div class="line">
+<input id="t2" placeholder="They don't / do not like ...">
+<span id="rt2" class="result"></span>
+<div id="ht2" class="hint">Hint: Use don't like or do not like.</div>
+</div>
+</div>
+
+<!-- ================= QUESTION 3 ================= -->
+<div class="question">
+<h3>3. Mother</h3>
+
+<div class="line">
+<input id="m1" placeholder="Mother likes ...">
+<span id="rm1" class="result"></span>
+<div id="hm1" class="hint">Hint: What food does Mother like?</div>
+</div>
+
+<div class="line">
+<input id="m2" placeholder="She doesn't / does not like ...">
+<span id="rm2" class="result"></span>
+<div id="hm2" class="hint">Hint: Use doesn't like or does not like.</div>
+</div>
+</div>
+
+<button onclick="check()">✔ Check answers</button>
+
+<script>
+// normalize text
+function clean(text) {
+    return text.toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+// check if text contains ALL required words
+function hasWords(text, words) {
+    return words.every(w => text.includes(w));
+}
+
+// check positive sentence
+function checkPositive(inputId, resultId, hintId, keywords) {
+    const input = document.getElementById(inputId);
+    const result = document.getElementById(resultId);
+    const hint = document.getElementById(hintId);
+    const text = clean(input.value);
+
+    const hasLike = text.includes(" like ") || text.includes(" likes ");
+
+    if (hasLike && hasWords(text, keywords)) {
+        result.textContent = "✓";
+        result.className = "result correct";
+        hint.style.display = "none";
+    } else {
+        result.textContent = "✗";
+        result.className = "result wrong";
+        hint.style.display = "block";
+    }
+}
+
+// check negative sentence (accept all forms)
+function checkNegative(inputId, resultId, hintId, keywords) {
+    const input = document.getElementById(inputId);
+    const result = document.getElementById(resultId);
+    const hint = document.getElementById(hintId);
+    const text = clean(input.value);
+
+    const negativeOK =
+        text.includes("don't like") ||
+        text.includes("do not like") ||
+        text.includes("doesn't like") ||
+        text.includes("does not like");
+
+    if (negativeOK && hasWords(text, keywords)) {
+        result.textContent = "✓";
+        result.className = "result correct";
+        hint.style.display = "none";
+    } else {
+        result.textContent = "✗";
+        result.className = "result wrong";
+        hint.style.display = "block";
+    }
+}
+
+function check() {
+    // Tom & Jack
+    checkPositive("t1","rt1","ht1",["chicken","burgers","pizza"]);
+    checkNegative("t2","rt2","ht2",["fish","eggs"]);
+
+    // Mother
+    checkPositive("m1","rm1","hm1",["chicken","burgers","pizza"]);
+    checkNegative("m2","rm2","hm2",["fish","eggs"]);
+}
+</script>
+
+</body>
+</html>
