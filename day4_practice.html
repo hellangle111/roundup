@@ -1,200 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Likes and Dislikes – Validation</title>
+  <meta charset="UTF-8" />
+  <title>Grammar Practice – Do / Does</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: "Comic Sans MS", "Arial Rounded MT Bold", Arial, sans-serif;
+      background: linear-gradient(135deg, #b3e5fc, #e1bee7);
+      margin: 0;
+      padding: 20px;
+    }
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
+    h1 {
+      text-align: center;
+      color: #333;
+    }
 
-h2 {
-    margin-bottom: 15px;
-}
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
 
-.question {
-    margin-bottom: 35px;
-}
+    .person {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #1976d2;
+    }
 
-.line {
-    margin-bottom: 10px;
-}
+    .question {
+      margin: 10px 0;
+      padding: 10px;
+      background: #f5f5f5;
+      border-radius: 12px;
+    }
 
-input {
-    width: 95%;
-    font-size: 16px;
-    padding: 6px;
-    border: none;
-    border-bottom: 2px dotted #333;
-    outline: none;
-}
+    select {
+      font-size: 1em;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      margin-left: 10px;
+    }
 
-input:disabled {
-    color: #555;
-    font-weight: bold;
-}
+    button {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 30px;
+      font-size: 1.1em;
+      border-radius: 30px;
+      border: none;
+      background: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
 
-.result {
-    margin-left: 10px;
-    font-weight: bold;
-}
+    button:hover {
+      background: #43a047;
+    }
 
-.correct { color: green; }
-.wrong { color: red; }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-align: center;
+    }
 
-.hint {
-    font-size: 14px;
-    color: #d32f2f;
-    display: none;
-    margin-left: 5px;
-}
+    .correct {
+      color: #2e7d32;
+    }
 
-button {
-    margin-top: 30px;
-    padding: 12px 25px;
-    font-size: 18px;
-    background: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
+    .wrong {
+      color: #c62828;
+    }
 
+    .hint {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 10px;
+      text-align: center;
+    }
+	
 
     .clock-image {
         text-align: center;
         margin-bottom: 30px;
     }
-
-</style>
+  </style>
 </head>
-
 <body>
 
-<h2>Look at the picture and write sentences.</h2>
-
+<h1>🌟 Do / Does Grammar Practice 🌟</h1>
 
 <div class="clock-image">
-    <img src="images/day3.PNG" alt="clock faces">
+    <img src="images/day4.PNG" alt="clock faces">
+</div>
+<!-- Example: Chloe -->
+<div class="card">
+  <div class="person">👧 Chloe (Example)</div>
+
+  <div class="question">Does Chloe go to school?
+    <select disabled>
+      <option>Yes, she does.</option>
+    </select>
+  </div>
+
+  <div class="question">Does Chloe play tennis?
+    <select disabled>
+      <option>No, she doesn't.</option>
+    </select>
+  </div>
+
+  <div class="question">Does Chloe like fish?
+    <select disabled>
+      <option>No, she doesn't.</option>
+    </select>
+  </div>
+
+  <div class="hint">This is an example 😊</div>
 </div>
 
-<!-- ================= EXAMPLE ================= -->
-<div class="question">
-<h3>1. Example</h3>
+<!-- Sally & Ben -->
+<div class="card" data-answers='["Yes","No","Yes"]'>
+  <div class="person">🧒👧 Sally & Ben</div>
 
-<div class="line">
-<input value="Caroline likes chicken, fish and pizza." disabled>
+  <div class="question">Do Sally and Ben go to school?
+    <select>
+      <option value="">-- choose --</option>
+      <option value="Yes">Yes, they do.</option>
+      <option value="No">No, they don't.</option>
+    </select>
+  </div>
+
+  <div class="question">Do Sally and Ben play tennis?
+    <select>
+      <option value="">-- choose --</option>
+      <option value="Yes">Yes, they do.</option>
+      <option value="No">No, they don't.</option>
+    </select>
+  </div>
+
+  <div class="question">Do Sally and Ben like fish?
+    <select>
+      <option value="">-- choose --</option>
+      <option value="Yes">Yes, they do.</option>
+      <option value="No">No, they don't.</option>
+    </select>
+  </div>
+
+  <button onclick="checkAnswers(this)">Check Answers</button>
+  <div class="result"></div>
 </div>
 
-<div class="line">
-<input value="She does not like burgers or eggs." disabled>
-</div>
-</div>
+<!-- You -->
+<div class="card" data-answers='["Yes","Yes","No"]'>
+  <div class="person">🙂 You</div>
 
-<!-- ================= QUESTION 2 ================= -->
-<div class="question">
-<h3>2. Tom and Jack</h3>
+  <div class="question">Do you go to school?
+    <select>
+      <option value="">-- choose --</option>
+      <option value="Yes">Yes, I do.</option>
+      <option value="No">No, I don't.</option>
+    </select>
+  </div>
 
-<div class="line">
-<input id="t1">
-<span id="rt1" class="result"></span>
-<div id="ht1" class="hint">Hint: Check the food they like.</div>
-</div>
+  <div class="question">Do you play tennis?
+    <select>
+      <option value="">-- choose --</option>
+      <option value="Yes">Yes, I do.</option>
+      <option value="No">No, I don't.</option>
+    </select>
+  </div>
 
-<div class="line">
-<input id="t2">
-<span id="rt2" class="result"></span>
-<div id="ht2" class="hint">Hint: Use don't like or do not like.</div>
-</div>
-</div>
+  <div class="question">Do you like fish?
+    <select>
+      <option value="">-- choose --</option>
+      <option value="Yes">Yes, I do.</option>
+      <option value="No">No, I don't.</option>
+    </select>
+  </div>
 
-<!-- ================= QUESTION 3 ================= -->
-<div class="question">
-<h3>3. Mother</h3>
-
-<div class="line">
-<input id="m1">
-<span id="rm1" class="result"></span>
-<div id="hm1" class="hint">Hint: What food does Mother like?</div>
+  <button onclick="checkAnswers(this)">Check Answers</button>
+  <div class="result"></div>
 </div>
-
-<div class="line">
-<input id="m2">
-<span id="rm2" class="result"></span>
-<div id="hm2" class="hint">Hint: Use doesn't like or does not like.</div>
-</div>
-</div>
-
-<button onclick="check()">✔ Check answers</button>
 
 <script>
-// normalize text
-function clean(text) {
-    return text.toLowerCase().replace(/\s+/g, " ").trim();
-}
+  function checkAnswers(button) {
+    const card = button.parentElement;
+    const answers = JSON.parse(card.dataset.answers);
+    const selects = card.querySelectorAll('select');
+    const resultDiv = card.querySelector('.result');
 
-// check if text contains ALL required words
-function hasWords(text, words) {
-    return words.every(w => text.includes(w));
-}
+    let correct = 0;
 
-// check positive sentence
-function checkPositive(inputId, resultId, hintId, keywords) {
-    const input = document.getElementById(inputId);
-    const result = document.getElementById(resultId);
-    const hint = document.getElementById(hintId);
-    const text = clean(input.value);
+    selects.forEach((sel, i) => {
+      if (sel.value === answers[i]) {
+        correct++;
+      }
+    });
 
-    const hasLike = text.includes(" like ") || text.includes(" likes ");
-
-    if (hasLike && hasWords(text, keywords)) {
-        result.textContent = "✓";
-        result.className = "result correct";
-        hint.style.display = "none";
+    if (correct === answers.length) {
+      resultDiv.textContent = "🎉 Great job! All answers are correct!";
+      resultDiv.className = "result correct";
     } else {
-        result.textContent = "✗";
-        result.className = "result wrong";
-        hint.style.display = "block";
+      resultDiv.textContent = `😊 You got ${correct} / ${answers.length} correct. Try again!`;
+      resultDiv.className = "result wrong";
     }
-}
-
-// check negative sentence (accept all forms)
-function checkNegative(inputId, resultId, hintId, keywords) {
-    const input = document.getElementById(inputId);
-    const result = document.getElementById(resultId);
-    const hint = document.getElementById(hintId);
-    const text = clean(input.value);
-
-    const negativeOK =
-        text.includes("don't like") ||
-        text.includes("do not like") ||
-        text.includes("doesn't like") ||
-        text.includes("does not like");
-
-    if (negativeOK && hasWords(text, keywords)) {
-        result.textContent = "✓";
-        result.className = "result correct";
-        hint.style.display = "none";
-    } else {
-        result.textContent = "✗";
-        result.className = "result wrong";
-        hint.style.display = "block";
-    }
-}
-
-function check() {
-    // Tom & Jack
-    checkPositive("t1","rt1","ht1",["chicken","burgers","pizza"]);
-    checkNegative("t2","rt2","ht2",["fish","eggs"]);
-
-    // Mother
-    checkPositive("m1","rm1","hm1",["chicken","burgers","pizza"]);
-    checkNegative("m2","rm2","hm2",["fish","eggs"]);
-}
+  }
 </script>
 
 </body>
