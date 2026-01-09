@@ -10,51 +10,41 @@
       font-family: "Comic Sans MS", "Arial Rounded MT Bold", Arial, sans-serif;
       background: linear-gradient(135deg, #b3e5fc, #e1bee7);
       margin: 0;
+      padding: 20px;
     }
 
     h1 { text-align: center; }
 
-    img {
-      display: block;
-      margin: 0 auto 15px;
-      max-width: 100%;
-      border-radius: 16px;
-	  height: 200px;
+    .top {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
+
+    .top img {
+      max-width: 360px;
+      border-radius: 16px;
+    }
+
+    .example-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 420px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .example { color: #2e7d32; font-weight: bold; }
 
     .card {
       background: #fff;
       border-radius: 20px;
       padding: 20px;
-      margin: 20px auto;
       max-width: 820px;
+      margin: auto;
       box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 15px;
-    }
-
-    th, td {
-      border-bottom: 2px solid #ddd;
-      padding: 10px;
-      text-align: center;
-      font-size: 1.05em;
-    }
-
-    th { background: #f5f5f5; }
-
-    .person {
-      text-align: left;
-      font-weight: bold;
-      color: #1976d2;
-    }
-
-    .example {
-      color: #2e7d32;
-      font-weight: bold;
     }
 
     .section-title {
@@ -67,41 +57,29 @@
       display: grid;
       grid-template-columns: 50px 1fr 50px 1fr;
       gap: 10px;
-      align-items: center;
       margin: 10px 0;
+      align-items: center;
     }
 
-    .label {
-      font-weight: bold;
-      text-align: center;
-      color: #555;
-    }
+    .label { text-align: center; font-weight: bold; }
 
     .blank {
-      min-height: 28px;
       border-bottom: 3px dotted #555;
-      outline: none;
+      min-height: 28px;
       padding: 4px;
-      font-size: 1.05em;
+      outline: none;
     }
 
-    .blank.correct {
-      background: #e8f5e9;
-      border-bottom-color: #2e7d32;
-    }
-
-    .blank.wrong {
-      background: #ffebee;
-      border-bottom-color: #c62828;
-    }
+    .correct { background: #e8f5e9; border-bottom-color: #2e7d32; }
+    .wrong { background: #ffebee; border-bottom-color: #c62828; }
 
     button {
       display: block;
-      margin: 25px auto 0;
+      margin: 25px auto;
       padding: 12px 35px;
       font-size: 1.1em;
-      border: none;
       border-radius: 30px;
+      border: none;
       background: #4caf50;
       color: white;
       cursor: pointer;
@@ -122,74 +100,63 @@
 
 <h1>🌟 Do / Does Grammar Practice 🌟</h1>
 
-<img src="images/day4.png" alt="Day 4 picture">
+<div class="top">
+  <img src="images/day4.png" alt="Day 4 picture">
+
+  <div class="example-box">
+    <h2>🧒 Chloe (Example)</h2>
+    <p><strong>Does Chloe go to school?</strong><br><span class="example">Yes, she does.</span></p>
+    <p><strong>Does Chloe play tennis?</strong><br><span class="example">No, she doesn't.</span></p>
+    <p><strong>Does Chloe like fish?</strong><br><span class="example">No, she doesn't.</span></p>
+  </div>
+</div>
 
 <div class="card">
 
-  <!-- Chloe example -->
-  <div class="section-title">🧒👧 Chloe - Example</div>
-  <p><strong>Does Chloe go to school?</strong> <span class="example">Yes, she does.</span></p>
-  <p><strong>Does Chloe play tennis?</strong> <span class="example">No, she doesn't.</span></p>
-  <p><strong>Does Chloe like fish?</strong> <span class="example">No, she doesn't.</span></p>
+  <div class="section-title">🧒👧 Sally & Ben</div>
+  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" data-ok="yes they do|yes sally and ben do"></span></div>
+  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" data-ok="no they dont|no they do not|no sally and ben dont|no sally and ben do not"></span></div>
+  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" data-ok="yes they do|yes sally and ben do"></span></div>
 
-  <hr>
+  <div class="section-title">🙂 You</div>
+  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" data-ok="no i dont|no i do not"></span></div>
+  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" data-ok="yes i do"></span></div>
+  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" data-ok="no i dont|no i do not"></span></div>
 
-  <!-- Kids write everything -->
-  <div data-qa='[
-    {"q":"do sally and ben go to school","a":"yes, they do"},
-    {"q":"do sally and ben play tennis","a":"no, they don\\'t"},
-    {"q":"do sally and ben like fish","a":"yes, they do"},
-    {"q":"do you go to school","a":"no, i don\\'t"},
-    {"q":"do you play tennis","a":"yes, i do"},
-    {"q":"do you like fish","a":"no, i don\\'t"}
-  ]'>
-
-    <div class="section-title">🧒👧 Sally & Ben</div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
-
-    <div class="section-title">🙂 You</div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
-
-    <button onclick="checkAll(this)">✅ Check All Answers</button>
-    <div class="result"></div>
-  </div>
-
+  <button onclick="check()">✅ Check Answers</button>
+  <div class="result"></div>
 </div>
 
 <script>
 function norm(t){
-  return t.toLowerCase().replace(/[?.,!]/g,'').replace(/\s+/g,' ').trim();
+  return t.toLowerCase()
+    .replace(/[?.,!']/g,'')
+    .replace(/\s+/g,' ')
+    .trim();
 }
 
-function checkAll(btn){
-  const box = btn.parentElement;
-  const qa = JSON.parse(box.dataset.qa);
-  const blanks = box.querySelectorAll('.blank');
+function check(){
+  const answers = document.querySelectorAll('.answer');
   let correct = 0;
 
-  blanks.forEach((b,i)=>{
-    const expected = i % 2 === 0
-      ? qa[Math.floor(i/2)].q
-      : qa[Math.floor(i/2)].a;
+  answers.forEach(a=>{
+    const ok = a.dataset.ok.split('|');
+    const user = norm(a.textContent);
 
-    if(norm(b.textContent) === expected){
-      b.className = 'blank correct';
+    if(ok.some(v => norm(v) === user)){
+      a.className = 'blank answer correct';
       correct++;
     } else {
-      b.className = 'blank wrong';
+      a.className = 'blank answer wrong';
     }
   });
 
-  const r = box.querySelector('.result');
-  if(correct === blanks.length){
-    r.textContent = '🎉 Perfect! Everything is correct!';
+  const r = document.querySelector('.result');
+  if(correct === answers.length){
+    r.textContent = '🎉 Great job! All answers are correct!';
     r.className = 'result correct-text';
   } else {
-    r.textContent = `😊 ${correct}/${blanks.length} correct. Check the table and try again.`;
+    r.textContent = `😊 ${correct}/${answers.length} correct. Remember: Sally and Ben = they.`;
     r.className = 'result wrong-text';
   }
 }
