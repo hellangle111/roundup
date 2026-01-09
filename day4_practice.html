@@ -1,99 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Grammar Practice – Do / Does</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<title>Grammar Practice – Do / Does</title>
 
-  <style>
-    body {
-      font-family: "Comic Sans MS", "Arial Rounded MT Bold", Arial, sans-serif;
-      background: linear-gradient(135deg, #b3e5fc, #e1bee7);
-      margin: 0;
-      padding: 20px;
-    }
+<style>
+body {
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  background: linear-gradient(135deg, #b3e5fc, #e1bee7);
+  padding: 20px;
+}
 
-    h1 { text-align: center; }
+h1 { text-align: center; }
 
-    .top {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
+.top {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-    .top img {
-      max-width: 360px;
-      border-radius: 16px;
-    }
+.top img {
+  max-width: 360px;
+  border-radius: 16px;
+}
 
-    .example-box {
-      background: #fff;
-      border-radius: 20px;
-      padding: 20px;
-      max-width: 420px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
+.example-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 420px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.15);
+}
 
-    .example { color: #2e7d32; font-weight: bold; }
+.example { color: green; font-weight: bold; }
 
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 20px;
-      max-width: 820px;
-      margin: auto;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 820px;
+  margin: 20px auto;
+  box-shadow: 0 10px 20px rgba(0,0,0,.15);
+}
 
-    .section-title {
-      font-size: 1.4em;
-      color: #1976d2;
-      margin: 15px 0 5px;
-    }
+.section-title {
+  font-size: 1.4em;
+  color: #1976d2;
+  margin: 15px 0;
+}
 
-    .row {
-      display: grid;
-      grid-template-columns: 50px 1fr 50px 1fr;
-      gap: 10px;
-      margin: 10px 0;
-      align-items: center;
-    }
+.row {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 
-    .label { text-align: center; font-weight: bold; }
+.label { text-align: center; font-weight: bold; }
 
-    .blank {
-      border-bottom: 3px dotted #555;
-      min-height: 28px;
-      padding: 4px;
-      outline: none;
-    }
+.blank {
+  min-height: 28px;
+  border-bottom: 3px dotted #555;
+  padding: 4px;
+}
 
-    .correct { background: #e8f5e9; border-bottom-color: #2e7d32; }
-    .wrong { background: #ffebee; border-bottom-color: #c62828; }
+.correct { background: #e8f5e9; border-bottom-color: green; }
+.wrong { background: #ffebee; border-bottom-color: red; }
 
-    button {
-      display: block;
-      margin: 25px auto;
-      padding: 12px 35px;
-      font-size: 1.1em;
-      border-radius: 30px;
-      border: none;
-      background: #4caf50;
-      color: white;
-      cursor: pointer;
-    }
+button {
+  display: block;
+  margin: 25px auto;
+  padding: 12px 35px;
+  font-size: 1.1em;
+  border-radius: 30px;
+  border: none;
+  background: #4caf50;
+  color: white;
+}
 
-    .result {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .correct-text { color: #2e7d32; }
-    .wrong-text { color: #c62828; }
-  </style>
+.result {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.correct-text { color: green; }
+.wrong-text { color: red; }
+</style>
 </head>
 
 <body>
@@ -101,62 +94,100 @@
 <h1>🌟 Do / Does Grammar Practice 🌟</h1>
 
 <div class="top">
-  <img src="images/day4.png" alt="Day 4 picture">
+  <img src="images/day4.png">
 
   <div class="example-box">
     <h2>🧒 Chloe (Example)</h2>
-    <p><strong>Does Chloe go to school?</strong><br><span class="example">Yes, she does.</span></p>
-    <p><strong>Does Chloe play tennis?</strong><br><span class="example">No, she doesn't.</span></p>
-    <p><strong>Does Chloe like fish?</strong><br><span class="example">No, she doesn't.</span></p>
+    <p><b>Does Chloe go to school?</b><br><span class="example">Yes, she does.</span></p>
+    <p><b>Does Chloe play tennis?</b><br><span class="example">No, she doesn't.</span></p>
+    <p><b>Does Chloe like fish?</b><br><span class="example">No, she doesn't.</span></p>
   </div>
 </div>
 
 <div class="card">
 
-  <div class="section-title">🧒👧 Sally & Ben</div>
-  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" contenteditable data-ok="yes they do|yes sally and ben do"></span></div>
-  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" contenteditable data-ok="no they dont|no they do not|no sally and ben dont|no sally and ben do not"></span></div>
-  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" contenteditable data-ok="yes they do|yes sally and ben do"></span></div>
+<div class="section-title">🧒👧 Sally & Ben</div>
 
-  <div class="section-title">🙂 You</div>
-  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" contenteditable data-ok="no i dont|no i do not"></span></div>
-  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" contenteditable data-ok="yes i do"></span></div>
-  <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank answer" contenteditable data-ok="no i dont|no i do not"></span></div>
+<div class="row" data-q-ok="do sally and ben go to school|do they go to school"
+                 data-a-ok="yes they do|yes sally and ben do">
+  <span class="label">Q</span><span class="blank q" contenteditable></span>
+  <span class="label">A</span><span class="blank a" contenteditable></span>
+</div>
 
-  <button onclick="check()">✅ Check Answers</button>
-  <div class="result"></div>
+<div class="row" data-q-ok="do sally and ben play tennis|do they play tennis"
+                 data-a-ok="no they dont|no they do not|no sally and ben dont|no sally and ben do not">
+  <span class="label">Q</span><span class="blank q" contenteditable></span>
+  <span class="label">A</span><span class="blank a" contenteditable></span>
+</div>
+
+<div class="row" data-q-ok="do sally and ben like fish|do they like fish"
+                 data-a-ok="yes they do|yes sally and ben do">
+  <span class="label">Q</span><span class="blank q" contenteditable></span>
+  <span class="label">A</span><span class="blank a" contenteditable></span>
+</div>
+
+<div class="section-title">🙂 You</div>
+
+<div class="row" data-q-ok="do you go to school"
+                 data-a-ok="no i dont|no i do not">
+  <span class="label">Q</span><span class="blank q" contenteditable></span>
+  <span class="label">A</span><span class="blank a" contenteditable></span>
+</div>
+
+<div class="row" data-q-ok="do you play tennis"
+                 data-a-ok="yes i do">
+  <span class="label">Q</span><span class="blank q" contenteditable></span>
+  <span class="label">A</span><span class="blank a" contenteditable></span>
+</div>
+
+<div class="row" data-q-ok="do you like fish"
+                 data-a-ok="no i dont|no i do not">
+  <span class="label">Q</span><span class="blank q" contenteditable></span>
+  <span class="label">A</span><span class="blank a" contenteditable></span>
+</div>
+
+<button onclick="checkAll()">✅ Check Answers</button>
+<div class="result"></div>
+
 </div>
 
 <script>
 function norm(t){
   return t.toLowerCase()
     .replace(/[?.,!']/g,'')
+    .replace(/\bdo not\b/g,'dont')
+    .replace(/\bdoes not\b/g,'doesnt')
     .replace(/\s+/g,' ')
     .trim();
 }
 
-function check(){
-  const answers = document.querySelectorAll('.answer');
-  let correct = 0;
+function checkAll(){
+  let total = 0, ok = 0;
 
-  answers.forEach(a=>{
-    const ok = a.dataset.ok.split('|');
-    const user = norm(a.textContent);
+  document.querySelectorAll('.row').forEach(row=>{
+    const q = row.querySelector('.q');
+    const a = row.querySelector('.a');
 
-    if(ok.some(v => norm(v) === user)){
-      a.className = 'blank answer correct';
-      correct++;
-    } else {
-      a.className = 'blank answer wrong';
-    }
+    const qOk = row.dataset.qOk.split('|');
+    const aOk = row.dataset.aOk.split('|');
+
+    const qGood = qOk.some(v => norm(v) === norm(q.textContent));
+    const aGood = aOk.some(v => norm(v) === norm(a.textContent));
+
+    q.className = 'blank q ' + (qGood ? 'correct' : 'wrong');
+    a.className = 'blank a ' + (aGood ? 'correct' : 'wrong');
+
+    total += 2;
+    if(qGood) ok++;
+    if(aGood) ok++;
   });
 
   const r = document.querySelector('.result');
-  if(correct === answers.length){
-    r.textContent = '🎉 Great job! All answers are correct!';
+  if(ok === total){
+    r.textContent = '🎉 Perfect! All questions and answers are correct!';
     r.className = 'result correct-text';
   } else {
-    r.textContent = `😊 ${correct}/${answers.length} correct. Remember: Sally and Ben = they.`;
+    r.textContent = `😊 ${ok}/${total} correct. Remember: Sally and Ben = they.`;
     r.className = 'result wrong-text';
   }
 }
