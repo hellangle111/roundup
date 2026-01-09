@@ -10,7 +10,6 @@
       font-family: "Comic Sans MS", "Arial Rounded MT Bold", Arial, sans-serif;
       background: linear-gradient(135deg, #b3e5fc, #e1bee7);
       margin: 0;
-      padding: 20px;
     }
 
     h1 { text-align: center; }
@@ -20,6 +19,7 @@
       margin: 0 auto 15px;
       max-width: 100%;
       border-radius: 16px;
+	  height: 200px;
     }
 
     .card {
@@ -126,35 +126,8 @@
 
 <div class="card">
 
-  <!-- Table -->
-  <table>
-    <tr>
-      <th></th>
-      <th>go to school</th>
-      <th>play tennis</th>
-      <th>like fish</th>
-    </tr>
-    <tr>
-      <td class="person">Chloe</td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="person">Sally & Ben</td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td class="person">You</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-  </table>
-
   <!-- Chloe example -->
+  <div class="section-title">🧒👧 Chloe - Example</div>
   <p><strong>Does Chloe go to school?</strong> <span class="example">Yes, she does.</span></p>
   <p><strong>Does Chloe play tennis?</strong> <span class="example">No, she doesn't.</span></p>
   <p><strong>Does Chloe like fish?</strong> <span class="example">No, she doesn't.</span></p>
@@ -172,14 +145,14 @@
   ]'>
 
     <div class="section-title">🧒👧 Sally & Ben</div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable>.....</span><span class="label">A</span><span class="blank" contenteditable>.....</span></div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable>.....</span><span class="label">A</span><span class="blank" contenteditable>.....</span></div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable>.....</span><span class="label">A</span><span class="blank" contenteditable>.....</span></div>
+    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
+    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
+    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
 
     <div class="section-title">🙂 You</div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable>.....</span><span class="label">A</span><span class="blank" contenteditable>.....</span></div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable>.....</span><span class="label">A</span><span class="blank" contenteditable>.....</span></div>
-    <div class="row"><span class="label">Q</span><span class="blank" contenteditable>.....</span><span class="label">A</span><span class="blank" contenteditable>.....</span></div>
+    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
+    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
+    <div class="row"><span class="label">Q</span><span class="blank" contenteditable></span><span class="label">A</span><span class="blank" contenteditable></span></div>
 
     <button onclick="checkAll(this)">✅ Check All Answers</button>
     <div class="result"></div>
