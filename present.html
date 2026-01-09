@@ -54,8 +54,19 @@
         outline: none;
     }
 
-    input::placeholder {
-        color: #aaa;
+    .result {
+        font-size: 18px;
+        margin-left: 5px;
+    }
+
+    .correct { color: green; }
+    .wrong { color: red; }
+
+    button {
+        margin-top: 30px;
+        font-size: 18px;
+        padding: 10px 25px;
+        cursor: pointer;
     }
 </style>
 </head>
@@ -67,39 +78,86 @@
 Write four sentences.
 </h2>
 
-<!-- SINGLE IMAGE WITH ALL CLOCKS -->
 <div class="clock-image">
     <img src="images/clock.PNG" alt="clock faces">
 </div>
 
-<!-- WRITING LINES -->
 <div class="writing">
 
     <div>
         <div class="line">
             <span>1</span>
-            <input placeholder="I ...">
+            <input id="q1" placeholder="I ...">
+            <span id="r1" class="result"></span>
         </div>
 
         <div class="line">
             <span>2</span>
-            <input placeholder="I ...">
+            <input id="q2" placeholder="I ...">
+            <span id="r2" class="result"></span>
         </div>
     </div>
 
     <div>
         <div class="line">
             <span>3</span>
-            <input placeholder="I ...">
+            <input id="q3" placeholder="I ...">
+            <span id="r3" class="result"></span>
         </div>
 
         <div class="line">
             <span>4</span>
-            <input placeholder="I ...">
+            <input id="q4" placeholder="I ...">
+            <span id="r4" class="result"></span>
         </div>
     </div>
 
 </div>
+
+<button onclick="check()">✔ Check answers</button>
+
+<script>
+function checkSentence(text, expectedTime) {
+    text = text.toLowerCase();
+
+    // must start with "i"
+    if (!text.startsWith("i ")) return false;
+
+    // must contain correct time
+    if (!text.includes("at " + expectedTime)) return false;
+
+    // check verb after "I "
+    const words = text.split(" ");
+    if (words.length > 1) {
+        const verb = words[1];
+        if (verb.endsWith("s") || verb.endsWith("es")) return false;
+    }
+
+    return true;
+}
+
+function check() {
+    const checks = [
+        {id:1, time:"7 o'clock"},
+        {id:2, time:"12 o'clock"},
+        {id:3, time:"3 o'clock"},
+        {id:4, time:"6 o'clock"}
+    ];
+
+    checks.forEach(item => {
+        const input = document.getElementById("q" + item.id);
+        const result = document.getElementById("r" + item.id);
+
+        if (checkSentence(input.value.trim(), item.time)) {
+            result.textContent = "✓";
+            result.className = "result correct";
+        } else {
+            result.textContent = "✗";
+            result.className = "result wrong";
+        }
+    });
+}
+</script>
 
 </body>
 </html>
