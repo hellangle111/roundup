@@ -101,6 +101,18 @@ button {
 button:hover {
     background: #388e3c;
 }
+.example {
+    font-size: 17px;
+    padding: 6px 10px;
+    width: 250px;
+    border-bottom: 2px dotted #333;
+    font-weight: bold;
+}
+
+.highlight {
+    color: red;
+}
+
 </style>
 </head>
 
@@ -115,8 +127,8 @@ button:hover {
 <div>
 <h3>Long Form</h3>
 
-<div class="question">
-<input value="We do not like fish." disabled>
+<div class="question example">
+    We <span class="highlight">do not</span> like fish.
 </div>
 
 <div class="question">
@@ -149,8 +161,8 @@ He <input id="l5"> play tennis.
 <div>
 <h3>Short Form</h3>
 
-<div class="question">
-<input value="We don't like fish." disabled>
+<div class="question example">
+We <span class="highlight">don't</span> like fish.
 </div>
 
 <div class="question">
