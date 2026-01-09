@@ -244,25 +244,55 @@ He <input id="s5"> play tennis.
 </div>
 
 <button onclick="check()">✔ Check answers</button>
-
 <script>
+function normalize(text) {
+    return text
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
 function check() {
-    const answers = {
-        l1:"does not", l2:"do not", l3:"do not", l4:"do not", l5:"does not",
-        s1:"doesn't", s2:"don't", s3:"don't", s4:"don't", s5:"doesn't",
-        q71:"doesn't like",
-        q72:"doesn't have",
-        q73:"doesn't watch",
-        q74:"don't live",
-        q75:"don't ride"
+
+    /* ===== Exercise 6 (strict) ===== */
+    const strictAnswers = {
+        l1:["does not"], l2:["do not"], l3:["do not"], l4:["do not"], l5:["does not"],
+        s1:["doesn't"], s2:["don't"], s3:["don't"], s4:["don't"], s5:["doesn't"]
     };
 
-    for (let id in answers) {
+    /* ===== Exercise 7 (flexible: long OR short form) ===== */
+    const flexibleAnswers = {
+        q71:["doesn't like", "does not like"],
+        q72:["doesn't have", "does not have"],
+        q73:["doesn't watch", "does not watch"],
+        q74:["don't live", "do not live"],
+        q75:["don't ride", "do not ride"]
+    };
+
+    /* ===== Check Exercise 6 ===== */
+    for (let id in strictAnswers) {
         const input = document.getElementById(id);
         const result = document.getElementById("r" + id);
         if (!input) continue;
 
-        if (input.value.trim().toLowerCase() === answers[id]) {
+        const value = normalize(input.value);
+        if (strictAnswers[id].includes(value)) {
+            result.textContent = "✓";
+            result.className = "result correct";
+        } else {
+            result.textContent = "✗";
+            result.className = "result wrong";
+        }
+    }
+
+    /* ===== Check Exercise 7 ===== */
+    for (let id in flexibleAnswers) {
+        const input = document.getElementById(id);
+        const result = document.getElementById("r" + id);
+        if (!input) continue;
+
+        const value = normalize(input.value);
+        if (flexibleAnswers[id].includes(value)) {
             result.textContent = "✓";
             result.className = "result correct";
         } else {
@@ -272,6 +302,7 @@ function check() {
     }
 }
 </script>
+
 
 </body>
 </html>
