@@ -22,7 +22,7 @@
       border-radius: 20px;
       padding: 20px;
       margin: 20px auto;
-      max-width: 700px;
+      max-width: 720px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
 
@@ -33,18 +33,30 @@
     }
 
     .question {
-      margin: 10px 0;
-      padding: 10px;
+      margin: 12px 0;
+      padding: 12px;
       background: #f5f5f5;
       border-radius: 12px;
+      font-size: 1.05em;
     }
 
-    select {
+    input[type="text"] {
       font-size: 1em;
       padding: 6px 10px;
       border-radius: 10px;
       border: 2px solid #ccc;
+      width: 220px;
       margin-left: 10px;
+    }
+
+    input.correct {
+      border-color: #2e7d32;
+      background: #e8f5e9;
+    }
+
+    input.wrong {
+      border-color: #c62828;
+      background: #ffebee;
     }
 
     button {
@@ -70,11 +82,11 @@
       text-align: center;
     }
 
-    .correct {
+    .correct-text {
       color: #2e7d32;
     }
 
-    .wrong {
+    .wrong-text {
       color: #c62828;
     }
 
@@ -84,7 +96,12 @@
       margin-top: 10px;
       text-align: center;
     }
-	
+
+    .example-answer {
+      font-weight: bold;
+      color: #2e7d32;
+      margin-left: 10px;
+    }
 
     .clock-image {
         text-align: center;
@@ -99,116 +116,108 @@
 <div class="clock-image">
     <img src="images/day4.PNG" alt="clock faces">
 </div>
+
 <!-- Example: Chloe -->
 <div class="card">
   <div class="person">👧 Chloe (Example)</div>
 
-  <div class="question">Does Chloe go to school?
-    <select disabled>
-      <option>Yes, she does.</option>
-    </select>
+  <div class="question">
+    Does Chloe go to school?
+    <span class="example-answer">Yes, she does.</span>
   </div>
 
-  <div class="question">Does Chloe play tennis?
-    <select disabled>
-      <option>No, she doesn't.</option>
-    </select>
+  <div class="question">
+    Does Chloe play tennis?
+    <span class="example-answer">No, she doesn't.</span>
   </div>
 
-  <div class="question">Does Chloe like fish?
-    <select disabled>
-      <option>No, she doesn't.</option>
-    </select>
+  <div class="question">
+    Does Chloe like fish?
+    <span class="example-answer">No, she doesn't.</span>
   </div>
 
-  <div class="hint">This is an example 😊</div>
+  <div class="hint">Look at Chloe to learn how to answer 😊</div>
 </div>
 
 <!-- Sally & Ben -->
-<div class="card" data-answers='["Yes","No","Yes"]'>
+<div class="card" data-answers='["yes, they do","no, they don't","yes, they do"]'>
   <div class="person">🧒👧 Sally & Ben</div>
 
-  <div class="question">Do Sally and Ben go to school?
-    <select>
-      <option value="">-- choose --</option>
-      <option value="Yes">Yes, they do.</option>
-      <option value="No">No, they don't.</option>
-    </select>
+  <div class="question">
+    Do Sally and Ben go to school?
+    <input type="text" placeholder="Type your answer" />
   </div>
 
-  <div class="question">Do Sally and Ben play tennis?
-    <select>
-      <option value="">-- choose --</option>
-      <option value="Yes">Yes, they do.</option>
-      <option value="No">No, they don't.</option>
-    </select>
+  <div class="question">
+    Do Sally and Ben play tennis?
+    <input type="text" placeholder="Type your answer" />
   </div>
 
-  <div class="question">Do Sally and Ben like fish?
-    <select>
-      <option value="">-- choose --</option>
-      <option value="Yes">Yes, they do.</option>
-      <option value="No">No, they don't.</option>
-    </select>
+  <div class="question">
+    Do Sally and Ben like fish?
+    <input type="text" placeholder="Type your answer" />
   </div>
 
-  <button onclick="checkAnswers(this)">Check Answers</button>
+  <button onclick="checkTextAnswers(this)">Check Answers</button>
   <div class="result"></div>
 </div>
 
 <!-- You -->
-<div class="card" data-answers='["Yes","Yes","No"]'>
+<div class="card" data-answers='["yes, i do","yes, i do","no, i don't"]'>
   <div class="person">🙂 You</div>
 
-  <div class="question">Do you go to school?
-    <select>
-      <option value="">-- choose --</option>
-      <option value="Yes">Yes, I do.</option>
-      <option value="No">No, I don't.</option>
-    </select>
+  <div class="question">
+    Do you go to school?
+    <input type="text" placeholder="Type your answer" />
   </div>
 
-  <div class="question">Do you play tennis?
-    <select>
-      <option value="">-- choose --</option>
-      <option value="Yes">Yes, I do.</option>
-      <option value="No">No, I don't.</option>
-    </select>
+  <div class="question">
+    Do you play tennis?
+    <input type="text" placeholder="Type your answer" />
   </div>
 
-  <div class="question">Do you like fish?
-    <select>
-      <option value="">-- choose --</option>
-      <option value="Yes">Yes, I do.</option>
-      <option value="No">No, I don't.</option>
-    </select>
+  <div class="question">
+    Do you like fish?
+    <input type="text" placeholder="Type your answer" />
   </div>
 
-  <button onclick="checkAnswers(this)">Check Answers</button>
+  <button onclick="checkTextAnswers(this)">Check Answers</button>
   <div class="result"></div>
 </div>
 
 <script>
-  function checkAnswers(button) {
+  function normalize(text) {
+    return text.toLowerCase().replace(/\s+/g, ' ').trim();
+  }
+
+  function checkTextAnswers(button) {
     const card = button.parentElement;
     const answers = JSON.parse(card.dataset.answers);
-    const selects = card.querySelectorAll('select');
+    const inputs = card.querySelectorAll('input');
     const resultDiv = card.querySelector('.result');
 
     let correct = 0;
 
-    selects.forEach((sel, i) => {
-      if (sel.value === answers[i]) {
+    inputs.forEach((input, i) => {
+      const userAnswer = normalize(input.value);
+      const correctAnswer = answers[i];
+
+      if (userAnswer === correctAnswer) {
         correct++;
+        input.classList.remove('wrong');
+        input.classList.add('correct');
+      } else {
+        input.classList.remove('correct');
+        input.classList.add('wrong');
       }
     });
 
     if (correct === answers.length) {
-      resultDiv.textContent = "🎉 Great job! All answers are correct!";
-      resultDiv.className = "result correct";
+      resultDiv.textContent = "🎉 Perfect! All answers are correct!";
+      resultDiv.className = "result correct-text";
     } else {
-      resultDiv.textContent = `😊 You got ${correct} / ${answers.length} correct. Try again!`;
-      resultDiv.className = "result wrong";
+      resultDiv.textContent = `😊 ${correct} / ${answers.length} correct. Try again!`;
+      resultDiv.className = "result wrong-text";
     }
   }
 </script>
