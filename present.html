@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Daily Activities – Time</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .clock-image {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .clock-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .writing {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .line {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .line span {
+        font-size: 18px;
+        width: 25px;
+    }
+
+    input {
+        width: 100%;
+        font-size: 18px;
+        padding: 8px;
+        border: none;
+        border-bottom: 2px dotted #333;
+        outline: none;
+    }
+
+    input::placeholder {
+        color: #aaa;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>
+5️⃣ Look at the clock faces. What do you do every day at this time?
+Write four sentences.
+</h2>
+
+<!-- SINGLE IMAGE WITH ALL CLOCKS -->
+<div class="clock-image">
+    <img src="images/clock.PNG" alt="clock faces">
+</div>
+
+<!-- WRITING LINES -->
+<div class="writing">
+
+    <div>
+        <div class="line">
+            <span>1</span>
+            <input placeholder="I ...">
+        </div>
+
+        <div class="line">
+            <span>2</span>
+            <input placeholder="I ...">
+        </div>
+    </div>
+
+    <div>
+        <div class="line">
+            <span>3</span>
+            <input placeholder="I ...">
+        </div>
+
+        <div class="line">
+            <span>4</span>
+            <input placeholder="I ...">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
