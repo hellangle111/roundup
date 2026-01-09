@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Present Simple – Negative</title>
+
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px;
+    background: #fafafa;
+}
+
+h2 {
+    margin: 35px 0 15px;
+    font-size: 24px;
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: #2e7d32;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+.question {
+    margin-bottom: 16px;
+    font-size: 17px;
+}
+
+input {
+    font-size: 17px;
+    padding: 6px 10px;
+    width: 100px;
+    border: none;
+    border-bottom: 2px dotted #333;
+    outline: none;
+    background: transparent;
+}
+
+input:disabled {
+    color: #1b5e20;
+    font-weight: bold;
+}
+
+.result {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.correct { color: green; }
+.wrong { color: red; }
+
+/* ===== Exercise 7 ===== */
+.exercise7 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+.card img {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+button {
+    margin-top: 35px;
+    padding: 12px 28px;
+    font-size: 18px;
+    cursor: pointer;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    background: #388e3c;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===================== EXERCISE 6 ===================== -->
+<h2>6️⃣ Complete the sentences as in the examples</h2>
+
+<div class="grid-2">
+
+<!-- LONG FORM -->
+<div>
+<h3>Long Form</h3>
+
+<div class="question">
+<input value="We do not like fish." disabled>
+</div>
+
+<div class="question">
+She <input id="l1"> eat chicken.
+<span id="rl1" class="result"></span>
+</div>
+
+<div class="question">
+I <input id="l2"> drive a car.
+<span id="rl2" class="result"></span>
+</div>
+
+<div class="question">
+They <input id="l3"> do their homework.
+<span id="rl3" class="result"></span>
+</div>
+
+<div class="question">
+You <input id="l4"> live in Italy.
+<span id="rl4" class="result"></span>
+</div>
+
+<div class="question">
+He <input id="l5"> play tennis.
+<span id="rl5" class="result"></span>
+</div>
+</div>
+
+<!-- SHORT FORM -->
+<div>
+<h3>Short Form</h3>
+
+<div class="question">
+<input value="We don't like fish." disabled>
+</div>
+
+<div class="question">
+She <input id="s1"> eat chicken.
+<span id="rs1" class="result"></span>
+</div>
+
+<div class="question">
+I <input id="s2"> drive a car.
+<span id="rs2" class="result"></span>
+</div>
+
+<div class="question">
+They <input id="s3"> do their homework.
+<span id="rs3" class="result"></span>
+</div>
+
+<div class="question">
+You <input id="s4"> live in Italy.
+<span id="rs4" class="result"></span>
+</div>
+
+<div class="question">
+He <input id="s5"> play tennis.
+<span id="rs5" class="result"></span>
+</div>
+</div>
+
+</div>
+
+<!-- ===================== EXERCISE 7 ===================== -->
+<h2>7️⃣ Look and write. Put the verbs in brackets into the present simple negative.</h2>
+
+<div class="exercise7">
+
+<!-- EXAMPLE -->
+<div class="card">
+<img src="images/1.PNG">
+<p><b>Example</b></p>
+<p>They …… (start) school at 9 o’clock.</p>
+<input value="don't start" disabled>
+</div>
+
+<div class="card">
+<img src="images/2.PNG">
+<p>He …… (like) fish.</p>
+<input id="q71">
+<span id="rq71" class="result"></span>
+</div>
+
+<div class="card">
+<img src="images/3.PNG">
+<p>She …… (have) lunch at 12 o’clock.</p>
+<input id="q72">
+<span id="rq72" class="result"></span>
+</div>
+
+<div class="card">
+<img src="images/4.PNG">
+<p>He …… (watch) TV in the evenings.</p>
+<input id="q73">
+<span id="rq73" class="result"></span>
+</div>
+
+<div class="card">
+<img src="images/5.PNG">
+<p>We …… (live) in Paris.</p>
+<input id="q74">
+<span id="rq74" class="result"></span>
+</div>
+
+<div class="card">
+<img src="images/6.PNG">
+<p>I …… (ride) my bike to school.</p>
+<input id="q75">
+<span id="rq75" class="result"></span>
+</div>
+
+</div>
+
+<button onclick="check()">✔ Check answers</button>
+
+<script>
+function check() {
+    const answers = {
+        l1:"does not", l2:"do not", l3:"do not", l4:"do not", l5:"does not",
+        s1:"doesn't", s2:"don't", s3:"don't", s4:"don't", s5:"doesn't",
+        q71:"doesn't like",
+        q72:"doesn't have",
+        q73:"doesn't watch",
+        q74:"don't live",
+        q75:"don't ride"
+    };
+
+    for (let id in answers) {
+        const input = document.getElementById(id);
+        const result = document.getElementById("r" + id);
+        if (!input) continue;
+
+        if (input.value.trim().toLowerCase() === answers[id]) {
+            result.textContent = "✓";
+            result.className = "result correct";
+        } else {
+            result.textContent = "✗";
+            result.className = "result wrong";
+        }
+    }
+}
+</script>
+
+</body>
+</html>

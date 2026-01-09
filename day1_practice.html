@@ -2,258 +2,190 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Present Simple Negative</title>
+<title>Daily Activities – Time</title>
 
 <style>
-body {
-    font-family: "Arial", sans-serif;
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-    background: #fafafa;
-}
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
 
-h2 {
-    margin-top: 40px;
-    color: #333;
-}
+    h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
 
-h3 {
-    color: #4a7c59;
-}
+    .clock-image {
+        text-align: center;
+        margin-bottom: 30px;
+    }
 
-.grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    margin-top: 20px;
-}
+    .clock-image img {
+        max-width: 100%;
+        height: auto;
+    }
 
-.question {
-    margin-bottom: 18px;
-    font-size: 16px;
-}
+    .writing {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
 
-input {
-    font-size: 16px;
-    padding: 6px 8px;
-    width: 300px;              /* longer input */
-    border: none;
-    border-bottom: 2px dotted #555;
-    background: transparent;
-    outline: none;
-}
+    .line {
+        margin-bottom: 25px;
+    }
 
-input:disabled {
-    border-bottom: none;
-    background: #f0f0f0;
-    padding: 6px;
-}
+    .row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-.result {
-    margin-left: 10px;
-    font-weight: bold;
-}
+    .row span {
+        font-size: 18px;
+        width: 25px;
+    }
 
-.correct { color: green; }
-.wrong { color: red; }
+    input {
+        width: 100%;
+        font-size: 18px;
+        padding: 8px;
+        border: none;
+        border-bottom: 2px dotted #333;
+        outline: none;
+    }
 
-/* Exercise 7 */
-.exercise7 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 25px;
-}
+    .result {
+        font-size: 18px;
+        margin-left: 5px;
+    }
 
-.card {
-    text-align: center;
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
+    .hint {
+        font-size: 14px;
+        color: #d9534f;
+        margin-left: 35px;
+        margin-top: 5px;
+    }
 
-.card img {
-    width: 130px;
-    margin-bottom: 10px;
-}
+    .correct { color: green; }
 
-.card p {
-    font-size: 15px;
-    margin-bottom: 8px;
-}
-
-button {
-    margin-top: 35px;
-    padding: 12px 28px;
-    font-size: 17px;
-    cursor: pointer;
-    background: #4a7c59;
-    color: white;
-    border: none;
-    border-radius: 6px;
-}
-
-button:hover {
-    background: #3a6448;
-}
+    button {
+        margin-top: 30px;
+        font-size: 18px;
+        padding: 10px 25px;
+        cursor: pointer;
+    }
 </style>
 </head>
 
 <body>
 
-<!-- ===================== EXERCISE 6 ===================== -->
-<h2>6️⃣ Complete the sentences as in the examples</h2>
+<h2>
+5️⃣ Look at the clock faces. What do you do every day at this time?
+Write four sentences.
+</h2>
 
-<div class="grid-2">
-
-<!-- LONG FORM -->
-<div>
-<h3>Long Form</h3>
-
-<div class="question">
-<input value="We do not like fish." disabled>
+<div class="clock-image">
+    <img src="images/clock.PNG" alt="clock faces">
 </div>
 
-<div class="question">
-She <input id="l1"> eat chicken.
-<span id="rl1" class="result"></span>
-</div>
+<div class="writing">
 
-<div class="question">
-I <input id="l2"> drive a car.
-<span id="rl2" class="result"></span>
-</div>
+    <div>
+        <div class="line">
+            <div class="row">
+                <span>1</span>
+                <input id="q1" placeholder="I ...">
+                <span id="r1" class="result"></span>
+            </div>
+            <div id="h1" class="hint"></div>
+        </div>
 
-<div class="question">
-They <input id="l3"> do their homework.
-<span id="rl3" class="result"></span>
-</div>
+        <div class="line">
+            <div class="row">
+                <span>2</span>
+                <input id="q2" placeholder="I ...">
+                <span id="r2" class="result"></span>
+            </div>
+            <div id="h2" class="hint"></div>
+        </div>
+    </div>
 
-<div class="question">
-You <input id="l4"> live in Italy.
-<span id="rl4" class="result"></span>
-</div>
+    <div>
+        <div class="line">
+            <div class="row">
+                <span>3</span>
+                <input id="q3" placeholder="I ...">
+                <span id="r3" class="result"></span>
+            </div>
+            <div id="h3" class="hint"></div>
+        </div>
 
-<div class="question">
-He <input id="l5"> play tennis.
-<span id="rl5" class="result"></span>
-</div>
-</div>
-
-<!-- SHORT FORM -->
-<div>
-<h3>Short Form</h3>
-
-<div class="question">
-<input value="We don't like fish." disabled>
-</div>
-
-<div class="question">
-She <input id="s1"> eat chicken.
-<span id="rs1" class="result"></span>
-</div>
-
-<div class="question">
-I <input id="s2"> drive a car.
-<span id="rs2" class="result"></span>
-</div>
-
-<div class="question">
-They <input id="s3"> do their homework.
-<span id="rs3" class="result"></span>
-</div>
-
-<div class="question">
-You <input id="s4"> live in Italy.
-<span id="rs4" class="result"></span>
-</div>
-
-<div class="question">
-He <input id="s5"> play tennis.
-<span id="rs5" class="result"></span>
-</div>
-</div>
-
-</div>
-
-<!-- ===================== EXERCISE 7 ===================== -->
-<h2>7️⃣ Look and write. Put the verbs in brackets into the present simple negative.</h2>
-
-<div class="exercise7">
-
-<div class="card">
-<img src="images/1.PNG">
-<p><b>Example</b></p>
-<p>They ............ (start) school at 9 o’clock.</p>
-<input value="They don't start school at 9 o'clock." disabled>
-</div>
-
-<div class="card">
-<img src="images/2.PNG">
-<p>He ............ (like) fish.</p>
-<input id="q71">
-<span id="rq71" class="result"></span>
-</div>
-
-<div class="card">
-<img src="images/3.PNG">
-<p>She ............ (have) lunch at 12 o’clock.</p>
-<input id="q72">
-<span id="rq72" class="result"></span>
-</div>
-
-<div class="card">
-<img src="images/4.PNG">
-<p>He ............ (watch) TV in the evenings.</p>
-<input id="q73">
-<span id="rq73" class="result"></span>
-</div>
-
-<div class="card">
-<img src="images/5.PNG">
-<p>We ............ (live) in Paris.</p>
-<input id="q74">
-<span id="rq74" class="result"></span>
-</div>
-
-<div class="card">
-<img src="images/6.PNG">
-<p>I ............ (ride) my bike to school.</p>
-<input id="q75">
-<span id="rq75" class="result"></span>
-</div>
+        <div class="line">
+            <div class="row">
+                <span>4</span>
+                <input id="q4" placeholder="I ...">
+                <span id="r4" class="result"></span>
+            </div>
+            <div id="h4" class="hint"></div>
+        </div>
+    </div>
 
 </div>
 
 <button onclick="check()">✔ Check answers</button>
 
 <script>
-function check() {
-    const answers = {
-        l1:"does not", l2:"do not", l3:"do not", l4:"do not", l5:"does not",
-        s1:"doesn't", s2:"don't", s3:"don't", s4:"don't", s5:"doesn't",
-        q71:"He doesn't like fish.",
-        q72:"She doesn't have lunch at 12 o'clock.",
-        q73:"He doesn't watch TV in the evenings.",
-        q74:"We don't live in Paris.",
-        q75:"I don't ride my bike to school."
-    };
+function validate(text, expectedTime) {
+    let hints = [];
+    const lower = text.toLowerCase();
 
-    for (let id in answers) {
-        let input = document.getElementById(id);
-        let result = document.getElementById("r" + id);
-        if (!input) continue;
+    if (!lower.startsWith("i ")) {
+        hints.push("Start with: I ...");
+    }
 
-        if (input.value.trim().toLowerCase() === answers[id].toLowerCase()) {
-            result.textContent = "✓";
-            result.className = "result correct";
-        } else {
-            result.textContent = "✗";
-            result.className = "result wrong";
+    if (!lower.includes("at " + expectedTime)) {
+        hints.push("Add the time: at " + expectedTime);
+    }
+
+    const words = lower.split(" ");
+    if (words.length > 1) {
+        const verb = words[1];
+        if (verb.endsWith("s") || verb.endsWith("es")) {
+            hints.push("After I, do NOT add s or es");
         }
     }
+
+    return hints;
+}
+
+function check() {
+    const items = [
+        {id:1, time:"8 o'clock"},
+        {id:2, time:"12 o'clock"},
+        {id:3, time:"3 o'clock"},
+        {id:4, time:"6 o'clock"}
+    ];
+
+    items.forEach(item => {
+        const input = document.getElementById("q" + item.id);
+        const result = document.getElementById("r" + item.id);
+        const hint = document.getElementById("h" + item.id);
+
+        const problems = validate(input.value.trim(), item.time);
+
+        if (problems.length === 0) {
+            result.textContent = "✓";
+            result.className = "result correct";
+            hint.textContent = "";
+        } else {
+            result.textContent = "✗";
+            result.className = "result";
+            hint.textContent = "Hint: " + problems.join(" • ");
+        }
+    });
 }
 </script>
 
