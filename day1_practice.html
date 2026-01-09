@@ -6,35 +6,48 @@
 
 <style>
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Arial", sans-serif;
     max-width: 1000px;
     margin: auto;
     padding: 20px;
+    background: #fafafa;
 }
 
 h2 {
     margin-top: 40px;
+    color: #333;
 }
 
-img.big {
-    max-width: 100%;
-    margin: 20px 0;
+h3 {
+    color: #4a7c59;
 }
 
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 50px;
+    margin-top: 20px;
 }
 
 .question {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    font-size: 16px;
 }
 
 input {
     font-size: 16px;
-    padding: 5px;
-    width: 220px;
+    padding: 6px 8px;
+    width: 300px;              /* longer input */
+    border: none;
+    border-bottom: 2px dotted #555;
+    background: transparent;
+    outline: none;
+}
+
+input:disabled {
+    border-bottom: none;
+    background: #f0f0f0;
+    padding: 6px;
 }
 
 .result {
@@ -45,27 +58,45 @@ input {
 .correct { color: green; }
 .wrong { color: red; }
 
+/* Exercise 7 */
 .exercise7 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 20px;
+    gap: 30px;
+    margin-top: 25px;
 }
 
 .card {
     text-align: center;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 .card img {
-    width: 120px;
+    width: 130px;
     margin-bottom: 10px;
 }
 
+.card p {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
 button {
-    margin-top: 30px;
-    padding: 10px 20px;
-    font-size: 16px;
+    margin-top: 35px;
+    padding: 12px 28px;
+    font-size: 17px;
     cursor: pointer;
+    background: #4a7c59;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+button:hover {
+    background: #3a6448;
 }
 </style>
 </head>
@@ -154,41 +185,42 @@ He <input id="s5"> play tennis.
 
 <div class="card">
 <img src="images/1.PNG">
-<p><i>Example</i></p>
+<p><b>Example</b></p>
+<p>They ............ (start) school at 9 o’clock.</p>
 <input value="They don't start school at 9 o'clock." disabled>
 </div>
 
 <div class="card">
 <img src="images/2.PNG">
-<p>He (like) fish.</p>
+<p>He ............ (like) fish.</p>
 <input id="q71">
 <span id="rq71" class="result"></span>
 </div>
 
 <div class="card">
 <img src="images/3.PNG">
-<p>She (have) lunch at 12 o'clock.</p>
+<p>She ............ (have) lunch at 12 o’clock.</p>
 <input id="q72">
 <span id="rq72" class="result"></span>
 </div>
 
 <div class="card">
 <img src="images/4.PNG">
-<p>He (watch) TV in the evenings.</p>
+<p>He ............ (watch) TV in the evenings.</p>
 <input id="q73">
 <span id="rq73" class="result"></span>
 </div>
 
 <div class="card">
 <img src="images/5.PNG">
-<p>We (live) in Paris.</p>
+<p>We ............ (live) in Paris.</p>
 <input id="q74">
 <span id="rq74" class="result"></span>
 </div>
 
 <div class="card">
 <img src="images/6.PNG">
-<p>I (ride) my bike to school.</p>
+<p>I ............ (ride) my bike to school.</p>
 <input id="q75">
 <span id="rq75" class="result"></span>
 </div>
