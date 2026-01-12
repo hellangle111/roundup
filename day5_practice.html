@@ -18,28 +18,6 @@
     margin-bottom: 20px;
   }
 
-  .table-box {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: 5px;
-    margin-bottom: 20px;
-  }
-
-  .col {
-    background: #ffffff;
-    border: 3px solid #ffda6a;
-    padding: 10px;
-    border-radius: 10px;
-    min-width: 120px;
-    text-align: center;
-    font-size: 18px;
-  }
-
-  .col div {
-    padding: 5px 0;
-  }
-
   .lines {
     margin-top: 20px;
   }
@@ -87,38 +65,46 @@
 
 <h1>11. Write Sentences.</h1>
 
-  <img src="images/day5.png">
+<img src="images/day5.png">
 
 <div class="lines">
   <div class="line-item">1. <input value="I play football on Sundays." disabled style="background:#e0f7ff;"></div>
- <div class="line-item">2. <input data-answer="Ian starts school at 9 o’clock."></div>
-<div class="line-item">3. <input data-answer="You like burgers."></div>
-<div class="line-item">4. <input data-answer="Mother works in a school."></div>
-<div class="line-item">5. <input data-answer="They do their homework every day."></div>
-<div class="line-item">6. <input data-answer="Mary and Tony go shopping on Saturdays."></div>
 
+  <div class="line-item">2. <input data-answer="Ian starts school at 9 oclock."></div>
+  <div class="line-item">3. <input data-answer="You like burgers."></div>
+  <div class="line-item">4. <input data-answer="Mother works in a school."></div>
+  <div class="line-item">5. <input data-answer="They do their homework every day."></div>
+  <div class="line-item">6. <input data-answer="Mary and Tony go shopping on Saturdays."></div>
 </div>
 
 <button onclick="checkAnswers()">Check Answers</button>
+
 <script>
+// Normalize your input for logical comparison
+function normalize(str) {
+  return str
+    .toLowerCase()
+    .replace(/[\.,'’`]/g, "") // remove punctuation
+    .replace(/\s+/g, " ")     // normalize spaces
+    .trim();
+}
+
 function checkAnswers() {
   document.querySelectorAll('input').forEach(input => {
 
-    // skip disabled example
+    // Skip example row
     if (input.disabled || !input.dataset.answer) return;
 
-    const correct = input.dataset.answer.toLowerCase().trim();
-    const user = input.value.toLowerCase().trim();
+    const correct = normalize(input.dataset.answer);
+    const user = normalize(input.value);
 
     input.classList.remove("correct", "wrong");
 
-    // mark empty as wrong
     if (user === "") {
       input.classList.add("wrong");
       return;
     }
 
-    // normal compare
     if (user === correct) {
       input.classList.add("correct");
     } else {
@@ -127,7 +113,6 @@ function checkAnswers() {
   });
 }
 </script>
-
 
 </body>
 </html>
