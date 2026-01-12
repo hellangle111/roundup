@@ -126,17 +126,25 @@
 </div>
 
 <button onclick="checkAnswers()">Check Answers</button>
-
 <script>
 function checkAnswers() {
   document.querySelectorAll('input').forEach(input => {
+
+    // skip disabled example
+    if (input.disabled || !input.dataset.answer) return;
+
     const correct = input.dataset.answer.toLowerCase().trim();
     const user = input.value.toLowerCase().trim();
 
-    input.classList.remove("correct","wrong");
+    input.classList.remove("correct", "wrong");
 
-    if (user === "") return; // Do not mark blank as wrong
+    // mark empty as wrong
+    if (user === "") {
+      input.classList.add("wrong");
+      return;
+    }
 
+    // normal compare
     if (user === correct) {
       input.classList.add("correct");
     } else {
@@ -145,6 +153,7 @@ function checkAnswers() {
   });
 }
 </script>
+
 
 </body>
 </html>
