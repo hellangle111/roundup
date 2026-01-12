@@ -3,93 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Answer About You</title>
+<title>Answer the Questions About You</title>
 
 <style>
-  body {
-    font-family: Comic Sans MS, Arial, sans-serif;
-    background: #fffbea;
-    padding: 30px;
-  }
+ body {
+   font-family: Comic Sans MS, Arial, sans-serif;
+   background: #fffbea;
+   padding: 30px;
+ }
 
-  h1 {
-    color: #ff6b00;
-    text-align: center;
-    margin-bottom: 25px;
-  }
+ h1 {
+   color: #ff6b00;
+   text-align: center;
+   margin-bottom: 25px;
+ }
 
-  .q-line {
-    margin: 12px 0;
-    font-size: 18px;
-  }
+ .table {
+   width: 100%;
+   border-collapse: collapse;
+ }
 
-  input {
-    width: 95%;
-    padding: 7px;
-    font-size: 16px;
-    border: 2px solid #9ca3af;
-    border-radius: 6px;
-  }
+ td {
+   padding: 10px;
+   vertical-align: top;
+   font-size: 18px;
+ }
 
-  .correct {
-    border-color: #22c55e !important;
-    background: #d1fae5;
-  }
+ .q-text {
+   width: 55%;
+ }
 
-  .wrong {
-    border-color: #ef4444 !important;
-    background: #fee2e2;
-  }
+ .q-input {
+   width: 45%;
+ }
 
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 18px;
-    background: #ffca3a;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+ input {
+   width: 95%;
+   padding: 7px;
+   font-size: 16px;
+   border: 2px solid #9ca3af;
+   border-radius: 6px;
+ }
 
-  button:hover {
-    background: #ffb703;
-  }
+ .correct {
+   border-color: #22c55e !important;
+   background: #d1fae5;
+ }
+
+ .wrong {
+   border-color: #ef4444 !important;
+   background: #fee2e2;
+ }
+
+ .hint {
+   font-size: 14px;
+   color: #e11d48;
+   padding-left: 5px;
+ }
+
+ button {
+   margin-top: 20px;
+   padding: 10px 20px;
+   font-size: 18px;
+   background: #ffca3a;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+ }
+
+ button:hover {
+   background: #ffb703;
+ }
 </style>
 </head>
 <body>
 
 <h1>12. Answer the questions about you.</h1>
 
-<div class="q-line">1. Do you like pizza? <br><input></div>
-<div class="q-line">2. Does your dad work in a school? <br><input></div>
-<div class="q-line">3. Do your friends go to the park in the afternoon? <br><input></div>
-<div class="q-line">4. Does your mum like flowers? <br><input></div>
-<div class="q-line">5. Do you do your homework every day? <br><input></div>
-<div class="q-line">6. Does your teacher drive to school? <br><input></div>
-<div class="q-line">7. Does your friend play football on Sundays? <br><input></div>
-<div class="q-line">8. Do you eat breakfast with your family in the morning? <br><input></div>
+<table class="table">
+  <tr data-subject="you">
+    <td class="q-text">1. Do you like pizza?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="he">
+    <td class="q-text">2. Does your dad work in a school?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="they">
+    <td class="q-text">3. Do your friends go to the park in the afternoon?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="she">
+    <td class="q-text">4. Does your mum like flowers?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="you">
+    <td class="q-text">5. Do you do your homework every day?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="he">
+    <td class="q-text">6. Does your teacher drive to school?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="he">
+    <td class="q-text">7. Does your friend play football on Sundays?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="you">
+    <td class="q-text">8. Do you eat breakfast with your family in the morning?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+</table>
 
-<button onclick="validateAnswers()">Check Answers</button>
+<button onclick="validate()">Check Answers</button>
 
 <script>
-function validateAnswers() {
-  document.querySelectorAll("input").forEach(input => {
-    const user = input.value.trim();
-    input.classList.remove("correct", "wrong");
+function validate() {
+  document.querySelectorAll("tr[data-subject]").forEach(row => {
+    const subject = row.dataset.subject;
+    const input = row.querySelector("input");
+    const hint = row.querySelector(".hint");
+    const txt = input.value.trim();
+    const lower = txt.toLowerCase();
 
-    // must not be empty
-    if (user === "") {
+    input.classList.remove("correct","wrong");
+    hint.textContent = "";
+
+    if (txt === "") {
       input.classList.add("wrong");
+      hint.textContent = "Please answer the question.";
       return;
     }
 
-    // must start with Yes or No
-    const lower = user.toLowerCase();
-    if (lower.startsWith("yes,") || lower.startsWith("no,")) {
-      input.classList.add("correct");
-    } else {
+    if (!(lower.startsWith("yes") || lower.startsWith("no"))) {
       input.classList.add("wrong");
+      hint.textContent = "Start with 'Yes' or 'No'.";
+      return;
     }
+
+    const pronouns = {
+      you: ["i", "i do", "i don't", "i do not"],
+      he: ["he", "he does", "he doesn't", "he does not"],
+      she: ["she", "she does", "she doesn't", "she does not"],
+      they: ["they", "they do", "they don't", "they do not"]
+    };
+
+    let goodPronoun = false;
+    for (let p of pronouns[subject]) {
+      if (lower.includes(p)) {
+        goodPronoun = true;
+        break;
+      }
+    }
+
+    if (!goodPronoun) {
+      input.classList.add("wrong");
+      hint.textContent = "Check the subject (I / he / she / they).";
+      return;
+    }
+
+    const needsDoes = (subject === "he" || subject === "she");
+
+    if (needsDoes) {
+      if (!(lower.includes("does") || lower.includes("doesn't") || lower.includes("does not"))) {
+        input.classList.add("wrong");
+        hint.textContent = "Use 'does' for he/she.";
+        return;
+      }
+    } else {
+      if (!(lower.includes("do") || lower.includes("don't") || lower.includes("do not"))) {
+        input.classList.add("wrong");
+        hint.textContent = "Use 'do' for I/you/they.";
+        return;
+      }
+    }
+
+    input.classList.add("correct");
   });
 }
 </script>
