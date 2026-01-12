@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Write Sentences (Simple Present)</title>
+
+<style>
+  body {
+    font-family: Comic Sans MS, Arial, sans-serif;
+    background: #fffbea;
+    padding: 30px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #ff6b00;
+    margin-bottom: 20px;
+  }
+
+  .table-box {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+
+  .col {
+    background: #ffffff;
+    border: 3px solid #ffda6a;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 120px;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .col div {
+    padding: 5px 0;
+  }
+
+  .lines {
+    margin-top: 20px;
+  }
+
+  .line-item {
+    margin-bottom: 12px;
+    font-size: 18px;
+  }
+
+  input {
+    width: 90%;
+    padding: 8px;
+    border: 2px solid #9ca3af;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .correct {
+    border-color: #22c55e !important;
+    background: #d1fae5;
+  }
+
+  .wrong {
+    border-color: #ef4444 !important;
+    background: #fee2e2;
+  }
+
+  button {
+    margin-top: 20px;
+    background: #ffca3a;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #ffb703;
+  }
+</style>
+
+</head>
+<body>
+
+<h1>11. Write Sentences.</h1>
+
+<div class="table-box">
+  <div class="col">
+    <div>I</div>
+    <div>Ian</div>
+    <div>You</div>
+    <div>Mother</div>
+    <div>They</div>
+    <div>Mary and Tony</div>
+  </div>
+
+  <div class="col">
+    <div>do</div>
+    <div>like</div>
+    <div>start</div>
+    <div>play</div>
+    <div>works</div>
+    <div>goes</div>
+  </div>
+
+  <div class="col">
+    <div>in a school</div>
+    <div>football on Sundays</div>
+    <div>school at 9 o’clock</div>
+    <div>their homework every day</div>
+    <div>burgers</div>
+    <div>shopping on Saturdays</div>
+  </div>
+</div>
+
+<div class="lines">
+  <div class="line-item">1. <input data-answer="I play football on Sundays."></div>
+  <div class="line-item">2. <input data-answer="Ian does in a school."></div>
+  <div class="line-item">3. <input data-answer="You start school at 9 o’clock."></div>
+  <div class="line-item">4. <input data-answer="Mother plays their homework every day."></div>
+  <div class="line-item">5. <input data-answer="They work burgers."></div>
+  <div class="line-item">6. <input data-answer="Mary and Tony go shopping on Saturdays."></div>
+</div>
+
+<button onclick="checkAnswers()">Check Answers</button>
+
+<script>
+function checkAnswers() {
+  document.querySelectorAll('input').forEach(input => {
+    const correct = input.dataset.answer.toLowerCase().trim();
+    const user = input.value.toLowerCase().trim();
+
+    input.classList.remove("correct","wrong");
+
+    if (user === "") return; // Do not mark blank as wrong
+
+    if (user === correct) {
+      input.classList.add("correct");
+    } else {
+      input.classList.add("wrong");
+    }
+  });
+}
+</script>
+
+</body>
+</html>
