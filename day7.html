@@ -15,30 +15,25 @@
  h1 {
    text-align: center;
    color: #24a19c;
-   margin-bottom: 5px;
  }
 
  h3 {
    text-align: center;
    color: #444;
-   margin-top: 0;
  }
 
  textarea {
    width: 100%;
-   height: 240px;
+   height: 220px;
    padding: 12px;
    font-size: 18px;
-   line-height: 1.4;
    border: 3px dashed #6ac47e;
    border-radius: 12px;
-   background: #ffffff;
    resize: none;
  }
 
  .btn {
-   margin-top: 18px;
-   display: block;
+   margin-top: 15px;
    width: 100%;
    font-size: 20px;
    padding: 10px;
@@ -47,78 +42,120 @@
    border-radius: 10px;
    cursor: pointer;
  }
- .btn:hover {
-   background: #ffc300;
- }
 
  .result {
-   margin-top: 12px;
-   font-size: 18px;
+   margin-top: 10px;
    padding: 10px;
    border-radius: 10px;
+   font-size: 18px;
  }
 
- .ok { background: #d1fae5; color: #065f46; border: 2px solid #34d399; }
- .bad { background: #fee2e2; color: #991b1b; border: 2px solid #ef4444; }
- .neutral { background: #e0e7ff; color: #4338ca; border: 2px solid #6366f1; }
-</style>
+ .ok { background: #d1fae5; color: #065f46; }
+ .bad { background: #fee2e2; color: #991b1b; }
+ .neutral { background: #e0e7ff; color: #4338ca; }
 
+ .preview {
+   margin-top: 15px;
+   padding: 12px;
+   background: #fff;
+   border-radius: 10px;
+   border: 2px solid #ddd;
+   font-size: 18px;
+   line-height: 1.5;
+ }
+
+ .wrong-word {
+   background: #fecaca;
+   color: #7f1d1d;
+   padding: 2px 4px;
+   border-radius: 4px;
+ }
+</style>
 </head>
+
 <body>
 
 <h1>Writing Activity</h1>
-<h3>Write about your daily routine (at least 35 words).</h3>
+<h3>Write about your daily routine (at least 35 words)</h3>
 
-<textarea id="text" placeholder="Example: I get up at 7. Then I eat breakfast with my family. I go to school at 8. ..."></textarea>
+<textarea id="text"
+ oninput="liveCount()"
+ placeholder="Example: I get up at 7. I brush my teeth. I go to school at 8..."></textarea>
 
 <button class="btn" onclick="check()">Check My Writing</button>
 
 <div id="wordResult" class="result neutral"></div>
 <div id="tenseResult" class="result neutral"></div>
 
+<div id="preview" class="preview"></div>
+
 <script>
+const pastWords = [
+ "went","ate","did","watched","played","slept","had","studied","walked","read"
+];
+
+const futureWords = ["will"];
+
+const continuousMarkers = ["am","is","are"];
+
+function liveCount() {
+ const text = document.getElementById("text").value.trim();
+ const words = text.split(/\s+/).filter(w => w);
+ const box = document.getElementById("wordResult");
+
+ box.textContent = `Words: ${words.length}`;
+ box.className = words.length < 35 ? "result bad" : "result ok";
+}
+
 function check() {
-  const text = document.getElementById("text").value.trim();
-  const words = text.split(/\s+/).filter(w => w.length > 0);
-  const wordCount = words.length;
+ const text = document.getElementById("text").value.trim();
+ const lower = text.toLowerCase();
+ let words = text.split(/\s+/);
 
-  const wordBox = document.getElementById("wordResult");
-  const tenseBox = document.getElementById("tenseResult");
+ let errorCount = 0;
 
-  // --- WORD COUNT CHECK ---
-  if (wordCount < 35) {
-    wordBox.textContent = `Words: ${wordCount}. Not enough! Please write at least 35 words.`;
-    wordBox.className = "result bad";
-  } else {
-    wordBox.textContent = `Words: ${wordCount}. Good job!`;
-    wordBox.className = "result ok";
-  }
+ let highlighted = words.map((w, i) => {
+   let clean = w.toLowerCase().replace(/[^a-z]/g,"");
 
-  // --- SIMPLE PRESENT CHECK ---
-  // We'll detect common daily routine verbs in base form
-  const simplePresentVerbs = [
-    "get", "wake", "wash", "brush", "go", "have", "eat", "study",
-    "do", "play", "walk", "help", "watch", "sleep", "read"
-  ];
+   // past tense
+   if (pastWords.includes(clean)) {
+     errorCount++;
+     return `<span class="wrong-word">${w}</span>`;
+   }
 
-  let matches = 0;
-  simplePresentVertsLower = simplePresentVerbs.map(v => v.toLowerCase());
-  const lowerText = text.toLowerCase();
+   // future
+   if (clean === "will") {
+     errorCount++;
+     return `<span class="wrong-word">${w}</span>`;
+   }
 
-  simplePresentVerbs.forEach(v => {
-    if (lowerText.includes(v + " ")) matches++;
-  });
+   // continuous: am/is/are + ing
+   if (continuousMarkers.includes(clean) && words[i+1]?.toLowerCase().endsWith("ing")) {
+     errorCount++;
+     return `<span class="wrong-word">${w}</span>`;
+   }
 
-  if (matches === 0) {
-    tenseBox.textContent = "Hint: Use simple present verbs (e.g., I wake up, I brush, I go...).";
-    tenseBox.className = "result bad";
-  } else if (matches <= 2) {
-    tenseBox.textContent = "Almost there! Try adding more simple present actions.";
-    tenseBox.className = "result neutral";
-  } else {
-    tenseBox.textContent = "Great! You are using simple present tense correctly for daily routine!";
-    tenseBox.className = "result ok";
-  }
+   if (clean.endsWith("ing")) {
+     errorCount++;
+     return `<span class="wrong-word">${w}</span>`;
+   }
+
+   return w;
+ });
+
+ document.getElementById("preview").innerHTML =
+   "<strong>Your text (checked):</strong><br>" + highlighted.join(" ");
+
+ const tenseBox = document.getElementById("tenseResult");
+
+ if (errorCount === 0) {
+   tenseBox.textContent = "Excellent! You are using simple present tense correctly 👍";
+   tenseBox.className = "result ok";
+ } else {
+   tenseBox.textContent =
+     "Some words are not in simple present tense. Please check the red words.";
+   tenseBox.className = "result bad";
+ }
 }
 </script>
 
