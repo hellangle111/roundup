@@ -146,6 +146,13 @@
 
 <script>
 function validate() {
+  const rules = {
+    you:  { pronoun: "i",  pos: "do",   neg: ["do not","don't"] },
+    he:   { pronoun: "he", pos: "does", neg: ["does not","doesn't"] },
+    she:  { pronoun: "she",pos: "does", neg: ["does not","doesn't"] },
+    they: { pronoun: "they",pos: "do", neg: ["do not","don't"] }
+  };
+
   const subjectHints = {
     you: "Use 'I' because the question is about you.",
     he: "Use 'he' because the question is about your dad/teacher/friend (a boy).",
@@ -153,91 +160,63 @@ function validate() {
     they: "Use 'they' because the question is about your friends (plural)."
   };
 
-  const pronouns = {
-    you: "i",
-    he: "he",
-    she: "she",
-    they: "they"
-  };
-
   document.querySelectorAll("tr[data-subject]").forEach(row => {
     const subject = row.dataset.subject;
     const input = row.querySelector("input");
     const hint = row.querySelector(".hint");
-    const txt = input.value.trim();
-    const lower = txt.toLowerCase();
+    const text = input.value.trim();
+    const lower = text.toLowerCase();
 
     input.classList.remove("correct","wrong");
     hint.textContent = "";
 
-    if (txt === "") {
+    if (!text) {
       input.classList.add("wrong");
       hint.textContent = "Please answer the question.";
       return;
     }
 
-    // must start Yes/No
     if (!(lower.startsWith("yes") || lower.startsWith("no"))) {
       input.classList.add("wrong");
       hint.textContent = "Start with 'Yes' or 'No'.";
       return;
     }
 
-    // must include correct pronoun
-    const requiredPronoun = pronouns[subject];
-    if (!lower.includes(requiredPronoun + " ")) {
+    const rule = rules[subject];
+
+    if (!lower.includes(rule.pronoun)) {
       input.classList.add("wrong");
       hint.textContent = subjectHints[subject];
       return;
     }
 
-    // now validate auxiliary verb
-    const needsDoes = (subject === "he" || subject === "she");
+    const positive = lower.startsWith("yes");
+    const negative = lower.startsWith("no");
 
-    if (lower.startsWith("yes")) {
-      // affirmative
-      if (needsDoes) {
-        // he/she → does
-        if (!lower.includes("does ")) {
-          input.classList.add("wrong");
-          hint.textContent = "Use 'does' with he/she (e.g. 'Yes, he does.')";
-          return;
-        }
-      } else {
-        // I/you/they → do
-        if (!lower.includes("do ")) {
-          input.classList.add("wrong");
-          hint.textContent = "Use 'do' with I/you/they (e.g. 'Yes, I do.')";
-          return;
-        }
+    if (positive) {
+      if (!lower.includes(rule.pos)) {
+        input.classList.add("wrong");
+        hint.textContent = `Use '${rule.pos}' after '${rule.pronoun}'.`;
+        return;
+      }
+
+      // reject wrong auxiliary
+      if ((rule.pos === "do" && lower.includes("does")) ||
+          (rule.pos === "does" && lower.includes("do "))) {
+        input.classList.add("wrong");
+        hint.textContent = `Use '${rule.pos}' with '${rule.pronoun}'.`;
+        return;
       }
     }
 
-    if (lower.startsWith("no")) {
-      // negative forms
-      const hasDont = lower.includes("don't") || lower.includes("do not");
-      const hasDoesnt = lower.includes("doesn't") || lower.includes("does not");
-
-      if (needsDoes) {
-        // he/she → doesn't / does not
-        if (!hasDoesnt) {
-          input.classList.add("wrong");
-          hint.textContent = "Use 'does not' or 'doesn't' with he/she.";
-          return;
-        }
-      } else {
-        // I/you/they → don't / do not
-        if (!hasDont) {
-          input.classList.add("wrong");
-          hint.textContent = "Use 'do not' or 'don't' with I/you/they.";
-          return;
-        }
+    if (negative) {
+      let validNeg = false;
+      for (let n of rule.neg) {
+        if (lower.includes(n)) validNeg = true;
       }
-
-      // reject 'I does not'
-      if (lower.includes("i does")) {
+      if (!validNeg) {
         input.classList.add("wrong");
-        hint.textContent = "Use 'I do not' or 'I don't' (not 'I does').";
+        hint.textContent = `Use '${rule.neg.join("' or '")}' with '${rule.pronoun}'.`;
         return;
       }
     }
