@@ -22,6 +22,14 @@
    color: #444;
  }
 
+ .wordBox {
+   display: flex;
+   gap: 8px;
+   align-items: center;
+   font-size: 20px;
+   margin-bottom: 5px;
+ }
+
  textarea {
    width: 100%;
    height: 220px;
@@ -30,6 +38,7 @@
    border: 3px dashed #6ac47e;
    border-radius: 12px;
    resize: none;
+   outline: none;
  }
 
  .btn {
@@ -77,87 +86,127 @@
 
 <h1>Writing Activity</h1>
 <h3>Write about your daily routine (at least 35 words)</h3>
-<div>
- <div>Words: </div>
- <div id="wordResult" style="width:30%" class="result neutral">  
- </div>
- <div>
+
+<div class="wordBox">
+  <strong>Words:</strong>
+  <div id="wordResult" class="result neutral" style="padding:4px 10px;"></div>
+</div>
+
 <textarea id="text"
- oninput="liveCount()"
- placeholder="Example: I get up at 7. I brush my teeth. I go to school at 8..."></textarea>
+ placeholder="Example: I wake up at 7. I brush my teeth. I go to school at 8..."
+ oninput="liveCount()"></textarea>
 
 <button class="btn" onclick="check()">Check My Writing</button>
 
-
 <div id="tenseResult" class="result neutral"></div>
-
 <div id="preview" class="preview"></div>
 
 <script>
+// irregular verbs (simple past detection)
 const pastWords = [
- "went","ate","did","watched","played","slept","had","studied","walked","read"
+ "went","ate","did","watched","played","slept","had","studied","walked","read","came","saw","ran","bought","made"
 ];
 
-const futureWords = ["will"];
+// continuous and future
+const futureMarkers = ["will"];
+const beForms = ["am","is","are"];
 
-const continuousMarkers = ["am","is","are"];
+// helper: check if verb needs s/es
+function needs3rdPersonS(pronoun) {
+  return ["he","she","it"].includes(pronoun);
+}
 
 function liveCount() {
- const text = document.getElementById("text").value.trim();
- const words = text.split(/\s+/).filter(w => w);
+ const txt = document.getElementById("text").value.trim();
+ const words = txt.split(/\s+/).filter(w => w);
  const box = document.getElementById("wordResult");
-
- box.textContent = `${words.length}`;
+ box.textContent = words.length;
  box.className = words.length < 35 ? "result bad" : "result ok";
 }
 
 function check() {
  const text = document.getElementById("text").value.trim();
- const lower = text.toLowerCase();
- let words = text.split(/\s+/);
+ const words = text.split(/\s+/);
+ const lowerWords = words.map(w=>w.toLowerCase().replace(/[^a-z]/g,""));
 
  let errorCount = 0;
+ let highlighted = [];
 
- let highlighted = words.map((w, i) => {
-   let clean = w.toLowerCase().replace(/[^a-z]/g,"");
+ for (let i=0; i<words.length; i++) {
+   let w = lowerWords[i];
+   let original = words[i];
 
-   // past tense
-   if (pastWords.includes(clean)) {
+   // skip trivial words
+   if (!w) { highlighted.push(original); continue; }
+
+   // check simple past
+   if (pastWords.includes(w)) {
      errorCount++;
-     return `<span class="wrong-word">${w}</span>`;
+     highlighted.push(`<span class="wrong-word">${original}</span>`);
+     continue;
    }
 
-   // future
-   if (clean === "will") {
+   // check future
+   if (futureMarkers.includes(w)) {
      errorCount++;
-     return `<span class="wrong-word">${w}</span>`;
+     highlighted.push(`<span class="wrong-word">${original}</span>`);
+     continue;
    }
 
-   // continuous: am/is/are + ing
-   if (continuousMarkers.includes(clean) && words[i+1]?.toLowerCase().endsWith("ing")) {
+   // check continuous: am/is/are + V-ing
+   if (beForms.includes(w) && lowerWords[i+1]?.endsWith("ing")) {
      errorCount++;
-     return `<span class="wrong-word">${w}</span>`;
+     highlighted.push(`<span class="wrong-word">${original}</span>`);
+     continue;
    }
 
-   if (clean.endsWith("ing")) {
+   // check standalone V-ing
+   if (w.endsWith("ing") && i>0) {
      errorCount++;
-     return `<span class="wrong-word">${w}</span>`;
+     highlighted.push(`<span class="wrong-word">${original}</span>`);
+     continue;
    }
 
-   return w;
- });
+   // simple present subject checking
+   let prev = lowerWords[i-1];
+   if (["i","you","we","they","he","she","it"].includes(prev)) {
+     let verb = w;
+
+     // remove punctuation
+     verb = verb.replace(/[^a-z]/g,'');
+
+     let thirdPerson = needs3rdPersonS(prev);
+
+     // verbs that wrongly use s/es
+     if (!thirdPerson && verb.match(/.+(s|es)$/)) {
+       errorCount++;
+       highlighted.push(`<span class="wrong-word">${original}</span>`);
+       continue;
+     }
+
+     // verbs missing s for he/she/it (simple check)
+     if (thirdPerson && !verb.match(/.+(s|es)$/)) {
+       // allow common exceptions like "has"
+       if (verb !== "has") {
+         errorCount++;
+         highlighted.push(`<span class="wrong-word">${original}</span>`);
+         continue;
+       }
+     }
+   }
+
+   highlighted.push(original);
+ }
 
  document.getElementById("preview").innerHTML =
    "<strong>Your text (checked):</strong><br>" + highlighted.join(" ");
 
  const tenseBox = document.getElementById("tenseResult");
-
  if (errorCount === 0) {
-   tenseBox.textContent = "Excellent! You are using simple present tense correctly 👍";
+   tenseBox.textContent = "Excellent! You are using simple present correctly 👍";
    tenseBox.className = "result ok";
  } else {
-   tenseBox.textContent =
-     "Some words are not in simple present tense. Please check the red words.";
+   tenseBox.textContent = `There are ${errorCount} mistakes. Incorrect tense or verb forms are highlighted in red.`;
    tenseBox.className = "result bad";
  }
 }
