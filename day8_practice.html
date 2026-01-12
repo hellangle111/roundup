@@ -2,46 +2,68 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simple Present Tense Practice</title>
-
+<title>Present Simple Worksheets</title>
 <style>
 body {
   font-family: "Comic Sans MS", Arial, sans-serif;
   background: #f7ffe5;
   padding: 20px;
 }
+
 h2 {
   color: #0a7b83;
+  margin-bottom: 10px;
 }
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 30px;
-}
-td {
-  padding: 10px;
-  font-size: 18px;
-}
-input {
-  width: 200px;
-  padding: 5px;
-  font-size: 18px;
-  border: 2px solid #aaa;
+
+.verb-box {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 12px;
+  background: #fff59d;
   border-radius: 6px;
+  font-size: 18px;
 }
-input.correct {
-  background: #d1fae5;
-  border-color: #14b86a;
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  margin-bottom: 25px;
 }
-input.wrong {
-  background: #fee2e2;
-  border-color: #e11d48;
+
+td {
+  font-size: 20px;
+  vertical-align: middle;
 }
+
+.inline-input {
+  width: 150px;
+  padding: 4px;
+  margin: 0 6px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 2px solid #666;
+  background: transparent;
+  outline: none;
+  text-align: center;
+}
+
+.inline-input.correct {
+  border-bottom-color: #14b86a;
+  background: #d1fae57a;
+}
+
+.inline-input.wrong {
+  border-bottom-color: #e11d48;
+  background: #fee2e27a;
+}
+
 .hint {
   font-size: 14px;
   color: #b91c1c;
+  padding-left: 6px;
 }
+
 button {
   padding: 10px 20px;
   font-size: 18px;
@@ -49,130 +71,101 @@ button {
   border-radius: 8px;
   background: #ffd93d;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
+
 button:hover {
   background: #ffc300;
 }
-.verb-box {
-  margin-bottom: 10px;
-  padding: 10px;
-  background: #fff59d;
-  font-size: 18px;
-  border-radius: 6px;
-  width: fit-content;
-}
 </style>
 </head>
-
 <body>
 
 <h2>Present Simple Tense #1</h2>
 <div class="verb-box"><b>Verbs:</b> run, cook, throw, grab, read, talk, listen, draw</div>
 
-<table class="table" id="sheet1">
-  <tr><td>1. They __________ to music.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>2. I __________ my book.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>3. He __________ the frisbee.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>4. We __________ on the phone.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>5. It __________ fast.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>6. She __________ the ball.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>7. They __________ dinner.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>8. I __________ a picture.</td><td><input></td><td class="hint"></td></tr>
+<table id="sheet1">
+  <tr><td>1. They <input class="inline-input"> to music. <span class="hint"></span></td></tr>
+  <tr><td>2. I <input class="inline-input"> my book. <span class="hint"></span></td></tr>
+  <tr><td>3. He <input class="inline-input"> the frisbee. <span class="hint"></span></td></tr>
+  <tr><td>4. We <input class="inline-input"> on the phone. <span class="hint"></span></td></tr>
+  <tr><td>5. It <input class="inline-input"> fast. <span class="hint"></span></td></tr>
+  <tr><td>6. She <input class="inline-input"> the ball. <span class="hint"></span></td></tr>
+  <tr><td>7. They <input class="inline-input"> dinner. <span class="hint"></span></td></tr>
+  <tr><td>8. I <input class="inline-input"> a picture. <span class="hint"></span></td></tr>
 </table>
 
-<hr>
+<hr style="margin:25px 0;">
 
 <h2>Present Simple Tense #2</h2>
-<table class="table" id="sheet2">
-  <tr><td>1. She ________ (dress) up every Sunday.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>2. They ________ (fix) the window every night.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>3. He ________ (do) homework every afternoon.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>4. I ________ (kiss) my mum every night.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>5. You ________ (go) to the library every Sunday.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>6. It ________ (catch) birds every morning.</td><td><input></td><td class="hint"></td></tr>
-  <tr><td>7. We ________ (finish) our homework every day.</td><td><input></td><td class="hint"></td></tr>
+
+<table id="sheet2">
+  <tr><td>1. She <input class="inline-input"> (dress) up every Sunday. <span class="hint"></span></td></tr>
+  <tr><td>2. They <input class="inline-input"> (fix) the window every night. <span class="hint"></span></td></tr>
+  <tr><td>3. He <input class="inline-input"> (do) homework every afternoon. <span class="hint"></span></td></tr>
+  <tr><td>4. I <input class="inline-input"> (kiss) my mum every night. <span class="hint"></span></td></tr>
+  <tr><td>5. You <input class="inline-input"> (go) to the library every Sunday. <span class="hint"></span></td></tr>
+  <tr><td>6. It <input class="inline-input"> (catch) birds every morning. <span class="hint"></span></td></tr>
+  <tr><td>7. We <input class="inline-input"> (finish) our homework every day. <span class="hint"></span></td></tr>
 </table>
 
 <button onclick="validate()">Check Answers</button>
 
 <script>
-const verbs1 = ["run","cook","throw","grab","read","talk","listen","draw"];
-const verbs2 = ["dress","fix","do","kiss","go","catch","finish"];
-
-function thirdPerson(v) {
-  if (v === "do") return "does";
-  if (v === "go") return "goes";
-  if (v === "have") return "has";
-  if (v.endsWith("sh") || v.endsWith("ch") || v.endsWith("s") || v.endsWith("x") || v.endsWith("z"))
-    return v + "es";
-  if (v.endsWith("y") && !"aeiou".includes(v[v.length-2]))
-    return v.slice(0,-1) + "ies";
-  return v + "s";
-}
-
 function validate() {
-  document.querySelectorAll("input").forEach(i=>{
-    i.classList.remove("correct","wrong");
-  });
+  // Sheet #1 correct answers
+  const sheet1Answers = [
+    "listen", // they listen
+    "read",   // I read
+    "throws", // he throws
+    "talk",   // we talk
+    "runs",   // it runs
+    "grabs",  // she grabs
+    "cook",   // they cook
+    "draw"    // I draw
+  ];
 
-  // sheet 1 pronouns mapping
-  const pronouns1 = ["they","i","he","we","it","she","they","i"];
+  // Sheet #2 correct answers (Subject + present simple)
+  const sheet2Answers = [
+    "dresses", // She dresses
+    "fix",     // They fix
+    "does",    // He does
+    "kiss",    // I kiss
+    "go",      // You go
+    "catches", // It catches
+    "finish"   // We finish
+  ];
 
-  document.querySelectorAll("#sheet1 tr").forEach((row,idx)=>{
-    const inp = row.querySelector("input");
-    const hint = row.querySelector(".hint");
-    const val = inp.value.trim().toLowerCase();
-    hint.textContent = "";
+  // Validate Sheet #1
+  let rows1 = document.querySelectorAll("#sheet1 tr");
+  rows1.forEach((row, i) => {
+    let input = row.querySelector("input");
+    let hint  = row.querySelector(".hint");
+    let user  = input.value.trim().toLowerCase();
 
-    if (!val) { inp.classList.add("wrong"); hint.textContent="Required"; return; }
-
-    const base = verbs1.find(v => val === v || val === thirdPerson(v));
-    if (!base) { inp.classList.add("wrong"); hint.textContent="Use a verb from the list"; return; }
-
-    let subject = pronouns1[idx];
-
-    if (subject === "he" || subject === "she" || subject === "it") {
-      if (val !== thirdPerson(base)) {
-        inp.classList.add("wrong");
-        hint.textContent=`Should be: ${thirdPerson(base)}`;
-        return;
-      }
+    if (user === sheet1Answers[i]) {
+      input.className = "inline-input correct";
+      hint.textContent = "";
     } else {
-      if (val !== base) {
-        inp.classList.add("wrong");
-        hint.textContent=`Should be: ${base}`;
-        return;
-      }
+      input.className = "inline-input wrong";
+      hint.textContent = "( " + sheet1Answers[i] + " )";
     }
-    inp.classList.add("correct");
   });
 
-  // sheet 2 validation
-  const base2 = ["dress","fix","do","kiss","go","catch","finish"];
-  const subjects2 = ["she","they","he","i","you","it","we"];
+  // Validate Sheet #2
+  let rows2 = document.querySelectorAll("#sheet2 tr");
+  rows2.forEach((row, i) => {
+    let input = row.querySelector("input");
+    let hint  = row.querySelector(".hint");
+    let user  = input.value.trim().toLowerCase();
 
-  document.querySelectorAll("#sheet2 tr").forEach((row,idx)=>{
-    const inp = row.querySelector("input");
-    const hint = row.querySelector(".hint");
-    const val = inp.value.trim().toLowerCase();
-    hint.textContent = "";
-
-    if (!val) { inp.classList.add("wrong"); hint.textContent="Required"; return; }
-
-    const base = base2[idx];
-
-    let correctForm = base;
-    if (["he","she","it"].includes(subjects2[idx])) {
-      correctForm = thirdPerson(base);
+    if (user === sheet2Answers[i]) {
+      input.className = "inline-input correct";
+      hint.textContent = "";
+    } else {
+      input.className = "inline-input wrong";
+      hint.textContent = "( " + sheet2Answers[i] + " )";
     }
-
-    if (val !== correctForm) {
-      inp.classList.add("wrong");
-      hint.textContent = `Should be: ${correctForm}`;
-      return;
-    }
-    inp.classList.add("correct");
   });
 }
 </script>
