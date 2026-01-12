@@ -2,140 +2,227 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Kids Grammar Practice</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer the Questions About You</title>
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background:#f7faff;
-        padding: 20px;
-    }
-    h2 {
-        text-align:center;
-        color:#ff7f00;
-        margin-bottom: 25px;
-    }
-    .row {
-        display:flex;
-        align-items:center;
-        margin-bottom:12px;
-        gap:10px;
-    }
-    .question {
-        min-width:260px;
-        font-size:20px;
-        color:#0066cc;
-        font-weight:bold;
-    }
-    input {
-        padding:6px 10px;
-        font-size:18px;
-        border:2px solid #0080ff;
-        border-radius:6px;
-        width:200px;
-    }
-    button {
-        margin-top:20px;
-        padding:10px 18px;
-        background:#ffb300;
-        border:none;
-        border-radius:6px;
-        font-size:18px;
-        cursor:pointer;
-        font-weight:bold;
-        color:white;
-    }
-    .result {
-        margin-top:12px;
-        font-size:18px;
-        font-weight:bold;
-    }
+ body {
+   font-family: "Comic Sans MS", Arial, sans-serif;
+   background: linear-gradient(#fff3d4, #ffe9b0);
+   padding: 30px;
+   min-height: 100vh;
+ }
+
+ h1 {
+   color: #ff6b00;
+   text-align: center;
+   margin-bottom: 25px;
+   text-shadow: 2px 2px #ffe3bd;
+ }
+
+ .table {
+   width: 100%;
+   border-collapse: collapse;
+   background: #fffef4;
+   border-radius: 12px;
+   overflow: hidden;
+   box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+ }
+
+ tr:nth-child(even) {
+   background: #fff8d5;
+ }
+
+ td {
+   padding: 14px 10px;
+   font-size: 19px;
+   vertical-align: middle;
+ }
+
+ .q-text {
+   width: 60%;
+   color: #0059b3;
+   font-weight: bold;
+ }
+
+ .q-input {
+   width: 40%;
+ }
+
+ input {
+   width: 100%;
+   padding: 8px 10px;
+   font-size: 18px;
+   border: 2px solid #9ca3af;
+   border-radius: 8px;
+   transition: 0.2s;
+   background: #ffffff;
+ }
+
+ input:focus {
+   border-color: #00a6ff;
+   background: #e6f7ff;
+   outline: none;
+ }
+
+ .correct {
+   border-color: #22c55e !important;
+   background: #d1fae5 !important;
+ }
+
+ .wrong {
+   border-color: #ef4444 !important;
+   background: #fee2e2 !important;
+ }
+
+ .hint {
+   font-size: 15px;
+   color: #e11d48;
+   margin-top: 3px;
+   font-weight: bold;
+ }
+
+ button {
+   margin-top: 30px;
+   padding: 12px 26px;
+   font-size: 20px;
+   background: #ffca3a;
+   border: none;
+   border-radius: 12px;
+   cursor: pointer;
+   font-weight: bold;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   transition: 0.2s;
+ }
+
+ button:hover {
+   background: #ffb703;
+   transform: scale(1.05);
+ }
 </style>
 </head>
 <body>
 
-<h2>Grammar Check for Kids</h2>
+<h1>12. Answer the questions about you.</h1>
 
-<div class="row">
-    <div class="question">Does he play soccer?</div>
-    <input data-subject="he" data-verb="play" />
-</div>
+<table class="table">
+  <tr data-subject="you">
+    <td class="q-text">1. Do you like pizza?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="he">
+    <td class="q-text">2. Does your dad work in a school?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="they">
+    <td class="q-text">3. Do your friends go to the park in the afternoon?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="she">
+    <td class="q-text">4. Does your mum like flowers?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="you">
+    <td class="q-text">5. Do you do your homework every day?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="he">
+    <td class="q-text">6. Does your teacher drive to school?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="he">
+    <td class="q-text">7. Does your friend play football on Sundays?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+  <tr data-subject="you">
+    <td class="q-text">8. Do you eat breakfast with your family in the morning?</td>
+    <td class="q-input">
+      <input><div class="hint"></div>
+    </td>
+  </tr>
+</table>
 
-<div class="row">
-    <div class="question">Do they eat vegetables?</div>
-    <input data-subject="they" data-verb="eat" />
-</div>
-
-<div class="row">
-    <div class="question">Is she happy?</div>
-    <input data-subject="she" data-verb="be" data-be="is" />
-</div>
-
-<button onclick="checkAnswers()">Check Answers</button>
-<div class="result" id="resultBox"></div>
+<button onclick="validate()">Check Answers</button>
 
 <script>
-function checkAnswers() {
-    let inputs = document.querySelectorAll("input");
-    let resultBox = document.getElementById("resultBox");
-    let incorrect = [];
+function validate() {
+  document.querySelectorAll("tr[data-subject]").forEach(row => {
+    const subject = row.dataset.subject;
+    const input = row.querySelector("input");
+    const hint = row.querySelector(".hint");
+    const txt = input.value.trim();
+    const lower = txt.toLowerCase();
 
-    inputs.forEach((inp, index) => {
-        let val = inp.value.trim().toLowerCase();
-        let subj = inp.dataset.subject;
-        let verb = inp.dataset.verb;
-        let beVerb = inp.dataset.be; // for is/are
-    
-        // Allowed short forms
-        const negatives = ["does not","doesn't","do not","don't"];
-        const yesno = ["yes","no"];
+    input.classList.remove("correct","wrong");
+    hint.textContent = "";
 
-        let ok = false;
-        let hint = "";
-
-        // CASE 1: YES/NO QUESTIONS (e.g., "Is she happy?")
-        if (verb === "be") {
-            if (val === "yes" || val === "no") {
-                ok = true;
-            } else {
-                hint = `Hint: answer with "yes" or "no".`;
-            }
-        }
-
-        // CASE 2: SUBJECT + DO/DOES LOGIC
-        else {
-            let requiresDoes = ["he","she","it"];
-            if (negatives.includes(val)) {
-                ok = true;
-            } 
-            else if (yesno.includes(val)) {
-                ok = true;
-            }
-            else {
-                // subject agreement hint
-                if (requiresDoes.includes(subj) && val.includes("do ")) {
-                    hint = `Hint: use "does" for "${subj}".`;
-                }
-                else if (!requiresDoes.includes(subj) && val.includes("does ")) {
-                    hint = `Hint: use "do" for "${subj}".`;
-                }
-                else {
-                    hint = `Hint: try "yes/no" or negatives like "don't/doesn't".`;
-                }
-            }
-        }
-
-        if (!ok) {
-            incorrect.push(`Line ${index+1}: ${hint}`);
-        }
-    });
-
-    if (incorrect.length === 0) {
-        resultBox.style.color = "green";
-        resultBox.textContent = "Great job! All answers look good!";
-    } else {
-        resultBox.style.color = "red";
-        resultBox.innerHTML = incorrect.join("<br>");
+    if (txt === "") {
+      input.classList.add("wrong");
+      hint.textContent = "Please answer the question.";
+      return;
     }
+
+    if (!(lower.startsWith("yes") || lower.startsWith("no"))) {
+      input.classList.add("wrong");
+      hint.textContent = "Start with 'Yes' or 'No'.";
+      return;
+    }
+
+    const pronouns = {
+      you: ["i", "i do", "i don't", "i do not"],
+      he: ["he", "he does", "he doesn't", "he does not"],
+      she: ["she", "she does", "she doesn't", "she does not"],
+      they: ["they", "they do", "they don't", "they do not"]
+    };
+
+    let goodPronoun = false;
+    for (let p of pronouns[subject]) {
+      if (lower.includes(p)) {
+        goodPronoun = true;
+        break;
+      }
+    }
+
+    if (!goodPronoun) {
+      input.classList.add("wrong");
+      hint.textContent = "Check the subject (I / he / she / they).";
+      return;
+    }
+
+    const needsDoes = (subject === "he" || subject === "she");
+
+    if (needsDoes) {
+      if (!(lower.includes("does") || lower.includes("doesn't") || lower.includes("does not"))) {
+        input.classList.add("wrong");
+        hint.textContent = "Use 'does' for he/she.";
+        return;
+      }
+    } else {
+      if (!(lower.includes("do") || lower.includes("don't") || lower.includes("do not"))) {
+        input.classList.add("wrong");
+        hint.textContent = "Use 'do' for I/you/they.";
+        return;
+      }
+    }
+
+    input.classList.add("correct");
+  });
 }
 </script>
 
