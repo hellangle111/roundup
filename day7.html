@@ -85,7 +85,7 @@
 <body>
 
 <h1>Writing Activity</h1>
-<h3>Write about your daily routine (at least 35 words)</h3>
+<h3>Write about your daily routine (at least 40 words)</h3>
 
 <div class="wordBox">
   <strong>Words:</strong>
@@ -121,7 +121,7 @@ function liveCount() {
  const words = txt.split(/\s+/).filter(w => w);
  const box = document.getElementById("wordResult");
  box.textContent = words.length;
- box.className = words.length < 35 ? "result bad" : "result ok";
+ box.className = words.length < 40 ? "result bad" : "result ok";
 }
 
 function check() {
