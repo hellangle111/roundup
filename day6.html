@@ -110,51 +110,35 @@
 <table class="table">
   <tr data-subject="you">
     <td class="q-text">1. Do you like pizza?</td>
-    <td class="q-input">
-      <input><div class="hint"></div>
-    </td>
+    <td class="q-input"><input><div class="hint"></div></td>
   </tr>
   <tr data-subject="he">
     <td class="q-text">2. Does your dad work in a school?</td>
-    <td class="q-input">
-      <input><div class="hint"></div>
-    </td>
+    <td class="q-input"><input><div class="hint"></div></td>
   </tr>
   <tr data-subject="they">
     <td class="q-text">3. Do your friends go to the park in the afternoon?</td>
-    <td class="q-input">
-      <input><div class="hint"></div>
-    </td>
+    <td class="q-input"><input><div class="hint"></div></td>
   </tr>
   <tr data-subject="she">
     <td class="q-text">4. Does your mum like flowers?</td>
-    <td class="q-input">
-      <input><div class="hint"></div>
-    </td>
+    <td class="q-input"><input><div class="hint"></div></td>
   </tr>
   <tr data-subject="you">
     <td class="q-text">5. Do you do your homework every day?</td>
-    <td class="q-input">
-      <input><div class="hint"></div>
-    </td>
+    <td class="q-input"><input><div class="hint"></div></td>
   </tr>
   <tr data-subject="he">
     <td class="q-text">6. Does your teacher drive to school?</td>
-    <td class="q-input">
-      <input><div class="hint"></div>
-    </td>
+    <td class="q-input"><input><div class="hint"></div></td>
   </tr>
   <tr data-subject="he">
     <td class="q-text">7. Does your friend play football on Sundays?</td>
-    <td class="q-input">
-      <input><div class="hint"></div>
-    </td>
+    <td class="q-input"><input><div class="hint"></div></td>
   </tr>
   <tr data-subject="you">
     <td class="q-text">8. Do you eat breakfast with your family in the morning?</td>
-    <td class="q-input">
-      <input><div class="hint"></div>
-    </td>
+    <td class="q-input"><input><div class="hint"></div></td>
   </tr>
 </table>
 
@@ -162,6 +146,20 @@
 
 <script>
 function validate() {
+  const subjectHints = {
+    you: "Use 'I' because the question is about you.",
+    he: "Use 'he' because the question is about your dad/teacher/friend (a boy).",
+    she: "Use 'she' because the question is about your mum (a girl).",
+    they: "Use 'they' because the question is about your friends (plural)."
+  };
+
+  const pronouns = {
+    you: ["i"],
+    he: ["he"],
+    she: ["she"],
+    they: ["they"]
+  };
+
   document.querySelectorAll("tr[data-subject]").forEach(row => {
     const subject = row.dataset.subject;
     const input = row.querySelector("input");
@@ -184,41 +182,18 @@ function validate() {
       return;
     }
 
-    const pronouns = {
-      you: ["i", "i do", "i don't", "i do not"],
-      he: ["he", "he does", "he doesn't", "he does not"],
-      she: ["she", "she does", "she doesn't", "she does not"],
-      they: ["they", "they do", "they don't", "they do not"]
-    };
-
-    let goodPronoun = false;
+    let correctPronoun = false;
     for (let p of pronouns[subject]) {
       if (lower.includes(p)) {
-        goodPronoun = true;
+        correctPronoun = true;
         break;
       }
     }
 
-    if (!goodPronoun) {
+    if (!correctPronoun) {
       input.classList.add("wrong");
-      hint.textContent = "Check the subject (I / he / she / they).";
+      hint.textContent = subjectHints[subject];
       return;
-    }
-
-    const needsDoes = (subject === "he" || subject === "she");
-
-    if (needsDoes) {
-      if (!(lower.includes("does") || lower.includes("doesn't") || lower.includes("does not"))) {
-        input.classList.add("wrong");
-        hint.textContent = "Use 'does' for he/she.";
-        return;
-      }
-    } else {
-      if (!(lower.includes("do") || lower.includes("don't") || lower.includes("do not"))) {
-        input.classList.add("wrong");
-        hint.textContent = "Use 'do' for I/you/they.";
-        return;
-      }
     }
 
     input.classList.add("correct");
