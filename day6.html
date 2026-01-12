@@ -6,101 +6,26 @@
 <title>Answer the Questions About You</title>
 
 <style>
+/* (your full CSS unchanged, shortened here for clarity) */
  body {
    font-family: "Comic Sans MS", Arial, sans-serif;
    background: linear-gradient(#fff3d4, #ffe9b0);
    padding: 30px;
    min-height: 100vh;
  }
-
- h1 {
-   color: #ff6b00;
-   text-align: center;
-   margin-bottom: 25px;
-   text-shadow: 2px 2px #ffe3bd;
- }
-
- .table {
-   width: 100%;
-   border-collapse: collapse;
-   background: #fffef4;
-   border-radius: 12px;
-   overflow: hidden;
-   box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
- }
-
- tr:nth-child(even) {
-   background: #fff8d5;
- }
-
- td {
-   padding: 14px 10px;
-   font-size: 19px;
-   vertical-align: middle;
- }
-
- .q-text {
-   width: 60%;
-   color: #0059b3;
-   font-weight: bold;
- }
-
- .q-input {
-   width: 40%;
- }
-
- input {
-   width: 80%;
-   padding: 8px 10px;
-   font-size: 18px;
-   border: 2px solid #9ca3af;
-   border-radius: 8px;
-   transition: 0.2s;
-   background: #ffffff;
- }
-
- input:focus {
-   border-color: #00a6ff;
-   background: #e6f7ff;
-   outline: none;
- }
-
- .correct {
-   border-color: #22c55e !important;
-   background: #d1fae5 !important;
- }
-
- .wrong {
-   border-color: #ef4444 !important;
-   background: #fee2e2 !important;
- }
-
- .hint {
-   font-size: 15px;
-   color: #e11d48;
-   margin-top: 3px;
-   font-weight: bold;
- }
-
- button {
-   margin-top: 30px;
-   padding: 12px 26px;
-   font-size: 20px;
-   background: #ffca3a;
-   border: none;
-   border-radius: 12px;
-   cursor: pointer;
-   font-weight: bold;
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   transition: 0.2s;
- }
-
- button:hover {
-   background: #ffb703;
-   transform: scale(1.05);
- }
+ h1 { color:#ff6b00;text-align:center;margin-bottom:25px;text-shadow:2px 2px #ffe3bd; }
+ .table {width:100%;border-collapse:collapse;background:#fffef4;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+ tr:nth-child(even){background:#fff8d5;}
+ td{padding:14px 10px;font-size:19px;vertical-align:middle;}
+ .q-text{width:60%;color:#0059b3;font-weight:bold;}
+ .q-input{width:40%;}
+ input{width:80%;padding:8px 10px;font-size:18px;border:2px solid #9ca3af;border-radius:8px;transition:0.2s;background:#fff;}
+ input:focus{border-color:#00a6ff;background:#e6f7ff;outline:none;}
+ .correct{border-color:#22c55e!important;background:#d1fae5!important;}
+ .wrong{border-color:#ef4444!important;background:#fee2e2!important;}
+ .hint{font-size:15px;color:#e11d48;margin-top:3px;font-weight:bold;}
+ button{margin-top:30px;padding:12px 26px;font-size:20px;background:#ffca3a;border:none;border-radius:12px;cursor:pointer;font-weight:bold;display:block;margin-left:auto;margin-right:auto;transition:0.2s;}
+ button:hover{background:#ffb703;transform:scale(1.05);}
 </style>
 </head>
 <body>
@@ -194,6 +119,34 @@ function validate() {
       input.classList.add("wrong");
       hint.textContent = subjectHints[subject];
       return;
+    }
+
+    // NEW: correctness of yes/no helpers (do/does)
+    const needsDoes = (subject === "he" || subject === "she");
+
+    if (lower.startsWith("yes")) {
+      if (needsDoes && !lower.includes("does")) {
+        input.classList.add("wrong");
+        hint.textContent = "After 'Yes' use 'he does' / 'she does'.";
+        return;
+      }
+      if (!needsDoes && !lower.includes("do")) {
+        input.classList.add("wrong");
+        hint.textContent = "After 'Yes' use 'I do' / 'they do'.";
+        return;
+      }
+    }
+
+    if (lower.startsWith("no")) {
+      const wrongPositive = needsDoes ? lower.includes("does") && !lower.includes("not") && !lower.includes("n't")
+                                      : lower.includes("do") && !lower.includes("not") && !lower.includes("n't");
+      if (wrongPositive) {
+        input.classList.add("wrong");
+        hint.textContent = needsDoes
+          ? "After 'No' use 'he doesn't' / 'he does not'."
+          : "After 'No' use 'I don't' / 'I do not'.";
+        return;
+      }
     }
 
     input.classList.add("correct");
