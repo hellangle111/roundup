@@ -2,213 +2,140 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Writing Activity - Daily Routine</title>
+<title>Present Simple – Affirmative</title>
 
 <style>
- body {
-   background: #f4fff6;
-   font-family: "Comic Sans MS", Arial, sans-serif;
-   padding: 20px;
- }
-
- h1 {
-   text-align: center;
-   color: #24a19c;
- }
-
- h3 {
-   text-align: center;
-   color: #444;
- }
-
- .wordBox {
-   display: flex;
-   gap: 8px;
-   align-items: center;
-   font-size: 20px;
-   margin-bottom: 5px;
- }
-
- textarea {
-   width: 100%;
-   height: 220px;
-   padding: 12px;
-   font-size: 18px;
-   border: 3px dashed #6ac47e;
-   border-radius: 12px;
-   resize: none;
-   outline: none;
- }
-
- .btn {
-   margin-top: 15px;
-   width: 100%;
-   font-size: 20px;
-   padding: 10px;
-   background: #ffdd57;
-   border: none;
-   border-radius: 10px;
-   cursor: pointer;
- }
-
- .result {
-   margin-top: 10px;
-   padding: 10px;
-   border-radius: 10px;
-   font-size: 18px;
- }
-
- .ok { background: #d1fae5; color: #065f46; }
- .bad { background: #fee2e2; color: #991b1b; }
- .neutral { background: #e0e7ff; color: #4338ca; }
-
- .preview {
-   margin-top: 15px;
-   padding: 12px;
-   background: #fff;
-   border-radius: 10px;
-   border: 2px solid #ddd;
-   font-size: 18px;
-   line-height: 1.5;
- }
-
- .wrong-word {
-   background: #fecaca;
-   color: #7f1d1d;
-   padding: 2px 4px;
-   border-radius: 4px;
- }
+body{
+  font-family:"Comic Sans MS", Arial, sans-serif;
+  background:#ffeb3b;
+  padding:20px;
+}
+.page{
+  max-width:760px;
+  margin:auto;
+  background:#b9f6ca;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  border:5px dashed #2e7d32;
+}
+h1{
+  text-align:center;
+  background:#69f0ae;
+  border-radius:12px;
+  padding:10px;
+}
+.note{
+  text-align:center;
+  font-weight:bold;
+  margin:15px 0;
+}
+.item{
+  margin:10px 0;
+  font-size:1.1em;
+}
+input{
+  width:130px;
+  padding:4px;
+  font-size:1em;
+  border-radius:6px;
+  border:2px solid #555;
+}
+.correct{
+  background:#e8f5e9;
+  border-color:#2e7d32;
+}
+.wrong{
+  background:#ffebee;
+  border-color:#c62828;
+}
+button{
+  display:block;
+  margin:20px auto 10px;
+  padding:10px 30px;
+  font-size:1.1em;
+  border:none;
+  border-radius:25px;
+  background:#2e7d32;
+  color:white;
+  cursor:pointer;
+}
+.result{
+  text-align:center;
+  font-weight:bold;
+  font-size:1.1em;
+}
 </style>
 </head>
 
 <body>
 
-<h1>Writing Activity</h1>
-<h3>Write about your daily routine (at least 40 words)</h3>
+<div class="page">
+  <h1>Present Simple: Affirmative</h1>
+  <div class="note">✏️ Write the correct verb form</div>
 
-<div class="wordBox">
-  <strong>Words:</strong>
-  <div id="wordResult" class="result neutral" style="padding:4px 10px;"></div>
+  <div class="item">1. Paul 
+    <input data-ok="studies"> French at school (study)
+  </div>
+
+  <div class="item">2. Susan and I 
+    <input data-ok="go"> to the same school (go)
+  </div>
+
+  <div class="item">3. Linda 
+    <input data-ok="lives"> in New York (live)
+  </div>
+
+  <div class="item">4. My parents 
+    <input data-ok="work"> in a bank (work)
+  </div>
+
+  <div class="item">5. Mum 
+    <input data-ok="cooks"> every day (cook)
+  </div>
+
+  <div class="item">6. The cat 
+    <input data-ok="sleeps"> in the kitchen (sleep)
+  </div>
+
+  <div class="item">7. We 
+    <input data-ok="have"> a big party on Christmas Day (have)
+  </div>
+
+  <div class="item">8. My father 
+    <input data-ok="drives"> an old car (drive)
+  </div>
+
+  <div class="item">9. Mrs Brown 
+    <input data-ok="visits"> the dentist once a year (visit)
+  </div>
+
+  <div class="item">10. The Blacks 
+    <input data-ok="do"> the shopping at the supermarket (do)
+  </div>
+
+  <button onclick="check()">Check Answers</button>
+  <div class="result"></div>
 </div>
 
-<textarea id="text"
- placeholder="Example: I wake up at 7. I brush my teeth. I go to school at 8..."
- oninput="liveCount()"></textarea>
-
-<button class="btn" onclick="check()">Check My Writing</button>
-
-<div id="tenseResult" class="result neutral"></div>
-<div id="preview" class="preview"></div>
-
 <script>
-// irregular verbs (simple past detection)
-const pastWords = [
- "went","ate","did","watched","played","slept","had","studied","walked","read","came","saw","ran","bought","made"
-];
-
-// continuous and future
-const futureMarkers = ["will"];
-const beForms = ["am","is","are"];
-
-// helper: check if verb needs s/es
-function needs3rdPersonS(pronoun) {
-  return ["he","she","it"].includes(pronoun);
+function norm(t){
+  return t.toLowerCase().trim();
 }
 
-function liveCount() {
- const txt = document.getElementById("text").value.trim();
- const words = txt.split(/\s+/).filter(w => w);
- const box = document.getElementById("wordResult");
- box.textContent = words.length;
- box.className = words.length < 40 ? "result bad" : "result ok";
-}
-
-function check() {
- const text = document.getElementById("text").value.trim();
- const words = text.split(/\s+/);
- const lowerWords = words.map(w=>w.toLowerCase().replace(/[^a-z]/g,""));
-
- let errorCount = 0;
- let highlighted = [];
-
- for (let i=0; i<words.length; i++) {
-   let w = lowerWords[i];
-   let original = words[i];
-
-   // skip trivial words
-   if (!w) { highlighted.push(original); continue; }
-
-   // check simple past
-   if (pastWords.includes(w)) {
-     errorCount++;
-     highlighted.push(`<span class="wrong-word">${original}</span>`);
-     continue;
-   }
-
-   // check future
-   if (futureMarkers.includes(w)) {
-     errorCount++;
-     highlighted.push(`<span class="wrong-word">${original}</span>`);
-     continue;
-   }
-
-   // check continuous: am/is/are + V-ing
-   if (beForms.includes(w) && lowerWords[i+1]?.endsWith("ing")) {
-     errorCount++;
-     highlighted.push(`<span class="wrong-word">${original}</span>`);
-     continue;
-   }
-
-   // check standalone V-ing
-   if (w.endsWith("ing") && i>0) {
-     errorCount++;
-     highlighted.push(`<span class="wrong-word">${original}</span>`);
-     continue;
-   }
-
-   // simple present subject checking
-   let prev = lowerWords[i-1];
-   if (["i","you","we","they","he","she","it"].includes(prev)) {
-     let verb = w;
-
-     // remove punctuation
-     verb = verb.replace(/[^a-z]/g,'');
-
-     let thirdPerson = needs3rdPersonS(prev);
-
-     // verbs that wrongly use s/es
-     if (!thirdPerson && verb.match(/.+(s|es)$/)) {
-       errorCount++;
-       highlighted.push(`<span class="wrong-word">${original}</span>`);
-       continue;
-     }
-
-     // verbs missing s for he/she/it (simple check)
-     if (thirdPerson && !verb.match(/.+(s|es)$/)) {
-       // allow common exceptions like "has"
-       if (verb !== "has") {
-         errorCount++;
-         highlighted.push(`<span class="wrong-word">${original}</span>`);
-         continue;
-       }
-     }
-   }
-
-   highlighted.push(original);
- }
-
- document.getElementById("preview").innerHTML =
-   "<strong>Your text (checked):</strong><br>" + highlighted.join(" ");
-
- const tenseBox = document.getElementById("tenseResult");
- if (errorCount === 0) {
-   tenseBox.textContent = "Excellent! You are using simple present correctly 👍";
-   tenseBox.className = "result ok";
- } else {
-   tenseBox.textContent = `There are ${errorCount} mistakes. Incorrect tense or verb forms are highlighted in red.`;
-   tenseBox.className = "result bad";
- }
+function check(){
+  const inputs=document.querySelectorAll("input");
+  let score=0;
+  inputs.forEach(i=>{
+    if(norm(i.value)===norm(i.dataset.ok)){
+      i.className="correct";
+      score++;
+    }else{
+      i.className="wrong";
+    }
+  });
+  document.querySelector(".result").textContent =
+    `😊 ${score} / ${inputs.length} correct`;
 }
 </script>
 
