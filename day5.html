@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Simple Present – Part E</title>
+<title>Simple Present – Part A</title>
 
 <style>
   body {
     font-family: "Comic Sans MS", Arial, sans-serif;
-    background: #f3f9ff;
+    background: #f0f8ff;
     padding: 10px;
   }
 
-  .box {
-    max-width: 720px;
+  .page {
+    max-width: 750px;
     margin: auto;
-    background: #ffffff;
+    background: #fff;
     padding: 25px;
     border-radius: 25px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
   }
 
   h1 {
@@ -25,35 +25,32 @@
     border: 4px solid #000;
     border-radius: 30px;
     padding: 10px;
-    background: #fff176;
+    margin-bottom: 20px;
   }
 
   .instruction {
-    font-weight: bold;
-    margin: 15px 0;
-  }
-
-  .word-bank {
-    background: #e1f5fe;
-    padding: 12px;
-    border-radius: 15px;
-    font-size: 1.05em;
-    margin-bottom: 20px;
-    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 15px;
   }
 
   .item {
-    margin: 10px 0;
+    margin: 18px 0;
     font-size: 1.1em;
   }
 
-  input {
-    width: 120px;
-    font-size: 1em;
-    padding: 5px;
+  .words {
+    background: #e3f2fd;
+    padding: 8px 12px;
     border-radius: 10px;
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+    font-size: 1em;
+    padding: 7px;
+    border-radius: 8px;
     border: 2px solid #999;
-    text-align: center;
   }
 
   input.correct {
@@ -69,12 +66,12 @@
   button {
     display: block;
     margin: 25px auto 10px;
-    padding: 12px 40px;
+    padding: 12px 35px;
     font-size: 1.1em;
     border-radius: 30px;
     border: none;
     background: #000;
-    color: white;
+    color: #fff;
     cursor: pointer;
   }
 
@@ -82,55 +79,78 @@
     text-align: center;
     font-weight: bold;
     font-size: 1.2em;
+    margin-top: 10px;
   }
 </style>
 </head>
 
 <body>
 
-<div class="box">
-  <h1>Part E – Choose the Correct Verb 🎯</h1>
+<div class="page">
+  <h1>Part A – Simple Present</h1>
 
   <div class="instruction">
-    Complete the sentences using the verbs below.
+    ✏️ Put the words in order</b>.
   </div>
 
-  <div class="word-bank">
-    <b>listen – study – eat – read – work – take – play – watch – go – drink</b>
+  <div class="item">
+    1.
+    <div class="words">play / football / every day / Tom</div>
+    <input data-ok="tom plays football every day">
   </div>
 
-  <div class="item">1. We <input data-ok="eat"> our lunch at noon.</div>
-  <div class="item">2. He <input data-ok="goes"> to the office by bus.</div>
-  <div class="item">3. They <input data-ok="watch"> TV in the evening.</div>
-  <div class="item">4. She <input data-ok="takes"> piano lessons every Tuesday.</div>
-  <div class="item">5. Every morning, she <input data-ok="drinks"> a cup of coffee.</div>
+  <div class="item">
+    2.
+    <div class="words">go / to school / by bus / they</div>
+    <input data-ok="they go to school by bus">
+  </div>
 
-  <div class="item">6. My brother <input data-ok="works"> at a bank.</div>
-  <div class="item">7. They <input data-ok="play"> soccer on weekends.</div>
-  <div class="item">8. He <input data-ok="listens"> to music while jogging.</div>
-  <div class="item">9. She <input data-ok="studies"> for her exams every night.</div>
-  <div class="item">10. She <input data-ok="reads"> her favorite book before bed.</div>
+  <div class="item">
+    3.
+    <div class="words">drink / milk / every morning / she</div>
+    <input data-ok="she drinks milk every morning">
+  </div>
 
-  <button onclick="check()">Check Answers ✅</button>
+  <div class="item">
+    4.
+    <div class="words">read / books / at night / we</div>
+    <input data-ok="we read books at night">
+  </div>
+
+  <div class="item">
+    5.
+    <div class="words">watch / TV / after dinner / he</div>
+    <input data-ok="he watches tv after dinner">
+  </div>
+
+  <button onclick="check()">Check Answers</button>
   <div class="result"></div>
 </div>
 
 <script>
+function normalize(text){
+  return text
+    .toLowerCase()
+    .replace(/[.?!]/g,'')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
 function check(){
   const inputs = document.querySelectorAll('input');
-  let correct = 0;
+  let score = 0;
 
-  inputs.forEach(i => {
-    if (i.value.trim().toLowerCase() === i.dataset.ok) {
-      i.className = 'correct';
-      correct++;
+  inputs.forEach(input => {
+    if(normalize(input.value) === normalize(input.dataset.ok)){
+      input.className = 'correct';
+      score++;
     } else {
-      i.className = 'wrong';
+      input.className = 'wrong';
     }
   });
 
   document.querySelector('.result').textContent =
-    `🎉 ${correct} / ${inputs.length} correct!`;
+    `😊 You got ${score} / ${inputs.length} correct!`;
 }
 </script>
 
