@@ -7,17 +7,16 @@
 <style>
   body {
     font-family: "Comic Sans MS", Arial, sans-serif;
-    background: #f0f7ff;
+    background: #e3f2fd;
     padding: 10px;
-    padding-top:5px
   }
 
   .page {
     background: #fff;
     max-width: 720px;
     margin: auto;
-    padding: 30px;
-    border-radius: 20px;
+    padding: 25px;
+    border-radius: 22px;
     box-shadow: 0 10px 25px rgba(0,0,0,.15);
   }
 
@@ -25,27 +24,30 @@
     text-align: center;
     border: 4px solid #000;
     border-radius: 30px;
+    padding: 10px;
+    background: #ffeb3b;
   }
 
-  h2 {
-    margin-top: 0;
+  .instruction {
+    font-weight: bold;
+    color: #c62828;
+    margin-bottom: 15px;
   }
 
   .item {
-    margin: 9px 0;
+    margin: 12px 0;
     font-size: 1.1em;
   }
 
-  .wrong-sentence {
+  .sentence {
     font-weight: bold;
-    color: #c62828;
   }
 
   input {
     width: 100%;
     font-size: 1em;
-    padding: 5px;
-    border-radius: 8px;
+    padding: 6px;
+    border-radius: 10px;
     border: 2px solid #999;
     margin-top: 6px;
   }
@@ -63,7 +65,7 @@
   button {
     display: block;
     margin: 25px auto 10px;
-    padding: 12px 35px;
+    padding: 12px 40px;
     font-size: 1.1em;
     border-radius: 30px;
     border: none;
@@ -75,7 +77,13 @@
   .result {
     text-align: center;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+
+  .hint {
+    font-size: 0.9em;
+    color: #555;
   }
 </style>
 </head>
@@ -83,41 +91,52 @@
 <body>
 
 <div class="page">
-  <h2 class="wrong-sentence">Simple Present Tense: Identify and correct the mistakes.</h2>
+  <h1>Part D – Fix the Sentence ✏️</h1>
 
-  <div class="item">
-    1. <span>She go to the market every day.</span>
-    <input data-ok="she goes to the market every day">
+  <div class="instruction">
+    👉 You can write the <u>whole correct sentence</u><br>
+    👉 OR write only the <u>correct action verb</u>
   </div>
 
   <div class="item">
-    2. <span>They does not play football.</span>
-    <input data-ok="they do not play football|they dont play football">
+    1. <span class="sentence">She go to the market every day.</span>
+    <input data-ok="she goes to the market every day|goes">
+    <div class="hint">Example: goes / She goes to the market every day</div>
   </div>
 
   <div class="item">
-    3. <span>He like to read books.</span>
-    <input data-ok="he likes to read books">
+    2. <span class="sentence">They does not play football.</span>
+    <input data-ok="they do not play football|they dont play football|do">
+    <div class="hint">Example: do / They do not play football</div>
   </div>
 
   <div class="item">
-    4. <span>We walks to school every morning.</span>
-    <input data-ok="we walk to school every morning">
+    3. <span class="sentence">He like to read books.</span>
+    <input data-ok="he likes to read books|likes">
+    <div class="hint">Example: likes</div>
   </div>
 
   <div class="item">
-    5. <span>The cat sleep on the mat.</span>
-    <input data-ok="the cat sleeps on the mat">
+    4. <span class="sentence">We walks to school every morning.</span>
+    <input data-ok="we walk to school every morning|walk">
+    <div class="hint">Example: walk</div>
   </div>
 
-  <button onclick="check()">Check Answers</button>
+  <div class="item">
+    5. <span class="sentence">The cat sleep on the mat.</span>
+    <input data-ok="the cat sleeps on the mat|sleeps">
+    <div class="hint">Example: sleeps</div>
+  </div>
+
+  <button onclick="check()">Check Answers ✅</button>
   <div class="result"></div>
 </div>
 
 <script>
-function norm(t){
-  return t.toLowerCase()
-    .replace(/[?.,!']/g,'')
+function norm(text){
+  return text
+    .toLowerCase()
+    .replace(/[?.!,']/g,'')
     .replace(/\s+/g,' ')
     .trim();
 }
@@ -126,18 +145,20 @@ function check(){
   const inputs = document.querySelectorAll('input');
   let correct = 0;
 
-  inputs.forEach(i => {
-    const answers = i.dataset.ok.split('|');
-    if(answers.some(a => norm(a) === norm(i.value))){
-      i.className = 'correct';
+  inputs.forEach(input => {
+    const answers = input.dataset.ok.split('|');
+    const user = norm(input.value);
+
+    if (answers.some(a => norm(a) === user)) {
+      input.className = 'correct';
       correct++;
     } else {
-      i.className = 'wrong';
+      input.className = 'wrong';
     }
   });
 
-  const r = document.querySelector('.result');
-  r.textContent = `😊 ${correct}/${inputs.length} correct`;
+  document.querySelector('.result').textContent =
+    `🎉 ${correct} / ${inputs.length} correct!`;
 }
 </script>
 
