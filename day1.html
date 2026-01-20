@@ -2,46 +2,144 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Learn Possessives</title>
+<title>Part A – Unscramble the Words</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-    }
-    iframe {
-        max-width: 100%;
-        height: 315px;
-    }
-    button {
-        font-size: 18px;
-        padding: 12px 25px;
-        margin-top: 20px;
-        cursor: pointer;
-    }
+body{
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg,#e3f2fd,#fce4ec);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container{
+  background:#ffffff;
+  width:520px;
+  padding:25px 30px;
+  border-radius:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+h2{
+  text-align:center;
+  margin-top:0;
+  color:#333;
+}
+
+.question{
+  margin:15px 0;
+  font-size:16px;
+}
+
+.words{
+  color:#555;
+  margin-bottom:6px;
+}
+
+input{
+  width:100%;
+  font-size:16px;
+  padding:8px 10px;
+  border:none;
+  border-bottom:2px dashed #999;
+  outline:none;
+}
+
+input.correct{
+  background:#e8f5e9;
+  border-bottom-color:#2e7d32;
+}
+
+input.wrong{
+  background:#ffebee;
+  border-bottom-color:#c62828;
+}
+
+button{
+  margin:25px auto 0;
+  display:block;
+  padding:10px 30px;
+  font-size:16px;
+  border:none;
+  border-radius:25px;
+  background:#4caf50;
+  color:white;
+  cursor:pointer;
+}
+
+.result{
+  text-align:center;
+  margin-top:12px;
+  font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
-<h1>🎥 Watch the Video</h1>
+<div class="container">
+  <h2>Part A. Unscramble the words</h2>
 
-<iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/QTkuijHpLOw?si=1vXVkTxtqqIBkSY1"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
+  <div class="question">
+    <div class="words">1. plays / soccer / Mary / every / Saturday</div>
+    <input data-answer="mary plays soccer every saturday">
+  </div>
 
-<br>
+  <div class="question">
+    <div class="words">2. eats / often / pizza / John / for / lunch</div>
+    <input data-answer="john often eats pizza for lunch">
+  </div>
 
-<button onclick="goNext()">➡️ Next: Practice</button>
+  <div class="question">
+    <div class="words">3. go / they / park / to / the / often</div>
+    <input data-answer="they often go to the park">
+  </div>
+
+  <div class="question">
+    <div class="words">4. reads / book / a / before / bed / she</div>
+    <input data-answer="she reads a book before bed">
+  </div>
+
+  <div class="question">
+    <div class="words">5. we / dinner / at / have / 7 o'clock / usually</div>
+    <input data-answer="we usually have dinner at 7 oclock">
+  </div>
+
+  <button onclick="check()">Check answers</button>
+  <div class="result"></div>
+</div>
 
 <script>
-function goNext() {
-    window.location.href = "day1_practice.html";
+function normalize(t){
+  return t.toLowerCase()
+          .replace(/[?.!',]/g,'')
+          .replace(/\s+/g,' ')
+          .trim();
+}
+
+function check(){
+  let inputs=document.querySelectorAll("input");
+  let correct=0;
+
+  inputs.forEach(i=>{
+    if(normalize(i.value)===normalize(i.dataset.answer)){
+      i.className="correct";
+      correct++;
+    }else{
+      i.className="wrong";
+    }
+  });
+
+  let r=document.querySelector(".result");
+  if(correct===inputs.length){
+    r.textContent="🎉 Excellent! All answers are correct.";
+    r.style.color="green";
+  }else{
+    r.textContent=`😊 ${correct}/${inputs.length} correct. Try again!`;
+    r.style.color="red";
+  }
 }
 </script>
 
