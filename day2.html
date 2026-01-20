@@ -2,168 +2,145 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Part C – Simple Present Negative</title>
+<title>Simple Present – Part B</title>
 
 <style>
-body{
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg,#fce4ec,#e3f2fd);
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
+  body {
+    font-family: "Comic Sans MS", Arial, sans-serif;
+    background: #f5f5f5;
+    padding: 30px;
+  }
 
-.container{
-  background:#fff;
-  width:560px;
-  padding:25px 30px;
-  border-radius:22px;
-  box-shadow:0 10px 25px rgba(0,0,0,.18);
-}
+  .page {
+    background: #fff;
+    max-width: 700px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  }
 
-h2{
-  text-align:center;
-  margin-top:0;
-}
+  h1 {
+    text-align: center;
+    border: 4px solid #000;
+    padding: 12px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+  }
 
-.instruction{
-  text-align:center;
-  color:#555;
-  margin-bottom:20px;
-}
+  h2 {
+    margin-top: 0;
+  }
 
-.question{
-  margin-bottom:18px;
-}
+  .q {
+    margin: 18px 0;
+    font-size: 1.1em;
+  }
 
-.sentence{
-  margin-bottom:6px;
-  font-size:16px;
-}
+  .line {
+    display: inline-block;
+    border-bottom: 2px solid #000;
+    min-width: 420px;
+  }
 
-input{
-  width:100%;
-  font-size:16px;
-  padding:8px 10px;
-  border:none;
-  border-bottom:2px dashed #888;
-  outline:none;
-}
+  input {
+    border: none;
+    outline: none;
+    font-size: 1em;
+    width: 100%;
+  }
 
-input.correct{
-  background:#e8f5e9;
-  border-bottom-color:#2e7d32;
-}
+  .correct { background: #e8f5e9; }
+  .wrong { background: #ffebee; }
 
-input.wrong{
-  background:#ffebee;
-  border-bottom-color:#c62828;
-}
+  button {
+    display: block;
+    margin: 25px auto 10px;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    border: none;
+    background: #000;
+    color: white;
+    cursor: pointer;
+  }
 
-.hint{
-  font-size:14px;
-  color:#c62828;
-  display:none;
-}
-
-button{
-  display:block;
-  margin:25px auto 0;
-  padding:10px 30px;
-  font-size:16px;
-  border:none;
-  border-radius:25px;
-  background:#4caf50;
-  color:white;
-  cursor:pointer;
-}
-
-.result{
-  text-align:center;
-  margin-top:12px;
-  font-weight:bold;
-}
+  .result {
+    text-align: center;
+    font-weight: bold;
+  }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h2>Part C</h2>
-  <div class="instruction">
-    Rewrite the sentences in their <b>negative form</b>.
+<div class="page">
+  <h1>Simple Present Tense</h1>
+
+  <h2>B. Change the positive sentences into questions.</h2>
+
+  <div class="q">
+    1. He likes chocolate.<br>
+    <span class="line">
+      <input data-ok="does he like chocolate">
+    </span> ?
   </div>
 
-  <div class="question">
-    <div class="sentence">1. She sings beautifully.</div>
-    <input data-answer="she does not sing beautifully|she doesnt sing beautifully">
-    <div class="hint">Hint: She → <b>does not + base verb</b></div>
+  <div class="q">
+    2. They play tennis on Sundays.<br>
+    <span class="line">
+      <input data-ok="do they play tennis on sundays">
+    </span> ?
   </div>
 
-  <div class="question">
-    <div class="sentence">2. They visit the museum every weekend.</div>
-    <input data-answer="they do not visit the museum every weekend|they dont visit the museum every weekend">
-    <div class="hint">Hint: They → <b>do not</b></div>
+  <div class="q">
+    3. She writes in her journal daily.<br>
+    <span class="line">
+      <input data-ok="does she write in her journal daily">
+    </span> ?
   </div>
 
-  <div class="question">
-    <div class="sentence">3. He works at a bank.</div>
-    <input data-answer="he does not work at a bank|he doesnt work at a bank">
-    <div class="hint">Hint: He → <b>does not</b> (no -s)</div>
+  <div class="q">
+    4. We walk to school together.<br>
+    <span class="line">
+      <input data-ok="do we walk to school together">
+    </span> ?
   </div>
 
-  <div class="question">
-    <div class="sentence">4. The cat sleeps on the sofa.</div>
-    <input data-answer="the cat does not sleep on the sofa|the cat doesnt sleep on the sofa">
-    <div class="hint">Hint: Singular noun → <b>does not</b></div>
+  <div class="q">
+    5. The dog barks at strangers.<br>
+    <span class="line">
+      <input data-ok="does the dog bark at strangers">
+    </span> ?
   </div>
 
-  <div class="question">
-    <div class="sentence">5. We enjoy the movie.</div>
-    <input data-answer="we do not enjoy the movie|we dont enjoy the movie">
-    <div class="hint">Hint: We → <b>do not</b></div>
-  </div>
-
-  <button onclick="check()">Check answers</button>
+  <button onclick="check()">Check Answers</button>
   <div class="result"></div>
 </div>
 
 <script>
-function normalize(t){
+function norm(t){
   return t.toLowerCase()
-          .replace(/[?.!',]/g,'')
+          .replace(/[?.,!]/g,'')
           .replace(/\s+/g,' ')
           .trim();
 }
 
 function check(){
-  let inputs=document.querySelectorAll("input");
-  let correct=0;
+  const inputs = document.querySelectorAll('input');
+  let correct = 0;
 
-  inputs.forEach(i=>{
-    let answers=i.dataset.answer.split("|");
-    let user=normalize(i.value);
-    let hint=i.nextElementSibling;
-
-    if(answers.some(a=>normalize(a)===user)){
-      i.className="correct";
-      hint.style.display="none";
+  inputs.forEach(i => {
+    if(norm(i.value) === i.dataset.ok){
+      i.className = 'correct';
       correct++;
-    }else{
-      i.className="wrong";
-      hint.style.display="block";
+    } else {
+      i.className = 'wrong';
     }
   });
 
-  let r=document.querySelector(".result");
-  if(correct===inputs.length){
-    r.textContent="🎉 Perfect! All negative sentences are correct!";
-    r.style.color="green";
-  }else{
-    r.textContent=`😊 ${correct}/${inputs.length} correct. Remember: He/She/It → does not`;
-    r.style.color="red";
-  }
+  const r = document.querySelector('.result');
+  r.textContent = `${correct}/${inputs.length} correct`;
 }
 </script>
 
