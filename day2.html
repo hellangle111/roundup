@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Part B – Simple Present Questions</title>
+<title>Part C – Simple Present Negative</title>
 
 <style>
 body{
   font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg,#fffde7,#e3f2fd);
+  background: linear-gradient(135deg,#fce4ec,#e3f2fd);
   min-height:100vh;
   display:flex;
   justify-content:center;
@@ -15,8 +15,8 @@ body{
 }
 
 .container{
-  background:#ffffff;
-  width:540px;
+  background:#fff;
+  width:560px;
   padding:25px 30px;
   border-radius:22px;
   box-shadow:0 10px 25px rgba(0,0,0,.18);
@@ -25,7 +25,6 @@ body{
 h2{
   text-align:center;
   margin-top:0;
-  color:#333;
 }
 
 .instruction{
@@ -48,7 +47,7 @@ input{
   font-size:16px;
   padding:8px 10px;
   border:none;
-  border-bottom:2px dashed #999;
+  border-bottom:2px dashed #888;
   outline:none;
 }
 
@@ -69,13 +68,13 @@ input.wrong{
 }
 
 button{
-  margin:25px auto 0;
   display:block;
+  margin:25px auto 0;
   padding:10px 30px;
   font-size:16px;
   border:none;
   border-radius:25px;
-  background:#1976d2;
+  background:#4caf50;
   color:white;
   cursor:pointer;
 }
@@ -91,39 +90,39 @@ button{
 <body>
 
 <div class="container">
-  <h2>Part B</h2>
+  <h2>Part C</h2>
   <div class="instruction">
-    Change the positive sentences into questions.
+    Rewrite the sentences in their <b>negative form</b>.
   </div>
 
   <div class="question">
-    <div class="sentence">1. He likes chocolate.</div>
-    <input data-answer="does he like chocolate">
-    <div class="hint">Hint: Start with <b>Does</b></div>
+    <div class="sentence">1. She sings beautifully.</div>
+    <input data-answer="she does not sing beautifully|she doesnt sing beautifully">
+    <div class="hint">Hint: She → <b>does not + base verb</b></div>
   </div>
 
   <div class="question">
-    <div class="sentence">2. They play tennis on Sundays.</div>
-    <input data-answer="do they play tennis on sundays">
-    <div class="hint">Hint: Start with <b>Do</b></div>
+    <div class="sentence">2. They visit the museum every weekend.</div>
+    <input data-answer="they do not visit the museum every weekend|they dont visit the museum every weekend">
+    <div class="hint">Hint: They → <b>do not</b></div>
   </div>
 
   <div class="question">
-    <div class="sentence">3. She writes in her journal daily.</div>
-    <input data-answer="does she write in her journal daily">
-    <div class="hint">Hint: Use <b>Does + base verb</b></div>
+    <div class="sentence">3. He works at a bank.</div>
+    <input data-answer="he does not work at a bank|he doesnt work at a bank">
+    <div class="hint">Hint: He → <b>does not</b> (no -s)</div>
   </div>
 
   <div class="question">
-    <div class="sentence">4. We walk to school together.</div>
-    <input data-answer="do we walk to school together">
-    <div class="hint">Hint: Start with <b>Do</b></div>
+    <div class="sentence">4. The cat sleeps on the sofa.</div>
+    <input data-answer="the cat does not sleep on the sofa|the cat doesnt sleep on the sofa">
+    <div class="hint">Hint: Singular noun → <b>does not</b></div>
   </div>
 
   <div class="question">
-    <div class="sentence">5. The dog barks at strangers.</div>
-    <input data-answer="does the dog bark at strangers">
-    <div class="hint">Hint: Singular subject → <b>Does</b></div>
+    <div class="sentence">5. We enjoy the movie.</div>
+    <input data-answer="we do not enjoy the movie|we dont enjoy the movie">
+    <div class="hint">Hint: We → <b>do not</b></div>
   </div>
 
   <button onclick="check()">Check answers</button>
@@ -143,8 +142,11 @@ function check(){
   let correct=0;
 
   inputs.forEach(i=>{
+    let answers=i.dataset.answer.split("|");
+    let user=normalize(i.value);
     let hint=i.nextElementSibling;
-    if(normalize(i.value)===normalize(i.dataset.answer)){
+
+    if(answers.some(a=>normalize(a)===user)){
       i.className="correct";
       hint.style.display="none";
       correct++;
@@ -156,10 +158,10 @@ function check(){
 
   let r=document.querySelector(".result");
   if(correct===inputs.length){
-    r.textContent="🎉 Excellent! All questions are correct.";
+    r.textContent="🎉 Perfect! All negative sentences are correct!";
     r.style.color="green";
   }else{
-    r.textContent=`😊 ${correct}/${inputs.length} correct. Check the hints!`;
+    r.textContent=`😊 ${correct}/${inputs.length} correct. Remember: He/She/It → does not`;
     r.style.color="red";
   }
 }
