@@ -2,46 +2,166 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Learn Possessives</title>
+<title>Part B – Simple Present Questions</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-    }
-    iframe {
-        max-width: 100%;
-        height: 315px;
-    }
-    button {
-        font-size: 18px;
-        padding: 12px 25px;
-        margin-top: 20px;
-        cursor: pointer;
-    }
+body{
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg,#fffde7,#e3f2fd);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container{
+  background:#ffffff;
+  width:540px;
+  padding:25px 30px;
+  border-radius:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+h2{
+  text-align:center;
+  margin-top:0;
+  color:#333;
+}
+
+.instruction{
+  text-align:center;
+  color:#555;
+  margin-bottom:20px;
+}
+
+.question{
+  margin-bottom:18px;
+}
+
+.sentence{
+  margin-bottom:6px;
+  font-size:16px;
+}
+
+input{
+  width:100%;
+  font-size:16px;
+  padding:8px 10px;
+  border:none;
+  border-bottom:2px dashed #999;
+  outline:none;
+}
+
+input.correct{
+  background:#e8f5e9;
+  border-bottom-color:#2e7d32;
+}
+
+input.wrong{
+  background:#ffebee;
+  border-bottom-color:#c62828;
+}
+
+.hint{
+  font-size:14px;
+  color:#c62828;
+  display:none;
+}
+
+button{
+  margin:25px auto 0;
+  display:block;
+  padding:10px 30px;
+  font-size:16px;
+  border:none;
+  border-radius:25px;
+  background:#1976d2;
+  color:white;
+  cursor:pointer;
+}
+
+.result{
+  text-align:center;
+  margin-top:12px;
+  font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
-<h1>🎥 Watch the Video</h1>
+<div class="container">
+  <h2>Part B</h2>
+  <div class="instruction">
+    Change the positive sentences into questions.
+  </div>
 
-<iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/FNOV4mAUDqs?si=EkLtoIV9liXUj7QJ"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
+  <div class="question">
+    <div class="sentence">1. He likes chocolate.</div>
+    <input data-answer="does he like chocolate">
+    <div class="hint">Hint: Start with <b>Does</b></div>
+  </div>
 
-<br>
+  <div class="question">
+    <div class="sentence">2. They play tennis on Sundays.</div>
+    <input data-answer="do they play tennis on sundays">
+    <div class="hint">Hint: Start with <b>Do</b></div>
+  </div>
 
-<button onclick="goNext()">➡️ Next: Practice</button>
+  <div class="question">
+    <div class="sentence">3. She writes in her journal daily.</div>
+    <input data-answer="does she write in her journal daily">
+    <div class="hint">Hint: Use <b>Does + base verb</b></div>
+  </div>
+
+  <div class="question">
+    <div class="sentence">4. We walk to school together.</div>
+    <input data-answer="do we walk to school together">
+    <div class="hint">Hint: Start with <b>Do</b></div>
+  </div>
+
+  <div class="question">
+    <div class="sentence">5. The dog barks at strangers.</div>
+    <input data-answer="does the dog bark at strangers">
+    <div class="hint">Hint: Singular subject → <b>Does</b></div>
+  </div>
+
+  <button onclick="check()">Check answers</button>
+  <div class="result"></div>
+</div>
 
 <script>
-function goNext() {
-    window.location.href = "day2_practice.html";
+function normalize(t){
+  return t.toLowerCase()
+          .replace(/[?.!',]/g,'')
+          .replace(/\s+/g,' ')
+          .trim();
+}
+
+function check(){
+  let inputs=document.querySelectorAll("input");
+  let correct=0;
+
+  inputs.forEach(i=>{
+    let hint=i.nextElementSibling;
+    if(normalize(i.value)===normalize(i.dataset.answer)){
+      i.className="correct";
+      hint.style.display="none";
+      correct++;
+    }else{
+      i.className="wrong";
+      hint.style.display="block";
+    }
+  });
+
+  let r=document.querySelector(".result");
+  if(correct===inputs.length){
+    r.textContent="🎉 Excellent! All questions are correct.";
+    r.style.color="green";
+  }else{
+    r.textContent=`😊 ${correct}/${inputs.length} correct. Check the hints!`;
+    r.style.color="red";
+  }
 }
 </script>
 
