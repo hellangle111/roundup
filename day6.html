@@ -2,227 +2,161 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Answer the Questions About You</title>
+<title>Simple Present Tense</title>
 
 <style>
- body {
-   font-family: "Comic Sans MS", Arial, sans-serif;
-   background: linear-gradient(#fff3d4, #ffe9b0);
-   padding: 30px;
-   min-height: 100vh;
- }
-
- h1 {
-   color: #ff6b00;
-   text-align: center;
-   margin-bottom: 25px;
-   text-shadow: 2px 2px #ffe3bd;
- }
-
- .table {
-   width: 100%;
-   border-collapse: collapse;
-   background: #fffef4;
-   border-radius: 12px;
-   overflow: hidden;
-   box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
- }
-
- tr:nth-child(even) {
-   background: #fff8d5;
- }
-
- td {
-   padding: 14px 10px;
-   font-size: 19px;
-   vertical-align: middle;
- }
-
- .q-text {
-   width: 60%;
-   color: #0059b3;
-   font-weight: bold;
- }
-
- .q-input {
-   width: 40%;
- }
-
- input {
-   width: 80%;
-   padding: 8px 10px;
-   font-size: 18px;
-   border: 2px solid #9ca3af;
-   border-radius: 8px;
-   transition: 0.2s;
-   background: #ffffff;
- }
-
- input:focus {
-   border-color: #00a6ff;
-   background: #e6f7ff;
-   outline: none;
- }
-
- .correct {
-   border-color: #22c55e !important;
-   background: #d1fae5 !important;
- }
-
- .wrong {
-   border-color: #ef4444 !important;
-   background: #fee2e2 !important;
- }
-
- .hint {
-   font-size: 15px;
-   color: #e11d48;
-   margin-top: 3px;
-   font-weight: bold;
- }
-
- button {
-   margin-top: 30px;
-   padding: 12px 26px;
-   font-size: 20px;
-   background: #ffca3a;
-   border: none;
-   border-radius: 12px;
-   cursor: pointer;
-   font-weight: bold;
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   transition: 0.2s;
- }
-
- button:hover {
-   background: #ffb703;
-   transform: scale(1.05);
- }
+body{
+  font-family:"Comic Sans MS", Arial, sans-serif;
+  background:#ffa726;
+  padding:20px;
+}
+.page{
+  max-width:720px;
+  margin:auto;
+  background:#fff;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+h1{
+  text-align:center;
+  margin-bottom:5px;
+}
+.note{
+  text-align:center;
+  margin-bottom:15px;
+  font-size:1.1em;
+}
+.verbs{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  margin-bottom:20px;
+}
+.verb{
+  border:2px solid #000;
+  text-align:center;
+  padding:8px;
+  border-radius:8px;
+  background:#f5f5f5;
+  font-weight:bold;
+}
+.item{
+  margin:10px 0;
+  font-size:1.05em;
+}
+input{
+  width:120px;
+  font-size:1em;
+  padding:4px;
+  border-radius:6px;
+  border:2px solid #999;
+}
+.correct{
+  background:#e8f5e9;
+  border-color:#2e7d32;
+}
+.wrong{
+  background:#ffebee;
+  border-color:#c62828;
+}
+button{
+  display:block;
+  margin:20px auto 10px;
+  padding:10px 30px;
+  font-size:1.1em;
+  border-radius:30px;
+  border:none;
+  background:#000;
+  color:#fff;
+  cursor:pointer;
+}
+.result{
+  text-align:center;
+  font-weight:bold;
+  font-size:1.1em;
+}
 </style>
 </head>
+
 <body>
 
-<h1>12. Answer the questions about you.</h1>
+<div class="page">
+  <h1>Simple Present Tense</h1>
+  <div class="note">✏️ Write the correct verb form</div>
 
-<table class="table">
-  <tr data-subject="you">
-    <td class="q-text">1. Do you like pizza?</td>
-    <td class="q-input"><input><div class="hint"></div></td>
-  </tr>
-  <tr data-subject="he">
-    <td class="q-text">2. Does your dad work in a school?</td>
-    <td class="q-input"><input><div class="hint"></div></td>
-  </tr>
-  <tr data-subject="they">
-    <td class="q-text">3. Do your friends go to the park in the afternoon?</td>
-    <td class="q-input"><input><div class="hint"></div></td>
-  </tr>
-  <tr data-subject="she">
-    <td class="q-text">4. Does your mum like flowers?</td>
-    <td class="q-input"><input><div class="hint"></div></td>
-  </tr>
-  <tr data-subject="you">
-    <td class="q-text">5. Do you do your homework every day?</td>
-    <td class="q-input"><input><div class="hint"></div></td>
-  </tr>
-  <tr data-subject="he">
-    <td class="q-text">6. Does your teacher drive to school?</td>
-    <td class="q-input"><input><div class="hint"></div></td>
-  </tr>
-  <tr data-subject="he">
-    <td class="q-text">7. Does your friend play football on Sundays?</td>
-    <td class="q-input"><input><div class="hint"></div></td>
-  </tr>
-  <tr data-subject="you">
-    <td class="q-text">8. Do you eat breakfast with your family in the morning?</td>
-    <td class="q-input"><input><div class="hint"></div></td>
-  </tr>
-</table>
+  <div class="verbs">
+    <div class="verb">get</div>
+    <div class="verb">teach</div>
+    <div class="verb">have</div>
+    <div class="verb">finish</div>
+    <div class="verb">start</div>
+    <div class="verb">play</div>
+    <div class="verb">go</div>
+    <div class="verb">watch</div>
+    <div class="verb">do</div>
+    <div class="verb">walk</div>
+  </div>
 
-<button onclick="validate()">Check Answers</button>
+  <div class="item">1. My mother <b>starts</b> working at half past seven.</div>
+
+  <div class="item">2. My sisters 
+    <input data-ok="go"> to school every day.
+  </div>
+
+  <div class="item">3. My brother and I 
+    <input data-ok="have"> breakfast at half past seven.
+  </div>
+
+  <div class="item">4. We 
+    <input data-ok="watch"> a movie at the weekend.
+  </div>
+
+  <div class="item">5. Andrew 
+    <input data-ok="plays"> computer games.
+  </div>
+
+  <div class="item">6. School 
+    <input data-ok="finishes"> at three o’clock.
+  </div>
+
+  <div class="item">7. She 
+    <input data-ok="does"> her homework before dinner.
+  </div>
+
+  <div class="item">8. My mother 
+    <input data-ok="teaches"> art lesson at school.
+  </div>
+
+  <div class="item">9. I 
+    <input data-ok="go"> shopping with my best friends.
+  </div>
+
+  <div class="item">10. My brother 
+    <input data-ok="gets"> up at eight o’clock every day.
+  </div>
+
+  <button onclick="check()">Check Answers</button>
+  <div class="result"></div>
+</div>
 
 <script>
-function validate() {
-  const rules = {
-    you:  { pronoun: "i",  pos: "do",   neg: ["do not","don't"] },
-    he:   { pronoun: "he", pos: "does", neg: ["does not","doesn't"] },
-    she:  { pronoun: "she",pos: "does", neg: ["does not","doesn't"] },
-    they: { pronoun: "they",pos: "do", neg: ["do not","don't"] }
-  };
-
-  const subjectHints = {
-    you: "Use 'I' because the question is about you.",
-    he: "Use 'he' because the question is about your dad/teacher/friend (a boy).",
-    she: "Use 'she' because the question is about your mum (a girl).",
-    they: "Use 'they' because the question is about your friends (plural)."
-  };
-
-  document.querySelectorAll("tr[data-subject]").forEach(row => {
-    const subject = row.dataset.subject;
-    const input = row.querySelector("input");
-    const hint = row.querySelector(".hint");
-    const text = input.value.trim();
-    const lower = text.toLowerCase();
-
-    input.classList.remove("correct","wrong");
-    hint.textContent = "";
-
-    if (!text) {
-      input.classList.add("wrong");
-      hint.textContent = "Please answer the question.";
-      return;
+function norm(t){
+  return t.toLowerCase().trim();
+}
+function check(){
+  let score=0;
+  const inputs=document.querySelectorAll("input");
+  inputs.forEach(i=>{
+    if(norm(i.value)===norm(i.dataset.ok)){
+      i.className="correct";
+      score++;
+    }else{
+      i.className="wrong";
     }
-
-    if (!(lower.startsWith("yes") || lower.startsWith("no"))) {
-      input.classList.add("wrong");
-      hint.textContent = "Start with 'Yes' or 'No'.";
-      return;
-    }
-
-    const rule = rules[subject];
-
-    if (!lower.includes(rule.pronoun)) {
-      input.classList.add("wrong");
-      hint.textContent = subjectHints[subject];
-      return;
-    }
-
-    const positive = lower.startsWith("yes");
-    const negative = lower.startsWith("no");
-
-    if (positive) {
-      if (!lower.includes(rule.pos)) {
-        input.classList.add("wrong");
-        hint.textContent = `Use '${rule.pos}' after '${rule.pronoun}'.`;
-        return;
-      }
-
-      // reject wrong auxiliary
-      if ((rule.pos === "do" && lower.includes("does")) ||
-          (rule.pos === "does" && lower.includes("do "))) {
-        input.classList.add("wrong");
-        hint.textContent = `Use '${rule.pos}' with '${rule.pronoun}'.`;
-        return;
-      }
-    }
-
-    if (negative) {
-      let validNeg = false;
-      for (let n of rule.neg) {
-        if (lower.includes(n)) validNeg = true;
-      }
-      if (!validNeg) {
-        input.classList.add("wrong");
-        hint.textContent = `Use '${rule.neg.join("' or '")}' with '${rule.pronoun}'.`;
-        return;
-      }
-    }
-
-    input.classList.add("correct");
   });
+  document.querySelector(".result").textContent=
+    `😊 ${score} / ${inputs.length} correct`;
 }
 </script>
 
