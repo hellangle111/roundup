@@ -2,183 +2,215 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Favorite Trip – Simple Present</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing Activity - Daily Routine</title>
 
 <style>
-body{
-  font-family:"Comic Sans MS", Arial, sans-serif;
-  background:linear-gradient(135deg,#fff3c4,#d9f7ff);
-  padding:20px;
-}
+ body {
+   background: #f4fff6;
+   font-family: "Comic Sans MS", Arial, sans-serif;
+   padding: 20px;
+ }
 
-.box{
-  max-width:900px;
-  margin:auto;
-  background:#fff;
-  padding:30px;
-  border-radius:24px;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
+ h1 {
+   text-align: center;
+   color: #24a19c;
+ }
 
-h1{
-  text-align:center;
-  border:4px solid #000;
-  border-radius:30px;
-  padding:10px;
-}
+ h3 {
+   text-align: center;
+   color: #444;
+ }
 
-p{
-  font-size:1.1em;
-}
+ .wordBox {
+   display: flex;
+   gap: 8px;
+   align-items: center;
+   font-size: 20px;
+   margin-bottom: 5px;
+ }
 
-textarea{
-  width:100%;
-  height:150px;
-  padding:15px;
-  font-size:1.05em;
-  border-radius:16px;
-  border:2px solid #999;
-}
+ textarea {
+   width: 100%;
+   height: 220px;
+   padding: 12px;
+   font-size: 18px;
+   border: 3px dashed #6ac47e;
+   border-radius: 12px;
+   resize: none;
+   outline: none;
+ }
 
-textarea.correct{
-  background:#e8f5e9;
-  border-color:#2e7d32;
-}
+ .btn {
+   margin-top: 15px;
+   width: 100%;
+   font-size: 20px;
+   padding: 10px;
+   background: #ffdd57;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+ }
 
-textarea.wrong{
-  background:#ffebee;
-  border-color:#c62828;
-}
+ .result {
+   margin-top: 10px;
+   padding: 10px;
+   border-radius: 10px;
+   font-size: 18px;
+ }
 
-button{
-  display:block;
-  margin:20px auto;
-  padding:12px 40px;
-  font-size:1.1em;
-  border-radius:30px;
-  border:none;
-  background:#4caf50;
-  color:white;
-  cursor:pointer;
-}
+ .ok { background: #d1fae5; color: #065f46; }
+ .bad { background: #fee2e2; color: #991b1b; }
+ .neutral { background: #e0e7ff; color: #4338ca; }
 
-.hint{
-  display:none;
-  background:#fff8e1;
-  border:2px dashed #f57c00;
-  padding:15px;
-  border-radius:16px;
-  margin-top:15px;
-  font-size:1.05em;
-}
+ .preview {
+   margin-top: 15px;
+   padding: 12px;
+   background: #fff;
+   border-radius: 10px;
+   border: 2px solid #ddd;
+   font-size: 18px;
+   line-height: 1.5;
+ }
 
-.result{
-  text-align:center;
-  font-weight:bold;
-  font-size:1.2em;
-  margin-top:10px;
-}
+ .wrong-word {
+   background: #fecaca;
+   color: #7f1d1d;
+   padding: 2px 4px;
+   border-radius: 4px;
+ }
 </style>
 </head>
 
 <body>
 
-<div class="box">
-  <h1>✈️ My Favorite Trip</h1>
+<h1>Writing Activity</h1>
+<h3>Write about the trip you like most (at least 40 words)</h3>
 
-  <p>
-    ✏️ Write about the trip you like most.<br>
-    ✔ Use <b>Simple Present</b><br>
-    ✔ Exactly <b>40 words</b>
-  </p>
-
-  <textarea id="text" placeholder="Example: I like this trip because..."></textarea>
-
-  <button onclick="check()">✅ Check My Writing</button>
-
-  <div class="hint" id="hint"></div>
-  <div class="result" id="result"></div>
+<div class="wordBox">
+  <strong>Words:</strong>
+  <div id="wordResult" class="result neutral" style="padding:4px 10px;"></div>
 </div>
 
+<textarea id="text"
+ placeholder="Example: I like this trip because..."
+ oninput="liveCount()"></textarea>
+
+<button class="btn" onclick="check()">Check My Writing</button>
+
+<div id="tenseResult" class="result neutral"></div>
+<div id="preview" class="preview"></div>
+
 <script>
+// irregular verbs (simple past detection)
+
 const pastWords=[
   "was","were","went","visited","played","liked","ate","had",
   "did","made","took","saw","lived","traveled","travelled"
 ];
 
-function words(txt){
-  return txt.toLowerCase().replace(/[?.!,]/g,"").trim().split(/\s+/);
+// continuous and future
+const futureMarkers = ["will"];
+const beForms = ["am","is","are"];
+
+// helper: check if verb needs s/es
+function needs3rdPersonS(pronoun) {
+  return ["he","she","it"].includes(pronoun);
 }
 
-function check(){
-  const ta=document.getElementById("text");
-  const hint=document.getElementById("hint");
-  const result=document.getElementById("result");
+function liveCount() {
+ const txt = document.getElementById("text").value.trim();
+ const words = txt.split(/\s+/).filter(w => w);
+ const box = document.getElementById("wordResult");
+ box.textContent = words.length;
+ box.className = words.length < 40 ? "result bad" : "result ok";
+}
 
-  hint.style.display="none";
-  ta.className="";
-  result.textContent="";
+function check() {
+ const text = document.getElementById("text").value.trim();
+ const words = text.split(/\s+/);
+ const lowerWords = words.map(w=>w.toLowerCase().replace(/[^a-z]/g,""));
 
-  const w=words(ta.value);
+ let errorCount = 0;
+ let highlighted = [];
 
-  // 1️⃣ Word count
-  if(w.length!==40){
-    hint.textContent=`👉 You write ${w.length} words. Please write exactly 40 words.`;
-    hint.style.display="block";
-    ta.className="wrong";
-    return;
-  }
+ for (let i=0; i<words.length; i++) {
+   let w = lowerWords[i];
+   let original = words[i];
 
-  // 2️⃣ Future tense
-  if(w.includes("will")){
-    hint.textContent="👉 Use Simple Present. Do not use future tense (will).";
-    hint.style.display="block";
-    ta.className="wrong";
-    return;
-  }
+   // skip trivial words
+   if (!w) { highlighted.push(original); continue; }
 
-  // 3️⃣ Past tense list
-  if(w.some(x=>pastWords.includes(x))){
-    hint.textContent="👉 Some verbs are in the past. Use Simple Present.";
-    hint.style.display="block";
-    ta.className="wrong";
-    return;
-  }
+   // check simple past
+   if (pastWords.includes(w)) {
+     errorCount++;
+     highlighted.push(`<span class="wrong-word">${original}</span>`);
+     continue;
+   }
 
-  // 4️⃣ -ed past tense
-  if(w.some(x=>x.endsWith("ed"))){
-    hint.textContent="👉 Check verbs ending with -ed. Use Simple Present.";
-    hint.style.display="block";
-    ta.className="wrong";
-    return;
-  }
+   // check future
+   if (futureMarkers.includes(w)) {
+     errorCount++;
+     highlighted.push(`<span class="wrong-word">${original}</span>`);
+     continue;
+   }
 
-  // 5️⃣ do / does check
-  if(w.includes("does") && w.includes("i")){
-    hint.textContent="👉 Use DO with I / YOU / WE / THEY.";
-    hint.style.display="block";
-    ta.className="wrong";
-    return;
-  }
+   // check continuous: am/is/are + V-ing
+   if (beForms.includes(w) && lowerWords[i+1]?.endsWith("ing")) {
+     errorCount++;
+     highlighted.push(`<span class="wrong-word">${original}</span>`);
+     continue;
+   }
 
-  if(w.includes("do") && (w.includes("he")||w.includes("she")||w.includes("it"))){
-    hint.textContent="👉 Use DOES with HE / SHE / IT.";
-    hint.style.display="block";
-    ta.className="wrong";
-    return;
-  }
+   // check standalone V-ing
+   if (w.endsWith("ing") && i>0) {
+     errorCount++;
+     highlighted.push(`<span class="wrong-word">${original}</span>`);
+     continue;
+   }
 
-  // 6️⃣ s / es for he / she / it (gentle hint)
-  if((w.includes("he")||w.includes("she")||w.includes("it")) &&
-     w.some(x=>["go","play","like","eat","visit","travel","enjoy"].includes(x))){
-    hint.textContent="👉 Remember: verbs often need S or ES with he / she / it.";
-    hint.style.display="block";
-    ta.className="wrong";
-    return;
-  }
+   // simple present subject checking
+   let prev = lowerWords[i-1];
+   if (["i","you","we","they","he","she","it"].includes(prev)) {
+     let verb = w;
 
-  ta.className="correct";
-  result.textContent="🎉 Great job! Your writing uses Simple Present correctly!";
+     // remove punctuation
+     verb = verb.replace(/[^a-z]/g,'');
+
+     let thirdPerson = needs3rdPersonS(prev);
+
+     // verbs that wrongly use s/es
+     if (!thirdPerson && verb.match(/.+(s|es)$/)) {
+       errorCount++;
+       highlighted.push(`<span class="wrong-word">${original}</span>`);
+       continue;
+     }
+
+     // verbs missing s for he/she/it (simple check)
+     if (thirdPerson && !verb.match(/.+(s|es)$/)) {
+       // allow common exceptions like "has"
+       if (verb !== "has") {
+         errorCount++;
+         highlighted.push(`<span class="wrong-word">${original}</span>`);
+         continue;
+       }
+     }
+   }
+
+   highlighted.push(original);
+ }
+
+ document.getElementById("preview").innerHTML =
+   "<strong>Your text (checked):</strong><br>" + highlighted.join(" ");
+
+ const tenseBox = document.getElementById("tenseResult");
+ if (errorCount === 0) {
+   tenseBox.textContent = "Excellent! You are using simple present correctly 👍";
+   tenseBox.className = "result ok";
+ } else {
+   tenseBox.textContent = `There are ${errorCount} mistakes. Incorrect tense or verb forms are highlighted in red.`;
+   tenseBox.className = "result bad";
+ }
 }
 </script>
 
