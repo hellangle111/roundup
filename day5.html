@@ -2,46 +2,135 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Learn Possessives</title>
+<title>Simple Present – Part E</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-    }
-    iframe {
-        max-width: 100%;
-        height: 315px;
-    }
-    button {
-        font-size: 18px;
-        padding: 12px 25px;
-        margin-top: 20px;
-        cursor: pointer;
-    }
+  body {
+    font-family: "Comic Sans MS", Arial, sans-serif;
+    background: #f3f9ff;
+    padding: 10px;
+  }
+
+  .box {
+    max-width: 720px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  h1 {
+    text-align: center;
+    border: 4px solid #000;
+    border-radius: 30px;
+    padding: 10px;
+    background: #fff176;
+  }
+
+  .instruction {
+    font-weight: bold;
+    margin: 15px 0;
+  }
+
+  .word-bank {
+    background: #e1f5fe;
+    padding: 12px;
+    border-radius: 15px;
+    font-size: 1.05em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .item {
+    margin: 10px 0;
+    font-size: 1.1em;
+  }
+
+  input {
+    width: 120px;
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #999;
+    text-align: center;
+  }
+
+  input.correct {
+    background: #e8f5e9;
+    border-color: #2e7d32;
+  }
+
+  input.wrong {
+    background: #ffebee;
+    border-color: #c62828;
+  }
+
+  button {
+    display: block;
+    margin: 25px auto 10px;
+    padding: 12px 40px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    border: none;
+    background: #000;
+    color: white;
+    cursor: pointer;
+  }
+
+  .result {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
 </style>
 </head>
 
 <body>
 
-<h1>🎥 Watch the Video</h1>
+<div class="box">
+  <h1>Part E – Choose the Correct Verb 🎯</h1>
 
-<iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/s42NCo0Lxms?si=sGhUNxV4wGq1mjLx"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
+  <div class="instruction">
+    Complete the sentences using the verbs below.
+  </div>
 
-<br>
+  <div class="word-bank">
+    <b>listen – study – eat – read – work – take – play – watch – go – drink</b>
+  </div>
 
-<button onclick="goNext()">➡️ Next: Practice</button>
+  <div class="item">1. We <input data-ok="eat"> our lunch at noon.</div>
+  <div class="item">2. He <input data-ok="goes"> to the office by bus.</div>
+  <div class="item">3. They <input data-ok="watch"> TV in the evening.</div>
+  <div class="item">4. She <input data-ok="takes"> piano lessons every Tuesday.</div>
+  <div class="item">5. Every morning, she <input data-ok="drinks"> a cup of coffee.</div>
+
+  <div class="item">6. My brother <input data-ok="works"> at a bank.</div>
+  <div class="item">7. They <input data-ok="play"> soccer on weekends.</div>
+  <div class="item">8. He <input data-ok="listens"> to music while jogging.</div>
+  <div class="item">9. She <input data-ok="studies"> for her exams every night.</div>
+  <div class="item">10. She <input data-ok="reads"> her favorite book before bed.</div>
+
+  <button onclick="check()">Check Answers ✅</button>
+  <div class="result"></div>
+</div>
 
 <script>
-function goNext() {
-    window.location.href = "day5_practice.html";
+function check(){
+  const inputs = document.querySelectorAll('input');
+  let correct = 0;
+
+  inputs.forEach(i => {
+    if (i.value.trim().toLowerCase() === i.dataset.ok) {
+      i.className = 'correct';
+      correct++;
+    } else {
+      i.className = 'wrong';
+    }
+  });
+
+  document.querySelector('.result').textContent =
+    `🎉 ${correct} / ${inputs.length} correct!`;
 }
 </script>
 
