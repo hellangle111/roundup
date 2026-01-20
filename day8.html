@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Unscramble Sentences – Simple Present</title>
+<title>Make a Sentence – Simple Present</title>
 
 <style>
 body{
@@ -37,7 +37,7 @@ h2{
   background:#f9f9f9;
   border-radius:16px;
   padding:15px;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
 .words{
@@ -59,7 +59,6 @@ h2{
   padding:10px;
   border-radius:12px;
   border:2px dashed #999;
-  background:#fff;
 }
 
 .answer.correct{
@@ -70,6 +69,13 @@ h2{
 .answer.wrong{
   background:#ffebee;
   border-color:#c62828;
+}
+
+.hint{
+  font-size:0.95em;
+  color:#d84315;
+  margin-top:6px;
+  display:none;
 }
 
 button{
@@ -97,32 +103,53 @@ button{
 <div class="page">
 <h2>🧩 Make a Sentence</h2>
 <div class="instruction">
-👉 Drag the words to make a correct sentence (Simple Present).
+👉 Drag the words to make a correct sentence.<br>
+(Simple Present)
 </div>
 
-<div class="item" data-ok="my family usually watches tv in the living room after dinner">
+<!-- 1 -->
+<div class="item"
+     data-ok="my family usually watches tv in the living room after dinner"
+     data-hint="👉 Remember: place comes before time.">
   <div class="words"></div>
   <div class="answer"></div>
+  <div class="hint"></div>
 </div>
 
-<div class="item" data-ok="tom plays football with his friends at the park every weekend">
+<!-- 2 -->
+<div class="item"
+     data-ok="tom plays football with his friends at the park every weekend"
+     data-hint="👉 Time words like “every weekend” usually go at the end.">
   <div class="words"></div>
   <div class="answer"></div>
+  <div class="hint"></div>
 </div>
 
-<div class="item" data-ok="she always checks her school bag before leaving home">
+<!-- 3 -->
+<div class="item"
+     data-ok="she always checks her school bag before leaving home"
+     data-hint="👉 Adverbs like “always” go before the main verb.">
   <div class="words"></div>
   <div class="answer"></div>
+  <div class="hint"></div>
 </div>
 
-<div class="item" data-ok="the children go to school by bus on weekdays">
+<!-- 4 -->
+<div class="item"
+     data-ok="the children go to school by bus on weekdays"
+     data-hint="👉 Use order: place → time.">
   <div class="words"></div>
   <div class="answer"></div>
+  <div class="hint"></div>
 </div>
 
-<div class="item" data-ok="we often read storybooks together in the evening">
+<!-- 5 -->
+<div class="item"
+     data-ok="we often read storybooks together in the evening"
+     data-hint="👉 Time words usually come at the end of the sentence.">
   <div class="words"></div>
   <div class="answer"></div>
+  <div class="hint"></div>
 </div>
 
 <button onclick="check()">✅ Check Answers</button>
@@ -130,15 +157,15 @@ button{
 </div>
 
 <script>
-let dragged;
+let dragged=null;
 
-document.addEventListener("dragstart", e=>{
+document.addEventListener("dragstart",e=>{
   if(e.target.classList.contains("word")){
     dragged=e.target;
   }
 });
 
-document.querySelectorAll(".answer,.words").forEach(box=>{
+document.querySelectorAll(".words,.answer").forEach(box=>{
   box.addEventListener("dragover",e=>e.preventDefault());
   box.addEventListener("drop",e=>{
     e.preventDefault();
@@ -152,15 +179,14 @@ function shuffle(arr){
 
 document.querySelectorAll(".item").forEach(item=>{
   const words=item.dataset.ok.split(" ");
-  const shuffled=shuffle(words);
-  const container=item.querySelector(".words");
-
-  shuffled.forEach(w=>{
-    const span=document.createElement("span");
-    span.textContent=w;
-    span.className="word";
-    span.draggable=true;
-    container.appendChild(span);
+  shuffle(words);
+  const wbox=item.querySelector(".words");
+  words.forEach(w=>{
+    const s=document.createElement("span");
+    s.textContent=w;
+    s.className="word";
+    s.draggable=true;
+    wbox.appendChild(s);
   });
 });
 
@@ -176,13 +202,18 @@ function check(){
   const items=document.querySelectorAll(".item");
 
   items.forEach(item=>{
-    const answer=item.querySelector(".answer");
-    const text=[...answer.children].map(w=>w.textContent).join(" ");
+    const ans=item.querySelector(".answer");
+    const hint=item.querySelector(".hint");
+    const text=[...ans.children].map(w=>w.textContent).join(" ");
+
     if(norm(text)===norm(item.dataset.ok)){
-      answer.className="answer correct";
+      ans.className="answer correct";
+      hint.style.display="none";
       score++;
     }else{
-      answer.className="answer wrong";
+      ans.className="answer wrong";
+      hint.textContent=item.dataset.hint;
+      hint.style.display="block";
     }
   });
 
