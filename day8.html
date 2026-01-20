@@ -2,46 +2,166 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Learn Possessives</title>
+<title>Unscramble Sentences – Simple Present</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-    }
-    iframe {
-        max-width: 100%;
-        height: 415px;
-    }
-    button {
-        font-size: 18px;
-        padding: 12px 25px;
-        margin-top: 20px;
-        cursor: pointer;
-    }
+  body {
+    font-family: "Comic Sans MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #fff3c4, #d9f7ff);
+    padding: 20px;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    border: 4px solid #000;
+    border-radius: 30px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .instruction {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+  }
+
+  .item {
+    background: #f9f9f9;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .scramble {
+    font-weight: bold;
+    color: #1976d2;
+    margin-bottom: 8px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 12px;
+    border: 2px solid #999;
+  }
+
+  input.correct {
+    background: #e8f5e9;
+    border-color: #2e7d32;
+  }
+
+  input.wrong {
+    background: #ffebee;
+    border-color: #c62828;
+  }
+
+  button {
+    display: block;
+    margin: 25px auto 10px;
+    padding: 12px 40px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    border: none;
+    background: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+
+  .result {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
 </style>
 </head>
 
 <body>
 
-<h1>🎥 Watch the Video</h1>
+<div class="page">
+  <h1>🧩 Unscramble Sentences</h1>
+  <div class="instruction">
+    Put the words in the correct order.<br>
+    ✏️ Type the <b>full sentence</b> (Simple Present).
+  </div>
 
-<iframe
-    width="760"
-    height="415"
-    src="https://www.youtube.com/embed/Tq1TxNgs4Ls?si=IVNXQRps9IQIObTz"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
+  <div class="item">
+    <div class="scramble">
+      1. after dinner / usually / in the living room / watches / my family / TV /
+    </div>
+    <input data-ok="my family usually watches tv in the living room after dinner">
+  </div>
 
-<br>
+  <div class="item">
+    <div class="scramble">
+      2. every weekend / with his friends / football / plays / at the park / Tom /
+    </div>
+    <input data-ok="tom plays football with his friends at the park every weekend">
+  </div>
 
-<button onclick="goNext()">➡️ Next: Practice</button>
+  <div class="item">
+    <div class="scramble">
+      3. before school / always / her bag / checks / carefully / she /
+    </div>
+    <input data-ok="she always checks her bag carefully before school">
+  </div>
+
+  <div class="item">
+    <div class="scramble">
+      4. on weekdays / to school / by bus / go / the children /
+    </div>
+    <input data-ok="the children go to school by bus on weekdays">
+  </div>
+
+  <div class="item">
+    <div class="scramble">
+      5. in the evening / often / together / read / storybooks / we /
+    </div>
+    <input data-ok="we often read storybooks together in the evening">
+  </div>
+
+  <button onclick="check()">✅ Check Answers</button>
+  <div class="result"></div>
+</div>
 
 <script>
-function goNext() {
-    window.location.href = "day8_practice.html";
+function norm(t){
+  return t.toLowerCase()
+    .replace(/[?.!,]/g,'')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
+function check(){
+  const inputs = document.querySelectorAll('input');
+  let correct = 0;
+
+  inputs.forEach(i => {
+    if(norm(i.value) === norm(i.dataset.ok)){
+      i.className = 'correct';
+      correct++;
+    } else {
+      i.className = 'wrong';
+    }
+  });
+
+  const r = document.querySelector('.result');
+  if(correct === inputs.length){
+    r.textContent = '🎉 Excellent! All sentences are correct!';
+  } else {
+    r.textContent = `😊 ${correct} / ${inputs.length} correct — try again!`;
+  }
 }
 </script>
 
