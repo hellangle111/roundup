@@ -2,92 +2,92 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Unscramble Sentences – Drag & Drop</title>
+<title>Unscramble Sentences – Simple Present</title>
 
 <style>
-body {
-  font-family: "Comic Sans MS", Arial, sans-serif;
-  background: linear-gradient(135deg, #fff3c4, #d9f7ff);
-  padding: 20px;
+body{
+  font-family:"Comic Sans MS", Arial, sans-serif;
+  background:linear-gradient(135deg,#fff3c4,#d9f7ff);
+  padding:20px;
 }
 
-.page {
-  max-width: 900px;
-  margin: auto;
-  background: #ffffff;
-  border-radius: 24px;
-  padding: 30px;
-  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+.page{
+  max-width:950px;
+  margin:auto;
+  background:#fff;
+  border-radius:24px;
+  padding:30px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
-h2 {
-  text-align: center;
-  border: 4px solid #000;
-  border-radius: 30px;
-  padding: 10px;
+h2{
+  text-align:center;
+  border:4px solid #000;
+  border-radius:30px;
+  padding:10px;
 }
 
-.instruction {
-  text-align: center;
-  font-size: 1.1em;
-  margin-bottom: 25px;
+.instruction{
+  text-align:center;
+  font-size:1.1em;
+  margin-bottom:25px;
 }
 
-.item {
-  background: #f9f9f9;
-  border-radius: 16px;
-  padding: 15px;
-  margin-bottom: 18px;
+.item{
+  background:#f9f9f9;
+  border-radius:16px;
+  padding:15px;
+  margin-bottom:18px;
 }
 
-.words {
-  margin-bottom: 10px;
+.words{
+  margin-bottom:10px;
 }
 
-.word {
-  display: inline-block;
-  padding: 6px 12px;
-  margin: 5px;
-  background: #bbdefb;
-  border-radius: 12px;
-  cursor: grab;
-  font-weight: bold;
+.word{
+  display:inline-block;
+  padding:6px 12px;
+  margin:5px;
+  background:#bbdefb;
+  border-radius:12px;
+  cursor:grab;
+  font-weight:bold;
 }
 
-.answer {
-  min-height: 45px;
-  padding: 10px;
-  border-radius: 12px;
-  border: 2px dashed #999;
-  background: #fff;
+.answer{
+  min-height:45px;
+  padding:10px;
+  border-radius:12px;
+  border:2px dashed #999;
+  background:#fff;
 }
 
-.answer.correct {
-  background: #e8f5e9;
-  border-color: #2e7d32;
+.answer.correct{
+  background:#e8f5e9;
+  border-color:#2e7d32;
 }
 
-.answer.wrong {
-  background: #ffebee;
-  border-color: #c62828;
+.answer.wrong{
+  background:#ffebee;
+  border-color:#c62828;
 }
 
-button {
-  display: block;
-  margin: 25px auto 10px;
-  padding: 12px 40px;
-  font-size: 1.1em;
-  border-radius: 30px;
-  border: none;
-  background: #4caf50;
-  color: white;
-  cursor: pointer;
+button{
+  display:block;
+  margin:25px auto 10px;
+  padding:12px 40px;
+  font-size:1.1em;
+  border-radius:30px;
+  border:none;
+  background:#4caf50;
+  color:white;
+  cursor:pointer;
 }
 
-.result {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2em;
+.result{
+  text-align:center;
+  font-weight:bold;
+  font-size:1.2em;
 }
 </style>
 </head>
@@ -95,68 +95,72 @@ button {
 <body>
 
 <div class="page">
-  <h2>🧩 Unscramble Sentences</h2>
-  <div class="instruction">
-    👉 Drag the words to make a correct sentence.
-  </div>
+<h2>🧩 Make a Sentence</h2>
+<div class="instruction">
+👉 Drag the words to make a correct sentence (Simple Present).
+</div>
 
-  <!-- Sentence 1 -->
-  <div class="item">
-    <div class="words">
-      <span class="word" draggable="true">my</span>
-      <span class="word" draggable="true">family</span>
-      <span class="word" draggable="true">usually</span>
-      <span class="word" draggable="true">watches</span>
-      <span class="word" draggable="true">TV</span>
-      <span class="word" draggable="true">in</span>
-      <span class="word" draggable="true">the</span>
-      <span class="word" draggable="true">living</span>
-      <span class="word" draggable="true">room</span>
-      <span class="word" draggable="true">after</span>
-      <span class="word" draggable="true">dinner</span>
-    </div>
-    <div class="answer" data-ok="my family usually watches tv in the living room after dinner"></div>
-  </div>
+<div class="item" data-ok="my family usually watches tv in the living room after dinner">
+  <div class="words"></div>
+  <div class="answer"></div>
+</div>
 
-  <!-- Sentence 2 -->
-  <div class="item">
-    <div class="words">
-      <span class="word" draggable="true">tom</span>
-      <span class="word" draggable="true">plays</span>
-      <span class="word" draggable="true">football</span>
-      <span class="word" draggable="true">with</span>
-      <span class="word" draggable="true">his</span>
-      <span class="word" draggable="true">friends</span>
-      <span class="word" draggable="true">at</span>
-      <span class="word" draggable="true">the</span>
-      <span class="word" draggable="true">park</span>
-      <span class="word" draggable="true">every</span>
-      <span class="word" draggable="true">weekend</span>
-    </div>
-    <div class="answer" data-ok="tom plays football with his friends at the park every weekend"></div>
-  </div>
+<div class="item" data-ok="tom plays football with his friends at the park every weekend">
+  <div class="words"></div>
+  <div class="answer"></div>
+</div>
 
-  <button onclick="check()">✅ Check Answers</button>
-  <div class="result"></div>
+<div class="item" data-ok="she always checks her school bag before leaving home">
+  <div class="words"></div>
+  <div class="answer"></div>
+</div>
+
+<div class="item" data-ok="the children go to school by bus on weekdays">
+  <div class="words"></div>
+  <div class="answer"></div>
+</div>
+
+<div class="item" data-ok="we often read storybooks together in the evening">
+  <div class="words"></div>
+  <div class="answer"></div>
+</div>
+
+<button onclick="check()">✅ Check Answers</button>
+<div class="result"></div>
 </div>
 
 <script>
 let dragged;
 
-document.addEventListener("dragstart", e => {
+document.addEventListener("dragstart", e=>{
   if(e.target.classList.contains("word")){
-    dragged = e.target;
+    dragged=e.target;
   }
 });
 
-document.querySelectorAll(".answer").forEach(box => {
-  box.addEventListener("dragover", e => e.preventDefault());
-
-  box.addEventListener("drop", e => {
+document.querySelectorAll(".answer,.words").forEach(box=>{
+  box.addEventListener("dragover",e=>e.preventDefault());
+  box.addEventListener("drop",e=>{
     e.preventDefault();
-    if(dragged){
-      box.appendChild(dragged);
-    }
+    if(dragged) box.appendChild(dragged);
+  });
+});
+
+function shuffle(arr){
+  return arr.sort(()=>Math.random()-0.5);
+}
+
+document.querySelectorAll(".item").forEach(item=>{
+  const words=item.dataset.ok.split(" ");
+  const shuffled=shuffle(words);
+  const container=item.querySelector(".words");
+
+  shuffled.forEach(w=>{
+    const span=document.createElement("span");
+    span.textContent=w;
+    span.className="word";
+    span.draggable=true;
+    container.appendChild(span);
   });
 });
 
@@ -168,24 +172,22 @@ function norm(t){
 }
 
 function check(){
-  let score = 0;
-  const answers = document.querySelectorAll(".answer");
+  let score=0;
+  const items=document.querySelectorAll(".item");
 
-  answers.forEach(a => {
-    const text = Array.from(a.children)
-      .map(w => w.textContent)
-      .join(" ");
-
-    if(norm(text) === norm(a.dataset.ok)){
-      a.className = "answer correct";
+  items.forEach(item=>{
+    const answer=item.querySelector(".answer");
+    const text=[...answer.children].map(w=>w.textContent).join(" ");
+    if(norm(text)===norm(item.dataset.ok)){
+      answer.className="answer correct";
       score++;
-    } else {
-      a.className = "answer wrong";
+    }else{
+      answer.className="answer wrong";
     }
   });
 
-  document.querySelector(".result").textContent =
-    `😊 ${score} / ${answers.length} correct`;
+  document.querySelector(".result").textContent=
+    `😊 ${score} / ${items.length} correct`;
 }
 </script>
 
