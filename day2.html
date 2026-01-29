@@ -2,145 +2,202 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Simple Present – Part B</title>
+<title>English Grammar Practice</title>
 
 <style>
-  body {
-    font-family: "Comic Sans MS", Arial, sans-serif;
-    background: #f5f5f5;
-    padding: 30px;
-  }
+    body{
+        font-family: "Comic Sans MS", Arial, sans-serif;
+        background: #f5f8ff;
+        padding: 20px;
+    }
 
-  .page {
-    background: #fff;
-    max-width: 700px;
-    margin: auto;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.15);
-  }
+    .page{
+        max-width: 900px;
+        margin:auto;
+        background:white;
+        padding:30px;
+        border-radius:14px;
+        box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
 
-  h1 {
-    text-align: center;
-    border: 4px solid #000;
-    padding: 12px;
-    border-radius: 30px;
-    margin-bottom: 25px;
-  }
+    h1{
+        text-align:center;
+        color:#1f4fff;
+        margin-bottom:5px;
+    }
 
-  h2 {
-    margin-top: 0;
-  }
+    .subtitle{
+        text-align:center;
+        font-weight:bold;
+        color:#e74c3c;
+        margin-bottom:25px;
+    }
 
-  .q {
-    margin: 18px 0;
-    font-size: 1.1em;
-  }
+    h2{
+        color:#1f4fff;
+        border-left:6px solid #1f4fff;
+        padding-left:10px;
+    }
 
-  .line {
-    display: inline-block;
-    border-bottom: 2px solid #000;
-    min-width: 420px;
-  }
+    .exercise{
+        margin-bottom:30px;
+    }
 
-  input {
-    border: none;
-    outline: none;
-    font-size: 1em;
-    width: 100%;
-  }
+    .sentence{
+        font-size:17px;
+        line-height:2;
+    }
 
-  .correct { background: #e8f5e9; }
-  .wrong { background: #ffebee; }
+    input{
+        width:70px;
+        border:none;
+        border-bottom:2px solid #333;
+        text-align:center;
+        font-size:16px;
+        outline:none;
+    }
 
-  button {
-    display: block;
-    margin: 25px auto 10px;
-    padding: 12px 30px;
-    font-size: 1.1em;
-    border-radius: 30px;
-    border: none;
-    background: #000;
-    color: white;
-    cursor: pointer;
-  }
+    input.correct{
+        border-color:green;
+        color:green;
+        font-weight:bold;
+    }
 
-  .result {
-    text-align: center;
-    font-weight: bold;
-  }
+    input.wrong{
+        border-color:red;
+        color:red;
+        font-weight:bold;
+    }
+
+    .buttons{
+        text-align:center;
+        margin-top:25px;
+    }
+
+    button{
+        background:#1f4fff;
+        color:white;
+        border:none;
+        padding:10px 22px;
+        font-size:16px;
+        border-radius:8px;
+        cursor:pointer;
+        margin:0 8px;
+    }
+
+    button:hover{
+        background:#1436cc;
+    }
+
+    .score{
+        text-align:center;
+        font-size:18px;
+        font-weight:bold;
+        margin-top:15px;
+        color:#2c3e50;
+    }
+
+    @media print{
+        body{ background:white; }
+        .buttons, .score{ display:none; }
+        .page{ box-shadow:none; }
+    }
 </style>
 </head>
 
 <body>
 
 <div class="page">
-  <h1>Simple Present Tense</h1>
 
-  <h2>B. Change the positive sentences into questions.</h2>
+<h1>English Grammar Practice</h1>
+<div class="subtitle">Choose: have, has, am, is, are</div>
 
-  <div class="q">
-    1. He likes chocolate.<br>
-    <span class="line">
-      <input data-ok="does he like chocolate">
-    </span> ?
-  </div>
+<!-- Exercise 1 -->
+<div class="exercise">
+<h2>Exercise 1: A Big Family Day</h2>
 
-  <div class="q">
-    2. They play tennis on Sundays.<br>
-    <span class="line">
-      <input data-ok="do they play tennis on sundays">
-    </span> ?
-  </div>
+<div class="sentence">This <input> my friend Leo. He <input> a very big family. There <input> eight people in his family.</div>
 
-  <div class="q">
-    3. She writes in her journal daily.<br>
-    <span class="line">
-      <input data-ok="does she write in her journal daily">
-    </span> ?
-  </div>
+<div class="sentence">Leo <input> two brothers and three sisters. His parents <input> busy but very kind.</div>
 
-  <div class="q">
-    4. We walk to school together.<br>
-    <span class="line">
-      <input data-ok="do we walk to school together">
-    </span> ?
-  </div>
+<div class="sentence">His father <input> a teacher. He <input> tall and strong. His mother <input> a nurse. She <input> long black hair.</div>
 
-  <div class="q">
-    5. The dog barks at strangers.<br>
-    <span class="line">
-      <input data-ok="does the dog bark at strangers">
-    </span> ?
-  </div>
+<div class="sentence">Leo <input> nine years old and he <input> in grade three. He <input> a blue school bag and two notebooks.</div>
 
-  <button onclick="check()">Check Answers</button>
-  <div class="result"></div>
+<div class="sentence">His brothers <input> twins. They <input> six years old. They <input> many toy cars.</div>
+
+<div class="sentence">Leo and his sisters <input> happy together. They <input> a dog and a cat at home.</div>
+</div>
+
+<!-- Exercise 2 -->
+<div class="exercise">
+<h2>Exercise 2: My Friends at School</h2>
+
+<div class="sentence">I <input> a lot of friends at school. My best friend <input> Mia. She <input> ten years old and she <input> very friendly.</div>
+
+<div class="sentence">Mia <input> short hair and glasses. She <input> good at math.</div>
+
+<div class="sentence">Tom and Ben <input> in my class. They <input> brothers. They <input> the same bike.</div>
+
+<div class="sentence">Our teacher <input> very nice. She <input> a red dress today.</div>
+
+<div class="sentence">We <input> many lessons every day. English <input> our favorite subject.</div>
+
+<div class="sentence">At break time, we <input> fun together. We <input> very happy students.</div>
+</div>
+
+<div class="buttons">
+    <button onclick="checkAnswers()">Check Answers</button>
+    <button onclick="resetAll()">Reset</button>
+</div>
+
+<div id="score" class="score"></div>
+
 </div>
 
 <script>
-function norm(t){
-  return t.toLowerCase()
-          .replace(/[?.,!]/g,'')
-          .replace(/\s+/g,' ')
-          .trim();
+const answers = [
+"is","has","are",
+"has","are",
+"is","is","is","has",
+"is","is","has",
+"are","are","have",
+"are","have",
+
+"have","is","is","is",
+"has","is",
+"are","are","have",
+"is","has",
+"have","is",
+"are","are"
+];
+
+function checkAnswers(){
+    const inputs = document.querySelectorAll("input");
+    let score = 0;
+
+    inputs.forEach((input, index)=>{
+        let val = input.value.trim().toLowerCase();
+
+        if(val === answers[index]){
+            input.className = "correct";
+            score++;
+        }else{
+            input.className = "wrong";
+        }
+    });
+
+    document.getElementById("score").innerHTML =
+        `Score: ${score} / ${answers.length}`;
 }
 
-function check(){
-  const inputs = document.querySelectorAll('input');
-  let correct = 0;
-
-  inputs.forEach(i => {
-    if(norm(i.value) === i.dataset.ok){
-      i.className = 'correct';
-      correct++;
-    } else {
-      i.className = 'wrong';
-    }
-  });
-
-  const r = document.querySelector('.result');
-  r.textContent = `${correct}/${inputs.length} correct`;
+function resetAll(){
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach(input=>{
+        input.value = "";
+        input.className = "";
+    });
+    document.getElementById("score").innerHTML = "";
 }
 </script>
 
