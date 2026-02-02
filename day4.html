@@ -2,218 +2,157 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Look & Write – Present Continuous</title>
-
+<title>English Practice - Yes / No</title>
 <style>
-body{
-  font-family:"Comic Sans MS", Arial, sans-serif;
-  background:linear-gradient(135deg,#fff9c4,#e1f5fe);
-  padding:20px;
-}
+    body{
+        font-family: "Comic Sans MS", Arial, sans-serif;
+        background: linear-gradient(to right, #f2f7ff, #ffffff);
+        margin: 0;
+        padding: 20px;
+    }
 
-.page{
-  max-width:950px;
-  margin:auto;
-  background:white;
-  padding:25px;
-  border-radius:22px;
-  border:6px dashed #42a5f5;
-}
+    h1{
+        text-align:center;
+        color:#2c3e50;
+    }
 
-h1{
-  text-align:center;
-  background:#90caf9;
-  padding:15px;
-  border-radius:18px;
-  font-size:34px;
-}
+    .container{
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 
-.note{
-  text-align:center;
-  font-size:22px;
-  margin:15px 0;
-  font-weight:bold;
-}
+    .question{
+        margin: 15px 0;
+        padding: 12px;
+        border-radius: 8px;
+        background: #f8fbff;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 
-.row{
-  display:grid;
-  grid-template-columns:260px 1fr;
-  gap:18px;
-  background:#f5f5f5;
-  padding:14px;
-  border-radius:16px;
-  margin-bottom:14px;
-  align-items:center;
-}
+    .question span{
+        font-size: 18px;
+        min-width: 300px;
+    }
 
-.pic img{
-  width:100%;
-  border-radius:14px;
-  border:3px solid #90caf9;
-}
+    input{
+        padding: 6px 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        width: 160px;
+    }
 
-.item{
-  font-size:22px;
-}
+    .result{
+        margin-left: 10px;
+        font-weight: bold;
+        font-size: 18px;
+    }
 
-label{
-  display:block;
-  margin-top:6px;
-}
+    button{
+        margin-top: 20px;
+        padding: 12px 20px;
+        font-size: 18px;
+        border-radius: 10px;
+        border: none;
+        background: #4caf50;
+        color: white;
+        cursor: pointer;
+    }
 
-input{
-  width:100%;
-  padding:8px;
-  font-size:22px;
-  border-radius:10px;
-  border:2px solid #777;
-}
-
-.correct{background:#e8f5e9;border-color:#2e7d32;}
-.wrong{background:#ffebee;border-color:#c62828;}
-
-button{
-  display:block;
-  margin:25px auto 10px;
-  padding:14px 45px;
-  font-size:24px;
-  border-radius:30px;
-  border:none;
-  background:#42a5f5;
-  color:white;
-  cursor:pointer;
-}
-
-.result{
-  text-align:center;
-  font-weight:bold;
-  font-size:26px;
-}
-
-@media print{
-  button{display:none;}
-  body{background:white;}
-}
+    button:hover{
+        background:#43a047;
+    }
 </style>
 </head>
 
 <body>
 
-<div class="page">
+<h1>Yes / No English Practice</h1>
 
-<h1>👀 Look at the Picture & Write</h1>
-<div class="note">✏️ Write sentences in Present Continuous</div>
+<div class="container">
 
-<!-- EXAMPLE -->
-<div class="row">
-  <div class="pic">
-    <img src="https://i.imgur.com/4AiXzf8.png">
-  </div>
-  <div class="item">
-    <b>Example – play tennis</b>
-    <div>Long: The girl is playing tennis.</div>
-    <div>Short: She's playing tennis.</div>
-  </div>
-</div>
+    <div class="question">
+        <span>1. Is the boy kicking the ball?</span>
+        Yes / No:
+        <input id="q1">
+        <span id="r1" class="result"></span>
+    </div>
 
-<!-- 2 -->
-<div class="row">
-  <div class="pic">
-    <img src="https://i.imgur.com/oYiTqum.png">
-  </div>
-  <div class="item">
-    <b>2. kick the ball</b>
-    <label>Long form:</label>
-    <input data-ok="the boy is kicking the ball">
-    <label>Short form:</label>
-    <input data-ok="he's kicking the ball">
-  </div>
-</div>
+    <div class="question">
+        <span>2. Is the man riding a horse?</span>
+        Yes / No:
+        <input id="q2">
+        <span id="r2" class="result"></span>
+    </div>
 
-<!-- 3 -->
-<div class="row">
-  <div class="pic">
-    <img src="https://i.imgur.com/YZ6X9qL.png">
-  </div>
-  <div class="item">
-    <b>3. dance</b>
-    <label>Long form:</label>
-    <input data-ok="the girls are dancing">
-    <label>Short form:</label>
-    <input data-ok="they're dancing">
-  </div>
-</div>
+    <div class="question">
+        <span>3. Are the two girls talking?</span>
+        Yes / No:
+        <input id="q3">
+        <span id="r3" class="result"></span>
+    </div>
 
-<!-- 4 -->
-<div class="row">
-  <div class="pic">
-    <img src="https://i.imgur.com/x5x4rYH.png">
-  </div>
-  <div class="item">
-    <b>4. talk on the phone</b>
-    <label>Long form:</label>
-    <input data-ok="the woman is talking on the phone">
-    <label>Short form:</label>
-    <input data-ok="she's talking on the phone">
-  </div>
-</div>
+    <div class="question">
+        <span>4. Is the girl playing tennis?</span>
+        Yes / No:
+        <input id="q4">
+        <span id="r4" class="result"></span>
+    </div>
 
-<!-- 5 -->
-<div class="row">
-  <div class="pic">
-    <img src="images/day4PC.png">
-  </div>
-  <div class="item">
-    <b>5. jump over the fence</b>
-    <label>Long form:</label>
-    <input data-ok="the horse is jumping over the fence">
-    <label>Short form:</label>
-    <input data-ok="it's jumping over the fence">
-  </div>
-</div>
+    <div class="question">
+        <span>5. Is the girl thinking?</span>
+        Yes / No:
+        <input id="q5">
+        <span id="r5" class="result"></span>
+    </div>
 
-<!-- 6 -->
-<div class="row">
-  <div class="pic">
-    <img src="https://i.imgur.com/EN4vK1k.png">
-  </div>
-  <div class="item">
-    <b>6. work in the garden</b>
-    <label>Long form:</label>
-    <input data-ok="the men are working in the garden">
-    <label>Short form:</label>
-    <input data-ok="they're working in the garden">
-  </div>
-</div>
-
-<button onclick="check()">✅ Check Answers</button>
-<div class="result"></div>
+    <button onclick="checkAnswers()">Check Answers</button>
 
 </div>
 
 <script>
-function norm(t){
-  return t.toLowerCase()
-    .replace(/[.?!]/g,'')
-    .replace(/\s+/g,' ')
-    .trim();
+function normalize(text){
+    return text
+        .toLowerCase()
+        .replace(/\s+/g,' ')
+        .replace(/[.?!]/g,'')
+        .trim();
 }
 
-function check(){
-  const inputs=document.querySelectorAll("input");
-  let score=0;
+function isCorrect(user, answers){
+    user = normalize(user);
+    return answers.some(ans => normalize(ans) === user);
+}
 
-  inputs.forEach(i=>{
-    if(norm(i.value)===norm(i.dataset.ok)){
-      i.className="correct";
-      score++;
-    }else{
-      i.className="wrong";
-    }
-  });
+function checkAnswers(){
 
-  document.querySelector(".result").textContent =
-    `🎯 ${score} / ${inputs.length} correct`;
+    const data = [
+        { id:1, answers:["yes","yes he is"] },
+        { id:2, answers:["yes","yes he is"] },   // FIXED: accepts "yes, he is"
+        { id:3, answers:["yes","yes they are"] },
+        { id:4, answers:["yes","yes she is"] },
+        { id:5, answers:["yes","yes she is"] }
+    ];
+
+    data.forEach(q=>{
+        let user = document.getElementById("q"+q.id).value;
+        let result = document.getElementById("r"+q.id);
+
+        if(isCorrect(user, q.answers)){
+            result.innerHTML = "✅";
+            result.style.color = "green";
+        }else{
+            result.innerHTML = "❌";
+            result.style.color = "red";
+        }
+    });
 }
 </script>
 
