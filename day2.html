@@ -2,202 +2,46 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>English Grammar Practice</title>
+<title>Learn Present continuous</title>
 
 <style>
-    body{
-        font-family: "Comic Sans MS", Arial, sans-serif;
-        background: #f5f8ff;
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
         padding: 20px;
     }
-
-    .page{
-        max-width: 900px;
-        margin:auto;
-        background:white;
-        padding:30px;
-        border-radius:14px;
-        box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    iframe {
+        max-width: 100%;
+        height: 315px;
     }
-
-    h1{
-        text-align:center;
-        color:#1f4fff;
-        margin-bottom:5px;
-    }
-
-    .subtitle{
-        text-align:center;
-        font-weight:bold;
-        color:#e74c3c;
-        margin-bottom:25px;
-    }
-
-    h2{
-        color:#1f4fff;
-        border-left:6px solid #1f4fff;
-        padding-left:10px;
-    }
-
-    .exercise{
-        margin-bottom:30px;
-    }
-
-    .sentence{
-        font-size:17px;
-        line-height:2;
-    }
-
-    input{
-        width:70px;
-        border:none;
-        border-bottom:2px solid #333;
-        text-align:center;
-        font-size:16px;
-        outline:none;
-    }
-
-    input.correct{
-        border-color:green;
-        color:green;
-        font-weight:bold;
-    }
-
-    input.wrong{
-        border-color:red;
-        color:red;
-        font-weight:bold;
-    }
-
-    .buttons{
-        text-align:center;
-        margin-top:25px;
-    }
-
-    button{
-        background:#1f4fff;
-        color:white;
-        border:none;
-        padding:10px 22px;
-        font-size:16px;
-        border-radius:8px;
-        cursor:pointer;
-        margin:0 8px;
-    }
-
-    button:hover{
-        background:#1436cc;
-    }
-
-    .score{
-        text-align:center;
-        font-size:18px;
-        font-weight:bold;
-        margin-top:15px;
-        color:#2c3e50;
-    }
-
-    @media print{
-        body{ background:white; }
-        .buttons, .score{ display:none; }
-        .page{ box-shadow:none; }
+    button {
+        font-size: 18px;
+        padding: 12px 25px;
+        margin-top: 20px;
+        cursor: pointer;
     }
 </style>
 </head>
 
 <body>
 
-<div class="page">
+<h1>🎥 Watch the Video</h1>
 
-<h1>English Grammar Practice</h1>
-<div class="subtitle">Choose: have, has, am, is, are</div>
+<iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/agtXTWt62hE?si=qUj2bPh8PGvCOhe8"
+    frameborder="0"
+    allowfullscreen>
+</iframe>
 
-<!-- Exercise 1 -->
-<div class="exercise">
-<h2>Exercise 1: A Big Family Day</h2>
+<br>
 
-<div class="sentence">This <input> my friend Leo. He <input> a very big family. There <input> eight people in his family.</div>
-
-<div class="sentence">Leo <input> two brothers and three sisters. His parents <input> busy but very kind.</div>
-
-<div class="sentence">His father <input> a teacher. He <input> tall and strong. His mother <input> a nurse. She <input> long black hair.</div>
-
-<div class="sentence">Leo <input> nine years old and he <input> in grade three. He <input> a blue school bag and two notebooks.</div>
-
-<div class="sentence">His brothers <input> twins. They <input> six years old. They <input> many toy cars.</div>
-
-<div class="sentence">Leo and his sisters <input> happy together. They <input> a dog and a cat at home.</div>
-</div>
-
-<!-- Exercise 2 -->
-<div class="exercise">
-<h2>Exercise 2: My Friends at School</h2>
-
-<div class="sentence">I <input> a lot of friends at school. My best friend <input> Mia. She <input> ten years old and she <input> very friendly.</div>
-
-<div class="sentence">Mia <input> short hair and glasses. She <input> good at math.</div>
-
-<div class="sentence">Tom and Ben <input> in my class. They <input> brothers. They <input> the same bike.</div>
-
-<div class="sentence">Our teacher <input> very nice. She <input> a red dress today.</div>
-
-<div class="sentence">We <input> many lessons every day. English <input> our favorite subject.</div>
-
-<div class="sentence">At break time, we <input> fun together. We <input> very happy students.</div>
-</div>
-
-<div class="buttons">
-    <button onclick="checkAnswers()">Check Answers</button>
-    <button onclick="resetAll()">Reset</button>
-</div>
-
-<div id="score" class="score"></div>
-
-</div>
+<button onclick="goNext()">➡️ Next: Practice</button>
 
 <script>
-const answers = [
-"is","has","are",
-"has","are",
-"is","is","is","has",
-"is","is","has",
-"are","are","have",
-"are","have",
-
-"have","is","is","is",
-"has","is",
-"are","are","have",
-"is","has",
-"have","is",
-"have","are"
-];
-
-function checkAnswers(){
-    const inputs = document.querySelectorAll("input");
-    let score = 0;
-
-    inputs.forEach((input, index)=>{
-        let val = input.value.trim().toLowerCase();
-
-        if(val === answers[index]){
-            input.className = "correct";
-            score++;
-        }else{
-            input.className = "wrong";
-        }
-    });
-
-    document.getElementById("score").innerHTML =
-        `Score: ${score} / ${answers.length}`;
-}
-
-function resetAll(){
-    const inputs = document.querySelectorAll("input");
-    inputs.forEach(input=>{
-        input.value = "";
-        input.className = "";
-    });
-    document.getElementById("score").innerHTML = "";
+function goNext() {
+    window.location.href = "day2_practice.html";
 }
 </script>
 
