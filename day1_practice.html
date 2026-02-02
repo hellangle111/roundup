@@ -2,190 +2,171 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Daily Activities – Time</title>
+<title>Add -ing to the Verbs</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        max-width: 900px;
-        margin: auto;
-        padding: 20px;
-    }
+body{
+  font-family:"Comic Sans MS", Arial, sans-serif;
+  background: linear-gradient(135deg,#fff9c4,#c8e6ff);
+  padding:20px;
+}
 
-    h2 {
-        font-size: 22px;
-        margin-bottom: 20px;
-    }
+.page{
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+  border:5px dashed #2196f3;
+}
 
-    .clock-image {
-        text-align: center;
-        margin-bottom: 30px;
-    }
+h1{
+  text-align:center;
+  background:#81d4fa;
+  padding:12px;
+  border-radius:14px;
+}
 
-    .clock-image img {
-        max-width: 100%;
-        height: auto;
-    }
+.note{
+  text-align:center;
+  font-weight:bold;
+  margin:12px 0 20px;
+  font-size:1.1em;
+}
 
-    .writing {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+}
 
-    .line {
-        margin-bottom: 25px;
-    }
+.item{
+  background:#f5f5f5;
+  border-radius:12px;
+  padding:10px;
+  font-size:1.05em;
+}
 
-    .row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+input{
+  width:100%;
+  padding:6px;
+  font-size:1em;
+  border-radius:8px;
+  border:2px solid #888;
+}
 
-    .row span {
-        font-size: 18px;
-        width: 25px;
-    }
+.correct{
+  background:#e8f5e9;
+  border-color:#2e7d32;
+}
 
-    input {
-        width: 100%;
-        font-size: 18px;
-        padding: 8px;
-        border: none;
-        border-bottom: 2px dotted #333;
-        outline: none;
-    }
+.wrong{
+  background:#ffebee;
+  border-color:#c62828;
+}
 
-    .result {
-        font-size: 18px;
-        margin-left: 5px;
-    }
+button{
+  display:block;
+  margin:25px auto 10px;
+  padding:12px 40px;
+  font-size:1.1em;
+  border-radius:25px;
+  border:none;
+  background:#2196f3;
+  color:white;
+  cursor:pointer;
+}
 
-    .hint {
-        font-size: 14px;
-        color: #d9534f;
-        margin-left: 35px;
-        margin-top: 5px;
-    }
+.result{
+  text-align:center;
+  font-weight:bold;
+  font-size:1.2em;
+}
 
-    .correct { color: green; }
-
-    button {
-        margin-top: 30px;
-        font-size: 18px;
-        padding: 10px 25px;
-        cursor: pointer;
-    }
+.tip{
+  background:#fff3cd;
+  border-left:6px solid #ff9800;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
 </style>
 </head>
 
 <body>
 
-<h2>
-5️⃣ Look at the clock faces. What do you do every day at this time?
-Write four sentences.
-</h2>
+<div class="page">
 
-<div class="clock-image">
-    <img src="images/clock.PNG" alt="clock faces">
+<h1>✏️ Add -ing to the Verbs</h1>
+
+<div class="note">Write the correct <b>-ing</b> form of each verb</div>
+
+<div class="tip">
+<b>Spelling Tips:</b><br>
+• read → reading <br>
+• make → making (drop <b>e</b>)<br>
+• run → running (double consonant)<br>
+• study → studying (y → ying)
 </div>
 
-<div class="writing">
+<div class="grid">
 
-    <div>
-        <div class="line">
-            <div class="row">
-                <span>1</span>
-                <input id="q1" placeholder="I ...">
-                <span id="r1" class="result"></span>
-            </div>
-            <div id="h1" class="hint"></div>
-        </div>
+<div class="item">1. read → <input data-ok="reading"></div>
+<div class="item">2. swim → <input data-ok="swimming"></div>
+<div class="item">3. jump → <input data-ok="jumping"></div>
+<div class="item">4. sit → <input data-ok="sitting"></div>
+<div class="item">5. walk → <input data-ok="walking"></div>
+<div class="item">6. stop → <input data-ok="stopping"></div>
+<div class="item">7. come → <input data-ok="coming"></div>
+<div class="item">8. make → <input data-ok="making"></div>
+<div class="item">9. take → <input data-ok="taking"></div>
+<div class="item">10. close → <input data-ok="closing"></div>
 
-        <div class="line">
-            <div class="row">
-                <span>2</span>
-                <input id="q2" placeholder="I ...">
-                <span id="r2" class="result"></span>
-            </div>
-            <div id="h2" class="hint"></div>
-        </div>
-    </div>
-
-    <div>
-        <div class="line">
-            <div class="row">
-                <span>3</span>
-                <input id="q3" placeholder="I ...">
-                <span id="r3" class="result"></span>
-            </div>
-            <div id="h3" class="hint"></div>
-        </div>
-
-        <div class="line">
-            <div class="row">
-                <span>4</span>
-                <input id="q4" placeholder="I ...">
-                <span id="r4" class="result"></span>
-            </div>
-            <div id="h4" class="hint"></div>
-        </div>
-    </div>
+<div class="item">11. study → <input data-ok="studying"></div>
+<div class="item">12. pay → <input data-ok="paying"></div>
+<div class="item">13. dry → <input data-ok="drying"></div>
+<div class="item">14. cry → <input data-ok="crying"></div>
+<div class="item">15. try → <input data-ok="trying"></div>
+<div class="item">16. play → <input data-ok="playing"></div>
+<div class="item">17. fly → <input data-ok="flying"></div>
+<div class="item">18. run → <input data-ok="running"></div>
+<div class="item">19. dance → <input data-ok="dancing"></div>
+<div class="item">20. eat → <input data-ok="eating"></div>
 
 </div>
 
-<button onclick="check()">✔ Check answers</button>
+<button onclick="check()">✅ Check Answers</button>
+<div class="result"></div>
+
+</div>
 
 <script>
-function validate(text, expectedTime) {
-    let hints = [];
-    const lower = text.toLowerCase();
-
-    if (!lower.startsWith("i ")) {
-        hints.push("Start with: I ...");
-    }
-
-    if (!lower.includes("at " + expectedTime)) {
-        hints.push("Add the time: at " + expectedTime);
-    }
-
-    const words = lower.split(" ");
-    if (words.length > 1) {
-        const verb = words[1];
-        if (verb.endsWith("s") || verb.endsWith("es")) {
-            hints.push("After I, do NOT add s or es");
-        }
-    }
-
-    return hints;
+function norm(t){
+  return t.toLowerCase().trim();
 }
 
-function check() {
-    const items = [
-        {id:1, time:"8 o'clock"},
-        {id:2, time:"12 o'clock"},
-        {id:3, time:"3 o'clock"},
-        {id:4, time:"6 o'clock"}
-    ];
+function check(){
+  const inputs=document.querySelectorAll("input");
+  let score=0;
 
-    items.forEach(item => {
-        const input = document.getElementById("q" + item.id);
-        const result = document.getElementById("r" + item.id);
-        const hint = document.getElementById("h" + item.id);
+  inputs.forEach(i=>{
+    if(norm(i.value)===norm(i.dataset.ok)){
+      i.className="correct";
+      score++;
+    }else{
+      i.className="wrong";
+    }
+  });
 
-        const problems = validate(input.value.trim(), item.time);
+  let msg="";
+  if(score===inputs.length){
+    msg="🎉 Perfect! Excellent job!";
+  }else{
+    msg=`😊 ${score} / ${inputs.length} correct — keep practicing!`;
+  }
 
-        if (problems.length === 0) {
-            result.textContent = "✓";
-            result.className = "result correct";
-            hint.textContent = "";
-        } else {
-            result.textContent = "✗";
-            result.className = "result";
-            hint.textContent = "Hint: " + problems.join(" • ");
-        }
-    });
+  document.querySelector(".result").textContent=msg;
 }
 </script>
 
