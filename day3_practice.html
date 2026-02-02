@@ -173,10 +173,13 @@ Answer using: <b>Yes, ... is / are</b> or <b>No, ... isn't / aren't</b>
 <div class="result"></div>
 
 </div>
-
 <script>
 function norm(t){
-  return t.toLowerCase().replace(/\s+/g,'').trim();
+  return t.toLowerCase()
+    .replace(/yes|no|,/g,'')   // bỏ yes, no, dấu phẩy
+    .replace(/[.?!]/g,'')     // bỏ dấu câu
+    .replace(/\s+/g,' ')      // chuẩn hóa khoảng trắng
+    .trim();
 }
 
 function check(){
@@ -196,6 +199,7 @@ function check(){
     `🎯 ${score} / ${inputs.length} correct`;
 }
 </script>
+
 
 </body>
 </html>
