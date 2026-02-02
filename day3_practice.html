@@ -46,14 +46,23 @@ h1{
   border-radius:14px;
   padding:14px;
   font-size:22px;
+  line-height:1.6;
+}
+
+.line{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
 }
 
 input{
-  width:180px;
+  width:140px;
   padding:6px;
   font-size:22px;
   border-radius:10px;
   border:2px solid #777;
+  text-align:center;
 }
 
 .correct{background:#e8f5e9;border-color:#2e7d32;}
@@ -99,63 +108,63 @@ Answer using: <b>Yes, ... is / are</b> or <b>No, ... isn't / aren't</b>
 <div class="grid">
 
 <div class="item">
-1. Is she sleeping? Yes, 
-<input class="example" value="she is." disabled>
+1. Is she sleeping?
+<div class="line">Yes, <input class="example" value="she is." disabled></div>
 </div>
 
 <div class="item">
-2. Is he reading? Yes, 
-<input data-ok="he is.">
+2. Is he reading?
+<div class="line">Yes, <input data-ok="he is."></div>
 </div>
 
 <div class="item">
-3. Is it flying? No, 
-<input data-ok="it isn't.">
+3. Is it flying?
+<div class="line">No, <input data-ok="it isn't."></div>
 </div>
 
 <div class="item">
-4. Are the boys playing football? Yes, 
-<input data-ok="they are.">
+4. Are the boys playing football?
+<div class="line">Yes, <input data-ok="they are."></div>
 </div>
 
 <div class="item">
-5. Is she swimming? No, 
-<input data-ok="she isn't.">
+5. Is she swimming?
+<div class="line">No, <input data-ok="she isn't."></div>
 </div>
 
 <div class="item">
-6. Is he driving a car? No, 
-<input data-ok="he isn't.">
+6. Is he driving a car?
+<div class="line">No, <input data-ok="he isn't."></div>
 </div>
 
 <div class="item">
-7. Are the birds singing? Yes, 
-<input data-ok="they are.">
+7. Are the birds singing?
+<div class="line">Yes, <input data-ok="they are."></div>
 </div>
 
 <div class="item">
-8. Are the monkeys eating? No, 
-<input data-ok="they aren't.">
+8. Are the monkeys eating?
+<div class="line">No, <input data-ok="they aren't."></div>
 </div>
 
 <div class="item">
-9. Is the man sitting? Yes, 
-<input data-ok="he is.">
+9. Is the man sitting?
+<div class="line">Yes, <input data-ok="he is."></div>
 </div>
 
 <div class="item">
-10. Are they dancing? Yes, 
-<input data-ok="they are.">
+10. Are they dancing?
+<div class="line">Yes, <input data-ok="they are."></div>
 </div>
 
 <div class="item">
-11. Is she watching TV? No, 
-<input data-ok="she isn't.">
+11. Is she watching TV?
+<div class="line">No, <input data-ok="she isn't."></div>
 </div>
 
 <div class="item">
-12. Is he skateboarding? No, 
-<input data-ok="he isn't.">
+12. Is he skateboarding?
+<div class="line">No, <input data-ok="he isn't."></div>
 </div>
 
 </div>
