@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Present Continuous – Look & Write</title>
+<title>Look & Write – Present Continuous</title>
 
 <style>
 body{
@@ -12,7 +12,7 @@ body{
 }
 
 .page{
-  max-width:900px;
+  max-width:950px;
   margin:auto;
   background:white;
   padding:25px;
@@ -35,11 +35,24 @@ h1{
   font-weight:bold;
 }
 
-.item{
+.row{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:18px;
   background:#f5f5f5;
-  border-radius:14px;
   padding:14px;
-  margin:12px 0;
+  border-radius:16px;
+  margin-bottom:14px;
+  align-items:center;
+}
+
+.pic img{
+  width:100%;
+  border-radius:14px;
+  border:3px solid #90caf9;
+}
+
+.item{
   font-size:22px;
 }
 
@@ -54,7 +67,6 @@ input{
   font-size:22px;
   border-radius:10px;
   border:2px solid #777;
-  margin-top:4px;
 }
 
 .correct{background:#e8f5e9;border-color:#2e7d32;}
@@ -80,6 +92,7 @@ button{
 
 @media print{
   button{display:none;}
+  body{background:white;}
 }
 </style>
 </head>
@@ -88,53 +101,89 @@ button{
 
 <div class="page">
 
-<h1>👀 Look & Write – Present Continuous</h1>
-<div class="note">✏️ Write the sentences like the example</div>
+<h1>👀 Look at the Picture & Write</h1>
+<div class="note">✏️ Write sentences in Present Continuous</div>
 
-<div class="item">
-<b>Example:</b> play tennis <br>
-Long: <i>The girl is playing tennis.</i><br>
-Short: <i>She's playing tennis.</i>
+<!-- EXAMPLE -->
+<div class="row">
+  <div class="pic">
+    <img src="https://i.imgur.com/4AiXzf8.png">
+  </div>
+  <div class="item">
+    <b>Example – play tennis</b>
+    <div>Long: The girl is playing tennis.</div>
+    <div>Short: She's playing tennis.</div>
+  </div>
 </div>
 
-<div class="item">
-2. kick the ball
-<label>Long form:</label>
-<input data-ok="the boy is kicking the ball">
-<label>Short form:</label>
-<input data-ok="he's kicking the ball">
+<!-- 2 -->
+<div class="row">
+  <div class="pic">
+    <img src="https://i.imgur.com/oYiTqum.png">
+  </div>
+  <div class="item">
+    <b>2. kick the ball</b>
+    <label>Long form:</label>
+    <input data-ok="the boy is kicking the ball">
+    <label>Short form:</label>
+    <input data-ok="he's kicking the ball">
+  </div>
 </div>
 
-<div class="item">
-3. dance
-<label>Long form:</label>
-<input data-ok="the girls are dancing">
-<label>Short form:</label>
-<input data-ok="they're dancing">
+<!-- 3 -->
+<div class="row">
+  <div class="pic">
+    <img src="https://i.imgur.com/YZ6X9qL.png">
+  </div>
+  <div class="item">
+    <b>3. dance</b>
+    <label>Long form:</label>
+    <input data-ok="the girls are dancing">
+    <label>Short form:</label>
+    <input data-ok="they're dancing">
+  </div>
 </div>
 
-<div class="item">
-4. talk on the phone
-<label>Long form:</label>
-<input data-ok="the woman is talking on the phone">
-<label>Short form:</label>
-<input data-ok="she's talking on the phone">
+<!-- 4 -->
+<div class="row">
+  <div class="pic">
+    <img src="https://i.imgur.com/x5x4rYH.png">
+  </div>
+  <div class="item">
+    <b>4. talk on the phone</b>
+    <label>Long form:</label>
+    <input data-ok="the woman is talking on the phone">
+    <label>Short form:</label>
+    <input data-ok="she's talking on the phone">
+  </div>
 </div>
 
-<div class="item">
-5. jump over the fence
-<label>Long form:</label>
-<input data-ok="the horse is jumping over the fence">
-<label>Short form:</label>
-<input data-ok="it's jumping over the fence">
+<!-- 5 -->
+<div class="row">
+  <div class="pic">
+    <img src="images/day4PC.png">
+  </div>
+  <div class="item">
+    <b>5. jump over the fence</b>
+    <label>Long form:</label>
+    <input data-ok="the horse is jumping over the fence">
+    <label>Short form:</label>
+    <input data-ok="it's jumping over the fence">
+  </div>
 </div>
 
-<div class="item">
-6. work in the garden
-<label>Long form:</label>
-<input data-ok="the men are working in the garden">
-<label>Short form:</label>
-<input data-ok="they're working in the garden">
+<!-- 6 -->
+<div class="row">
+  <div class="pic">
+    <img src="https://i.imgur.com/EN4vK1k.png">
+  </div>
+  <div class="item">
+    <b>6. work in the garden</b>
+    <label>Long form:</label>
+    <input data-ok="the men are working in the garden">
+    <label>Short form:</label>
+    <input data-ok="they're working in the garden">
+  </div>
 </div>
 
 <button onclick="check()">✅ Check Answers</button>
