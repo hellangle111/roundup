@@ -2,198 +2,189 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Likes and Dislikes – Validation</title>
+<title>Write Short Answers – Present Continuous</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+body{
+  font-family:"Comic Sans MS", Arial, sans-serif;
+  background:linear-gradient(135deg,#fffde7,#e1f5fe);
+  padding:25px;
 }
 
-h2 {
-    margin-bottom: 15px;
+.page{
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:24px;
+  border:6px dashed #42a5f5;
 }
 
-.question {
-    margin-bottom: 35px;
+h1{
+  text-align:center;
+  background:#90caf9;
+  padding:15px;
+  border-radius:18px;
+  font-size:36px;
 }
 
-.line {
-    margin-bottom: 10px;
+.note{
+  text-align:center;
+  font-size:22px;
+  margin:15px 0;
 }
 
-input {
-    width: 95%;
-    font-size: 16px;
-    padding: 6px;
-    border: none;
-    border-bottom: 2px dotted #333;
-    outline: none;
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:20px;
 }
 
-input:disabled {
-    color: #555;
-    font-weight: bold;
+.item{
+  background:#f5f5f5;
+  border-radius:14px;
+  padding:14px;
+  font-size:22px;
 }
 
-.result {
-    margin-left: 10px;
-    font-weight: bold;
+input{
+  width:180px;
+  padding:6px;
+  font-size:22px;
+  border-radius:10px;
+  border:2px solid #777;
 }
 
-.correct { color: green; }
-.wrong { color: red; }
+.correct{background:#e8f5e9;border-color:#2e7d32;}
+.wrong{background:#ffebee;border-color:#c62828;}
+.example{background:#e3f2fd;border-color:#1976d2;}
 
-.hint {
-    font-size: 14px;
-    color: #d32f2f;
-    display: none;
-    margin-left: 5px;
+button{
+  display:block;
+  margin:30px auto 10px;
+  padding:14px 50px;
+  font-size:24px;
+  border-radius:30px;
+  border:none;
+  background:#42a5f5;
+  color:white;
+  cursor:pointer;
 }
 
-button {
-    margin-top: 30px;
-    padding: 12px 25px;
-    font-size: 18px;
-    background: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+.result{
+  text-align:center;
+  font-weight:bold;
+  font-size:26px;
+  margin-top:10px;
 }
 
-
-    .clock-image {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
+@media print{
+  body{background:white;}
+  button{display:none;}
+}
 </style>
 </head>
 
 <body>
 
-<h2>Look at the picture and write sentences.</h2>
+<div class="page">
 
+<h1>✏️ Write Short Answers</h1>
 
-<div class="clock-image">
-    <img src="images/day3.PNG" alt="clock faces">
+<div class="note">
+Answer using: <b>Yes, ... is / are</b> or <b>No, ... isn't / aren't</b>
 </div>
 
-<!-- ================= EXAMPLE ================= -->
-<div class="question">
-<h3>1. Example</h3>
+<div class="grid">
 
-<div class="line">
-<input value="Caroline likes chicken, fish and pizza." disabled>
+<div class="item">
+1. Is she sleeping? Yes, 
+<input class="example" value="she is." disabled>
 </div>
 
-<div class="line">
-<input value="She does not like burgers or eggs." disabled>
-</div>
-</div>
-
-<!-- ================= QUESTION 2 ================= -->
-<div class="question">
-<h3>2. Tom and Jack</h3>
-
-<div class="line">
-<input id="t1">
-<span id="rt1" class="result"></span>
-<div id="ht1" class="hint">Hint: Check the food they like.</div>
+<div class="item">
+2. Is he reading? Yes, 
+<input data-ok="he is.">
 </div>
 
-<div class="line">
-<input id="t2">
-<span id="rt2" class="result"></span>
-<div id="ht2" class="hint">Hint: Use don't like or do not like.</div>
-</div>
+<div class="item">
+3. Is it flying? No, 
+<input data-ok="it isn't.">
 </div>
 
-<!-- ================= QUESTION 3 ================= -->
-<div class="question">
-<h3>3. Mother</h3>
-
-<div class="line">
-<input id="m1">
-<span id="rm1" class="result"></span>
-<div id="hm1" class="hint">Hint: What food does Mother like?</div>
+<div class="item">
+4. Are the boys playing football? Yes, 
+<input data-ok="they are.">
 </div>
 
-<div class="line">
-<input id="m2">
-<span id="rm2" class="result"></span>
-<div id="hm2" class="hint">Hint: Use doesn't like or does not like.</div>
-</div>
+<div class="item">
+5. Is she swimming? No, 
+<input data-ok="she isn't.">
 </div>
 
-<button onclick="check()">✔ Check answers</button>
+<div class="item">
+6. Is he driving a car? No, 
+<input data-ok="he isn't.">
+</div>
+
+<div class="item">
+7. Are the birds singing? Yes, 
+<input data-ok="they are.">
+</div>
+
+<div class="item">
+8. Are the monkeys eating? No, 
+<input data-ok="they aren't.">
+</div>
+
+<div class="item">
+9. Is the man sitting? Yes, 
+<input data-ok="he is.">
+</div>
+
+<div class="item">
+10. Are they dancing? Yes, 
+<input data-ok="they are.">
+</div>
+
+<div class="item">
+11. Is she watching TV? No, 
+<input data-ok="she isn't.">
+</div>
+
+<div class="item">
+12. Is he skateboarding? No, 
+<input data-ok="he isn't.">
+</div>
+
+</div>
+
+<button onclick="check()">✅ Check Answers</button>
+<div class="result"></div>
+
+</div>
 
 <script>
-// normalize text
-function clean(text) {
-    return text.toLowerCase().replace(/\s+/g, " ").trim();
+function norm(t){
+  return t.toLowerCase().replace(/\s+/g,'').trim();
 }
 
-// check if text contains ALL required words
-function hasWords(text, words) {
-    return words.every(w => text.includes(w));
-}
+function check(){
+  const inputs=document.querySelectorAll("input[data-ok]");
+  let score=0;
 
-// check positive sentence
-function checkPositive(inputId, resultId, hintId, keywords) {
-    const input = document.getElementById(inputId);
-    const result = document.getElementById(resultId);
-    const hint = document.getElementById(hintId);
-    const text = clean(input.value);
-
-    const hasLike = text.includes(" like ") || text.includes(" likes ");
-
-    if (hasLike && hasWords(text, keywords)) {
-        result.textContent = "✓";
-        result.className = "result correct";
-        hint.style.display = "none";
-    } else {
-        result.textContent = "✗";
-        result.className = "result wrong";
-        hint.style.display = "block";
+  inputs.forEach(i=>{
+    if(norm(i.value)===norm(i.dataset.ok)){
+      i.className="correct";
+      score++;
+    }else{
+      i.className="wrong";
     }
-}
+  });
 
-// check negative sentence (accept all forms)
-function checkNegative(inputId, resultId, hintId, keywords) {
-    const input = document.getElementById(inputId);
-    const result = document.getElementById(resultId);
-    const hint = document.getElementById(hintId);
-    const text = clean(input.value);
-
-    const negativeOK =
-        text.includes("don't like") ||
-        text.includes("do not like") ||
-        text.includes("doesn't like") ||
-        text.includes("does not like");
-
-    if (negativeOK && hasWords(text, keywords)) {
-        result.textContent = "✓";
-        result.className = "result correct";
-        hint.style.display = "none";
-    } else {
-        result.textContent = "✗";
-        result.className = "result wrong";
-        hint.style.display = "block";
-    }
-}
-
-function check() {
-    // Tom & Jack
-    checkPositive("t1","rt1","ht1",["chicken","burgers","pizza"]);
-    checkNegative("t2","rt2","ht2",["fish","eggs"]);
-
-    // Mother
-    checkPositive("m1","rm1","hm1",["eggs","burgers","pizza"]);
-    checkNegative("m2","rm2","hm2",["fish","chicken"]);
+  document.querySelector(".result").textContent =
+    `🎯 ${score} / ${inputs.length} correct`;
 }
 </script>
 
