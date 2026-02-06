@@ -118,8 +118,13 @@ Katie / teacher / English / nice / kind //<br>
 
 <script>
 function normalize(s){
-  return s.toLowerCase().replace(/\s+/g,' ').trim();
+  return s
+    .toLowerCase()
+    .replace(/[.,!?]/g,'')   // bỏ dấu câu
+    .replace(/\s+/g,' ')
+    .trim();
 }
+
 
 function check(){
   const inputs=document.querySelectorAll("input");
