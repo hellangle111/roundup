@@ -2,157 +2,172 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>English Practice - Yes / No</title>
+<title>Present Tenses – Level 3 (Version 2)</title>
+
 <style>
-    body{
-        font-family: "Comic Sans MS", Arial, sans-serif;
-        background: linear-gradient(to right, #f2f7ff, #ffffff);
-        margin: 0;
-        padding: 20px;
-    }
+body{
+  font-family:"Comic Sans MS", Arial, sans-serif;
+  background:#e3f2fd;
+  padding:20px;
+}
 
-    h1{
-        text-align:center;
-        color:#2c3e50;
-    }
+.page{
+  max-width:1000px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  border:6px dashed #42a5f5;
+}
 
-    .container{
-        max-width: 900px;
-        margin: auto;
-        background: white;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+h1{
+  text-align:center;
+  background:#90caf9;
+  padding:15px;
+  border-radius:16px;
+}
 
-    .question{
-        margin: 15px 0;
-        padding: 12px;
-        border-radius: 8px;
-        background: #f8fbff;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
+.q{
+  font-size:20px;
+  margin:18px 0;
+}
 
-    .question span{
-        font-size: 18px;
-        min-width: 300px;
-    }
+.inline{
+  width:190px;
+  padding:4px 8px;
+  font-size:18px;
+  border-radius:8px;
+  border:2px solid #888;
+  margin:0 6px;
+}
 
-    input{
-        padding: 6px 10px;
-        font-size: 16px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        width: 160px;
-    }
+.correct{
+  background:#e8f5e9;
+  border-color:#2e7d32;
+}
 
-    .result{
-        margin-left: 10px;
-        font-weight: bold;
-        font-size: 18px;
-    }
+.wrong{
+  background:#ffebee;
+  border-color:#c62828;
+}
 
-    button{
-        margin-top: 20px;
-        padding: 12px 20px;
-        font-size: 18px;
-        border-radius: 10px;
-        border: none;
-        background: #4caf50;
-        color: white;
-        cursor: pointer;
-    }
+.answer{
+  color:#c62828;
+  font-size:15px;
+  margin-left:10px;
+}
 
-    button:hover{
-        background:#43a047;
-    }
+button{
+  display:block;
+  margin:25px auto;
+  padding:12px 40px;
+  font-size:22px;
+  border-radius:30px;
+  border:none;
+  background:#1e88e5;
+  color:white;
+  cursor:pointer;
+}
+
+.result{
+  text-align:center;
+  font-size:24px;
+  font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
-<h1>Yes / No English Practice</h1>
+<div class="page">
 
-<div class="container">
+<h1>🔥 Present Simple & Continuous – Level 3 (V2)</h1>
 
-    <div class="question">
-        <span>1. Is the boy kicking the ball?</span>
-        Yes / No:
-        <input id="q1">
-        <span id="r1" class="result"></span>
-    </div>
+<div style="color:#0d47a1; margin-bottom:20px;">
+⚠️ Careful with meaning, not only time words!
+</div>
 
-    <div class="question">
-        <span>2. Is the man riding a horse?</span>
-        Yes / No:
-        <input id="q2">
-        <span id="r2" class="result"></span>
-    </div>
+<div class="q">
+1. I <input class="inline" data-ok="believe"> (believe) you.
+<span class="answer"></span>
+</div>
 
-    <div class="question">
-        <span>3. Are the two girls talking?</span>
-        Yes / No:
-        <input id="q3">
-        <span id="r3" class="result"></span>
-    </div>
+<div class="q">
+2. She <input class="inline" data-ok="is looking"> (look) for her phone right now.
+<span class="answer"></span>
+</div>
 
-    <div class="question">
-        <span>4. Is the girl playing tennis?</span>
-        Yes / No:
-        <input id="q4">
-        <span id="r4" class="result"></span>
-    </div>
+<div class="q">
+3. This bag <input class="inline" data-ok="belongs"> (belong) to me.
+<span class="answer"></span>
+</div>
 
-    <div class="question">
-        <span>5. Is the girl thinking?</span>
-        Yes / No:
-        <input id="q5">
-        <span id="r5" class="result"></span>
-    </div>
+<div class="q">
+4. Why <input class="inline" data-ok="are they shouting"> (they / shout) now?
+<span class="answer"></span>
+</div>
 
-    <button onclick="checkAnswers()">Check Answers</button>
+<div class="q">
+5. He usually <input class="inline" data-ok="prefers"> (prefer) tea to coffee.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+6. We <input class="inline" data-ok="are thinking"> (think) about your idea at the moment.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+7. She <input class="inline" data-ok="has"> (have) a new bicycle.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+8. What <input class="inline" data-ok="does she want"> (she / want)?
+<span class="answer"></span>
+</div>
+
+<div class="q">
+9. The children <input class="inline" data-ok="are swimming"> (swim) in the pool now.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+10. Water <input class="inline" data-ok="freezes"> (freeze) at 0°C.
+<span class="answer"></span>
+</div>
+
+<button onclick="check()">✅ Check Answers</button>
+<div class="result"></div>
 
 </div>
 
 <script>
-function normalize(text){
-    return text
-        .toLowerCase()
-        .replace(/\s+/g,' ')
-        .replace(/[.?!]/g,'')
-        .trim();
+function normalize(s){
+  return s.toLowerCase().trim();
 }
 
-function isCorrect(user, answers){
-    user = normalize(user);
-    return answers.some(ans => normalize(ans) === user);
-}
+function check(){
+  const inputs=document.querySelectorAll(".inline");
+  let score=0;
 
-function checkAnswers(){
+  inputs.forEach(input=>{
+    const correct=input.dataset.ok;
+    const user=normalize(input.value);
+    const answerSpan=input.parentElement.querySelector(".answer");
+    answerSpan.textContent="";
 
-    const data = [
-        { id:1, answers:["yes","yes he is"] },
-        { id:2, answers:["yes","yes he is"] },   // FIXED: accepts "yes, he is"
-        { id:3, answers:["yes","yes they are"] },
-        { id:4, answers:["yes","yes she is"] },
-        { id:5, answers:["yes","yes she is"] }
-    ];
+    if(user===correct){
+      input.className="inline correct";
+      score++;
+    }else{
+      input.className="inline wrong";
+      answerSpan.textContent="Correct answer: " + correct;
+    }
+  });
 
-    data.forEach(q=>{
-        let user = document.getElementById("q"+q.id).value;
-        let result = document.getElementById("r"+q.id);
-
-        if(isCorrect(user, q.answers)){
-            result.innerHTML = "✅";
-            result.style.color = "green";
-        }else{
-            result.innerHTML = "❌";
-            result.style.color = "red";
-        }
-    });
+  document.querySelector(".result").textContent =
+    "🎯 Score: " + score + " / " + inputs.length;
 }
 </script>
 
