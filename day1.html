@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Writing Practice – Present Simple & Present Continuous</title>
+<title>Grammar Practice – Present Tenses</title>
 
 <style>
 body{
   font-family:"Comic Sans MS", Arial, sans-serif;
-  background:#e3f2fd;
+  background:#f1f8ff;
   padding:20px;
 }
 
@@ -16,48 +16,52 @@ body{
   margin:auto;
   background:white;
   padding:30px;
-  border-radius:22px;
-  border:6px dashed #42a5f5;
+  border-radius:20px;
+  border:6px dashed #64b5f6;
 }
 
 h1{
   text-align:center;
-  background:#90caf9;
-  padding:15px;
-  border-radius:18px;
-  font-size:36px;
-}
-
-.example{
-  background:#fff9c4;
+  background:#bbdefb;
   padding:15px;
   border-radius:16px;
-  font-size:22px;
-  margin-bottom:20px;
 }
 
 .q{
+  font-size:20px;
   margin:18px 0;
-  font-size:24px;
 }
 
-input{
-  width:100%;
-  font-size:22px;
-  padding:8px;
-  border-radius:10px;
-  border:2px solid #777;
-  margin-top:6px;
+.inline{
+  width:140px;
+  padding:4px 8px;
+  font-size:18px;
+  border-radius:8px;
+  border:2px solid #888;
+  margin:0 6px;
 }
 
-.correct{background:#e8f5e9;border-color:#2e7d32;}
-.wrong{background:#ffebee;border-color:#c62828;}
+.correct{
+  background:#e8f5e9;
+  border-color:#2e7d32;
+}
+
+.wrong{
+  background:#ffebee;
+  border-color:#c62828;
+}
+
+.answer{
+  color:#c62828;
+  font-size:16px;
+  margin-left:10px;
+}
 
 button{
   display:block;
-  margin:25px auto 10px;
-  padding:14px 45px;
-  font-size:24px;
+  margin:25px auto;
+  padding:12px 40px;
+  font-size:22px;
   border-radius:30px;
   border:none;
   background:#42a5f5;
@@ -67,14 +71,8 @@ button{
 
 .result{
   text-align:center;
-  font-size:26px;
+  font-size:24px;
   font-weight:bold;
-  margin-top:10px;
-}
-
-@media print{
-  body{background:white;}
-  button,.result{display:none;}
 }
 </style>
 </head>
@@ -83,62 +81,96 @@ button{
 
 <div class="page">
 
-<div class="example">
-<b>Example:</b><br>
-Katie / teacher / English / nice / kind //<br>
-→ Katie’s teacher of English is very nice and kind.
+<h1>✏️ Present Simple & Present Continuous</h1>
+
+<div style="color:#1565c0; margin-bottom:20px;">
+💡 Present Simple → habits (every day, usually, always...)<br>
+💡 Present Continuous → happening now (now, at the moment, right now...)
 </div>
 
 <div class="q">
-<b>1.</b> right now / the baby / sleep / in the bedroom //<br>
-→ <input data-ok="The baby is sleeping in the bedroom right now.">
+1. My father <input class="inline" data-ok="works"> (work) in a hospital.
+<span class="answer"></span>
 </div>
 
 <div class="q">
-<b>2.</b> play / Tom / every weekend / the piano //<br>
-→ <input data-ok="Tom plays the piano every weekend.">
+2. Look! The dog <input class="inline" data-ok="is running"> (run) very fast.
+<span class="answer"></span>
 </div>
 
 <div class="q">
-<b>3.</b> at the moment / the students / do / homework //<br>
-→ <input data-ok="The students are doing homework at the moment.">
+3. She usually <input class="inline" data-ok="reads"> (read) before bed.
+<span class="answer"></span>
 </div>
 
 <div class="q">
-<b>4.</b> drink / my father / coffee / every morning //<br>
-→ <input data-ok="My father drinks coffee every morning.">
+4. Listen! The baby <input class="inline" data-ok="is sleeping"> (sleep) now.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+5. They always <input class="inline" data-ok="play"> (play) chess after school.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+6. We <input class="inline" data-ok="are studying"> (study) English at the moment.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+7. My sister <input class="inline" data-ok="walks"> (walk) to school every day.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+8. The children <input class="inline" data-ok="are laughing"> (laugh) right now.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+9. The sun <input class="inline" data-ok="rises"> (rise) in the east.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+10. The students <input class="inline" data-ok="are doing"> (do) homework at the moment.
+<span class="answer"></span>
 </div>
 
 <button onclick="check()">✅ Check Answers</button>
+
 <div class="result"></div>
 
 </div>
 
 <script>
 function normalize(s){
-  return s
-    .toLowerCase()
-    .replace(/[.,!?]/g,'')   // bỏ dấu câu
-    .replace(/\s+/g,' ')
-    .trim();
+  return s.toLowerCase().trim();
 }
 
-
 function check(){
-  const inputs=document.querySelectorAll("input");
+  const inputs=document.querySelectorAll(".inline");
   let score=0;
 
-  inputs.forEach(i=>{
-    if(normalize(i.value)===normalize(i.dataset.ok)){
-      i.className="correct";
+  inputs.forEach(input=>{
+    const correct=input.dataset.ok;
+    const user=normalize(input.value);
+
+    const answerSpan=input.parentElement.querySelector(".answer");
+    answerSpan.textContent="";
+
+    if(user===correct){
+      input.className="inline correct";
       score++;
     }else{
-      i.className="wrong";
+      input.className="inline wrong";
+      answerSpan.textContent="Correct answer: " + correct;
     }
   });
 
   document.querySelector(".result").textContent =
-    `🎯 ${score} / ${inputs.length} correct`;
+    "🎯 Score: " + score + " / " + inputs.length;
 }
 </script>
 
