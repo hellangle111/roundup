@@ -2,46 +2,175 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Learn Present continuous</title>
+<title>Grammar Practice – Page 2 (Harder)</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-    }
-    iframe {
-        max-width: 100%;
-        height: 315px;
-    }
-    button {
-        font-size: 18px;
-        padding: 12px 25px;
-        margin-top: 20px;
-        cursor: pointer;
-    }
+body{
+  font-family:"Comic Sans MS", Arial, sans-serif;
+  background:#fff8e1;
+  padding:20px;
+}
+
+.page{
+  max-width:950px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  border:6px dashed #ffb300;
+}
+
+h1{
+  text-align:center;
+  background:#ffe082;
+  padding:15px;
+  border-radius:16px;
+}
+
+.q{
+  font-size:20px;
+  margin:18px 0;
+}
+
+.inline{
+  width:150px;
+  padding:4px 8px;
+  font-size:18px;
+  border-radius:8px;
+  border:2px solid #888;
+  margin:0 6px;
+}
+
+.correct{
+  background:#e8f5e9;
+  border-color:#2e7d32;
+}
+
+.wrong{
+  background:#ffebee;
+  border-color:#c62828;
+}
+
+.answer{
+  color:#c62828;
+  font-size:16px;
+  margin-left:10px;
+}
+
+button{
+  display:block;
+  margin:25px auto;
+  padding:12px 40px;
+  font-size:22px;
+  border-radius:30px;
+  border:none;
+  background:#fb8c00;
+  color:white;
+  cursor:pointer;
+}
+
+.result{
+  text-align:center;
+  font-size:24px;
+  font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
-<h1>🎥 Watch the Video</h1>
+<div class="page">
 
-<iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/agtXTWt62hE?si=qUj2bPh8PGvCOhe8"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
+<h1>🔥 Present Tenses – Harder Practice</h1>
 
-<br>
+<div style="color:#e65100; margin-bottom:20px;">
+💡 Watch out for -s / -es / -ies <br>
+💡 Look carefully at time words!
+</div>
 
-<button onclick="goNext()">➡️ Next: Practice</button>
+<div class="q">
+1. She always <input class="inline" data-ok="watches"> (watch) TV after dinner.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+2. Be quiet! The baby <input class="inline" data-ok="is trying"> (try) to sleep.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+3. My brother <input class="inline" data-ok="studies"> (study) very hard every day.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+4. Look! The boys <input class="inline" data-ok="are fixing"> (fix) their bikes.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+5. Water <input class="inline" data-ok="boils"> (boil) at 100°C.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+6. They <input class="inline" data-ok="are planning"> (plan) a party at the moment.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+7. Tom rarely <input class="inline" data-ok="misses"> (miss) the bus.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+8. I <input class="inline" data-ok="am thinking"> (think) about your idea right now.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+9. The train usually <input class="inline" data-ok="arrives"> (arrive) at 6 p.m.
+<span class="answer"></span>
+</div>
+
+<div class="q">
+10. Listen! Someone <input class="inline" data-ok="is knocking"> (knock) at the door.
+<span class="answer"></span>
+</div>
+
+<button onclick="check()">✅ Check Answers</button>
+
+<div class="result"></div>
+
+</div>
 
 <script>
-function goNext() {
-    window.location.href = "day2_practice.html";
+function normalize(s){
+  return s.toLowerCase().trim();
+}
+
+function check(){
+  const inputs=document.querySelectorAll(".inline");
+  let score=0;
+
+  inputs.forEach(input=>{
+    const correct=input.dataset.ok;
+    const user=normalize(input.value);
+
+    const answerSpan=input.parentElement.querySelector(".answer");
+    answerSpan.textContent="";
+
+    if(user===correct){
+      input.className="inline correct";
+      score++;
+    }else{
+      input.className="inline wrong";
+      answerSpan.textContent="Correct answer: " + correct;
+    }
+  });
+
+  document.querySelector(".result").textContent =
+    "🎯 Score: " + score + " / " + inputs.length;
 }
 </script>
 
