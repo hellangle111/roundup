@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Grammar Practice – Present Tenses</title>
+<title>Present Tenses – Level 3 (V3)</title>
 
 <style>
 body{
   font-family:"Comic Sans MS", Arial, sans-serif;
-  background:#f1f8ff;
+  background:#f3e5f5;
   padding:20px;
 }
 
 .page{
-  max-width:900px;
+  max-width:1000px;
   margin:auto;
   background:white;
   padding:30px;
   border-radius:20px;
-  border:6px dashed #64b5f6;
+  border:6px dashed #ab47bc;
 }
 
 h1{
   text-align:center;
-  background:#bbdefb;
+  background:#ce93d8;
   padding:15px;
   border-radius:16px;
 }
@@ -33,12 +33,13 @@ h1{
 }
 
 .inline{
-  width:140px;
-  padding:4px 8px;
+  width:200px;
+  padding:5px 8px;
   font-size:18px;
   border-radius:8px;
   border:2px solid #888;
   margin:0 6px;
+  transition:0.2s;
 }
 
 .correct{
@@ -51,12 +52,6 @@ h1{
   border-color:#c62828;
 }
 
-.answer{
-  color:#c62828;
-  font-size:16px;
-  margin-left:10px;
-}
-
 button{
   display:block;
   margin:25px auto;
@@ -64,7 +59,7 @@ button{
   font-size:22px;
   border-radius:30px;
   border:none;
-  background:#42a5f5;
+  background:#8e24aa;
   color:white;
   cursor:pointer;
 }
@@ -81,64 +76,53 @@ button{
 
 <div class="page">
 
-<h1>✏️ Present Simple & Present Continuous</h1>
+<h1>🔥 Present Tenses – Level 3 (V3)</h1>
 
-<div style="color:#1565c0; margin-bottom:20px;">
-💡 Present Simple → habits (every day, usually, always...)<br>
-💡 Present Continuous → happening now (now, at the moment, right now...)
+<div style="color:#6a1b9a; margin-bottom:20px;">
+⚠️ Be careful with meaning, not just time words!
 </div>
 
 <div class="q">
-1. My father <input class="inline" data-ok="works"> (work) in a hospital.
-<span class="answer"></span>
+1. She <input class="inline" data-ok="needs"> (need) your help.
 </div>
 
 <div class="q">
-2. Look! The dog <input class="inline" data-ok="is running"> (run) very fast.
-<span class="answer"></span>
+2. We <input class="inline" data-ok="are preparing"> (prepare) for the test right now.
 </div>
 
 <div class="q">
-3. She usually <input class="inline" data-ok="reads"> (read) before bed.
-<span class="answer"></span>
+3. He <input class="inline" data-ok="seems"> (seem) tired today.
 </div>
 
 <div class="q">
-4. Listen! The baby <input class="inline" data-ok="is sleeping"> (sleep) now.
-<span class="answer"></span>
+4. Why <input class="inline" data-ok="are you wearing"> (you / wear) a jacket now?
 </div>
 
 <div class="q">
-5. They always <input class="inline" data-ok="play"> (play) chess after school.
-<span class="answer"></span>
+5. I <input class="inline" data-ok="agree"> (agree) with you.
 </div>
 
 <div class="q">
-6. We <input class="inline" data-ok="are studying"> (study) English at the moment.
-<span class="answer"></span>
+6. The children <input class="inline" data-ok="are making"> (make) a lot of noise at the moment.
 </div>
 
 <div class="q">
-7. My sister <input class="inline" data-ok="walks"> (walk) to school every day.
-<span class="answer"></span>
+7. She usually <input class="inline" data-ok="remembers"> (remember) my birthday.
 </div>
 
 <div class="q">
-8. The children <input class="inline" data-ok="are laughing"> (laugh) right now.
-<span class="answer"></span>
+8. What <input class="inline" data-ok="does he want"> (he / want)?
 </div>
 
 <div class="q">
-9. The sun <input class="inline" data-ok="rises"> (rise) in the east.
-<span class="answer"></span>
+9. Look! The sky <input class="inline" data-ok="is getting"> (get) dark.
 </div>
 
 <div class="q">
-10. The students <input class="inline" data-ok="are doing"> (do) homework at the moment.
-<span class="answer"></span>
+10. This book <input class="inline" data-ok="costs"> (cost) a lot of money.
 </div>
 
-<button onclick="check()">✅ Check Answers</button>
+<button onclick="checkAll()">✅ Check All</button>
 
 <div class="result"></div>
 
@@ -149,23 +133,32 @@ function normalize(s){
   return s.toLowerCase().trim();
 }
 
-function check(){
-  const inputs=document.querySelectorAll(".inline");
-  let score=0;
+const inputs = document.querySelectorAll(".inline");
+
+inputs.forEach(input=>{
+  input.addEventListener("input", function(){
+    const correct = input.dataset.ok;
+    const user = normalize(input.value);
+
+    if(user === ""){
+      input.className = "inline";
+      return;
+    }
+
+    if(user === correct){
+      input.className = "inline correct";
+    }else{
+      input.className = "inline wrong";
+    }
+  });
+});
+
+function checkAll(){
+  let score = 0;
 
   inputs.forEach(input=>{
-    const correct=input.dataset.ok;
-    const user=normalize(input.value);
-
-    const answerSpan=input.parentElement.querySelector(".answer");
-    answerSpan.textContent="";
-
-    if(user===correct){
-      input.className="inline correct";
+    if(normalize(input.value) === input.dataset.ok){
       score++;
-    }else{
-      input.className="inline wrong";
-      answerSpan.textContent="Correct answer: " + correct;
     }
   });
 
