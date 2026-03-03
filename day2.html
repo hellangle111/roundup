@@ -6,8 +6,8 @@
 
 <style>
 body{
-  font-family: Arial, sans-serif;
-  background:#f0f8ff;
+  font-family:"Comic Sans MS", Arial, sans-serif;
+  background:#e3f2fd;
   padding:20px;
 }
 
@@ -16,40 +16,60 @@ body{
   margin:auto;
   background:white;
   padding:25px;
-  border-radius:10px;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 h1{
   text-align:center;
-  color:#1565c0;
+  color:#0d47a1;
 }
 
 .question{
   margin:15px 0;
   font-size:18px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 input{
-  padding:5px;
+  padding:6px;
   font-size:16px;
-  width:160px;
+  width:170px;
+  border:2px solid #90caf9;
+  border-radius:6px;
+}
+
+input:focus{
+  outline:none;
+  border-color:#1976d2;
 }
 
 .wrong{
-  border:2px solid red;
+  border:2px solid red !important;
   background:#ffe6e6;
 }
 
 .correct{
-  border:2px solid green;
+  border:2px solid green !important;
   background:#e6ffe6;
 }
 
 button{
   margin-top:20px;
-  padding:10px 15px;
+  padding:10px 18px;
   font-size:16px;
+  border:none;
+  background:#1976d2;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#0d47a1;
 }
 </style>
 </head>
@@ -58,10 +78,10 @@ button{
 
 <div class="page">
 
-<h1>Level 3 – Verb Transformation (Hard)</h1>
+<h1>Level 3 – Verb Transformation</h1>
 
-<p><b>Instructions:</b> Fill in the correct form of the verb.  
-Red color appears only when you leave the box.</p>
+<p><b>Instructions:</b> Fill in the correct verb form.  
+The box turns red only when you leave it.</p>
 
 <div id="questions"></div>
 
@@ -78,14 +98,14 @@ const data = [
 { q: "2. What _____ she (do) right now?", a: "is she doing" },
 
 /* 8 STATEMENTS */
-{ q: "3. She (study) English every evening.", a: "studies" },          // y → ies
-{ q: "4. The baby (cry) loudly at night.", a: "cries" },              // y → ies
-{ q: "5. He (fix) broken bikes on weekends.", a: "fixes" },           // x → es
-{ q: "6. Tom (watch) TV after dinner.", a: "watches" },               // ch → es
-{ q: "7. She is (run) in the park.", a: "running" },                  // double n
-{ q: "8. The dog is (sit) near the door.", a: "sitting" },            // double t
-{ q: "9. She is (write) a letter.", a: "writing" },                   // drop e
-{ q: "10. They are (swim) in the pool.", a: "swimming" }              // double m
+{ q: "3. She (study) English every evening.", a: "studies" },
+{ q: "4. The baby (cry) loudly at night.", a: "cries" },
+{ q: "5. He (fix) broken bikes on weekends.", a: "fixes" },
+{ q: "6. Tom (watch) TV after dinner.", a: "watches" },
+{ q: "7. She is (run) in the park.", a: "running" },
+{ q: "8. The dog is (sit) near the door.", a: "sitting" },
+{ q: "9. She is (write) a letter.", a: "writing" },
+{ q: "10. They are (swim) in the pool.", a: "swimming" }
 
 ];
 
@@ -94,7 +114,10 @@ const container = document.getElementById("questions");
 data.forEach((item,index)=>{
   const div = document.createElement("div");
   div.className="question";
-  div.innerHTML = item.q + "<br><input type='text' id='q"+index+"'>";
+  div.innerHTML = `
+    <span>${item.q}</span>
+    <input type="text" id="q${index}">
+  `;
   container.appendChild(div);
 });
 
@@ -113,7 +136,7 @@ function checkInput(i){
   }
 }
 
-/* Only check when lost focus */
+/* check only when lost focus */
 data.forEach((item,index)=>{
   document.addEventListener("blur", function(e){
     if(e.target && e.target.id === "q"+index){
