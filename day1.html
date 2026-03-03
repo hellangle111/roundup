@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Present Tenses – Level 3 (V3)</title>
+<title>Present Tenses – Level 3 (Blur Validation)</title>
 
 <style>
 body{
@@ -33,7 +33,7 @@ h1{
 }
 
 .inline{
-  width:200px;
+  width:210px;
   padding:5px 8px;
   font-size:18px;
   border-radius:8px;
@@ -76,10 +76,10 @@ button{
 
 <div class="page">
 
-<h1>🔥 Present Tenses – Level 3 (V3)</h1>
+<h1>🔥 Present Simple & Present Continuous – Level 3</h1>
 
 <div style="color:#6a1b9a; margin-bottom:20px;">
-⚠️ Be careful with meaning, not just time words!
+⚠️ The box turns red/green only when you click outside the input.
 </div>
 
 <div class="q">
@@ -136,7 +136,7 @@ function normalize(s){
 const inputs = document.querySelectorAll(".inline");
 
 inputs.forEach(input=>{
-  input.addEventListener("input", function(){
+  input.addEventListener("blur", function(){
     const correct = input.dataset.ok;
     const user = normalize(input.value);
 
