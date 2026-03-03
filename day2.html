@@ -2,77 +2,54 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Grammar Practice – Page 2 (Harder)</title>
+<title>Level 3 – Verb Changes Practice</title>
 
 <style>
 body{
-  font-family:"Comic Sans MS", Arial, sans-serif;
-  background:#fff8e1;
+  font-family: Arial, sans-serif;
+  background:#f0f8ff;
   padding:20px;
 }
 
 .page{
-  max-width:950px;
+  max-width:900px;
   margin:auto;
   background:white;
-  padding:30px;
-  border-radius:20px;
-  border:6px dashed #ffb300;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
 h1{
   text-align:center;
-  background:#ffe082;
-  padding:15px;
-  border-radius:16px;
+  color:#1565c0;
 }
 
-.q{
-  font-size:20px;
-  margin:18px 0;
-}
-
-.inline{
-  width:150px;
-  padding:4px 8px;
+.question{
+  margin:15px 0;
   font-size:18px;
-  border-radius:8px;
-  border:2px solid #888;
-  margin:0 6px;
 }
 
-.correct{
-  background:#e8f5e9;
-  border-color:#2e7d32;
+input{
+  padding:5px;
+  font-size:16px;
+  width:160px;
 }
 
 .wrong{
-  background:#ffebee;
-  border-color:#c62828;
+  border:2px solid red;
+  background:#ffe6e6;
 }
 
-.answer{
-  color:#c62828;
-  font-size:16px;
-  margin-left:10px;
+.correct{
+  border:2px solid green;
+  background:#e6ffe6;
 }
 
 button{
-  display:block;
-  margin:25px auto;
-  padding:12px 40px;
-  font-size:22px;
-  border-radius:30px;
-  border:none;
-  background:#fb8c00;
-  color:white;
-  cursor:pointer;
-}
-
-.result{
-  text-align:center;
-  font-size:24px;
-  font-weight:bold;
+  margin-top:20px;
+  padding:10px 15px;
+  font-size:16px;
 }
 </style>
 </head>
@@ -81,97 +58,76 @@ button{
 
 <div class="page">
 
-<h1>🔥 Present Tenses – Harder Practice</h1>
+<h1>Level 3 – Verb Transformation (Hard)</h1>
 
-<div style="color:#e65100; margin-bottom:20px;">
-💡 Watch out for -s / -es / -ies <br>
-💡 Look carefully at time words!
-</div>
+<p><b>Instructions:</b> Fill in the correct form of the verb.  
+Red color appears only when you leave the box.</p>
 
-<div class="q">
-1. She always <input class="inline" data-ok="watches"> (watch) TV after dinner.
-<span class="answer"></span>
-</div>
+<div id="questions"></div>
 
-<div class="q">
-2. Be quiet! The baby <input class="inline" data-ok="is trying"> (try) to sleep.
-<span class="answer"></span>
-</div>
-
-<div class="q">
-3. My brother <input class="inline" data-ok="studies"> (study) very hard every day.
-<span class="answer"></span>
-</div>
-
-<div class="q">
-4. Look! The boys <input class="inline" data-ok="are fixing"> (fix) their bikes.
-<span class="answer"></span>
-</div>
-
-<div class="q">
-5. Water <input class="inline" data-ok="boils"> (boil) at 100°C.
-<span class="answer"></span>
-</div>
-
-<div class="q">
-6. They <input class="inline" data-ok="are planning"> (plan) a party at the moment.
-<span class="answer"></span>
-</div>
-
-<div class="q">
-7. Tom rarely <input class="inline" data-ok="misses"> (miss) the bus.
-<span class="answer"></span>
-</div>
-
-<div class="q">
-8. I <input class="inline" data-ok="am thinking"> (think) about your idea right now.
-<span class="answer"></span>
-</div>
-
-<div class="q">
-9. The train usually <input class="inline" data-ok="arrives"> (arrive) at 6 p.m.
-<span class="answer"></span>
-</div>
-
-<div class="q">
-10. Listen! Someone <input class="inline" data-ok="is knocking"> (knock) at the door.
-<span class="answer"></span>
-</div>
-
-<button onclick="check()">✅ Check Answers</button>
-
-<div class="result"></div>
+<button onclick="checkAll()">Check All</button>
 
 </div>
 
 <script>
-function normalize(s){
-  return s.toLowerCase().trim();
+
+const data = [
+
+/* 2 QUESTIONS */
+{ q: "1. Why _____ he always (carry) a heavy bag to school?", a: "does he always carry" },
+{ q: "2. What _____ she (do) right now?", a: "is she doing" },
+
+/* 8 STATEMENTS */
+{ q: "3. She (study) English every evening.", a: "studies" },          // y → ies
+{ q: "4. The baby (cry) loudly at night.", a: "cries" },              // y → ies
+{ q: "5. He (fix) broken bikes on weekends.", a: "fixes" },           // x → es
+{ q: "6. Tom (watch) TV after dinner.", a: "watches" },               // ch → es
+{ q: "7. She is (run) in the park.", a: "running" },                  // double n
+{ q: "8. The dog is (sit) near the door.", a: "sitting" },            // double t
+{ q: "9. She is (write) a letter.", a: "writing" },                   // drop e
+{ q: "10. They are (swim) in the pool.", a: "swimming" }              // double m
+
+];
+
+const container = document.getElementById("questions");
+
+data.forEach((item,index)=>{
+  const div = document.createElement("div");
+  div.className="question";
+  div.innerHTML = item.q + "<br><input type='text' id='q"+index+"'>";
+  container.appendChild(div);
+});
+
+function normalize(text){
+  return text.toLowerCase().trim();
 }
 
-function check(){
-  const inputs=document.querySelectorAll(".inline");
-  let score=0;
+function checkInput(i){
+  const input = document.getElementById("q"+i);
+  if(normalize(input.value) === data[i].a){
+    input.classList.remove("wrong");
+    input.classList.add("correct");
+  }else{
+    input.classList.remove("correct");
+    input.classList.add("wrong");
+  }
+}
 
-  inputs.forEach(input=>{
-    const correct=input.dataset.ok;
-    const user=normalize(input.value);
-
-    const answerSpan=input.parentElement.querySelector(".answer");
-    answerSpan.textContent="";
-
-    if(user===correct){
-      input.className="inline correct";
-      score++;
-    }else{
-      input.className="inline wrong";
-      answerSpan.textContent="Correct answer: " + correct;
+/* Only check when lost focus */
+data.forEach((item,index)=>{
+  document.addEventListener("blur", function(e){
+    if(e.target && e.target.id === "q"+index){
+      checkInput(index);
     }
-  });
+  }, true);
+});
 
-  document.querySelector(".result").textContent =
-    "🎯 Score: " + score + " / " + inputs.length;
+function checkAll(){
+  data.forEach((item,index)=>{
+    checkInput(index);
+  });
 }
+
 </script>
 
 </body>
