@@ -135,24 +135,6 @@ function normalize(s){
 
 const inputs = document.querySelectorAll(".inline");
 
-inputs.forEach(input=>{
-  input.addEventListener("blur", function(){
-    const correct = input.dataset.ok;
-    const user = normalize(input.value);
-
-    if(user === ""){
-      input.className = "inline";
-      return;
-    }
-
-    if(user === correct){
-      input.className = "inline correct";
-    }else{
-      input.className = "inline wrong";
-    }
-  });
-});
-
 function checkAll(){
   let score = 0;
 
