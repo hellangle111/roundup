@@ -130,7 +130,7 @@ button{
 
 <script>
 function normalize(s){
-  return s.toLowerCase().trim();
+  return s.toLowerCase().trim().replace(/\s+/g,' ');
 }
 
 const inputs = document.querySelectorAll(".inline");
@@ -139,9 +139,17 @@ function checkAll(){
   let score = 0;
 
   inputs.forEach(input=>{
-    if(normalize(input.value) === input.dataset.ok){
+
+    const user = normalize(input.value);
+    const correct = normalize(input.dataset.ok);
+
+    if(user === correct){
+      input.className = "inline correct";
       score++;
+    }else{
+      input.className = "inline wrong";
     }
+
   });
 
   document.querySelector(".result").textContent =
