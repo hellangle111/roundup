@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Present Tenses – Level 3 (Blur Validation)</title>
+<title>Present Tenses – Level 3 (Practice 3)</title>
 
 <style>
 body{
@@ -39,7 +39,6 @@ h1{
   border-radius:8px;
   border:2px solid #888;
   margin:0 6px;
-  transition:0.2s;
 }
 
 .correct{
@@ -79,47 +78,47 @@ button{
 <h1>🔥 Present Simple & Present Continuous – Level 3</h1>
 
 <div style="color:#6a1b9a; margin-bottom:20px;">
-⚠️ The box turns red/green only when you click outside the input.
+Click the button to check your answers.
 </div>
 
 <div class="q">
-1. She <input class="inline" data-ok="needs"> (need) your help.
+1. She <input class="inline" data-ok="loves"> (love) music.
 </div>
 
 <div class="q">
-2. We <input class="inline" data-ok="are preparing"> (prepare) for the test right now.
+2. They <input class="inline" data-ok="are playing"> (play) football right now.
 </div>
 
 <div class="q">
-3. He <input class="inline" data-ok="seems"> (seem) tired today.
+3. He <input class="inline" data-ok="believes"> (believe) your story.
 </div>
 
 <div class="q">
-4. Why <input class="inline" data-ok="are you wearing"> (you / wear) a jacket now?
+4. Why <input class="inline" data-ok="are you shouting"> (you / shout)?
 </div>
 
 <div class="q">
-5. I <input class="inline" data-ok="agree"> (agree) with you.
+5. My sister <input class="inline" data-ok="teaches"> (teach) math at school.
 </div>
 
 <div class="q">
-6. The children <input class="inline" data-ok="are making"> (make) a lot of noise at the moment.
+6. The workers <input class="inline" data-ok="are fixing"> (fix) the road at the moment.
 </div>
 
 <div class="q">
-7. She usually <input class="inline" data-ok="remembers"> (remember) my birthday.
+7. She always <input class="inline" data-ok="brings"> (bring) snacks for everyone.
 </div>
 
 <div class="q">
-8. What <input class="inline" data-ok="does he want"> (he / want)?
+8. What <input class="inline" data-ok="does he think"> (he / think)?
 </div>
 
 <div class="q">
-9. Look! The sky <input class="inline" data-ok="is getting"> (get) dark.
+9. Look! The dog <input class="inline" data-ok="is chasing"> (chase) the cat.
 </div>
 
 <div class="q">
-10. This book <input class="inline" data-ok="costs"> (cost) a lot of money.
+10. This bag <input class="inline" data-ok="belongs"> (belong) to Anna.
 </div>
 
 <button onclick="checkAll()">✅ Check All</button>
@@ -135,31 +134,21 @@ function normalize(s){
 
 const inputs = document.querySelectorAll(".inline");
 
-inputs.forEach(input=>{
-  input.addEventListener("blur", function(){
-    const correct = input.dataset.ok;
-    const user = normalize(input.value);
-
-    if(user === ""){
-      input.className = "inline";
-      return;
-    }
-
-    if(user === correct){
-      input.className = "inline correct";
-    }else{
-      input.className = "inline wrong";
-    }
-  });
-});
-
 function checkAll(){
   let score = 0;
 
   inputs.forEach(input=>{
-    if(normalize(input.value) === input.dataset.ok){
+
+    const user = normalize(input.value);
+    const correct = normalize(input.dataset.ok);
+
+    if(user === correct){
+      input.className = "inline correct";
       score++;
+    }else{
+      input.className = "inline wrong";
     }
+
   });
 
   document.querySelector(".result").textContent =
