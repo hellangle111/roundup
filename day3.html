@@ -2,77 +2,71 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Present Tenses – Level 3</title>
+<title>Verb Practice</title>
 
 <style>
 body{
-  font-family:"Comic Sans MS", Arial, sans-serif;
-  background:#fce4ec;
-  padding:20px;
+font-family:"Comic Sans MS", Arial;
+background:#f3e5f5;
+padding:20px;
 }
 
 .page{
-  max-width:1000px;
-  margin:auto;
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  border:6px dashed #ec407a;
+max-width:1000px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:20px;
+border:6px dashed #ab47bc;
 }
 
 h1{
-  text-align:center;
-  background:#f8bbd0;
-  padding:15px;
-  border-radius:16px;
+text-align:center;
+background:#ce93d8;
+padding:15px;
+border-radius:16px;
 }
 
 .q{
-  font-size:20px;
-  margin:18px 0;
+font-size:20px;
+margin:18px 0;
 }
 
 .inline{
-  width:190px;
-  padding:4px 8px;
-  font-size:18px;
-  border-radius:8px;
-  border:2px solid #888;
-  margin:0 6px;
+width:220px;
+padding:6px 8px;
+font-size:18px;
+border-radius:8px;
+border:2px solid #777;
+margin:0 6px;
 }
 
 .correct{
-  background:#e8f5e9;
-  border-color:#2e7d32;
+background:#e8f5e9;
+border-color:#2e7d32;
 }
 
 .wrong{
-  background:#ffebee;
-  border-color:#c62828;
-}
-
-.answer{
-  color:#c62828;
-  font-size:15px;
-  margin-left:10px;
+background:#ffebee;
+border-color:#c62828;
 }
 
 button{
-  display:block;
-  margin:25px auto;
-  padding:12px 40px;
-  font-size:22px;
-  border-radius:30px;
-  border:none;
-  background:#d81b60;
-  color:white;
-  cursor:pointer;
+display:block;
+margin:30px auto;
+padding:12px 40px;
+font-size:22px;
+border-radius:30px;
+border:none;
+background:#8e24aa;
+color:white;
+cursor:pointer;
 }
 
 .result{
-  text-align:center;
-  font-size:24px;
-  font-weight:bold;
+text-align:center;
+font-size:24px;
+font-weight:bold;
 }
 </style>
 </head>
@@ -81,96 +75,84 @@ button{
 
 <div class="page">
 
-<h1>🔥 Present Simple & Present Continuous – Level 3</h1>
+<h1>Verb Forms Practice</h1>
 
-<div style="color:#ad1457; margin-bottom:20px;">
-⚠️ Watch out for state verbs and question forms!
+<div class="q">
+1. Why <input class="inline" data-ok="are you running"> (you / run) at the moment?
 </div>
 
 <div class="q">
-1. I <input class="inline" data-ok="know"> (know) the answer.
-<span class="answer"></span>
+2. What <input class="inline" data-ok="does she watch"> (she / watch) every evening?
 </div>
 
 <div class="q">
-2. She <input class="inline" data-ok="is thinking"> (think) about her homework right now.
-<span class="answer"></span>
+3. He <input class="inline" data-ok="fixes"> (fix) broken bikes.
 </div>
 
 <div class="q">
-3. I <input class="inline" data-ok="think"> (think) this movie is interesting.
-<span class="answer"></span>
+4. My sister <input class="inline" data-ok="studies"> (study) English every day.
 </div>
 
 <div class="q">
-4. What <input class="inline" data-ok="is he doing"> (he / do) right now?
-<span class="answer"></span>
+5. The baby <input class="inline" data-ok="cries"> (cry) loudly at night.
 </div>
 
 <div class="q">
-5. The Earth <input class="inline" data-ok="moves"> (move) around the Sun.
-<span class="answer"></span>
+6. Look! The boy <input class="inline" data-ok="is sitting"> (sit) on the floor.
 </div>
 
 <div class="q">
-6. We <input class="inline" data-ok="are having"> (have) lunch at the moment.
-<span class="answer"></span>
+7. They <input class="inline" data-ok="are swimming"> (swim) in the river now.
 </div>
 
 <div class="q">
-7. She <input class="inline" data-ok="has"> (have) two brothers.
-<span class="answer"></span>
+8. She <input class="inline" data-ok="is making"> (make) a cake now.
 </div>
 
 <div class="q">
-8. Where <input class="inline" data-ok="does the train stop"> (the train / stop) every day?
-<span class="answer"></span>
+9. The girls <input class="inline" data-ok="are playing"> (play) in the yard.
 </div>
 
 <div class="q">
-9. Why <input class="inline" data-ok="are you laughing"> (you / laugh) now?
-<span class="answer"></span>
+10. My dad <input class="inline" data-ok="watches"> (watch) TV after dinner.
 </div>
 
-<div class="q">
-10. I <input class="inline" data-ok="understand"> (understand) what you mean.
-<span class="answer"></span>
-</div>
-
-<button onclick="check()">✅ Check Answers</button>
+<button onclick="checkAll()">Check Answers</button>
 
 <div class="result"></div>
 
 </div>
 
 <script>
-function normalize(s){
-  return s.toLowerCase().trim();
+
+function normalize(t){
+return t.toLowerCase().trim();
 }
 
-function check(){
-  const inputs=document.querySelectorAll(".inline");
-  let score=0;
+function checkAll(){
 
-  inputs.forEach(input=>{
-    const correct=input.dataset.ok;
-    const user=normalize(input.value);
+let score=0;
 
-    const answerSpan=input.parentElement.querySelector(".answer");
-    answerSpan.textContent="";
+document.querySelectorAll(".inline").forEach(input=>{
 
-    if(user===correct){
-      input.className="inline correct";
-      score++;
-    }else{
-      input.className="inline wrong";
-      answerSpan.textContent="Correct answer: " + correct;
-    }
-  });
+let correct=input.dataset.ok;
+let value=normalize(input.value);
 
-  document.querySelector(".result").textContent =
-    "🎯 Score: " + score + " / " + inputs.length;
+if(value===normalize(correct)){
+input.className="inline correct";
+score++;
 }
+else{
+input.className="inline wrong";
+}
+
+});
+
+document.querySelector(".result").innerHTML=
+"Score: "+score+" / 10";
+
+}
+
 </script>
 
 </body>
