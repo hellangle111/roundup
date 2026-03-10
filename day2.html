@@ -5,6 +5,7 @@
 <title>Present Tense Practice</title>
 
 <style>
+
 body{
 font-family:"Comic Sans MS", Arial;
 background:#f3e5f5;
@@ -37,6 +38,24 @@ font-size:19px;
 margin:16px 0;
 }
 
+.choice{
+cursor:pointer;
+padding:2px 6px;
+border-radius:6px;
+}
+
+.selected{
+background:#d1c4e9;
+}
+
+.correct{
+background:#c8e6c9;
+}
+
+.wrong{
+background:#ffcdd2;
+}
+
 .inline{
 width:380px;
 padding:6px 8px;
@@ -44,23 +63,6 @@ font-size:18px;
 border-radius:8px;
 border:2px solid #777;
 margin-left:10px;
-}
-
-select{
-font-size:18px;
-padding:5px;
-border-radius:6px;
-margin-left:6px;
-}
-
-.correct{
-background:#e8f5e9;
-border-color:#2e7d32;
-}
-
-.wrong{
-background:#ffebee;
-border-color:#c62828;
 }
 
 button{
@@ -81,6 +83,7 @@ font-size:24px;
 font-weight:bold;
 margin-top:20px;
 }
+
 </style>
 </head>
 
@@ -94,78 +97,57 @@ margin-top:20px;
 <h2>Exercise 1 – Choose the correct phrase</h2>
 
 <div class="q">
-1. Pat usually cooks dinner 
-<select data-ok="in the evening">
-<option></option>
-<option>now</option>
-<option>in the evening</option>
-</select>
+1. Pat usually cooks dinner
+<span class="choice" data-q="1">now</span> /
+<span class="choice" data-q="1" data-ok="true">in the evening</span>
 </div>
 
 <div class="q">
-2. Alex is wearing a blue jacket 
-<select data-ok="today">
-<option></option>
-<option>today</option>
-<option>on Mondays</option>
-</select>
+2. Alex is wearing a blue jacket
+<span class="choice" data-q="2" data-ok="true">today</span> /
+<span class="choice" data-q="2">on Mondays</span>
 </div>
 
 <div class="q">
-3. Sam drives to work 
-<select data-ok="every morning">
-<option></option>
-<option>at the moment</option>
-<option>every morning</option>
-</select>
+3. Sam drives to work
+<span class="choice" data-q="3">at the moment</span> /
+<span class="choice" data-q="3" data-ok="true">every morning</span>
 </div>
 
 <div class="q">
-4. They play tennis 
-<select data-ok="on Tuesdays">
-<option></option>
-<option>on Tuesdays</option>
-<option>now</option>
-</select>
+4. They play tennis
+<span class="choice" data-q="4" data-ok="true">on Tuesdays</span> /
+<span class="choice" data-q="4">now</span>
 </div>
 
 <div class="q">
-5. I always drink milk 
-<select data-ok="in the morning">
-<option></option>
-<option>today</option>
-<option>in the morning</option>
-</select>
+5. I always drink milk
+<span class="choice" data-q="5">today</span> /
+<span class="choice" data-q="5" data-ok="true">in the morning</span>
 </div>
 
 <div class="q">
-6. They are watching TV 
-<select data-ok="now">
-<option></option>
-<option>at the weekend</option>
-<option>now</option>
-</select>
+6. They are watching TV
+<span class="choice" data-q="6">at the weekend</span> /
+<span class="choice" data-q="6" data-ok="true">now</span>
 </div>
 
 <div class="q">
-7. Katy walks to school 
-<select data-ok="every day">
-<option></option>
-<option>every day</option>
-<option>at the moment</option>
-</select>
+7. Katy walks to school
+<span class="choice" data-q="7" data-ok="true">every day</span> /
+<span class="choice" data-q="7">at the moment</span>
 </div>
 
 
 <h2>Exercise 2 – Write the sentence</h2>
 
 <div class="q">
-2. she / not / read / a book / now  
+2. she / not / read / a book / now
 <input class="inline" data-ok="She is not reading a book now">
 </div>
 
 <div class="q">
-7. we / not / play / tennis / every day  
+7. we / not / play / tennis / every day
 <input class="inline" data-ok="We do not play tennis every day">
 </div>
 
@@ -176,39 +158,77 @@ margin-top:20px;
 
 </div>
 
+
 <script>
 
 function normalize(t){
 return t.toLowerCase().trim();
 }
 
+/* chọn text */
+
+document.querySelectorAll(".choice").forEach(el=>{
+
+el.onclick=function(){
+
+let q=this.dataset.q;
+
+document.querySelectorAll('.choice[data-q="'+q+'"]').forEach(c=>{
+c.classList.remove("selected");
+});
+
+this.classList.add("selected");
+
+}
+
+});
+
+
 function checkAll(){
 
 let score=0;
 let total=0;
+
+/* check choices */
+
+for(let i=1;i<=7;i++){
+
+let selected=document.querySelector('.choice.selected[data-q="'+i+'"]');
+
+if(selected){
+
+total++;
+
+if(selected.dataset.ok){
+
+selected.classList.add("correct");
+score++;
+
+}else{
+
+selected.classList.add("wrong");
+
+}
+
+}
+
+}
+
+/* check sentence */
 
 document.querySelectorAll(".inline").forEach(input=>{
 
 total++;
 
 if(normalize(input.value)==normalize(input.dataset.ok)){
+
 input.className="inline correct";
 score++;
+
 }else{
+
 input.className="inline wrong";
-}
 
-});
-
-document.querySelectorAll("select").forEach(sel=>{
-
-total++;
-
-if(sel.value==sel.dataset.ok){
-sel.style.background="#e8f5e9";
-score++;
-}else{
-sel.style.background="#ffebee";
 }
 
 });
