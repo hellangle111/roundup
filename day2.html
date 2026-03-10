@@ -2,71 +2,84 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Present Tenses – Level 3 (Practice 4)</title>
+<title>Present Tense Practice</title>
 
 <style>
 body{
-  font-family:"Comic Sans MS", Arial, sans-serif;
-  background:#f3e5f5;
-  padding:20px;
+font-family:"Comic Sans MS", Arial;
+background:#f3e5f5;
+padding:20px;
 }
 
 .page{
-  max-width:1000px;
-  margin:auto;
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  border:6px dashed #ab47bc;
+max-width:1000px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:20px;
+border:6px dashed #ab47bc;
 }
 
 h1{
-  text-align:center;
-  background:#ce93d8;
-  padding:15px;
-  border-radius:16px;
+text-align:center;
+background:#ce93d8;
+padding:15px;
+border-radius:16px;
+}
+
+h2{
+margin-top:30px;
+color:#6a1b9a;
 }
 
 .q{
-  font-size:20px;
-  margin:18px 0;
+font-size:19px;
+margin:16px 0;
 }
 
 .inline{
-  width:210px;
-  padding:5px 8px;
-  font-size:18px;
-  border-radius:8px;
-  border:2px solid #888;
-  margin:0 6px;
+width:380px;
+padding:6px 8px;
+font-size:18px;
+border-radius:8px;
+border:2px solid #777;
+margin-left:10px;
+}
+
+select{
+font-size:18px;
+padding:5px;
+border-radius:6px;
+margin-left:6px;
 }
 
 .correct{
-  background:#e8f5e9;
-  border-color:#2e7d32;
+background:#e8f5e9;
+border-color:#2e7d32;
 }
 
 .wrong{
-  background:#ffebee;
-  border-color:#c62828;
+background:#ffebee;
+border-color:#c62828;
 }
 
 button{
-  display:block;
-  margin:25px auto;
-  padding:12px 40px;
-  font-size:22px;
-  border-radius:30px;
-  border:none;
-  background:#8e24aa;
-  color:white;
-  cursor:pointer;
+display:block;
+margin:30px auto;
+padding:12px 40px;
+font-size:22px;
+border-radius:30px;
+border:none;
+background:#8e24aa;
+color:white;
+cursor:pointer;
 }
 
 .result{
-  text-align:center;
-  font-size:24px;
-  font-weight:bold;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+margin-top:20px;
 }
 </style>
 </head>
@@ -75,85 +88,136 @@ button{
 
 <div class="page">
 
-<h1>🔥 Present Simple & Present Continuous – Level 3</h1>
+<h1>Present Simple & Present Continuous</h1>
 
-<div style="color:#6a1b9a; margin-bottom:20px;">
-Click the button to check your answers.
+
+<h2>Exercise 1 – Choose the correct phrase</h2>
+
+<div class="q">
+1. Pat usually cooks dinner 
+<select data-ok="in the evening">
+<option></option>
+<option>now</option>
+<option>in the evening</option>
+</select>
 </div>
 
 <div class="q">
-1. She <input class="inline" data-ok="is studying"> (study) for her exam right now.
+2. Alex is wearing a blue jacket 
+<select data-ok="today">
+<option></option>
+<option>today</option>
+<option>on Mondays</option>
+</select>
 </div>
 
 <div class="q">
-2. They <input class="inline" data-ok="play"> (play) tennis every weekend.
+3. Sam drives to work 
+<select data-ok="every morning">
+<option></option>
+<option>at the moment</option>
+<option>every morning</option>
+</select>
 </div>
 
 <div class="q">
-3. Look! The baby <input class="inline" data-ok="is sleeping"> (sleep).
+4. They play tennis 
+<select data-ok="on Tuesdays">
+<option></option>
+<option>on Tuesdays</option>
+<option>now</option>
+</select>
 </div>
 
 <div class="q">
-4. Why <input class="inline" data-ok="are you looking"> (you / look) at me like that?
+5. I always drink milk 
+<select data-ok="in the morning">
+<option></option>
+<option>today</option>
+<option>in the morning</option>
+</select>
 </div>
 
 <div class="q">
-5. My brother <input class="inline" data-ok="drives"> (drive) to work every day.
+6. They are watching TV 
+<select data-ok="now">
+<option></option>
+<option>at the weekend</option>
+<option>now</option>
+</select>
 </div>
 
 <div class="q">
-6. The students <input class="inline" data-ok="are listening"> (listen) to the teacher now.
+7. Katy walks to school 
+<select data-ok="every day">
+<option></option>
+<option>every day</option>
+<option>at the moment</option>
+</select>
+</div>
+
+
+<h2>Exercise 2 – Write the sentence</h2>
+
+<div class="q">
+2. she / not / read / a book / now  
+<input class="inline" data-ok="She is not reading a book now">
 </div>
 
 <div class="q">
-7. She usually <input class="inline" data-ok="takes"> (take) the bus to school.
+7. we / not / play / tennis / every day  
+<input class="inline" data-ok="We do not play tennis every day">
 </div>
 
-<div class="q">
-8. What <input class="inline" data-ok="are they doing"> (they / do) at the moment?
-</div>
 
-<div class="q">
-9. We <input class="inline" data-ok="are waiting"> (wait) for the train right now.
-</div>
-
-<div class="q">
-10. He always <input class="inline" data-ok="finishes"> (finish) his homework before dinner.
-</div>
-
-<button onclick="checkAll()">✅ Check All</button>
+<button onclick="checkAll()">Check Answers</button>
 
 <div class="result"></div>
 
 </div>
 
 <script>
-function normalize(s){
-  return s.toLowerCase().trim();
-}
 
-const inputs = document.querySelectorAll(".inline");
+function normalize(t){
+return t.toLowerCase().trim();
+}
 
 function checkAll(){
-  let score = 0;
 
-  inputs.forEach(input=>{
+let score=0;
+let total=0;
 
-    const user = normalize(input.value);
-    const correct = normalize(input.dataset.ok);
+document.querySelectorAll(".inline").forEach(input=>{
 
-    if(user === correct){
-      input.className = "inline correct";
-      score++;
-    }else{
-      input.className = "inline wrong";
-    }
+total++;
 
-  });
-
-  document.querySelector(".result").textContent =
-    "🎯 Score: " + score + " / " + inputs.length;
+if(normalize(input.value)==normalize(input.dataset.ok)){
+input.className="inline correct";
+score++;
+}else{
+input.className="inline wrong";
 }
+
+});
+
+document.querySelectorAll("select").forEach(sel=>{
+
+total++;
+
+if(sel.value==sel.dataset.ok){
+sel.style.background="#e8f5e9";
+score++;
+}else{
+sel.style.background="#ffebee";
+}
+
+});
+
+document.querySelector(".result").innerHTML=
+"Score: "+score+" / "+total;
+
+}
+
 </script>
 
 </body>
