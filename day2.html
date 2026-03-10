@@ -33,28 +33,59 @@ margin-top:30px;
 color:#6a1b9a;
 }
 
-.q{
+/* instruction box */
+
+.instructions{
+background:#fff3cd;
+border:3px dashed #ffb300;
+padding:14px;
+border-radius:12px;
+margin-bottom:25px;
 font-size:19px;
-margin:16px 0;
+text-align:center;
+font-weight:bold;
 }
+
+/* question */
+
+.q{
+font-size:20px;
+margin:18px 0;
+}
+
+/* choices */
 
 .choice{
 cursor:pointer;
-padding:2px 6px;
-border-radius:6px;
+padding:6px 12px;
+border-radius:10px;
+border:2px solid #b39ddb;
+background:#f3e5f5;
+transition:0.2s;
+font-weight:bold;
+}
+
+.choice:hover{
+background:#ede7f6;
+border-color:#7e57c2;
 }
 
 .selected{
 background:#d1c4e9;
+border-color:#7e57c2;
 }
 
 .correct{
 background:#c8e6c9;
+border-color:#2e7d32;
 }
 
 .wrong{
 background:#ffcdd2;
+border-color:#c62828;
 }
+
+/* sentence input */
 
 .inline{
 width:380px;
@@ -64,6 +95,8 @@ border-radius:8px;
 border:2px solid #777;
 margin-left:10px;
 }
+
+/* button */
 
 button{
 display:block;
@@ -76,6 +109,12 @@ background:#8e24aa;
 color:white;
 cursor:pointer;
 }
+
+button:hover{
+background:#6a1b9a;
+}
+
+/* result */
 
 .result{
 text-align:center;
@@ -93,6 +132,9 @@ margin-top:20px;
 
 <h1>Present Simple & Present Continuous</h1>
 
+<div class="instructions">
+👉 Click the correct phrase in each sentence.
+</div>
 
 <h2>Exercise 1 – Choose the correct phrase</h2>
 
@@ -138,7 +180,6 @@ margin-top:20px;
 <span class="choice" data-q="7">at the moment</span>
 </div>
 
-
 <h2>Exercise 2 – Write the sentence</h2>
 
 <div class="q">
@@ -151,13 +192,11 @@ margin-top:20px;
 <input class="inline" data-ok="We do not play tennis every day">
 </div>
 
-
 <button onclick="checkAll()">Check Answers</button>
 
 <div class="result"></div>
 
 </div>
-
 
 <script>
 
@@ -165,7 +204,7 @@ function normalize(t){
 return t.toLowerCase().trim();
 }
 
-/* chọn text */
+/* select choice */
 
 document.querySelectorAll(".choice").forEach(el=>{
 
