@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Prepositions Practice</title>
+<title>Grammar Practice</title>
 
 <style>
 
@@ -24,35 +24,34 @@ border:6px dashed #ab47bc;
 h1{
 text-align:center;
 background:#ce93d8;
-padding:15px;
+padding:12px;
 border-radius:16px;
 }
 
-.layout{
-display:flex;
-gap:30px;
-align-items:flex-start;
-margin-top:20px;
-}
-
-img{
-width:420px;
-border-radius:12px;
-border:4px solid #ce93d8;
-}
-
-.text{
+.exercise{
+margin-top:25px;
 font-size:18px;
 line-height:1.8;
 }
 
+img{
+width:100%;
+border-radius:12px;
+border:4px solid #ce93d8;
+margin-bottom:20px;
+}
+
 input{
-width:90px;
+width:160px;
 padding:5px;
 font-size:17px;
 border-radius:6px;
 border:2px solid #777;
 text-align:center;
+}
+
+.small{
+width:110px;
 }
 
 .correct{
@@ -84,68 +83,93 @@ font-weight:bold;
 margin-top:10px;
 }
 
+.answer-bank{
+margin-top:10px;
+}
+
+.answer-bank span{
+display:inline-block;
+background:#ede7f6;
+border:2px solid #9575cd;
+padding:5px 10px;
+margin:4px;
+border-radius:8px;
+font-weight:bold;
+}
+
 </style>
 </head>
 
 <body>
+
 <div class="page">
 
-<div class="instructions">
+<h1>Grammar Practice</h1>
 
-<b>Instructions:</b> Look at the picture and complete the sentences.
+<img src="img1.png">
+
+
+<div class="exercise">
+
+<b>3. Put the verbs into the present simple or present continuous.</b><br><br>
+
+Tom: What 1) <input data-ok="are you doing"> (you / do), Tina?<br>
+
+Tina: I 2) <input data-ok="am writing"> (write) an email to my friend.  
+I 3) <input data-ok="send"> (send) her an email every Saturday.<br>
+
+Where's your dad?<br>
+
+He 4) <input data-ok="is working"> (work) in the kitchen.  
+He always 5) <input data-ok="makes"> (make) pizza on Saturdays.<br>
+
+6) <input data-ok="is looking"> (look) out of the window now.  
+I 7) <input data-ok="am watching"> (watch) your mum.<br>
+
+She 8) <input data-ok="is washing"> (wash) her car.<br>
+
+I know. She always 9) <input data-ok="washes"> (wash) her car on Saturdays.  
+She always 10) <input data-ok="waters"> (water) the plants in the garden, too.
+
+</div>
+
+
+<div class="exercise">
+
+<b>4. Complete the sentences.</b>
 
 <div class="answer-bank">
-<b>Possible answers:</b><br>
-
-<span>in, </span>
-<span>on, </span>
-<span>under, </span>
-<span>next to, </span>
-<span>near, </span>
+Possible answers:
+<span>on</span>
+<span>between</span>
+<span>in</span>
+<span>at</span>
+<span>under</span>
+<span>next to</span>
+<span>behind</span>
 <span>in front of</span>
+</div>
+
+<br>
+
+1. They're <input class="small" data-ok="in"> the car.<br>
+
+2. The boy is <input class="small" data-ok="behind"> the armchair.<br>
+
+3. The man is <input class="small" data-ok="at"> the door.<br>
+
+4. The tree is <input class="small" data-ok="between"> the houses.<br>
+
+5. The teacher is <input class="small" data-ok="next to"> the boy.<br>
+
+6. The girl is <input class="small" data-ok="in front of"> the house.<br>
+
+7. She's <input class="small" data-ok="on"> the bed.<br>
+
+8. The cat is <input class="small" data-ok="under"> the table.
 
 </div>
 
-</div>
-
-<div class="layout">
-
-<img src="images/bed.png">
-
-<div class="text">
-
-There is a bed 
-<input data-ok="in"> the bedroom. <br>
-
-There is a small table 
-<input data-ok="next to"> the bed. <br>
-
-There is a desk 
-<input data-ok="in"> the bedroom. <br>
-
-There are some books 
-<input data-ok="on"> the desk and there is a bag 
-<input data-ok="under"> the desk. <br>
-
-There is a chair 
-<input data-ok="in"> the bedroom. <br>
-
-The chair is 
-<input data-ok="near"> the bed and there is a picture 
-<input data-ok="on"> the wall. <br>
-
-There is a cat 
-<input data-ok="on"> the mat. <br>
-
-The mat 
-<input data-ok="in front of"> the small table. <br>
-
-There are two shoes 
-<input data-ok="next to"> the bed.
-
-</div>
-
-</div>
 
 <button onclick="checkAnswers()">Check Answers</button>
 
