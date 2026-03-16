@@ -123,7 +123,7 @@ Where's your dad?<br>
 He <input data-ok="is working"> (work) in the kitchen.  
 He always <input data-ok="makes"> (make) pizza on Saturdays.<br>
 
- <input data-ok="is looking"> (look) out of the window now.  
+I <input data-ok="is looking"> (look) out of the window now.  
 I <input data-ok="am watching"> (watch) your mum.<br>
 
 She <input data-ok="is washing"> (wash) her car.<br>
@@ -136,37 +136,119 @@ She always <input data-ok="waters"> (water) the plants in the garden, too.
 
 <div class="exercise">
 
-<b>4. Complete the sentences.</b>
+<b>4. Complete the sentences.</b><br><br>
 
-<div class="answer-bank">
-Possible answers:
-<span>on</span>
-<span>between</span>
-<span>in</span>
-<span>at</span>
-<span>under</span>
-<span>next to</span>
-<span>behind</span>
-<span>in front of</span>
-</div>
+1. They're 
+<select data-ok="in">
+<option value="">-- choose --</option>
+<option>on</option>
+<option>between</option>
+<option>in</option>
+<option>at</option>
+<option>under</option>
+<option>next to</option>
+<option>behind</option>
+<option>in front of</option>
+</select>
+the car.<br><br>
 
-<br>
+2. The boy is 
+<select data-ok="behind">
+<option value="">-- choose --</option>
+<option>on</option>
+<option>between</option>
+<option>in</option>
+<option>at</option>
+<option>under</option>
+<option>next to</option>
+<option>behind</option>
+<option>in front of</option>
+</select>
+the armchair.<br><br>
 
-1. They're <input class="small" data-ok="in"> the car.<br>
+3. The man is 
+<select data-ok="at">
+<option value="">-- choose --</option>
+<option>on</option>
+<option>between</option>
+<option>in</option>
+<option>at</option>
+<option>under</option>
+<option>next to</option>
+<option>behind</option>
+<option>in front of</option>
+</select>
+the door.<br><br>
 
-2. The boy is <input class="small" data-ok="behind"> the armchair.<br>
+4. The tree is 
+<select data-ok="between">
+<option value="">-- choose --</option>
+<option>on</option>
+<option>between</option>
+<option>in</option>
+<option>at</option>
+<option>under</option>
+<option>next to</option>
+<option>behind</option>
+<option>in front of</option>
+</select>
+the houses.<br><br>
 
-3. The man is <input class="small" data-ok="at"> the door.<br>
+5. The teacher is 
+<select data-ok="next to">
+<option value="">-- choose --</option>
+<option>on</option>
+<option>between</option>
+<option>in</option>
+<option>at</option>
+<option>under</option>
+<option>next to</option>
+<option>behind</option>
+<option>in front of</option>
+</select>
+the boy.<br><br>
 
-4. The tree is <input class="small" data-ok="between"> the houses.<br>
+6. The girl is 
+<select data-ok="in front of">
+<option value="">-- choose --</option>
+<option>on</option>
+<option>between</option>
+<option>in</option>
+<option>at</option>
+<option>under</option>
+<option>next to</option>
+<option>behind</option>
+<option>in front of</option>
+</select>
+the house.<br><br>
 
-5. The teacher is <input class="small" data-ok="next to"> the boy.<br>
+7. She's 
+<select data-ok="on">
+<option value="">-- choose --</option>
+<option>on</option>
+<option>between</option>
+<option>in</option>
+<option>at</option>
+<option>under</option>
+<option>next to</option>
+<option>behind</option>
+<option>in front of</option>
+</select>
+the bed.<br><br>
 
-6. The girl is <input class="small" data-ok="in front of"> the house.<br>
-
-7. She's <input class="small" data-ok="on"> the bed.<br>
-
-8. The cat is <input class="small" data-ok="under"> the table.
+8. The cat is 
+<select data-ok="under">
+<option value="">-- choose --</option>
+<option>on</option>
+<option>between</option>
+<option>in</option>
+<option>at</option>
+<option>under</option>
+<option>next to</option>
+<option>behind</option>
+<option>in front of</option>
+</select>
+the table.
 
 </div>
 
@@ -208,6 +290,27 @@ input.classList.remove("correct");
 
 });
 
+
+/* check selects */
+
+document.querySelectorAll("select").forEach(select=>{
+
+total++;
+
+if(select.value===select.dataset.ok){
+
+select.classList.add("correct");
+select.classList.remove("wrong");
+score++;
+
+}else{
+
+select.classList.add("wrong");
+select.classList.remove("correct");
+
+}
+
+});
 document.querySelector(".result").innerHTML=
 "Score: "+score+" / "+inputs.length;
 
