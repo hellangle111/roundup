@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Present Tense Practice</title>
+<title>Prepositions Practice</title>
 
 <style>
 
 body{
 font-family:"Comic Sans MS", Arial;
-background:#f3e5f5;
+background:#fff3e0;
 padding:20px;
 }
 
@@ -16,63 +16,67 @@ padding:20px;
 max-width:1000px;
 margin:auto;
 background:white;
-padding:30px;
+padding:25px;
 border-radius:20px;
-border:6px dashed #ab47bc;
+border:5px dashed #ff9800;
 }
 
 h1{
 text-align:center;
-background:#ce93d8;
-padding:15px;
-border-radius:16px;
-}
-
-h2{
-margin-top:30px;
-color:#6a1b9a;
-}
-
-/* instruction box */
-
-.instructions{
-background:#fff3cd;
-border:3px dashed #ffb300;
-padding:14px;
+background:#ffcc80;
+padding:10px;
 border-radius:12px;
-margin-bottom:25px;
-font-size:19px;
-text-align:center;
-font-weight:bold;
 }
 
-/* question */
+/* table */
+
+.table{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+font-size:16px;
+}
+
+.col{
+width:32%;
+background:#fff8e1;
+padding:10px;
+border-radius:10px;
+border:2px solid #ffb74d;
+}
+
+/* questions */
 
 .q{
-font-size:20px;
-margin:18px 0;
+margin:10px 0;
+font-size:18px;
 }
 
-/* choices */
+input{
+width:60px;
+padding:4px;
+font-size:16px;
+border-radius:6px;
+border:2px solid #777;
+text-align:center;
+margin-right:5px;
+}
+
+/* choice */
 
 .choice{
 cursor:pointer;
-padding:6px 12px;
-border-radius:10px;
-border:2px solid #b39ddb;
-background:#f3e5f5;
-transition:0.2s;
-font-weight:bold;
+padding:3px 8px;
+border-radius:6px;
+border:2px solid transparent;
 }
 
 .choice:hover{
-background:#ede7f6;
-border-color:#7e57c2;
+background:#ffe0b2;
 }
 
 .selected{
-background:#d1c4e9;
-border-color:#7e57c2;
+background:#ffcc80;
 }
 
 .correct{
@@ -85,42 +89,32 @@ background:#ffcdd2;
 border-color:#c62828;
 }
 
-/* sentence input */
+/* layout columns */
 
-.inline{
-width:380px;
-padding:6px 8px;
-font-size:18px;
-border-radius:8px;
-border:2px solid #777;
-margin-left:10px;
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:20px;
 }
 
 /* button */
 
 button{
 display:block;
-margin:30px auto;
+margin:25px auto;
 padding:12px 40px;
-font-size:22px;
-border-radius:30px;
+font-size:20px;
+border-radius:25px;
 border:none;
-background:#8e24aa;
+background:#fb8c00;
 color:white;
 cursor:pointer;
 }
 
-button:hover{
-background:#6a1b9a;
-}
-
-/* result */
-
 .result{
 text-align:center;
-font-size:24px;
+font-size:22px;
 font-weight:bold;
-margin-top:20px;
 }
 
 </style>
@@ -130,66 +124,117 @@ margin-top:20px;
 
 <div class="page">
 
-<h1>Present Simple & Present Continuous</h1>
+<h1>IN – AT – ON</h1>
 
-<div class="instructions">
-👉 Click the correct phrase in each sentence.
+<div class="table">
+
+<div class="col">
+<b>IN</b><br>
+in the morning<br>
+in the afternoon<br>
+in the evening<br>
+in November<br>
+in the summer<br>
+in 1992
 </div>
 
-<h2>Exercise 1 – Choose the correct phrase</h2>
+<div class="col">
+<b>AT</b><br>
+at 8 o’clock<br>
+at the moment<br>
+at noon<br>
+at night<br>
+at midnight<br>
+at the weekend
+</div>
+
+<div class="col">
+<b>ON</b><br>
+on Sunday<br>
+on Monday<br>
+on Tuesday<br>
+on October 4th<br>
+on Sunday afternoon
+</div>
+
+</div>
+
+<!-- Exercise 1 -->
+
+<h2>1. Write in, at or on</h2>
+
+<div class="grid">
+
+<div>
+<div class="q">1. <input data-ok="in"> the morning</div>
+<div class="q">2. <input data-ok="on"> Tuesday afternoon</div>
+<div class="q">3. <input data-ok="at"> night</div>
+<div class="q">4. <input data-ok="on"> Wednesday evening</div>
+<div class="q">5. <input data-ok="at"> 10 o’clock</div>
+<div class="q">6. <input data-ok="in"> 1821</div>
+</div>
+
+<div>
+<div class="q">7. <input data-ok="in"> the spring</div>
+<div class="q">8. <input data-ok="in"> the afternoon</div>
+<div class="q">9. <input data-ok="on"> Saturday morning</div>
+<div class="q">10. <input data-ok="at"> the weekend</div>
+<div class="q">11. <input data-ok="on"> Thursday</div>
+<div class="q">12. <input data-ok="on"> May 1st</div>
+<div class="q">13. <input data-ok="in"> the evening</div>
+</div>
+
+<div>
+<div class="q">14. <input data-ok="on"> Sunday evening</div>
+<div class="q">15. <input data-ok="in"> 1912</div>
+<div class="q">16. <input data-ok="in"> January</div>
+<div class="q">17. <input data-ok="at"> midnight</div>
+<div class="q">18. <input data-ok="in"> the summer</div>
+<div class="q">19. <input data-ok="on"> March 2nd</div>
+<div class="q">20. <input data-ok="at"> 7 o’clock</div>
+<div class="q">21. <input data-ok="in"> August</div>
+</div>
+
+</div>
+
+<!-- Exercise 2 -->
+
+<h2>2. Read and circle</h2>
 
 <div class="q">
-1. Pat usually cooks dinner
-<span class="choice" data-q="1">now</span> /
-<span class="choice" data-q="1" data-ok="true">in the evening</span>
+1. We start school 
+<span class="choice" data-q="1">in</span> /
+<span class="choice" data-q="1" data-ok="true">at</span> 9 o’clock.
 </div>
 
 <div class="q">
-2. Alex is wearing a blue jacket
-<span class="choice" data-q="2" data-ok="true">today</span> /
-<span class="choice" data-q="2">on Mondays</span>
+2. My birthday is 
+<span class="choice" data-q="2" data-ok="true">on</span> /
+<span class="choice" data-q="2">in</span> June 25th.
 </div>
 
 <div class="q">
-3. Sam drives to work
-<span class="choice" data-q="3">at the moment</span> /
-<span class="choice" data-q="3" data-ok="true">every morning</span>
+3. Ben’s on holiday in Spain 
+<span class="choice" data-q="3">in</span> /
+<span class="choice" data-q="3" data-ok="true">at</span> the moment.
 </div>
 
 <div class="q">
-4. They play tennis
-<span class="choice" data-q="4" data-ok="true">on Tuesdays</span> /
-<span class="choice" data-q="4">now</span>
+4. I go to the beach 
+<span class="choice" data-q="4">in</span> /
+<span class="choice" data-q="4" data-ok="true">on</span> the summer.
 </div>
 
 <div class="q">
-5. I always drink milk
-<span class="choice" data-q="5">today</span> /
-<span class="choice" data-q="5" data-ok="true">in the morning</span>
+5. They always eat lunch 
+<span class="choice" data-q="5">in</span> /
+<span class="choice" data-q="5" data-ok="true">at</span> noon.
 </div>
 
 <div class="q">
-6. They are watching TV
-<span class="choice" data-q="6">at the weekend</span> /
-<span class="choice" data-q="6" data-ok="true">now</span>
-</div>
-
-<div class="q">
-7. Katy walks to school
-<span class="choice" data-q="7" data-ok="true">every day</span> /
-<span class="choice" data-q="7">at the moment</span>
-</div>
-
-<h2>Exercise 2 – Write the sentence</h2>
-
-<div class="q">
-2. she / not / read / a book / now
-<input class="inline" data-ok="She is not reading a book now">
-</div>
-
-<div class="q">
-7. we / not / play / tennis / every day
-<input class="inline" data-ok="We do not play tennis every day">
+6. She usually watches TV 
+<span class="choice" data-q="6" data-ok="true">in</span> /
+<span class="choice" data-q="6">on</span> the evening.
 </div>
 
 <button onclick="checkAll()">Check Answers</button>
@@ -204,12 +249,10 @@ function normalize(t){
 return t.toLowerCase().trim();
 }
 
-/* select choice */
+/* select */
 
 document.querySelectorAll(".choice").forEach(el=>{
-
 el.onclick=function(){
-
 let q=this.dataset.q;
 
 document.querySelectorAll('.choice[data-q="'+q+'"]').forEach(c=>{
@@ -217,62 +260,47 @@ c.classList.remove("selected");
 });
 
 this.classList.add("selected");
-
 }
-
 });
 
+/* check */
 
 function checkAll(){
 
 let score=0;
 let total=0;
 
-/* check choices */
+/* input */
 
-for(let i=1;i<=7;i++){
+document.querySelectorAll("input").forEach(input=>{
+total++;
 
+if(normalize(input.value)===input.dataset.ok){
+input.classList.add("correct");
+score++;
+}else{
+input.classList.add("wrong");
+}
+});
+
+/* choices */
+
+for(let i=1;i<=6;i++){
 let selected=document.querySelector('.choice.selected[data-q="'+i+'"]');
 
 if(selected){
-
 total++;
 
 if(selected.dataset.ok){
-
 selected.classList.add("correct");
 score++;
-
 }else{
-
 selected.classList.add("wrong");
-
+}
+}
 }
 
-}
-
-}
-
-/* check sentence */
-
-document.querySelectorAll(".inline").forEach(input=>{
-
-total++;
-
-if(normalize(input.value)==normalize(input.dataset.ok)){
-
-input.className="inline correct";
-score++;
-
-}else{
-
-input.className="inline wrong";
-
-}
-
-});
-
-document.querySelector(".result").innerHTML=
+document.querySelector(".result").innerHTML =
 "Score: "+score+" / "+total;
 
 }
