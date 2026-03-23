@@ -159,8 +159,6 @@ on Sunday afternoon
 
 </div>
 
-<!-- Exercise 1 -->
-
 <h2>1. Write in, at or on</h2>
 
 <div class="grid">
@@ -196,8 +194,6 @@ on Sunday afternoon
 </div>
 
 </div>
-
-<!-- Exercise 2 -->
 
 <h2>2. Read and circle</h2>
 
@@ -269,6 +265,15 @@ function checkAll(){
 
 let score=0;
 let total=0;
+
+/* RESET ALL */
+document.querySelectorAll("input").forEach(i=>{
+i.classList.remove("correct","wrong");
+});
+
+document.querySelectorAll(".choice").forEach(c=>{
+c.classList.remove("correct","wrong");
+});
 
 /* input */
 
