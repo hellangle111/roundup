@@ -12,7 +12,7 @@
         .nav-links a { color: #3498db; text-decoration: none; font-weight: bold; }
         .nav-links a:hover { text-decoration: underline; }
         h2.part-title { color: #3498db; border-bottom: 2px solid #3498db; padding-bottom: 5px; margin-top: 40px; margin-bottom: 20px; }
-        .question { margin-bottom: 20px; padding: 15px; border-radius: 8px; background: #f9f9f9; border: 1px solid #e1e1e1; transition: all 0.3s ease; }
+        .question { margin-bottom: 20px; padding: 15px; border-radius: 8px; background: #f9f9f9; border: 1px solid #e1e1e1; transition: all 0.3s ease; position: relative; }
         .question p { margin: 0 0 10px 0; font-weight: 600; }
         input[type="text"] { padding: 8px 12px; width: calc(100% - 24px); max-width: 400px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; margin-top: 5px; }
         label { display: block; margin: 5px 0; cursor: pointer; font-weight: normal; }
@@ -21,319 +21,389 @@
         button:hover { background-color: #27ae60; }
         .correct { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; }
         .incorrect { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
+        .explanation { display: none; margin-top: 8px; font-size: 13px; font-style: italic; color: #c0392b; font-weight: bold; }
+        .incorrect .explanation { display: block; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>English Grammar Quiz</h1>
+    <div class="nav-links">
+        <a href="grammar_test_part2.html">Chuyển sang Trang 2 &rarr;</a>
+    </div>
     
     <form id="quizForm">
-    
-        <div class="question" data-answer="what are you going to do tomorrow?">
+        <h2 class="part-title">1</h2>
+        <div class="question" data-answer="what are you going to do tomorrow?" data-explanation="Gợi ý: Xem lại cấu trúc câu hỏi thì Tương lai gần (Be + S + going to + V?).">
             <p>Put the words in order: (you / going to / What / do / are / tomorrow?)</p>
             <input type="text" name="q1">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="taller">
+        <div class="question" data-answer="taller" data-explanation="Gợi ý: Tính từ ngắn khi so sánh hơn thêm đuôi -er.">
             <p>Tom is ________ (tall) than his younger sister.</p>
             <input type="text" name="q2">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="on">
+        <div class="question" data-explanation="Gợi ý: Trước ngày tháng cụ thể (October 15th) dùng giới từ nào?">
             <p>Fill in the blank with in / on / at: My birthday is ________ October 15th.</p>
-            <input type="text" name="q3">
+            <input type="text" name="q3" data-answer="on">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="Where">
+        <div class="question" data-answer="Where" data-explanation="Gợi ý: Trả lời 'under the desk' (dưới bàn) là chỉ vị trí, dùng từ để hỏi nào?">
             <p>Choose the correct word: (Why / Where / How) is your backpack? – It’s under the desk.</p>
             <input type="text" name="q4">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="C">
+        <div class="question" data-answer="C" data-explanation="Gợi ý: Ý nghĩa đối lập (muốn chơi bóng đá nhưng trời mưa).">
             <p>I wanted to play football, ________ it started to rain heavily.</p>
             <label><input type="radio" name="q5" value="A"> A. and</label>
             <label><input type="radio" name="q5" value="B"> B. because</label>
             <label><input type="radio" name="q5" value="C"> C. but</label>
             <label><input type="radio" name="q5" value="D"> D. or</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="D">
+        <div class="question" data-answer="D" data-explanation="Gợi ý: 'Shoes' là danh từ số nhiều và 'over there' chỉ vật ở xa.">
             <p>Are ________ your shoes over there near the door?</p>
             <label><input type="radio" name="q6" value="A"> A. this</label>
             <label><input type="radio" name="q6" value="B"> B. that</label>
             <label><input type="radio" name="q6" value="C"> C. these</label>
             <label><input type="radio" name="q6" value="D"> D. those</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="has got">
+        <div class="question" data-answer="has got" data-explanation="Gợi ý: Chủ ngữ 'Sarah' (số ít) đi với dạng 'have got' nào?">
             <p>Sarah ________ (have got) two cats and a goldfish.</p>
             <input type="text" name="q7">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="is sleeping">
+        <div class="question" data-answer="is sleeping" data-explanation="Gợi ý: Dấu hiệu 'Look!' đòi hỏi thì Hiện tại tiếp diễn.">
             <p>Find and correct the mistake: Look! The cat sleeps under the tree.</p>
             <input type="text" name="q8">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="buses">
+        <div class="question" data-answer="buses" data-explanation="Gợi ý: Danh từ tận cùng là '-s' khi chuyển sang số nhiều thêm '-es'.">
             <p>Write the plural form of the word: bus</p>
             <input type="text" name="q9">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="How much">
+        <div class="question" data-answer="How much" data-explanation="Gợi ý: 'Sugar' là danh từ không đếm được.">
             <p>Complete with How much or How many: ________ sugar do you need for the cake?</p>
             <input type="text" name="q10">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="visited">
+        <div class="question" data-answer="visited" data-explanation="Gợi ý: 'Last Sunday' là dấu hiệu thì Quá khứ đơn.">
             <p>Last Sunday, we ________ (visit) our grandparents in the country.</p>
             <input type="text" name="q11">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="didn't go">
+        <div class="question" data-answer="didn't go" data-explanation="Gợi ý: Thì Quá khứ đơn dạng phủ định của động từ thường.">
             <p>They ________ (not go) to the beach yesterday because it was cold.</p>
             <input type="text" name="q12">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="please don't open the window">
+        <div class="question" data-answer="please don't open the window" data-explanation="Gợi ý: Câu mệnh lệnh phủ định lịch sự bắt đầu bằng 'Please don't...'.">
             <p>Put the words in order: (open / Please / window / don't / the)</p>
             <input type="text" name="q13">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="C">
+        <div class="question" data-answer="C" data-explanation="Gợi ý: Sau động từ 'enjoy' là V-ing.">
             <p>He enjoys ________ (read) comic books in his free time.</p>
             <label><input type="radio" name="q14" value="A"> A. read</label>
             <label><input type="radio" name="q14" value="B"> B. reads</label>
             <label><input type="radio" name="q14" value="C"> C. reading</label>
             <label><input type="radio" name="q14" value="D"> D. to read</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="could">
+        <div class="question" data-answer="could" data-explanation="Gợi ý: Khả năng trong quá khứ ('When my uncle was five...').">
             <p>Fill in the blank with can / couldn't: When my uncle was five, he ________ swim very well.</p>
             <input type="text" name="q15">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="heavier">
+        <div class="question" data-answer="heavier" data-explanation="Gợi ý: Tính từ kết thúc bằng phụ âm + y, đổi y thành i rồi thêm -er.">
             <p>The blue box is ________ (heavy) than the red box.</p>
             <input type="text" name="q16">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="at">
+        <div class="question" data-explanation="Gợi ý: Trước giờ giấc cụ thể (7 o'clock) dùng giới từ gì?">
             <p>Fill in the blank with in / on / at: We always have dinner ________ 7 o'clock in the evening.</p>
-            <input type="text" name="q17">
+            <input type="text" name="q17" data-answer="at">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="B">
+        <div class="question" data-answer="B" data-explanation="Gợi ý: Trả lời lý do 'Because...', câu hỏi phải bắt đầu bằng 'Why'.">
             <p>Which question matches the answer? "Because I lost my keys."</p>
             <label><input type="radio" name="q18" value="A"> A. Where are your keys?</label>
             <label><input type="radio" name="q18" value="B"> B. Why are you sad?</label>
             <label><input type="radio" name="q18" value="C"> C. Who has the keys?</label>
             <label><input type="radio" name="q18" value="D"> D. When did you lose it?</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="A">
+        <div class="question" data-answer="A" data-explanation="Gợi ý: 'Water' không đếm được (dùng với danh từ số ít/không đếm được trong câu phủ định dùng 'any').">
             <p>Choose the correct sentence:</p>
             <label><input type="radio" name="q19" value="A"> A. There isn't any water in the bottle.</label>
             <label><input type="radio" name="q19" value="B"> B. There isn't some water in the bottle.</label>
             <label><input type="radio" name="q19" value="C"> C. There aren't any water in the bottle.</label>
             <label><input type="radio" name="q19" value="D"> D. There is any water in the bottle.</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="flew">
+        <div class="question" data-answer="flew" data-explanation="Gợi ý: Động từ bất quy tắc 'fly' ở dạng quá khứ đơn.">
             <p>Write the past simple form of the verb: fly</p>
             <input type="text" name="q20">
+            <div class="explanation"></div>
         </div>
 
-        
-        <div class="question" data-answer="its">
+        <h2 class="part-title">3</h2>
+        <div class="question" data-answer="its" data-explanation="Gợi ý: Tính từ sở hữu chỉ vật (của con chó). Chú ý không nhầm với 'it's'.">
             <p>Complete the sentence: My dog is small, but ________ (it) tail is very long.</p>
             <input type="text" name="q21">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="are playing">
+        <div class="question" data-answer="are playing" data-explanation="Gợi ý: 'Look!' là dấu hiệu của thì Hiện tại tiếp diễn.">
             <p>Look! The children ________ (play) hide-and-seek in the yard.</p>
             <input type="text" name="q22">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="doesn't watch">
+        <div class="question" data-answer="doesn't watch" data-explanation="Gợi ý: Thì Hiện tại đơn với chủ ngữ số ít 'She' ở thể phủ định.">
             <p>She ________ (not watch) TV every evening. She prefers reading.</p>
             <input type="text" name="q23">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="leaves">
+        <div class="question" data-answer="leaves" data-explanation="Gợi ý: Danh từ kết thúc bằng '-f' hoặc '-fe' đổi thành '-ves'.">
             <p>Write the plural form of the word: leaf</p>
             <input type="text" name="q24">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="how many chairs are there in the room?">
+        <div class="question" data-answer="how many chairs are there in the room?" data-explanation="Gợi ý: Cấu trúc câu hỏi số lượng với 'How many'.">
             <p>Put the words in order: (there / How many / are / chairs / the room? / in)</p>
             <input type="text" name="q25">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="were">
+        <div class="question" data-answer="were" data-explanation="Gợi ý: Động từ 'to be' trong quá khứ với chủ ngữ 'We'.">
             <p>We ________ (be) at the zoo two days ago.</p>
             <input type="text" name="q26">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="A">
+        <div class="question" data-answer="A" data-explanation="Gợi ý: Kế hoạch trong tương lai gần / ý định 'tonight'.">
             <p>I don't feel well today, so I ________ (stay) at home tonight.</p>
             <label><input type="radio" name="q27" value="A"> A. am going to stay</label>
             <label><input type="radio" name="q27" value="B"> B. stayed</label>
             <label><input type="radio" name="q27" value="C"> C. stays</label>
             <label><input type="radio" name="q27" value="D"> D. stay</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="fastest">
+        <div class="question" data-answer="fastest" data-explanation="Gợi ý: So sánh nhất của tính từ ngắn 'fast'.">
             <p>Find and correct the mistake: He is the most fast runner in our class.</p>
             <input type="text" name="q28">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="behind">
+        <div class="question" data-answer="behind" data-explanation="Gợi ý: Ngồi ở vị trí 'so you can't see it' (không thấy được) nghĩa là ở phía sau.">
             <p>Fill in the blank with under / next to / behind: The cat is sitting ________ the table so you can't see it.</p>
             <input type="text" name="q29">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="B">
+        <div class="question" data-answer="B" data-explanation="Gợi ý: Biển cấm ('It is forbidden').">
             <p>You ________ take photos in this museum. It is forbidden.</p>
             <label><input type="radio" name="q30" value="A"> A. must</label>
             <label><input type="radio" name="q30" value="B"> B. mustn't</label>
             <label><input type="radio" name="q30" value="C"> C. have to</label>
             <label><input type="radio" name="q30" value="D"> D. can</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="made">
+        <div class="question" data-answer="made" data-explanation="Gợi ý: Dạng quá khứ của 'make'.">
             <p>Write the past simple form of the verb: make</p>
             <input type="text" name="q31">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="C">
+        <div class="question" data-explanation="Gợi ý: Dùng liên từ nào khi đưa ra sự lựa chọn (trà hoặc cà phê)?">
             <p>Would you like some tea ________ coffee?</p>
             <label><input type="radio" name="q32" value="A"> A. and</label>
             <label><input type="radio" name="q32" value="B"> B. but</label>
-            <label><input type="radio" name="q32" value="C"> C. or</label>
+            <label><input type="radio" name="q32" value="C" id="q32c"> C. or</label>
             <label><input type="radio" name="q32" value="D"> D. because</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="How many">
+        <div class="question" data-answer="How many" data-explanation="Gợi ý: 'Students' là danh từ đếm được số nhiều.">
             <p>Complete with How much or How many: ________ students are there in your class?</p>
             <input type="text" name="q33">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="them">
+        <div class="question" data-answer="them" data-explanation="Gợi ý: Đại từ đóng vai trò tân ngữ đứng sau giới từ 'to'.">
             <p>Choose the correct pronoun: Give the ball to ________ (they / them / their).</p>
             <input type="text" name="q34">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="because">
+        <div class="question" data-answer="because" data-explanation="Gợi ý: Chỉ nguyên nhân/lý do.">
             <p>I like learning English ________ it is fun and useful.</p>
             <input type="text" name="q35">
+            <div class="explanation"></div>
         </div>
 
-        
-        <div class="question" data-answer="men">
+        <h2 class="part-title">4</h2>
+        <div class="question" data-answer="men" data-explanation="Gợi ý: Dạng số nhiều bất quy tắc của 'man'.">
             <p>Write the plural form of the word: man</p>
             <input type="text" name="q36">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="yours">
+        <div class="question" data-answer="yours" data-explanation="Gợi ý: Đại từ sở hữu đứng cuối câu không có danh từ theo sau.">
             <p>Is this pen ________ (you / your / yours)?</p>
             <input type="text" name="q37">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="is cooking">
+        <div class="question" data-answer="is cooking" data-explanation="Gợi ý: 'Right now' là dấu hiệu thì Hiện tại tiếp diễn.">
             <p>Right now, Mum ________ (cook) dinner in the kitchen.</p>
             <input type="text" name="q38">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="catches">
+        <div class="question" data-answer="catches" data-explanation="Gợi ý: 'He usually' -> Thì Hiện tại đơn, chủ ngữ số ít thêm -es.">
             <p>Choose the correct option: He usually ________ (catch / catches / catching) the bus at 7:30 AM.</p>
             <input type="text" name="q39">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="some">
+        <div class="question" data-answer="some" data-explanation="Gợi ý: Câu hỏi mang tính mời mọc/đề nghị dùng 'some' thay vì 'any'.">
             <p>Fill in the blank with a / an / some / any: Do you want ________ orange juice?</p>
             <input type="text" name="q40">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="went">
+        <div class="question" data-answer="went" data-explanation="Gợi ý: Dạng quá khứ của 'go'.">
             <p>Write the past simple form of the verb: go</p>
             <input type="text" name="q41">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="were">
+        <div class="question" data-answer="were" data-explanation="Gợi ý: Chủ ngữ số nhiều 'They' đi với động từ to be quá khứ nào?">
             <p>Find and correct the mistake: They was at the park last night.</p>
             <input type="text" name="q42">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="bigger">
+        <div class="question" data-answer="bigger" data-explanation="Gợi ý: Tính từ ngắn gấp đôi phụ âm cuối khi thêm -er.">
             <p>Complete the sentence: An elephant is ________ (big) than a bear.</p>
             <input type="text" name="q43">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="what do you often do clean your room?">
+        <div class="question" data-answer="what do you often do clean your room?" data-explanation="Gợi ý: Sắp xếp câu hỏi với trợ động từ 'do'.">
             <p>Put the words in order: (do / What / clean / you / room? / your / often)</p>
             <input type="text" name="q44">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="must">
+        <div class="question" data-answer="must" data-explanation="Gợi ý: Đưa ra yêu cầu/quy định bắt buộc.">
             <p>We ________ (shall / must / could) go to the playground if you finish your homework.</p>
             <input type="text" name="q45">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="in">
+        <div class="question" data-explanation="Gợi ý: Trước các tháng trong năm dùng giới từ gì?">
             <p>Fill in the blank with in / on / at: The winter vacation starts ________ December.</p>
-            <input type="text" name="q46">
+            <input type="text" name="q46" data-answer="in">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="Whose">
+        <div class="question" data-answer="Whose" data-explanation="Gợi ý: Từ để hỏi về sự sở hữu ('It's Lucy's').">
             <p>(Who / What / Whose) pencil is this? – It's Lucy's.</p>
             <input type="text" name="q47">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="B">
+        <div class="question" data-answer="B" data-explanation="Gợi ý: Cấu trúc 'want to + V'.">
             <p>My brother wants ________ (be) an astronaut when he grows up.</p>
             <label><input type="radio" name="q48" value="A"> A. be</label>
             <label><input type="radio" name="q48" value="B"> B. to be</label>
             <label><input type="radio" name="q48" value="C"> C. being</label>
             <label><input type="radio" name="q48" value="D"> D. is</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="C">
+        <div class="question" data-answer="C" data-explanation="Gợi ý: Câu mệnh lệnh phủ định (Don't + V-nguyên thể).">
             <p>Which sentence is CORRECT?</p>
             <label><input type="radio" name="q49" value="A"> A. Don't running in the hallway!</label>
             <label><input type="radio" name="q49" value="B"> B. Not run in the hallway!</label>
             <label><input type="radio" name="q49" value="C"> C. Don't run in the hallway!</label>
             <label><input type="radio" name="q49" value="D"> D. Doesn't run in the hallway!</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="because">
+        <div class="question" data-answer="because" data-explanation="Gợi ý: Giải thích lý do vì sao họ đi ngủ sớm.">
             <p>They went to bed early ________ they were very tired.</p>
             <input type="text" name="q50">
+            <div class="explanation"></div>
         </div>
 
-        
-        <div class="question" data-answer="B">
+        <h2 class="part-title">5</h2>
+        <div class="question" data-answer="B" data-explanation="Gợi ý: Đại từ sở hữu thay thế cho 'my cousin's bicycle'.">
             <p>Choose the correct pronoun: That red bicycle belongs to my cousin. It is ________.</p>
             <label><input type="radio" name="q51" value="A"> A. him</label>
             <label><input type="radio" name="q51" value="B"> B. his</label>
             <label><input type="radio" name="q51" value="C"> C. he</label>
             <label><input type="radio" name="q51" value="D"> D. he's</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="B">
+        <div class="question" data-answer="B" data-explanation="Gợi ý: 'House' là danh từ số ít và ở xa ('across the street').">
             <p>Look at ________ house across the street! It looks huge!</p>
             <label><input type="radio" name="q52" value="A"> A. this</label>
             <label><input type="radio" name="q52" value="B"> B. that</label>
             <label><input type="radio" name="q52" value="C"> C. these</label>
             <label><input type="radio" name="q52" value="D"> D. those</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="teeth">
+        <div class="question" data-answer="teeth" data-explanation="Gợi ý: Dạng số nhiều bất quy tắc của 'tooth'.">
             <p>Write the plural form of the word: tooth</p>
             <input type="text" name="q53">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="is">
+        <div class="question" data-answer="is" data-explanation="Gợi ý: 'Water' là danh từ không đếm được, luôn đi với động từ số ít 'is'.">
             <p>Complete the sentence: There ________ (be) a lot of water on the floor.</p>
             <input type="text" name="q54">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="are kicking">
+        <div class="question" data-answer="are kicking" data-explanation="Gợi ý: 'At the moment' là dấu hiệu thì Hiện tại tiếp diễn.">
             <p>At the moment, the boys ________ (kick) the ball in the garden.</p>
             <input type="text" name="q55">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="works">
+        <div class="question" data-answer="works" data-explanation="Gợi ý: 'Every weekday' -> Thì Hiện tại đơn, chủ ngữ số ít 'My father'.">
             <p>My father ________ (work) in a bank every weekday.</p>
             <input type="text" name="q56">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="buy">
+        <div class="question" data-answer="buy" data-explanation="Gợi ý: Sau trợ động từ 'didn't', động từ chính phải giữ nguyên mẫu.">
             <p>Find and correct the mistake: She didn't bought any milk from the supermarket.</p>
             <input type="text" name="q57">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="more difficult">
+        <div class="question" data-answer="more difficult" data-explanation="Gợi ý: Tính từ dài 'difficult' khi chuyển sang so sánh hơn.">
             <p>Complete the comparative degree: This puzzle is ____________________ (difficult) than that one.</p>
             <input type="text" name="q58">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="How much">
+        <div class="question" data-answer="How much" data-explanation="Gợi ý: 'Butter' là danh từ không đếm được.">
             <p>Complete with How much or How many: ________ butter do we need for this recipe?</p>
             <input type="text" name="q59">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="A">
+        <div class="question" data-answer="A" data-explanation="Gợi ý: Lời khuyên bắt buộc/cần thiết cho sức khỏe.">
             <p>You ________ clean your teeth after meals to keep them healthy.</p>
             <label><input type="radio" name="q60" value="A"> A. must</label>
             <label><input type="radio" name="q60" value="B"> B. mustn't</label>
             <label><input type="radio" name="q60" value="C"> C. shouldn't</label>
             <label><input type="radio" name="q60" value="D"> D. couldn't</label>
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="took">
+        <div class="question" data-answer="took" data-explanation="Gợi ý: Dạng quá khứ của 'take'.">
             <p>Write the past simple form of the verb: take</p>
             <input type="text" name="q61">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="on">
+        <div class="question" data-explanation="Gợi ý: Trước buổi trong ngày cụ thể (Monday morning) dùng giới từ gì?">
             <p>Fill in the blank with in / on / at: The meeting is ________ Monday morning.</p>
-            <input type="text" name="q62">
+            <input type="text" name="q62" data-answer="on">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="we are going to buy a new car next week">
+        <div class="question" data-answer="we are going to buy a new car next week" data-explanation="Gợi ý: Sắp xếp câu thì tương lai gần (be going to).">
             <p>Put the words in order: (going to / We / buy / are / a / new / car / next week.)</p>
             <input type="text" name="q63">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="Where">
+        <div class="question" data-answer="Where" data-explanation="Gợi ý: Trả lời 'At school' (địa điểm), dùng từ để hỏi nào?">
             <p>(Where / When / Why) did you leave your coat? – At school.</p>
             <input type="text" name="q64">
+            <div class="explanation"></div>
         </div>
-        <div class="question" data-answer="and">
+        <div class="question" data-answer="and" data-explanation="Gợi ý: Liên từ nối hai sở thích tương đồng.">
             <p>She loves drawing ________ painting pictures in her free time.</p>
             <input type="text" name="q65">
+            <div class="explanation"></div>
         </div>
 
         <div class="btn-container">
@@ -347,8 +417,11 @@
         const questions = document.querySelectorAll('.question');
         questions.forEach(q => {
             const correctAnswer = q.getAttribute('data-answer').trim().toLowerCase();
+            const explanationText = q.getAttribute('data-explanation');
             const textInput = q.querySelector('input[type="text"]');
             const radioInputs = q.querySelectorAll('input[type="radio"]');
+            const expDiv = q.querySelector('.explanation');
+            
             let userAnswer = "", isAnswered = false;
 
             if (textInput) {
@@ -361,12 +434,15 @@
             }
 
             q.classList.remove('correct', 'incorrect');
+            expDiv.textContent = "";
+
             if (!isAnswered) return;
 
             if (userAnswer === correctAnswer) {
                 q.classList.add('correct');
             } else {
                 q.classList.add('incorrect');
+                expDiv.textContent = explanationText;
             }
         });
     }
@@ -374,3 +450,4 @@
 
 </body>
 </html>
+
