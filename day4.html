@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar Practice - 100 Advanced Questions</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #fdfefe;
+            border: 1px solid #e1e8ed;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .question p {
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+        input[type="text"] {
+            padding: 8px 12px;
+            width: calc(100% - 24px);
+            max-width: 450px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #219653;
+        }
+        .correct {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+            color: #721c24;
+        }
+        .explanation {
+            display: none;
+            margin-top: 8px;
+            font-size: 13px;
+            font-style: italic;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .incorrect .explanation {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Advanced English Grammar Practice</h1>
+    <p class="subtitle">100 Mixed Questions: Nouns, Adjectives/Adverbs, and Comparisons</p>
+
+    <form id="quizForm">
+        <!-- 100 Câu hỏi nâng cao trộn lẫn -->
+        <div class="question" data-answer="geese" data-explanation="Hint: Irregular plural noun (goose &rarr; geese).">
+            <p>1. Write the plural form of the word: goose</p>
+            <input type="text" name="q1"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="more fluently" data-explanation="Hint: Adverb of manner for 'fluently' (long adverb) takes 'more' in comparative.">
+            <p>2. She speaks English ________ (fluently) than her brother.</p>
+            <input type="text" name="q2"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="phenomena" data-explanation="Hint: Greek/Latin loan word ending in '-on' changes to '-a' in plural.">
+            <p>3. Write the plural form of the word: phenomenon</p>
+            <input type="text" name="q3"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the least expensive" data-explanation="Hint: Superlative of inferiority uses 'the least'.">
+            <p>4. This phone is ________ (expensive) of all three options; it costs very little.</p>
+            <input type="text" name="q4"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="men-of-war" data-explanation="Hint: Compound noun pluralization changes the main root noun ('man' &rarr; 'men').">
+            <p>5. Write the plural form of the compound noun: man-of-war</p>
+            <input type="text" name="q5"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="hardly" data-explanation="Hint: 'Hardly' is an adverb of frequency/degree meaning almost not, distinct from 'hard'.">
+            <p>6. He worked so hard that he could ________ (hard) keep his eyes open.</p>
+            <input type="text" name="q6"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="radii" data-explanation="Hint: Latin noun ending in '-us' changes to '-i' in plural (radius).">
+            <p>7. Write the plural form of the word: radius</p>
+            <input type="text" name="q7"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="by far the most interesting" data-explanation="Hint: Use 'by far' to emphasize a superlative with a long adjective.">
+            <p>8. That book was ____________________ (interesting) one I have ever read.</p>
+            <input type="text" name="q8"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="oxen" data-explanation="Hint: Irregular plural noun adding '-en' (ox &rarr; oxen).">
+            <p>9. Write the plural form of the word: ox</p>
+            <input type="text" name="q9"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="lately" data-explanation="Hint: 'Lately' means recently, whereas 'late' refers to time.">
+            <p>10. I haven't seen much of him ________ (late).</p>
+            <input type="text" name="q10"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="criteria" data-explanation="Hint: Greek noun ending in '-on' changes to '-a' (criterion &rarr; criteria).">
+            <p>11. Write the plural form of the word: criterion</p>
+            <input type="text" name="q11"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="not nearly as expensive as" data-explanation="Hint: Equality/inferiority comparison structure: not nearly as + adj + as.">
+            <p>12. This car is _________________________________ (expensive / nearly / not / as) that one.</p>
+            <input type="text" name="q12"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="formulae" data-explanation="Hint: Latin plural form for formula can be formulas or formulae.">
+            <p>13. Write the plural form of the word: formula</p>
+            <input type="text" name="q13"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="worse and worse" data-explanation="Hint: Progressive comparison structure: comparative + and + comparative.">
+            <p>14. The weather is getting ________ and ________ (bad) as the day goes on.</p>
+            <input type="text" name="q14"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="passers-by" data-explanation="Hint: Compound noun plural takes '-s' on the main noun part ('passer').">
+            <p>15. Write the plural form of the compound noun: passer-by</p>
+            <input type="text" name="q15"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the older, the wiser" data-explanation="Hint: Double comparative structure: The + comparative, the + comparative.">
+            <p>16. ________ (old) he grows, ________ (wise) he becomes.</p>
+            <input type="text" name="q16"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="theses" data-explanation="Hint: Greek noun ending in '-is' changes to '-es' (thesis &rarr; theses).">
+            <p>17. Write the plural form of the word: thesis</p>
+            <input type="text" name="q17"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="twice as big as" data-explanation="Hint: Multiple number comparison structure: multiple + as + adj + as.">
+            <p>18. His house is ____________________ (big / as / twice / as) mine.</p>
+            <input type="text" name="q18"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="alumni" data-explanation="Hint: Latin noun ending in '-us' changes to '-i' (alumnus &rarr; alumni).">
+            <p>19. Write the plural form of the word: alumnus</p>
+            <input type="text" name="q19"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="straight" data-explanation="Hint: 'Straight' acts as both adjective and flat adverb without changes.">
+            <p>20. He went ________ (straight) home after the party without stopping.</p>
+            <input type="text" name="q20"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="deer" data-explanation="Hint: Wildlife noun that remains identical in singular and plural.">
+            <p>21. Write the plural form of the word: deer</p>
+            <input type="text" name="q21"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="much more carefully" data-explanation="Hint: Modifying a comparative adverb with 'much'.">
+            <p>22. You need to write ____________________ (carefully) than before.</p>
+            <input type="text" name="q22"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="syllabi" data-explanation="Hint: Latin noun plural ending for syllabus.">
+            <p>23. Write the plural form of the word: syllabus</p>
+            <input type="text" name="q23"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="further" data-explanation="Hint: Use 'further' for abstract distance or additional extent.">
+            <p>24. Do you have any ________ (far) questions regarding this lesson?</p>
+            <input type="text" name="q24"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="stimuli" data-explanation="Hint: Latin plural form for stimulus.">
+            <p>25. Write the plural form of the word: stimulus</p>
+            <input type="text" name="q25"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="most unique" data-explanation="Hint: Some absolute adjectives can take modifiers in informal superlative contexts, though strictly absolute. Let's use 'cleverest' or standard test exceptions. Let's test 'the most comprehensive'." data-answer="the most comprehensive">
+            <p>26. This report is ____________________ (comprehensive) analysis available.</p>
+            <input type="text" name="q26"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="data" data-explanation="Hint: Plural form of datum.">
+            <p>27. Write the plural form of the word: datum</p>
+            <input type="text" name="q27"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="most efficiently" data-explanation="Hint: Superlative form of adverb 'efficiently'.">
+            <p>28. Among all workers, she completes tasks ________ (efficiently).</p>
+            <input type="text" name="q28"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="media" data-explanation="Hint: Plural form of medium.">
+            <p>29. Write the plural form of the word: medium (mass communication)</p>
+            <input type="text" name="q29"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="slightly older" data-explanation="Hint: Modifying comparative with 'slightly'.">
+            <p>30. John is ________ (old) than me by just a few months.</p>
+            <input type="text" name="q30"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="nebulae" data-explanation="Hint: Latin plural form for nebula.">
+            <p>31. Write the plural form of the word: nebula</p>
+            <input type="text" name="q31"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="as fast as" data-explanation="Hint: Equality comparison structure (as + adj/adv + as).">
+            <p>32. Can you run ________ (fast) your friend?</p>
+            <input type="text" name="q32"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="oeshoes" data-explanation="Let's use 'echoes' for standard words." data-answer="echoes">
+            <p>33. Write the plural form of the word: echo</p>
+            <input type="text" name="q33"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="even worse" data-explanation="Hint: Intensifying comparative with 'even'.">
+            <p>34. Her condition became ________ (bad) after taking the wrong medicine.</p>
+            <input type="text" name="q34"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="cargoes" data-explanation="Hint: Noun ending in '-o' taking '-es'.">
+            <p>35. Write the plural form of the word: cargo</p>
+            <input type="text" name="q35"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="less difficult" data-explanation="Hint: Comparative of inferiority using 'less'.">
+            <p>36. This test turned out to be ________ (difficult) than expected.</p>
+            <input type="text" name="q36"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="chiefs" data-explanation="Hint: Noun ending in '-f' taking regular '-s' instead of '-ves'.">
+            <p>37. Write the plural form of the word: chief</p>
+            <input type="text" name="q37"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="more and more difficult" data-explanation="Hint: Progressive comparison with long adjective.">
+            <p>38. Finding a good job is becoming ________ and ________ (difficult) nowadays.</p>
+            <input type="text" name="q38"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="roofs" data-explanation="Hint: Noun ending in '-f' taking regular '-s'.">
+            <p>39. Write the plural form of the word: roof</p>
+            <input type="text" name="q39"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the best possible" data-explanation="Hint: Superlative expression with 'possible'.">
+            <p>40. We need to find ________ (good) solution for this issue.</p>
+            <input type="text" name="q40"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="beliefs" data-explanation="Hint: Noun ending in '-f' taking regular '-s'.">
+            <p>41. Write the plural form of the word: belief</p>
+            <input type="text" name="q41"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the most brilliantly" data-explanation="Hint: Superlative form of adverb 'brilliantly'.">
+            <p>42. Out of all contestants, she performed ________ (brilliantly).</p>
+            <input type="text" name="q42"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="puffs" data-explanation="Hint: Regular plural for puff." data-answer="staffs">
+            <p>43. Write the plural form of the word: staff (referring to separate groups/poles, or use 'staffs')</p>
+            <input type="text" name="q43"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the shorter, the better" data-explanation="Hint: Double comparative structure.">
+            <p>44. ________ (short) the speech is, ________ (good) it is.</p>
+            <input type="text" name="q44"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="crises" data-explanation="Hint: Greek noun ending in '-is' changes to '-es' (crisis &rarr; crises).">
+            <p>45. Write the plural form of the word: crisis</p>
+            <input type="text" name="q45"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="nowhere near as good as" data-explanation="Hint: Advanced negative equality comparison.">
+            <p>46. His latest movie is _________________________________ (good / near / as / nowhere) his first one.</p>
+            <input type="text" name="q46"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="diagnoses" data-explanation="Hint: Plural of diagnosis.">
+            <p>47. Write the plural form of the word: diagnosis</p>
+            <input type="text" name="q47"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="badly" data-explanation="Hint: Linking verb vs action verb modifier (e.g., hurt badly).">
+            <p>48. He was ________ (bad) injured in the accident.</p>
+            <input type="text" name="q48"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="parentheses" data-explanation="Hint: Plural of parenthesis.">
+            <p>49. Write the plural form of the word: parenthesis</p>
+            <input type="text" name="q49"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="faster and faster" data-explanation="Hint: Progressive comparison with short adverb/adjective.">
+            <p>50. The wind began to blow ________ and ________ (fast).</p>
+            <input type="text" name="q50"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="bacteria" data-explanation="Hint: Plural of bacterium.">
+            <p>51. Write the plural form of the word: bacterium</p>
+            <input type="text" name="q51"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="most carefully" data-explanation="Hint: Superlative adverb form.">
+            <p>52. Among the team, she checked the documents ________ (carefully).</p>
+            <input type="text" name="q52"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="curricula" data-explanation="Hint: Latin plural form of curriculum.">
+            <p>53. Write the plural form of the word: curriculum</p>
+            <input type="text" name="q53"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="less frequently" data-explanation="Hint: Comparative of inferiority with adverb.">
+            <p>54. He visits his hometown ________ (frequently) than he used to.</p>
+            <input type="text" name="q54"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="strata" data-explanation="Hint: Plural of stratum.">
+            <p>55. Write the plural form of the word: stratum</p>
+            <input type="text" name="q55"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the furthest" data-explanation="Hint: Superlative of far (physical distance).">
+            <p>56. Who can run ________ (far) in our group?</p>
+            <input type="text" name="q56"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="oesophaguses" data-explanation="Let's use 'tomatoes' or 'heroes'." data-answer="heroes">
+            <p>57. Write the plural form of the word: hero</p>
+            <input type="text" name="q57"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="more quietly" data-explanation="Hint: Comparative adverb form.">
+            <p>58. Could you speak ________ (quietly) so as not to wake the baby?</p>
+            <input type="text" name="q58"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="zeroes" data-explanation="Hint: Plural of zero can be zeros or zeroes." data-answer="zeros">
+            <p>59. Write the plural form of the word: zero</p>
+            <input type="text" name="q59"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="by far the oldest" data-explanation="Hint: Superlative with intensifier 'by far'.">
+            <p>60. This building is ____________________ (old) structure in the city.</p>
+            <input type="text" name="q60"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="pianos" data-explanation="Hint: Musical terms ending in '-o' take regular '-s'.">
+            <p>61. Write the plural form of the word: piano</p>
+            <input type="text" name="q61"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="as clearly as" data-explanation="Hint: Equality structure with adverb.">
+            <p>62. I cannot see ________ (clearly) you without my glasses.</p>
+            <input type="text" name="q62"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="photos" data-explanation="Hint: Shortened words ending in '-o' take '-s'.">
+            <p>63. Write the plural form of the word: photo</p>
+            <input type="text" name="q63"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="much worse" data-explanation="Hint: Intensifying comparative with 'much'.">
+            <p>64. His performance today was ________ (bad) than last week.</p>
+            <input type="text" name="q64"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="halves" data-explanation="Hint: Noun ending in '-f' changes to '-ves'.">
+            <p>65. Write the plural form of the word: half</p>
+            <input type="text" name="q65"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the least efficiently" data-explanation="Hint: Superlative of inferiority with adverb.">
+            <p>66. He works ________ (efficiently) of all the employees.</p>
+            <input type="text" name="q66"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="thieves" data-explanation="Hint: Noun ending in '-f' changes to '-ves'.">
+            <p>67. Write the plural form of the word: thief</p>
+            <input type="text" name="q67"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="more and more intelligent" data-explanation="Hint: Progressive comparison with long adjective.">
+            <p>68. Children seem to grow ________ and ________ (intelligent) these days.</p>
+            <input type="text" name="q68"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="scarves" data-explanation="Hint: Noun ending in '-f' changes to '-ves'.">
+            <p>69. Write the plural form of the word: scarf</p>
+            <input type="text" name="q69"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the more, the merrier" data-explanation="Hint: Common double comparative idiom.">
+            <p>70. ________ (many) people join us, ________ (merry) it will be.</p>
+            <input type="text" name="q70"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="hooves" data-explanation="Hint: Noun ending in '-f' changes to '-ves'.">
+            <p>71. Write the plural form of the word: hoof</p>
+            <input type="text" name="q71"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="nearly as tall as" data-explanation="Hint: Approximate equality comparison.">
+            <p>72. Mark is ________ (tall / nearly / as) his older brother.</p>
+            <input type="text" name="q72"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="solos" data-explanation="Hint: Musical term ending in '-o' taking '-s'.">
+            <p>73. Write the plural form of the word: solo</p>
+            <input type="text" name="q73"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="more seriously" data-explanation="Hint: Comparative adverb form.">
+            <p>74. You should take this matter ________ (seriously) than before.</p>
+            <input type="text" name="q74"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="radios" data-explanation="Hint: Word ending in vowel + '-o' taking '-s'.">
+            <p>75. Write the plural form of the word: radio</p>
+            <input type="text" name="q75"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the most successfully" data-explanation="Hint: Superlative adverb form.">
+            <p>76. Which company operated ________ (successfully) this year?</p>
+            <input type="text" name="q76"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="studios" data-explanation="Hint: Word ending in vowel + '-o' taking '-s'.">
+            <p>77. Write the plural form of the word: studio</p>
+            <input type="text" name="q77"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="less and less interested" data-explanation="Hint: Progressive comparison of inferiority.">
+            <p>78. Students are becoming ________ and ________ (interested) in traditional lectures.</p>
+            <input type="text" name="q78"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="zoos" data-explanation="Hint: Word ending in vowel + '-o' taking '-s'.">
+            <p>79. Write the plural form of the word: zoo</p>
+            <input type="text" name="q79"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the worst possible" data-explanation="Hint: Superlative with 'possible'.">
+            <p>80. That was ________ (bad) outcome we could imagine.</p>
+            <input type="text" name="q80"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="kangaroos" data-explanation="Hint: Word ending in vowel + '-o' taking '-s'.">
+            <p>81. Write the plural form of the word: kangaroo</p>
+            <input type="text" name="q81"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="much faster" data-explanation="Hint: Intensifying short comparative.">
+            <p>82. Modern computers process information ________ (fast) older models.</p>
+            <input type="text" name="q82"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="patios" data-explanation="Hint: Word ending in vowel + '-o' taking '-s'.">
+            <p>83. Write the plural form of the word: patio</p>
+            <input type="text" name="q83"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the most dramatically" data-explanation="Hint: Superlative adverb.">
+            <p>84. Temperatures changed ________ (dramatically) during winter.</p>
+            <input type="text" name="q84"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="folios" data-explanation="Hint: Word ending in vowel + '-o' taking '-s'.">
+            <p>85. Write the plural form of the word: folio</p>
+            <input type="text" name="q85"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="slightly better" data-explanation="Hint: Intensifying comparative with 'slightly'.">
+            <p>86. Her health is ________ (good) today than it was yesterday.</p>
+            <input type="text" name="q86"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="cuckoos" data-explanation="Hint: Word ending in vowel + '-o' taking '-s'.">
+            <p>87. Write the plural form of the word: cuckoo</p>
+            <input type="text" name="q87"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the farther, the more tired" data-explanation="Hint: Double comparative.">
+            <p>88. ________ (far) we walked, ________ (tired) we became.</p>
+            <input type="text" name="q88"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="igneous" data-explanation="Let's use a clear plural word like 'stereos'." data-answer="stereos">
+            <p>89. Write the plural form of the word: stereo</p>
+            <input type="text" name="q89"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="more deeply" data-explanation="Hint: Comparative adverb.">
+            <p>90. He understood the problem ________ (deeply) after reading the book.</p>
+            <input type="text" name="q90"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="atios" data-explanation="Let's use 'atios' or 'folios' - let's use 'embryos'." data-answer="embryos">
+            <p>91. Write the plural form of the word: embryo</p>
+            <input type="text" name="q91"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="not nearly as crowded as" data-explanation="Hint: Negative equality/inferiority.">
+            <p>92. This beach is _________________________________ (crowded / nearly / as / not) the main one.</p>
+            <input type="text" name="q92"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="dynamos" data-explanation="Hint: Word ending in consonant + '-o' exception taking '-s'.">
+            <p>93. Write the plural form of the word: dynamo</p>
+            <input type="text" name="q93"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="more clearly" data-explanation="Hint: Comparative adverb.">
+            <p>94. Please explain it again so that we can see things ________ (clearly).</p>
+            <input type="text" name="q94"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="quartos" data-explanation="Hint: Word ending in vowel + '-o' taking '-s'.">
+            <p>95. Write the plural form of the word: quarto</p>
+            <input type="text" name="q95"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the most impressively" data-explanation="Hint: Superlative adverb.">
+            <p>96. He designed ________ (impressively) among all architects.</p>
+            <input type="text" name="q96"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="mementos" data-explanation="Hint: Word ending in '-o' taking '-s' or '-es' (mementos is common).">
+            <p>97. Write the plural form of the word: memento</p>
+            <input type="text" name="q97"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="harder and harder" data-explanation="Hint: Progressive comparison.">
+            <p>98. The exam questions became ________ and ________ (hard) towards the end.</p>
+            <input type="text" name="q98"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="provisos" data-explanation="Hint: Word ending in '-o' taking '-s'.">
+            <p>99. Write the plural form of the word: proviso</p>
+            <input type="text" name="q99"><div class="explanation"></div>
+        </div>
+        <div class="question" data-answer="the least successfully" data-explanation="Hint: Superlative of inferiority with adverb.">
+            <p>100. This strategy turned out to be ________ (successfully) implemented of all.</p>
+            <input type="text" name="q100"><div class="explanation"></div>
+        </div>
+
+        <div class="btn-container">
+            <button type="button" onclick="checkAnswers()">Check Answers</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function checkAnswers() {
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(q => {
+            const correctAnswer = q.getAttribute('data-answer').trim().toLowerCase();
+            const explanationText = q.getAttribute('data-explanation');
+            const textInput = q.querySelector('input[type="text"]');
+            const radioInputs = q.querySelectorAll('input[type="radio"]');
+            const expDiv = q.querySelector('.explanation');
+            
+            let userAnswer = "", isAnswered = false;
+
+            if (textInput) {
+                userAnswer = textInput.value.trim().toLowerCase();
+                if (userAnswer !== "") isAnswered = true;
+            } else if (radioInputs.length > 0) {
+                radioInputs.forEach(radio => {
+                    if (radio.checked) { 
+                        userAnswer = radio.value.trim().toLowerCase(); 
+                        isAnswered = true; 
+                    }
+                });
+            }
+
+            q.classList.remove('correct', 'incorrect');
+            expDiv.textContent = "";
+
+            if (!isAnswered) return;
+
+            if (userAnswer === correctAnswer) {
+                q.classList.add('correct');
+            } else {
+                q.classList.add('incorrect');
+                expDiv.textContent = explanationText;
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
