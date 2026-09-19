@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,7 +110,6 @@
         button:hover {
             background-color: #219653;
         }
-        /* Trạng thái đúng / sai khi check */
         .correct {
             background-color: #d4edda !important;
             border-color: #c3e6cb !important;
@@ -147,10 +147,10 @@
         <p><strong>Danh từ số ít (Singular):</strong> Chỉ một người, vật hoặc sự việc (ví dụ: <em>a cat, a bus</em>).</p>
         <p><strong>Danh từ số nhiều (Plural):</strong> Chỉ từ hai người, vật trở lên. Quy tắc biến đổi thông thường:</p>
         <ul>
-            <li>Hầu hết danh từ thêm <strong>-s</strong> (book $\rightarrow$ books).</li>
-            <li>Danh từ tận cùng là <em>-s, -ss, -sh, -ch, -x, -o</em> thêm <strong>-es</strong> (bus $\rightarrow$ buses, watch $\rightarrow$ watches).</li>
-            <li>Danh từ tận cùng là phụ âm + <em>y</em> $\rightarrow$ đổi <em>y</em> thành <strong>-ies</strong> (city $\rightarrow$ cities).</li>
-            <li>Bất quy tắc: <em>man $\rightarrow$ men, tooth $\rightarrow$ teeth, mouse $\rightarrow$ mice, person $\rightarrow$ people</em>.</li>
+            <li>Hầu hết danh từ thêm <strong>-s</strong> (book &rarr; books).</li>
+            <li>Danh từ tận cùng là <em>-s, -ss, -sh, -ch, -x, -o</em> thêm <strong>-es</strong> (bus &rarr; buses, watch &rarr; watches).</li>
+            <li>Danh từ tận cùng là phụ âm + <em>y</em> &rarr; đổi <em>y</em> thành <strong>-ies</strong> (city &rarr; cities).</li>
+            <li>Bất quy tắc: <em>man &rarr; men, tooth &rarr; teeth, mouse &rarr; mice, person &rarr; people</em>.</li>
         </ul>
     </div>
 
@@ -161,8 +161,8 @@
         <p style="margin-left: 15px; font-style: italic;">Ví dụ: He is a <u>clever</u> boy. / John is <u>tall</u>.</p>
         <p><strong>Adverbs of manner (Trạng từ chỉ cách thức):</strong> Bổ nghĩa cho động từ, chỉ hành động diễn ra như thế nào. Thường thành lập bằng cách thêm <strong>-ly</strong> vào sau tính từ.</p>
         <ul>
-            <li>quick $\rightarrow$ quickly, careful $\rightarrow$ carefully.</li>
-            <li>Bất quy tắc: good $\rightarrow$ well, fast $\rightarrow$ fast, hard $\rightarrow$ hard.</li>
+            <li>quick &rarr; quickly, careful &rarr; carefully.</li>
+            <li>Bất quy tắc: good &rarr; well, fast &rarr; fast, hard &rarr; hard.</li>
         </ul>
     </div>
 
@@ -177,28 +177,28 @@
             </tr>
             <tr>
                 <td>Tính từ ngắn (1 âm tiết)</td>
-                <td>tall $\rightarrow$ tall<strong>er than</strong></td>
+                <td>tall &rarr; tall<strong>er than</strong></td>
                 <td>the tall<strong>est</strong></td>
             </tr>
             <tr>
                 <td>Tính từ kết thúc bằng -e</td>
-                <td>large $\rightarrow$ larg<strong>er than</strong></td>
+                <td>large &rarr; larg<strong>er than</strong></td>
                 <td>the larg<strong>est</strong></td>
             </tr>
             <tr>
                 <td>Tính từ 2 âm tiết tận cùng -y</td>
-                <td>heavy $\rightarrow$ heav<strong>ier than</strong></td>
+                <td>heavy &rarr; heav<strong>ier than</strong></td>
                 <td>the heav<strong>iest</strong></td>
             </tr>
             <tr>
                 <td>Tính từ dài (từ 2 âm tiết trở lên)</td>
-                <td>beautiful $\rightarrow$ <strong>more</strong> beautiful <strong>than</strong></td>
+                <td>beautiful &rarr; <strong>more</strong> beautiful <strong>than</strong></td>
                 <td>the <strong>most</strong> beautiful</td>
             </tr>
             <tr>
                 <td>Bất quy tắc</td>
-                <td>good $\rightarrow$ better / bad $\rightarrow$ worse</td>
-                <td>good $\rightarrow$ best / bad $\rightarrow$ worst</td>
+                <td>good &rarr; better / bad &rarr; worse</td>
+                <td>good &rarr; best / bad &rarr; worst</td>
             </tr>
         </table>
     </div>
@@ -313,7 +313,7 @@
             q.classList.remove('correct', 'incorrect');
             expDiv.textContent = "";
 
-            if (!isAnswered) return; // Nếu chưa điền thì bỏ qua không báo lỗi tô màu
+            if (!isAnswered) return;
 
             if (userAnswer === correctAnswer) {
                 q.classList.add('correct');
