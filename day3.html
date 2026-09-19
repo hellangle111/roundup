@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar Practice - Nouns, Adjectives, Adverbs & Comparisons</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        h2.section-title {
+            color: #2980b9;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        h3.sub-title {
+            color: #16a085;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .theory-box {
+            background: #eaf2f8;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .theory-box ul {
+            margin: 5px 0 0 20px;
+            padding: 0;
+        }
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table.grammar-table th, table.grammar-table td {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            text-align: left;
+        }
+        table.grammar-table th {
+            background-color: #34495e;
+            color: white;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #fdfefe;
+            border: 1px solid #e1e8ed;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .question p {
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+        input[type="text"] {
+            padding: 8px 12px;
+            width: calc(100% - 24px);
+            max-width: 400px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #219653;
+        }
+        /* Trạng thái đúng / sai khi check */
+        .correct {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+            color: #721c24;
+        }
+        .explanation {
+            display: none;
+            margin-top: 8px;
+            font-size: 13px;
+            font-style: italic;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .incorrect .explanation {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>English Grammar Review & Practice</h1>
+
+    <!-- PHẦN 1: LÝ THUYẾT -->
+    <h2 class="section-title">PART 1: THEORY (LÝ THUYẾT)</h2>
+
+    <!-- 1. Nouns -->
+    <h3 class="sub-title">1. Nouns: Singular & Plural (Danh từ số ít và số nhiều)</h3>
+    <div class="theory-box">
+        <p><strong>Danh từ số ít (Singular):</strong> Chỉ một người, vật hoặc sự việc (ví dụ: <em>a cat, a bus</em>).</p>
+        <p><strong>Danh từ số nhiều (Plural):</strong> Chỉ từ hai người, vật trở lên. Quy tắc biến đổi thông thường:</p>
+        <ul>
+            <li>Hầu hết danh từ thêm <strong>-s</strong> (book $\rightarrow$ books).</li>
+            <li>Danh từ tận cùng là <em>-s, -ss, -sh, -ch, -x, -o</em> thêm <strong>-es</strong> (bus $\rightarrow$ buses, watch $\rightarrow$ watches).</li>
+            <li>Danh từ tận cùng là phụ âm + <em>y</em> $\rightarrow$ đổi <em>y</em> thành <strong>-ies</strong> (city $\rightarrow$ cities).</li>
+            <li>Bất quy tắc: <em>man $\rightarrow$ men, tooth $\rightarrow$ teeth, mouse $\rightarrow$ mice, person $\rightarrow$ people</em>.</li>
+        </ul>
+    </div>
+
+    <!-- 2. Adjectives & Adverbs -->
+    <h3 class="sub-title">2. Adjectives & Adverbs of Manner (Tính từ & Trạng từ chỉ thể cách)</h3>
+    <div class="theory-box">
+        <p><strong>Adjectives (Tính từ):</strong> Bổ nghĩa cho danh từ (đứng trước danh từ hoặc sau động từ "to be").</p>
+        <p style="margin-left: 15px; font-style: italic;">Ví dụ: He is a <u>clever</u> boy. / John is <u>tall</u>.</p>
+        <p><strong>Adverbs of manner (Trạng từ chỉ cách thức):</strong> Bổ nghĩa cho động từ, chỉ hành động diễn ra như thế nào. Thường thành lập bằng cách thêm <strong>-ly</strong> vào sau tính từ.</p>
+        <ul>
+            <li>quick $\rightarrow$ quickly, careful $\rightarrow$ carefully.</li>
+            <li>Bất quy tắc: good $\rightarrow$ well, fast $\rightarrow$ fast, hard $\rightarrow$ hard.</li>
+        </ul>
+    </div>
+
+    <!-- 3. Comparisons -->
+    <h3 class="sub-title">3. Comparisons (So sánh hơn & So sánh nhất)</h3>
+    <div class="theory-box">
+        <table class="grammar-table">
+            <tr>
+                <th>Loại tính từ/trạng từ</th>
+                <th>So sánh hơn (Comparative + than)</th>
+                <th>So sánh nhất (the + Superlative)</th>
+            </tr>
+            <tr>
+                <td>Tính từ ngắn (1 âm tiết)</td>
+                <td>tall $\rightarrow$ tall<strong>er than</strong></td>
+                <td>the tall<strong>est</strong></td>
+            </tr>
+            <tr>
+                <td>Tính từ kết thúc bằng -e</td>
+                <td>large $\rightarrow$ larg<strong>er than</strong></td>
+                <td>the larg<strong>est</strong></td>
+            </tr>
+            <tr>
+                <td>Tính từ 2 âm tiết tận cùng -y</td>
+                <td>heavy $\rightarrow$ heav<strong>ier than</strong></td>
+                <td>the heav<strong>iest</strong></td>
+            </tr>
+            <tr>
+                <td>Tính từ dài (từ 2 âm tiết trở lên)</td>
+                <td>beautiful $\rightarrow$ <strong>more</strong> beautiful <strong>than</strong></td>
+                <td>the <strong>most</strong> beautiful</td>
+            </tr>
+            <tr>
+                <td>Bất quy tắc</td>
+                <td>good $\rightarrow$ better / bad $\rightarrow$ worse</td>
+                <td>good $\rightarrow$ best / bad $\rightarrow$ worst</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- PHẦN 2: BÀI TẬP -->
+    <h2 class="section-title">PART 2: PRACTICE (BÀI TẬP THỰC HÀNH)</h2>
+    <p><em>Hãy hoàn thành các câu hỏi bên dưới. Nhóm câu trả lời sai sẽ hiển thị gợi ý bên cạnh để bạn tự suy luận sửa lỗi.</em></p>
+
+    <form id="quizForm">
+        <!-- Nhóm Nouns -->
+        <h3 class="sub-title">Danh từ (Plural & Singular)</h3>
+        
+        <div class="question" data-answer="buses" data-explanation="Gợi ý: Danh từ tận cùng là '-s' khi chuyển sang số nhiều thêm '-es'.">
+            <p>Write the plural form of the word: bus</p>
+            <input type="text" name="q1">
+            <div class="explanation"></div>
+        </div>
+
+        <div class="question" data-answer="teeth" data-explanation="Gợi ý: Đây là dạng danh từ số nhiều bất quy tắc của từ 'tooth'.">
+            <p>Write the plural form of the word: tooth</p>
+            <input type="text" name="q2">
+            <div class="explanation"></div>
+        </div>
+
+        <div class="question" data-answer="cities" data-explanation="Gợi ý: Danh từ tận cùng bằng phụ âm + y, đổi y thành i rồi thêm -es.">
+            <p>Write the plural form of the word: city</p>
+            <input type="text" name="q3">
+            <div class="explanation"></div>
+        </div>
+
+        <!-- Nhóm Adjectives & Adverbs -->
+        <h3 class="sub-title">Tính từ & Trạng từ (Adjectives & Adverbs of manner)</h3>
+
+        <div class="question" data-answer="taller" data-explanation="Gợi ý: Tính từ ngắn khi so sánh hơn thêm đuôi -er.">
+            <p>Tom is ________ (tall) than his younger sister.</p>
+            <input type="text" name="q4">
+            <div class="explanation"></div>
+        </div>
+
+        <div class="question" data-answer="well" data-explanation="Gợi ý: Trạng từ bất quy tắc của tính từ 'good' khi bổ nghĩa cho động từ 'sings'.">
+            <p>Choose the adverb form of good: She sings very ________ (good / well).</p>
+            <input type="text" name="q5">
+            <div class="explanation"></div>
+        </div>
+
+        <div class="question" data-answer="carefully" data-explanation="Gợi ý: Chuyển tính từ 'careful' thành trạng từ bằng cách thêm '-ly' để bổ nghĩa cho động từ 'drive'.">
+            <p>You must drive ________ (careful / carefully) on rainy days.</p>
+            <input type="text" name="q6">
+            <div class="explanation"></div>
+        </div>
+
+        <!-- Nhóm Comparisons -->
+        <h3 class="sub-title">So sánh (Comparisons)</h3>
+
+        <div class="question" data-answer="more difficult" data-explanation="Gợi ý: 'Difficult' là tính từ dài (từ 3 âm tiết), dùng 'more' trong so sánh hơn.">
+            <p>Complete the comparative degree: This puzzle is ____________________ (difficult) than that one.</p>
+            <input type="text" name="q7">
+            <div class="explanation"></div>
+        </div>
+
+        <div class="question" data-answer="highest" data-explanation="Gợi ý: Cấp so sánh nhất của tính từ ngắn 'high' (có mạo từ 'the' phía trước).">
+            <p>Choose the superlative degree: Mount Everest is the ________ (high) mountain in the world.</p>
+            <input type="text" name="q8">
+            <div class="explanation"></div>
+        </div>
+
+        <div class="question" data-answer="fastest" data-explanation="Gợi ý: Cấp so sánh nhất của tính từ ngắn 'fast' dùng để chỉ phạm vi toàn bộ ('on land').">
+            <p>The cheetah is the ________ (fast) animal on land.</p>
+            <input type="text" name="q9">
+            <div class="explanation"></div>
+        </div>
+
+        <div class="question" data-answer="B" data-explanation="Gợi ý: Dạng so sánh hơn bất quy tắc của tính từ 'good' là 'better'.">
+            <p>Choose the correct comparison: My score is ________ (good) than yours!</p>
+            <label><input type="radio" name="q10" value="A"> A. gooder</label>
+            <label><input type="radio" name="q10" value="B"> B. better</label>
+            <label><input type="radio" name="q10" value="C"> C. best</label>
+            <label><input type="radio" name="q10" value="D"> D. more good</label>
+            <div class="explanation"></div>
+        </div>
+
+        <div class="btn-container">
+            <button type="button" onclick="checkAnswers()">Check Answers</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function checkAnswers() {
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(q => {
+            const correctAnswer = q.getAttribute('data-answer').trim().toLowerCase();
+            const explanationText = q.getAttribute('data-explanation');
+            const textInput = q.querySelector('input[type="text"]');
+            const radioInputs = q.querySelectorAll('input[type="radio"]');
+            const expDiv = q.querySelector('.explanation');
+            
+            let userAnswer = "", isAnswered = false;
+
+            if (textInput) {
+                userAnswer = textInput.value.trim().toLowerCase();
+                if (userAnswer !== "") isAnswered = true;
+            } else if (radioInputs.length > 0) {
+                radioInputs.forEach(radio => {
+                    if (radio.checked) { 
+                        userAnswer = radio.value.trim().toLowerCase(); 
+                        isAnswered = true; 
+                    }
+                });
+            }
+
+            q.classList.remove('correct', 'incorrect');
+            expDiv.textContent = "";
+
+            if (!isAnswered) return; // Nếu chưa điền thì bỏ qua không báo lỗi tô màu
+
+            if (userAnswer === correctAnswer) {
+                q.classList.add('correct');
+            } else {
+                q.classList.add('incorrect');
+                expDiv.textContent = explanationText;
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
