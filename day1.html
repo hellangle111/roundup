@@ -1,249 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Mixed Grammar Practice</title>
-
-<style>
-
-body{
-font-family:"Comic Sans MS", Arial;
-background:#e3f2fd;
-padding:20px;
-}
-
-.page{
-max-width:1000px;
-margin:auto;
-background:white;
-padding:30px;
-border-radius:20px;
-border:6px dashed #42a5f5;
-}
-
-h1{
-text-align:center;
-background:#90caf9;
-padding:12px;
-border-radius:15px;
-}
-
-/* question */
-
-.q{
-margin:14px 0;
-font-size:19px;
-}
-
-/* input */
-
-input{
-width:180px;
-padding:5px;
-font-size:17px;
-border-radius:6px;
-border:2px solid #777;
-text-align:center;
-}
-
-/* choice */
-
-.choice{
-cursor:pointer;
-padding:3px 8px;
-border-radius:6px;
-border:2px solid transparent;
-}
-
-.choice:hover{
-background:#e3f2fd;
-}
-
-.selected{
-background:#bbdefb;
-}
-
-/* states */
-
-.correct{
-background:#c8e6c9;
-border-color:#2e7d32;
-}
-
-.wrong{
-background:#ffcdd2;
-border-color:#c62828;
-}
-
-/* button */
-
-button{
-display:block;
-margin:25px auto;
-padding:12px 40px;
-font-size:22px;
-border-radius:30px;
-border:none;
-background:#1e88e5;
-color:white;
-cursor:pointer;
-}
-
-.result{
-text-align:center;
-font-size:24px;
-font-weight:bold;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar Practice - Part 1 (Part 1 to 5)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; color: #2c3e50; margin-bottom: 10px; }
+        .nav-links { text-align: center; margin-bottom: 30px; }
+        .nav-links a { color: #3498db; text-decoration: none; font-weight: bold; }
+        .nav-links a:hover { text-decoration: underline; }
+        h2.part-title { color: #3498db; border-bottom: 2px solid #3498db; padding-bottom: 5px; margin-top: 40px; margin-bottom: 20px; }
+        .question { margin-bottom: 20px; padding: 15px; border-radius: 8px; background: #f9f9f9; border: 1px solid #e1e1e1; transition: all 0.3s ease; }
+        .question p { margin: 0 0 10px 0; font-weight: 600; }
+        input[type="text"] { padding: 8px 12px; width: calc(100% - 24px); max-width: 400px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; margin-top: 5px; }
+        label { display: block; margin: 5px 0; cursor: pointer; font-weight: normal; }
+        .btn-container { text-align: center; margin-top: 40px; }
+        button { background-color: #2ecc71; color: white; border: none; padding: 12px 30px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+        button:hover { background-color: #27ae60; }
+        .correct { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; }
+        .incorrect { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
+    </style>
 </head>
-
 <body>
 
-<div class="page">
+<div class="container">
+    <h1>English Grammar Quiz - Part 1</h1>
+    <div class="nav-links">
+        <a href="grammar_test_part2.html">Chuyển sang Trang 2 (Part 6 - 10) &rarr;</a>
+    </div>
+    
+    <form id="quizForm">
+        <!-- PART 1 -->
+        <h2 class="part-title">Part 1</h2>
+        <div class="question" data-answer="what are you going to do tomorrow?">
+            <p>5. Put the words in order: (you / going to / What / do / are / tomorrow?)</p>
+            <input type="text" name="q1">
+        </div>
+        <div class="question" data-answer="taller">
+            <p>6. Tom is ________ (tall) than his younger sister.</p>
+            <input type="text" name="q2">
+        </div>
+        <div class="question" data-answer="on">
+            <p>7. Fill in the blank with in / on / at: My birthday is ________ October 15th.</p>
+            <input type="text" name="q3">
+        </div>
+        <div class="question" data-answer="Where">
+            <p>8. Choose the correct word: (Why / Where / How) is your backpack? – It’s under the desk.</p>
+            <input type="text" name="q4">
+        </div>
+        <div class="question" data-answer="C">
+            <p>9. I wanted to play football, ________ it started to rain heavily.</p>
+            <label><input type="radio" name="q5" value="A"> A. and</label>
+            <label><input type="radio" name="q5" value="B"> B. because</label>
+            <label><input type="radio" name="q5" value="C"> C. but</label>
+            <label><input type="radio" name="q5" value="D"> D. or</label>
+        </div>
+        <div class="question" data-answer="D">
+            <p>10. Are ________ your shoes over there near the door?</p>
+            <label><input type="radio" name="q6" value="A"> A. this</label>
+            <label><input type="radio" name="q6" value="B"> B. that</label>
+            <label><input type="radio" name="q6" value="C"> C. these</label>
+            <label><input type="radio" name="q6" value="D"> D. those</label>
+        </div>
+        <div class="question" data-answer="has got">
+            <p>2. Sarah ________ (have got) two cats and a goldfish.</p>
+            <input type="text" name="q7">
+        </div>
+        <div class="question" data-answer="is sleeping">
+            <p>3. Find and correct the mistake: Look! The cat sleeps under the tree.</p>
+            <input type="text" name="q8">
+        </div>
+        <div class="question" data-answer="buses">
+            <p>4. Write the plural form of the word: bus</p>
+            <input type="text" name="q9">
+        </div>
+        <div class="question" data-answer="How much">
+            <p>5. Complete with How much or How many: ________ sugar do you need for the cake?</p>
+            <input type="text" name="q10">
+        </div>
+        <div class="question" data-answer="visited">
+            <p>6. Last Sunday, we ________ (visit) our grandparents in the country.</p>
+            <input type="text" name="q11">
+        </div>
+        <div class="question" data-answer="didn't go">
+            <p>7. They ________ (not go) to the beach yesterday because it was cold.</p>
+            <input type="text" name="q12">
+        </div>
+        <div class="question" data-answer="please don't open the window">
+            <p>8. Put the words in order: (open / Please / window / don't / the)</p>
+            <input type="text" name="q13">
+        </div>
+        <div class="question" data-answer="C">
+            <p>9. He enjoys ________ (read) comic books in his free time.</p>
+            <label><input type="radio" name="q14" value="A"> A. read</label>
+            <label><input type="radio" name="q14" value="B"> B. reads</label>
+            <label><input type="radio" name="q14" value="C"> C. reading</label>
+            <label><input type="radio" name="q14" value="D"> D. to read</label>
+        </div>
+        <div class="question" data-answer="could">
+            <p>10. Fill in the blank with can / couldn't: When my uncle was five, he ________ swim very well.</p>
+            <input type="text" name="q15">
+        </div>
+        <div class="question" data-answer="heavier">
+            <p>11. The blue box is ________ (heavy) than the red box.</p>
+            <input type="text" name="q16">
+        </div>
+        <div class="question" data-answer="at">
+            <p>12. Fill in the blank with in / on / at: We always have dinner ________ 7 o'clock in the evening.</p>
+            <input type="text" name="q17">
+        </div>
+        <div class="question" data-answer="B">
+            <p>13. Which question matches the answer? "Because I lost my keys."</p>
+            <label><input type="radio" name="q18" value="A"> A. Where are your keys?</label>
+            <label><input type="radio" name="q18" value="B"> B. Why are you sad?</label>
+            <label><input type="radio" name="q18" value="C"> C. Who has the keys?</label>
+            <label><input type="radio" name="q18" value="D"> D. When did you lose it?</label>
+        </div>
+        <div class="question" data-answer="A">
+            <p>14. Choose the correct sentence:</p>
+            <label><input type="radio" name="q19" value="A"> A. There isn't any water in the bottle.</label>
+            <label><input type="radio" name="q19" value="B"> B. There isn't some water in the bottle.</label>
+            <label><input type="radio" name="q19" value="C"> C. There aren't any water in the bottle.</label>
+            <label><input type="radio" name="q19" value="D"> D. There is any water in the bottle.</label>
+        </div>
+        <div class="question" data-answer="flew">
+            <p>15. Write the past simple form of the verb: fly</p>
+            <input type="text" name="q20">
+        </div>
 
-<h1>🔥 Mixed Grammar Practice</h1>
+        <!-- PART 3 -->
+        <h2 class="part-title">Part 3</h2>
+        <div class="question" data-answer="its">
+            <p>1. Complete the sentence: My dog is small, but ________ (it) tail is very long.</p>
+            <input type="text" name="q21">
+        </div>
+        <div class="question" data-answer="are playing">
+            <p>2. Look! The children ________ (play) hide-and-seek in the yard.</p>
+            <input type="text" name="q22">
+        </div>
+        <div class="question" data-answer="doesn't watch">
+            <p>3. She ________ (not watch) TV every evening. She prefers reading.</p>
+            <input type="text" name="q23">
+        </div>
+        <div class="question" data-answer="leaves">
+            <p>4. Write the plural form of the word: leaf</p>
+            <input type="text" name="q24">
+        </div>
+        <div class="question" data-answer="how many chairs are there in the room?">
+            <p>5. Put the words in order: (there / How many / are / chairs / the room? / in)</p>
+            <input type="text" name="q25">
+        </div>
+        <div class="question" data-answer="were">
+            <p>6. We ________ (be) at the zoo two days ago.</p>
+            <input type="text" name="q26">
+        </div>
+        <div class="question" data-answer="A">
+            <p>7. I don't feel well today, so I ________ (stay) at home tonight.</p>
+            <label><input type="radio" name="q27" value="A"> A. am going to stay</label>
+            <label><input type="radio" name="q27" value="B"> B. stayed</label>
+            <label><input type="radio" name="q27" value="C"> C. stays</label>
+            <label><input type="radio" name="q27" value="D"> D. stay</label>
+        </div>
+        <div class="question" data-answer="fastest">
+            <p>8. Find and correct the mistake: He is the most fast runner in our class.</p>
+            <input type="text" name="q28">
+        </div>
+        <div class="question" data-answer="behind">
+            <p>9. Fill in the blank with under / next to / behind: The cat is sitting ________ the table so you can't see it.</p>
+            <input type="text" name="q29">
+        </div>
+        <div class="question" data-answer="B">
+            <p>10. You ________ take photos in this museum. It is forbidden.</p>
+            <label><input type="radio" name="q30" value="A"> A. must</label>
+            <label><input type="radio" name="q30" value="B"> B. mustn't</label>
+            <label><input type="radio" name="q30" value="C"> C. have to</label>
+            <label><input type="radio" name="q30" value="D"> D. can</label>
+        </div>
+        <div class="question" data-answer="made">
+            <p>11. Write the past simple form of the verb: make</p>
+            <input type="text" name="q31">
+        </div>
+        <div class="question" data-answer="C">
+            <p>12. Would you like some tea ________ coffee?</p>
+            <label><input type="radio" name="q32" value="A"> A. and</label>
+            <label><input type="radio" name="q32" value="B"> B. but</label>
+            <label><input type="radio" name="q32" value="C"> C. or</label>
+            <label><input type="radio" name="q32" value="D"> D. because</label>
+        </div>
+        <div class="question" data-answer="How many">
+            <p>13. Complete with How much or How many: ________ students are there in your class?</p>
+            <input type="text" name="q33">
+        </div>
+        <div class="question" data-answer="them">
+            <p>14. Choose the correct pronoun: Give the ball to ________ (they / them / their).</p>
+            <input type="text" name="q34">
+        </div>
+        <div class="question" data-answer="because">
+            <p>15. I like learning English ________ it is fun and useful.</p>
+            <input type="text" name="q35">
+        </div>
 
-<!-- 20 câu trộn -->
+        <!-- PART 4 -->
+        <h2 class="part-title">Part 4</h2>
+        <div class="question" data-answer="men">
+            <p>1. Write the plural form of the word: man</p>
+            <input type="text" name="q36">
+        </div>
+        <div class="question" data-answer="yours">
+            <p>2. Is this pen ________ (you / your / yours)?</p>
+            <input type="text" name="q37">
+        </div>
+        <div class="question" data-answer="is cooking">
+            <p>3. Right now, Mum ________ (cook) dinner in the kitchen.</p>
+            <input type="text" name="q38">
+        </div>
+        <div class="question" data-answer="catches">
+            <p>4. Choose the correct option: He usually ________ (catch / catches / catching) the bus at 7:30 AM.</p>
+            <input type="text" name="q39">
+        </div>
+        <div class="question" data-answer="some">
+            <p>5. Fill in the blank with a / an / some / any: Do you want ________ orange juice?</p>
+            <input type="text" name="q40">
+        </div>
+        <div class="question" data-answer="went">
+            <p>6. Write the past simple form of the verb: go</p>
+            <input type="text" name="q41">
+        </div>
+        <div class="question" data-answer="were">
+            <p>7. Find and correct the mistake: They was at the park last night.</p>
+            <input type="text" name="q42">
+        </div>
+        <div class="question" data-answer="bigger">
+            <p>8. Complete the sentence: An elephant is ________ (big) than a bear.</p>
+            <input type="text" name="q43">
+        </div>
+        <div class="question" data-answer="what do you often do clean your room?">
+            <p>9. Put the words in order: (do / What / clean / you / room? / your / often)</p>
+            <input type="text" name="q44">
+        </div>
+        <div class="question" data-answer="must">
+            <p>10. We ________ (shall / must / could) go to the playground if you finish your homework.</p>
+            <input type="text" name="q45">
+        </div>
+        <div class="question" data-answer="in">
+            <p>11. Fill in the blank with in / on / at: The winter vacation starts ________ December.</p>
+            <input type="text" name="q46">
+        </div>
+        <div class="question" data-answer="Whose">
+            <p>12. (Who / What / Whose) pencil is this? – It's Lucy's.</p>
+            <input type="text" name="q47">
+        </div>
+        <div class="question" data-answer="B">
+            <p>13. My brother wants ________ (be) an astronaut when he grows up.</p>
+            <label><input type="radio" name="q48" value="A"> A. be</label>
+            <label><input type="radio" name="q48" value="B"> B. to be</label>
+            <label><input type="radio" name="q48" value="C"> C. being</label>
+            <label><input type="radio" name="q48" value="D"> D. is</label>
+        </div>
+        <div class="question" data-answer="C">
+            <p>14. Which sentence is CORRECT?</p>
+            <label><input type="radio" name="q49" value="A"> A. Don't running in the hallway!</label>
+            <label><input type="radio" name="q49" value="B"> B. Not run in the hallway!</label>
+            <label><input type="radio" name="q49" value="C"> C. Don't run in the hallway!</label>
+            <label><input type="radio" name="q49" value="D"> D. Doesn't run in the hallway!</label>
+        </div>
+        <div class="question" data-answer="because">
+            <p>15. They went to bed early ________ they were very tired.</p>
+            <input type="text" name="q50">
+        </div>
 
-<div class="q">1. She <input data-ok="goes"> (go) to school every day.</div>
+        <!-- PART 5 -->
+        <h2 class="part-title">Part 5</h2>
+        <div class="question" data-answer="B">
+            <p>1. Choose the correct pronoun: That red bicycle belongs to my cousin. It is ________.</p>
+            <label><input type="radio" name="q51" value="A"> A. him</label>
+            <label><input type="radio" name="q51" value="B"> B. his</label>
+            <label><input type="radio" name="q51" value="C"> C. he</label>
+            <label><input type="radio" name="q51" value="D"> D. he's</label>
+        </div>
+        <div class="question" data-answer="B">
+            <p>2. Look at ________ house across the street! It looks huge!</p>
+            <label><input type="radio" name="q52" value="A"> A. this</label>
+            <label><input type="radio" name="q52" value="B"> B. that</label>
+            <label><input type="radio" name="q52" value="C"> C. these</label>
+            <label><input type="radio" name="q52" value="D"> D. those</label>
+        </div>
+        <div class="question" data-answer="teeth">
+            <p>3. Write the plural form of the word: tooth</p>
+            <input type="text" name="q53">
+        </div>
+        <div class="question" data-answer="is">
+            <p>4. Complete the sentence: There ________ (be) a lot of water on the floor.</p>
+            <input type="text" name="q54">
+        </div>
+        <div class="question" data-answer="are kicking">
+            <p>5. At the moment, the boys ________ (kick) the ball in the garden.</p>
+            <input type="text" name="q55">
+        </div>
+        <div class="question" data-answer="works">
+            <p>6. My father ________ (work) in a bank every weekday.</p>
+            <input type="text" name="q56">
+        </div>
+        <div class="question" data-answer="buy">
+            <p>7. Find and correct the mistake: She didn't bought any milk from the supermarket.</p>
+            <input type="text" name="q57">
+        </div>
+        <div class="question" data-answer="more difficult">
+            <p>8. Complete the comparative degree: This puzzle is ____________________ (difficult) than that one.</p>
+            <input type="text" name="q58">
+        </div>
+        <div class="question" data-answer="How much">
+            <p>9. Complete with How much or How many: ________ butter do we need for this recipe?</p>
+            <input type="text" name="q59">
+        </div>
+        <div class="question" data-answer="A">
+            <p>10. You ________ clean your teeth after meals to keep them healthy.</p>
+            <label><input type="radio" name="q60" value="A"> A. must</label>
+            <label><input type="radio" name="q60" value="B"> B. mustn't</label>
+            <label><input type="radio" name="q60" value="C"> C. shouldn't</label>
+            <label><input type="radio" name="q60" value="D"> D. couldn't</label>
+        </div>
+        <div class="question" data-answer="took">
+            <p>11. Write the past simple form of the verb: take</p>
+            <input type="text" name="q61">
+        </div>
+        <div class="question" data-answer="on">
+            <p>12. Fill in the blank with in / on / at: The meeting is ________ Monday morning.</p>
+            <input type="text" name="q62">
+        </div>
+        <div class="question" data-answer="we are going to buy a new car next week">
+            <p>13. Put the words in order: (going to / We / buy / are / a / new / car / next week.)</p>
+            <input type="text" name="q63">
+        </div>
+        <div class="question" data-answer="Where">
+            <p>14. (Where / When / Why) did you leave your coat? – At school.</p>
+            <input type="text" name="q64">
+        </div>
+        <div class="question" data-answer="and">
+            <p>15. She loves drawing ________ painting pictures in her free time.</p>
+            <input type="text" name="q65">
+        </div>
 
-<div class="q">2. Look! The dog <input data-ok="is running"> (run).</div>
-
-<div class="q">3. We have lunch 
-<span class="choice" data-q="3">in</span> /
-<span class="choice" data-q="3" data-ok="true">at</span> noon.
-</div>
-
-<div class="q">4. The cat is 
-<span class="choice" data-q="4">on</span> /
-<span class="choice" data-q="4" data-ok="true">under</span> the table.
-</div>
-
-<div class="q">5. They <input data-ok="are playing"> (play) football now.</div>
-
-<div class="q">6. I usually <input data-ok="drink"> (drink) milk in the morning.</div>
-
-<div class="q">7. My birthday is 
-<span class="choice" data-q="7" data-ok="true">on</span> /
-<span class="choice" data-q="7">in</span> June 5th.
-</div>
-
-<div class="q">8. The book is 
-<span class="choice" data-q="8" data-ok="true">on</span> /
-<span class="choice" data-q="8">in</span> the table.
-</div>
-
-<div class="q">9. Listen! The baby <input data-ok="is crying"> (cry).</div>
-
-<div class="q">10. He <input data-ok="works"> (work) in an office.</div>
-
-<div class="q">11. We meet 
-<span class="choice" data-q="11">in</span> /
-<span class="choice" data-q="11" data-ok="true">on</span> Sunday.
-</div>
-
-<div class="q">12. The shoes are 
-<span class="choice" data-q="12">in</span> /
-<span class="choice" data-q="12" data-ok="true">next to</span> the bed.
-</div>
-
-<div class="q">13. She <input data-ok="is reading"> (read) a book at the moment.</div>
-
-<div class="q">14. They <input data-ok="play"> (play) tennis every weekend.</div>
-
-<div class="q">15. I get up 
-<span class="choice" data-q="15">on</span> /
-<span class="choice" data-q="15" data-ok="true">at</span> 7 o’clock.
-</div>
-
-<div class="q">16. The ball is 
-<span class="choice" data-q="16" data-ok="true">in</span> /
-<span class="choice" data-q="16">on</span> the box.
-</div>
-
-<div class="q">17. Why <input data-ok="are you laughing"> (you / laugh) now?</div>
-
-<div class="q">18. My father <input data-ok="drives"> (drive) to work every day.</div>
-
-<div class="q">19. We study English 
-<span class="choice" data-q="19" data-ok="true">in</span> /
-<span class="choice" data-q="19">on</span> the afternoon.
-</div>
-
-<div class="q">20. The cat is 
-<span class="choice" data-q="20">on</span> /
-<span class="choice" data-q="20" data-ok="true">behind</span> the door.
-</div>
-
-<button onclick="checkAll()">Check Answers</button>
-
-<div class="result"></div>
-
+        <div class="btn-container">
+            <button type="button" onclick="checkAnswers()">Check Answers</button>
+        </div>
+    </form>
 </div>
 
 <script>
+    function checkAnswers() {
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(q => {
+            const correctAnswer = q.getAttribute('data-answer').trim().toLowerCase();
+            const textInput = q.querySelector('input[type="text"]');
+            const radioInputs = q.querySelectorAll('input[type="radio"]');
+            let userAnswer = "", isAnswered = false;
 
-function normalize(t){
-return t.toLowerCase().trim();
-}
+            if (textInput) {
+                userAnswer = textInput.value.trim().toLowerCase();
+                if (userAnswer !== "") isAnswered = true;
+            } else if (radioInputs.length > 0) {
+                radioInputs.forEach(radio => {
+                    if (radio.checked) { userAnswer = radio.value.trim().toLowerCase(); isAnswered = true; }
+                });
+            }
 
-/* chọn */
+            q.classList.remove('correct', 'incorrect');
+            if (!isAnswered) return;
 
-document.querySelectorAll(".choice").forEach(el=>{
-el.onclick=function(){
-let q=this.dataset.q;
-
-document.querySelectorAll('.choice[data-q="'+q+'"]').forEach(c=>{
-c.classList.remove("selected");
-});
-
-this.classList.add("selected");
-}
-});
-
-/* check */
-
-function checkAll(){
-
-let score=0;
-let total=0;
-
-/* input */
-
-document.querySelectorAll("input").forEach(input=>{
-total++;
-
-if(normalize(input.value)===input.dataset.ok){
-input.classList.add("correct");
-score++;
-}else{
-input.classList.add("wrong");
-}
-});
-
-/* choice */
-
-for(let i=1;i<=20;i++){
-let selected=document.querySelector('.choice.selected[data-q="'+i+'"]');
-
-if(selected){
-total++;
-
-if(selected.dataset.ok){
-selected.classList.add("correct");
-score++;
-}else{
-selected.classList.add("wrong");
-}
-}
-}
-
-document.querySelector(".result").innerHTML =
-"🎯 Score: "+score+" / "+total;
-
-}
-
+            if (userAnswer === correctAnswer) {
+                q.classList.add('correct');
+            } else {
+                q.classList.add('incorrect');
+            }
+        });
+    }
 </script>
 
 </body>
